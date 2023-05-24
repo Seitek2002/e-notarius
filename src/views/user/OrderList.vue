@@ -97,7 +97,7 @@ import Pagination from '@/components/Pagination/Pagination.vue'
 
 const qrActive = ref(false)
 const store = useStore()
-const qrAnother = ref('Asdf')
+const qrAnother = ref('Asdf') 
 
 const router = useRouter()
 const emits = defineEmits(['islam'])

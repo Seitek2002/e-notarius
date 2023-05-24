@@ -8,29 +8,9 @@
         :icon="icon"
       />
     </div>
-    <Table :files="paginatedItems"/>
+    <Table :files="paginatedItems"/> 
     <div class="files-list__bottom">
-      <ul class="pagination">
-        <li v-if="currentPage > 1">
-          <a @click="currentPage--">
-            <ArrowPrevIcon/>
-            Пред.
-          </a>
-        </li>
-        <li
-          v-for="page in pages"
-          :key="page"
-          :class="{ active: currentPage === page }"
-        >
-          <a @click="currentPage = page">{{ page }}</a>
-        </li>
-        <li v-if="currentPage < totalPages">
-          <a @click="currentPage++">
-            След.
-            <ArrowNextIcon/>
-          </a>
-        </li>
-      </ul>
+      <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
@@ -42,6 +22,7 @@ import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'
 import Btn from '@/components/Buttons/Btn.vue'
 import Table from '@/components/Tables/FileTable/Table.vue'
+import Pagination from "@/components/Pagination/Pagination.vue";
 
 const emits = defineEmits(['islam'])
 onMounted(() => {
@@ -49,22 +30,11 @@ onMounted(() => {
 })
 
 const files = new Array(39)
-const itemsPerPage = 6
 
-const currentPage = ref(1)
-
-const totalPages = computed(() => Math.ceil(files.length / itemsPerPage))
-const startIndex = computed(() => (currentPage.value - 1) * itemsPerPage)
-const endIndex = computed(() => startIndex.value + itemsPerPage)
-
-const paginatedItems = computed(() => files.slice(startIndex.value, endIndex.value))
-const pages = computed(() => {
-  const result = []
-  for (let i = 1; i <= totalPages.value; i++) {
-    result.push(i)
-  }
-  return result
-})
+const paginatedItems = ref(files)
+const paginate = (data) => {
+  paginatedItems.value = data.value; // paginatedItems.push(data)
+};
 </script>
 
 <style lang="scss">
@@ -166,40 +136,11 @@ const pages = computed(() => {
       padding-right: 16px;
     }
   }
-}
 
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  margin: 17px auto;
-  padding: 8px 10px;
-  max-width: 583px;
-  background: #fff;
-  border: 1px solid #cdcdcd;
-  list-style: none;
-
-  li {
-    font-family: 'Montserrat', sans-serif;
-    color: #24334b;
-    font-size: 16px;
-    border: 1px solid transparent;
-
-    a {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    svg {
-      margin: 0 9px;
-    }
-
-    &.active {
-      border: 1px solid #1baa75;
-      color: #1baa75;
-    }
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
   }
 }
 </style>

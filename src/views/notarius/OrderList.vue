@@ -79,7 +79,7 @@
     </div>
     <div class="order-list__bottom">
       <Pagination
-        :items-per-page="6"
+        :itemsPerPage="6"
         :items="files"
         @paginate="paginate"
       />
