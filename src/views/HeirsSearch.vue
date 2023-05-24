@@ -88,9 +88,9 @@ import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
 
 import EmptyIcon from '@/components/icons/HeirsSearch/EmptyIcon.vue'
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PersonIcon from '@/components/Auth/Icons/PersonIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PersonIcon from '@/components/guest/Auth/Icons/PersonIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 import AppSearchSmallIcon from '@/views/Icons/AppSearchSmallIcon.vue'
 
 const isActive = ref(-1)
