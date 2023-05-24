@@ -25,8 +25,8 @@
 <script setup>
 import { ref } from 'vue'
 
-import QrCodeDisableIcon from '@/components/OwnRoom/Icons/QrCodeDisableIcon.vue'
-import QrCodeEnableIcon from '@/components/OwnRoom/Icons/QrCodeEnableIcon.vue'
+import QrCodeDisableIcon from '@/components/Tables/Icons/QrCodeDisableIcon.vue'
+import QrCodeEnableIcon from '@/components/Tables/Icons/QrCodeEnableIcon.vue'
 import Qr from '@/components/icons/Table/Qr.vue'
 
 const props = defineProps(["i"]);

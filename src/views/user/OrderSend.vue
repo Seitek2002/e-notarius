@@ -95,7 +95,7 @@ import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.
 import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
 import PencilIcon from '@/components/global/Info/Icons/PencilIcon.vue'
 import SuccessSmallIcon from '@/components/global/Info/Icons/SuccessSmallIcon.vue'
-import QrCodeDisableIcon from '@/components/OwnRoom/Icons/QrCodeDisableIcon.vue'
+import QrCodeDisableIcon from '@/components/Tables/Icons/QrCodeDisableIcon.vue'
 
 const router = useRouter()
 const store = useStore()

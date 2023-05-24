@@ -13,7 +13,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import CheckboxSuccessBlackIcon from '@/components/OwnRoom/Icons/CheckboxSuccessBlackIcon.vue'
+import CheckboxSuccessBlackIcon from '@/components/Tables/Icons/CheckboxSuccessBlackIcon.vue'
 
 const isActive = ref(false)
 defineProps(['title'])

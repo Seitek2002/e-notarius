@@ -41,7 +41,7 @@ import { computed, onMounted, ref } from 'vue'
 import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'
 import Btn from '@/components/Buttons/Btn.vue'
-import Table from '@/components/OwnRoom/FileTable/Table.vue'
+import Table from '@/components/Tables/FileTable/Table.vue'
 
 const emits = defineEmits(['islam'])
 onMounted(() => {

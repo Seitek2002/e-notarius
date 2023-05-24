@@ -108,17 +108,17 @@ import imgTwo from '@/layouts/Icons/sidebar/imgTwo.vue'
 import left from '@/layouts/Icons/sidebar/left.vue'
 import logo from '@/layouts/Icons/sidebar/logo.vue'
 import up from '@/layouts/Icons/sidebar/up.vue'
-import OwnRoomTop from '@/components/OwnRoom/OwnRoomTop.vue'
+import OwnRoomTop from './OwnRoomTop.vue'
 
 const title = ref('Заявки')
 const isActive = ref(false)
 const firstIndex = ref(0)
 const secondIndex = ref(false)
 const showRendering = ref([
-  {
-    text: 'Реестр должностных лиц',
-    link: '#',
-  },
+  // {
+  //   text: 'Реестр должностных лиц',
+  //   link: '#',
+  // },
   {
     text: 'Реестр должностных лиц ОМСУ',
     link: '/omsu',

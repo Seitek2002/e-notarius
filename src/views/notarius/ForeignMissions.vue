@@ -147,8 +147,8 @@ import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import FilterDisabledIcon from '@/views/Icons/FilterDisabledIcon.vue'
 import FilterEnabledIcon from '@/views/Icons/FilterEnabledIcon.vue'
-import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
-import Sort from '@/components/OwnRoom/OfferTable/Sort.vue'
+import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
+import Sort from '@/components/Tables/OfferTable/Sort.vue'
 
 const isfilter = ref(true)
 

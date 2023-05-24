@@ -70,7 +70,7 @@
 import { ref } from 'vue'
 
 import Arrowicon from '@/components/icons/Table/ArrowIcon.vue'
-import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
+import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
 
 const document = ref(false)
 const qr = ref(null)

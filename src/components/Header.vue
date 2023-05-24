@@ -30,7 +30,6 @@
 import { RouterLink } from 'vue-router'
 
 import logo from '@/components/icons/Header/logo.vue'
-import ownRoom from '@/components/icons/Header/own-room.vue'
 import Lang from '@/components/Lang/Lang.vue'
 </script>
 

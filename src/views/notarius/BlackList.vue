@@ -120,8 +120,8 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import Btn from '@/components/Buttons/Btn.vue'
-import Qr from '@/components/OwnRoom/OfferTable/Qr.vue'
-import Sort from '@/components/OwnRoom/OfferTable/Sort.vue'
+import Qr from '@/components/Tables/OfferTable/Qr.vue'
+import Sort from '@/components/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
 
 const qrActive = ref(false)

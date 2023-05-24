@@ -140,8 +140,8 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 
-import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
-import Sort from '@/components/OwnRoom/OfferTable/Sort.vue'
+import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
+import Sort from '@/components/Tables/OfferTable/Sort.vue'
 import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
 import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'

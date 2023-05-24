@@ -73,11 +73,11 @@
 import { ref } from 'vue'
 import ArrowIcon from '@/components/icons/Table/ArrowIcon.vue'
 
-import CheckboxSuccessBlackIcon from '@/components/OwnRoom/Icons/CheckboxSuccessBlackIcon.vue'
+import CheckboxSuccessBlackIcon from '@/components/Tables/Icons/CheckboxSuccessBlackIcon.vue'
 import DownloadIcon from '@/components/icons/Table/DownloadIcon.vue'
 import FormatMenu from '@/components/icons/Table/FormatMenu.vue'
 import RemoveIcon from '@/components/icons/Table/RemoveIcon.vue'
-import Checkbox from '@/components/OwnRoom/FileTable/Checkbox.vue'
+import Checkbox from '@/components/Tables/FileTable/Checkbox.vue'
 
 const isActive = ref(false)
 defineProps(['files'])

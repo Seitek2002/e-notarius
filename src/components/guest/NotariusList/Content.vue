@@ -506,6 +506,7 @@ onMounted(() => {
 
     iframe {
       margin-bottom: 110px;
+      max-width: 100%;
     }
   }
 }

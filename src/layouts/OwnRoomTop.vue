@@ -45,7 +45,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import DropdownIcon from '@/components/OwnRoom/Icons/DropdownIcon.vue'
+import DropdownIcon from '@/components/Tables/Icons/DropdownIcon.vue'
 import NotificationIcon from '@/components/icons/OrderList/NotificationIcon.vue'
 import OrderListUserIcon from '@/components/icons/OrderList/OrderListUserIcon.vue'
 import Lang from '@/components/Lang/Lang.vue'

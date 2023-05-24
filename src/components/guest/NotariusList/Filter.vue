@@ -152,7 +152,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 
-import ArrowDownSmallIcon from '@/components/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
 
 const isActiveRegion = ref(false)
 const isActiveArea = ref(false)

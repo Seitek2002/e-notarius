@@ -121,13 +121,13 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
 
-import Filter from '@/components/NotariusList/Filter.vue'
-import Item from '@/components/NotariusList/Item.vue'
+import Filter from '@/components/guest/NotariusList/Filter.vue'
+import Item from '@/components/guest/NotariusList/Item.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
 import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import FilterDisableIcon from '@/components/NotariusList/Icons/FilterDisableIcon.vue'
-import FilterEnableIcon from '@/components/NotariusList/Icons/FilterEnableIcon.vue'
-import SuccessContentIcon from '@/components/NotariusList/Icons/SuccessContentIcon.vue'
+import FilterDisableIcon from '@/components/guest/NotariusList/Icons/FilterDisableIcon.vue'
+import FilterEnableIcon from '@/components/guest/NotariusList/Icons/FilterEnableIcon.vue'
+import SuccessContentIcon from '@/components/guest/NotariusList/Icons/SuccessContentIcon.vue'
 import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
 
 const store = useStore()
@@ -505,6 +505,7 @@ onMounted(() => {
 
     iframe {
       margin-bottom: 110px;
+      max-width: 100%;
     }
   }
 }

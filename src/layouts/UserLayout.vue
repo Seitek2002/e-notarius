@@ -80,7 +80,7 @@ import imgThree from '@/layouts/Icons/sidebar/imgThree.vue'
 import imgTwo from '@/layouts/Icons/sidebar/imgTwo.vue'
 import left from '@/layouts/Icons/sidebar/left.vue'
 import logo from '@/layouts/Icons/sidebar/logo.vue'
-import OwnRoomTop from '@/components/OwnRoom/OwnRoomTop.vue'
+import OwnRoomTop from './OwnRoomTop.vue'
 
 const title = ref('Заявки')
 const isActive = ref(false)
