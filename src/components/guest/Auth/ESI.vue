@@ -74,10 +74,10 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import Btn from '@/components/Buttons/Btn.vue'
-import DigitalSignatureIcon from '@/components/Auth/Icons/DigitalSignatureIcon.vue'
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
-import WarningIcon from '@/components/Auth/Icons/WarningIcon.vue'
+import DigitalSignatureIcon from '@/components/guest/Auth/Icons/DigitalSignatureIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
+import WarningIcon from '@/components/guest/Auth/Icons/WarningIcon.vue'
 
 const isActive = ref(false)
 const router = useRouter()

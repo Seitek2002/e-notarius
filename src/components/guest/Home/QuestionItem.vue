@@ -27,8 +27,8 @@
 <script setup>
 import { ref } from 'vue'
 
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 
 const isActive = ref(false)
 
@@ -36,7 +36,7 @@ defineProps(['title', 'description'])
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/variables.scss";
+@import "@/assets/scss/variables.scss";
 
 .question-item {
   background: $bg-white;

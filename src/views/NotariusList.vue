@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import Content from '@/components/NotariusList/Content.vue'
+import Content from '@/components/guest/NotariusList/Content.vue'
 </script>

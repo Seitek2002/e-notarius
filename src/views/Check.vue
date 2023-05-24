@@ -60,7 +60,7 @@
 import { ref } from 'vue'
 
 import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
-import QRStream from '@/components/QRStream.vue'
+import QRStream from '@/components/guest/QRStream.vue'
 
 const isActive = ref(1)
 

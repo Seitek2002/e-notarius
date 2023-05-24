@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import ArrowIcon from '@/components/Home/Icons/ArrowIcon.vue'
+import ArrowIcon from '@/components/guest/Home/Icons/ArrowIcon.vue'
 
 const items = [
   {
@@ -71,7 +71,7 @@ const items = [
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/variables.scss';
+@import '@/assets/scss/variables.scss';
 
 .base {
   &__content {

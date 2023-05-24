@@ -10,13 +10,13 @@
 </template>
 
 <script setup>
-import ESI from '@/components/Auth/ESI.vue'
-import LoginAndPassword from '@/components/Auth/LoginAndPassword.vue'
-import Scaner from '@/components/Auth/Scaner.vue'
+import ESI from '@/components/guest/Auth/ESI.vue'
+import LoginAndPassword from '@/components/guest/Auth/LoginAndPassword.vue'
+import Scaner from '@/components/guest/Auth/Scaner.vue'
 </script>
 
 <style lang="scss">
-@import "../assets/scss/variables.scss";
+@import "@/assets/scss/variables.scss";
 
 .auth {
   max-width: 520px;

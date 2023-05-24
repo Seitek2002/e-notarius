@@ -89,14 +89,12 @@ const handleClick = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/variables.scss';
+@import '@/assets/scss/variables.scss';
 
 .hero {
   margin: 100px 0 100px 0;
 
-  //@media only screen and (max-width: 360px) {
-  //
-  //}
+  
 
   &__content {
     display: flex;

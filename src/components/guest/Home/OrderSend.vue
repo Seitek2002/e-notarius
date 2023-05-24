@@ -88,12 +88,12 @@
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import AddNewIcon from '@/components/Home/Icons/AddNewIcon.vue'
-import AddNewSmallIcon from '@/components/Home/Icons/AddNewSmallIcon.vue'
-import ArrowRightIcon from '@/components/Home/Icons/ArrowRightIcon.vue'
-import PencilIcon from '@/components/Home/Icons/PencilIcon.vue'
-import SuccessIcon from '@/components/Home/Icons/SuccessIcon.vue'
-import SuccessSendIcon from '@/components/Home/Icons/SuccessSendIcon.vue'
+import AddNewIcon from '@/components/guest/Home/Icons/AddNewIcon.vue'
+import AddNewSmallIcon from '@/components/guest/Home/Icons/AddNewSmallIcon.vue'
+import ArrowRightIcon from '@/components/guest/Home/Icons/ArrowRightIcon.vue'
+import PencilIcon from '@/components/guest/Home/Icons/PencilIcon.vue'
+import SuccessIcon from '@/components/guest/Home/Icons/SuccessIcon.vue'
+import SuccessSendIcon from '@/components/guest/Home/Icons/SuccessSendIcon.vue'
 
 const router = useRouter()
 const store = useStore()

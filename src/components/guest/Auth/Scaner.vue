@@ -72,13 +72,13 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import Btn from '@/components/Buttons/Btn.vue'
-import AnimationCircleIcon from '@/components/Auth/Icons/AnimationCircleIcon.vue'
-import FingerprintCircleIcon from '@/components/Auth/Icons/FingerprintCircleIcon.vue'
-import FingerprintIcon from '@/components/Auth/Icons/FingerprintIcon.vue'
-import FingerprintSuccessIcon from '@/components/Auth/Icons/FingerprintSuccessIcon.vue'
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
-import QuestionIcon from '@/components/Auth/Icons/QuestionIcon.vue'
+import AnimationCircleIcon from '@/components/guest/Auth/Icons/AnimationCircleIcon.vue'
+import FingerprintCircleIcon from '@/components/guest/Auth/Icons/FingerprintCircleIcon.vue'
+import FingerprintIcon from '@/components/guest/Auth/Icons/FingerprintIcon.vue'
+import FingerprintSuccessIcon from '@/components/guest/Auth/Icons/FingerprintSuccessIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
+import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
 
 const isActive = ref(true)
 const scanerAnalys = ref(false)
@@ -102,7 +102,7 @@ const handleClick = () => {
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/variables.scss";
+@import "@/assets/scss/variables.scss";
 
 .auth-item {
   &__alert {

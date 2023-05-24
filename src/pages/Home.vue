@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import LinksSection from '@/components/Home/LinksSection.vue'
-import LoginForm from '@/components/Home/LoginForm.vue'
-import Question from '@/components/Home/Question.vue'
-import Services from '@/components/Home/Services.vue'
+import LinksSection from '@/components/guest/Home/LinksSection.vue'
+import LoginForm from '@/components/guest/Home/LoginForm.vue'
+import Question from '@/components/guest/Home/Question.vue'
+import Services from '@/components/guest/Home/Services.vue'
 </script>

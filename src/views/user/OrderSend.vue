@@ -89,8 +89,8 @@
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import AddNewSmallIcon from '@/components/Home/Icons/AddNewSmallIcon.vue'
-import SuccessSendIcon from '@/components/Home/Icons/SuccessSendIcon.vue'
+import AddNewSmallIcon from '@/components/guest/Home/Icons/AddNewSmallIcon.vue'
+import SuccessSendIcon from '@/components/guest/Home/Icons/SuccessSendIcon.vue'
 import AddNewRequestIcon from '@/components/Info/Icons/AddNewRequestIcon.vue'
 import ArrowRightIcon from '@/components/Info/Icons/ArrowRightIcon.vue'
 import PencilIcon from '@/components/Info/Icons/PencilIcon.vue'

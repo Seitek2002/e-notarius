@@ -64,10 +64,10 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import EyesIcon from '@/components/Auth/Icons/EyesIcon.vue'
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PersonIcon from '@/components/Auth/Icons/PersonIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
+import EyesIcon from '@/components/guest/Auth/Icons/EyesIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PersonIcon from '@/components/guest/Auth/Icons/PersonIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 
 const router = useRouter()
 const store = useStore()
