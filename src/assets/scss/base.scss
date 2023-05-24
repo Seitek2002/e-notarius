@@ -1,0 +1,30 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background: $bg-light-gray;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.container {
+  max-width: 1234px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+input {
+  outline: none;
+}
