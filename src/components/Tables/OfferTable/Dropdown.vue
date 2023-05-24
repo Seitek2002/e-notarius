@@ -28,7 +28,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import Checkbox from '@/components/Form/Checkbox/Checkbox.vue'
+import Checkbox from './Checkbox/Checkbox.vue'
 import FilterIcon from '@/components/icons/Table/FilterIcon.vue'
 
 defineProps(['title', 'options'])

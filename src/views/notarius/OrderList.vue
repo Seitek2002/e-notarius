@@ -36,7 +36,7 @@
             <Sort title="Дата"/>
           </th>
           <th>
-            <Dropdowns
+            <Dropdown
               title="Исполнитель"
               :options="typeOfDoc"
             />
@@ -99,7 +99,6 @@ import EditIcon from '@/components/icons/Table/EditIcon.vue'
 import OfferIcon from '@/components/icons/Table/OfferIcon.vue'
 import RemoveIcon from '@/components/icons/Table/RemoveIcon.vue'
 import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
-import Dropdowns from '@/components/Tables/OfferTable/Dropdowns.vue'
 import Qr from '@/components/Tables/OfferTable/Qr.vue'
 import Sort from '@/components/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
