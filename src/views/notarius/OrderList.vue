@@ -230,51 +230,54 @@ const paginate = data => {
   }
 }
 
-table {
-  margin-top: 40px;
-  border-collapse: collapse;
-
-  thead {
-    border: 1px solid #cdcdcd;
-    border-bottom: 2px solid #cdcdcd;
-    height: 64px;
-
-    th {
-      padding: 22px 13px;
-      background: #ffffff;
-      font-weight: 600;
-      font-size: 16px;
-      text-align: center;
-      color: #24334b;
-      gap: 20px;
-    }
-  }
-
-  tbody {
-    tr {
-      border: 1px solid transparent;
-
-      .order-list__name {
-        color: #1BAA75;
-      }
-
-      &:hover {
-        background: #ffffff;
-        border-color: #cdcdcd;
-      }
-
-      td {
-        padding: 16px;
-        box-sizing: border-box;
-        font-weight: 500;
-        font-size: 14px;
-        color: #24334b;
-        text-align: left;
+.order-list__table {
+  table {
+    margin-top: 40px;
+    border-collapse: collapse;
+  
+    thead {
+      border: 1px solid #cdcdcd;
+      border-bottom: 2px solid #cdcdcd;
+      height: 64px;
+  
+      th {
         padding: 22px 13px;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        color: #24334b;
+        gap: 20px;
+      }
+    }
+  
+    tbody {
+      tr {
+        border: 1px solid transparent;
+  
+        .order-list__name {
+          color: #1BAA75;
+        }
+  
+        &:hover {
+          background: #ffffff;
+          border-color: #cdcdcd;
+        }
+  
+        td {
+          padding: 16px;
+          box-sizing: border-box;
+          font-weight: 500;
+          font-size: 14px;
+          color: #24334b;
+          text-align: left;
+          padding: 22px 13px;
+        }
       }
     }
   }
 }
+
 
 .qr-code {
   position: relative;

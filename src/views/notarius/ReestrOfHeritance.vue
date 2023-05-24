@@ -12,115 +12,101 @@
     <div class="order-list__table">
       <table>
         <thead>
-        <tr>
-          <th>QR</th>
-          <th>
-            <Sort title="Номер реестра"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              ПИН умершего
-            </div>
-          </th>
-          <th>
-            <Sort title="ФИО умершего"/>
-          </th>
-          <th>
-            <Sort title="Дата рождения"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Место последнего проживания
-            </div>
-          </th>
-          <th>
-            <Sort title="Дата смерти"/>
-          </th>
-          <th>
-            <Sort title="Дата создания"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Кем создан
-            </div>
-          </th>
-        </tr>
+          <tr>
+            <th>QR</th>
+            <th>
+              <Sort title="Номер реестра" />
+            </th>
+            <th>
+              <div style="display: flex">ПИН умершего</div>
+            </th>
+            <th>
+              <Sort title="ФИО умершего" />
+            </th>
+            <th>
+              <Sort title="Дата рождения" />
+            </th>
+            <th>
+              <div style="display: flex">Место последнего проживания</div>
+            </th>
+            <th>
+              <Sort title="Дата смерти" />
+            </th>
+            <th>
+              <Sort title="Дата создания" />
+            </th>
+            <th>
+              <div style="display: flex">Кем создан</div>
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr
-          v-for="(offer, i) in paginatedItems"
-          :key="i"
-        >
-          <td
-            class="qr-code"
-            :class="qrActive ? ' active' : ''"
-            @click="qrActive = !qrActive, qrAnother = 'asdaf'"
-          >
-            <Qr
-              class="qr"
-              :i="i"
-            />
-          </td>
-          <td>125-1563</td>
-          <td>20607199701079</td>
-          <td>Усеналиев Оморбек Токтошевич</td>
-          <td>01.07.1976</td>
-          <td>Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25</td>
-          <td>05.10.2021</td>
-          <td>01.01.2022</td>
-          <td>ЧН Абдыгулов</td>
-        </tr>
+          <tr v-for="(offer, i) in paginatedItems" :key="i">
+            <td
+              class="qr-code"
+              :class="qrActive ? ' active' : ''"
+              @click="(qrActive = !qrActive), (qrAnother = 'asdaf')"
+            >
+              <Qr class="qr" :i="i" />
+            </td>
+            <td>125-1563</td>
+            <td>20607199701079</td>
+            <td>Усеналиев Оморбек Токтошевич</td>
+            <td>01.07.1976</td>
+            <td>
+              Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25
+            </td>
+            <td>05.10.2021</td>
+            <td>01.01.2022</td>
+            <td>ЧН Абдыгулов</td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="order-list__bottom">
-      <Pagination
-        :items-per-page="6"
-        :items="files"
-        @paginate="paginate"
-      />
+      <Pagination :items-per-page="6" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-import Btn from '@/components/Buttons/Btn.vue'
-import DownloadIcon from '@/components/icons/Table/DownloadIcon.vue'
-import EditIcon from '@/components/icons/Table/EditIcon.vue'
-import OfferIcon from '@/components/icons/Table/OfferIcon.vue'
-import RemoveIcon from '@/components/icons/Table/RemoveIcon.vue'
-import Qr from '@/components/OwnRoom/OfferTable/Qr.vue'
-import Sort from '@/components/OwnRoom/OfferTable/Sort.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
+import Btn from "@/components/Buttons/Btn.vue";
+import DownloadIcon from "@/components/icons/Table/DownloadIcon.vue";
+import EditIcon from "@/components/icons/Table/EditIcon.vue";
+import OfferIcon from "@/components/icons/Table/OfferIcon.vue";
+import RemoveIcon from "@/components/icons/Table/RemoveIcon.vue";
+import Qr from "@/components/OwnRoom/OfferTable/Qr.vue";
+import Sort from "@/components/OwnRoom/OfferTable/Sort.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
 
-const qrActive = ref(false)
-const store = useStore()
-const qrAnother = ref('Asdf')
+const qrActive = ref(false);
+const store = useStore();
+const qrAnother = ref("Asdf");
 
-const router = useRouter()
-const emits = defineEmits(['islam'])
+const router = useRouter();
+const emits = defineEmits(["islam"]);
 onMounted(() => {
-  (() => emits('islam', 'Реестр наследственных дел'))()
-})
-const typeOfDoc = ['Доверенность', 'Договор', 'Соглашение', 'Завещание']
-const isfilter = ref(true)
+  (() => emits("islam", "Реестр наследственных дел"))();
+});
+const typeOfDoc = ["Доверенность", "Договор", "Соглашение", "Завещание"];
+const isfilter = ref(true);
 
-const files = store.state.tableListNotarius
+const files = store.state.tableListNotarius;
 
-const paginatedItems = ref(files)
+const paginatedItems = ref(files);
 
-const paginate = data => {
-  paginatedItems.value = data.value // paginatedItems.push(data)
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value; // paginatedItems.push(data)
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .order-list {
   flex: 1;
@@ -143,15 +129,6 @@ const paginate = data => {
 
   tr {
     transition: 0.5s;
-  }
-
-  table {
-    width: 3214px;
-
-    tr {
-      height: 80px;
-      transition: 0.5s;
-    }
   }
 
   &__top {
@@ -180,9 +157,9 @@ const paginate = data => {
     width: 200px;
     left: 75px;
     top: -75px;
-    background: #FFFFFF;
-    border: 1px solid #EFEFEF;
-    box-shadow: 0 10px 20px #E9E9E9;
+    background: #ffffff;
+    border: 1px solid #efefef;
+    box-shadow: 0 10px 20px #e9e9e9;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -194,7 +171,7 @@ const paginate = data => {
   &-redy {
     font-weight: 600;
     font-size: 14px;
-    color: #1BAA75;
+    color: #1baa75;
     padding: 12px 20px;
     cursor: pointer;
   }
@@ -202,59 +179,67 @@ const paginate = data => {
   &-text {
     font-weight: 400;
     font-size: 14px;
-    color: #24334B;
+    color: #24334b;
   }
 
   &-code {
     font-weight: 600;
     font-size: 14px;
-    color: #687C9B;
+    color: #687c9b;
     text-align: center;
   }
 }
 
-table {
-  margin-top: 40px;
-  border-collapse: collapse;
+.order-list__table {
+  table {
+    width: 3214px;
+    margin-top: 40px;
+    border-collapse: collapse;
 
-  thead {
-    border: 1px solid #cdcdcd;
-    border-bottom: 2px solid #cdcdcd;
-    height: 64px;
+    thead {
+      border: 1px solid #cdcdcd;
+      border-bottom: 2px solid #cdcdcd;
+      height: 64px;
 
-    th {
-      padding: 22px 13px;
-      background: #ffffff;
-      font-weight: 600;
-      font-size: 16px;
-      text-align: center;
-      color: #24334b;
-      gap: 20px;
-    }
-  }
-
-  tbody {
-    tr {
-      border: 1px solid transparent;
-
-      .order-list__name {
-        color: #1BAA75;
-      }
-
-      &:hover {
-        background: #ffffff;
-        border-color: #cdcdcd;
-      }
-
-      td {
-        padding: 16px;
-        box-sizing: border-box;
-        font-weight: 500;
-        font-size: 14px;
-        color: #24334b;
-        text-align: left;
+      th {
         padding: 22px 13px;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        color: #24334b;
+        gap: 20px;
       }
+    }
+
+    tbody {
+      tr {
+        border: 1px solid transparent;
+
+        .order-list__name {
+          color: #1baa75;
+        }
+
+        &:hover {
+          background: #ffffff;
+          border-color: #cdcdcd;
+        }
+
+        td {
+          padding: 16px;
+          box-sizing: border-box;
+          font-weight: 500;
+          font-size: 14px;
+          color: #24334b;
+          text-align: left;
+          padding: 22px 13px;
+        }
+      }
+    }
+
+    tr {
+      height: 80px;
+      transition: 0.5s;
     }
   }
 }
@@ -262,5 +247,4 @@ table {
 .qr-code {
   position: relative;
 }
-
 </style>
