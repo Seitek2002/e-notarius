@@ -28,14 +28,7 @@
           <th class="table-indicator">
             Email
             <Arrowicon/>
-          </th>
-
-          <!-- <th class="table-indicator">
-            Дата отмены
-            <Arrowicon />
-          </th>
-          <th class="table-indicator">Пошлина</th>
-          <th class="table-indicator">Причина</th> -->
+          </th> 
         </tr>
         </thead>
         <tbody>
