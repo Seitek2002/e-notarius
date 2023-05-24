@@ -2,60 +2,36 @@
   <section class="info">
     <div class="info__top">
       <div class="info__title flex jcsb">
-        <Title text="Оформление заявки"/>
-        <div
-          class="info__cancel flex"
-          @click="router.push('/order-list-user')"
-        >
-          <CancelIcon/>
+        <Title text="Оформление заявки" />
+        <div class="info__cancel flex" @click="router.push('/order-list-user')">
+          <CancelIcon />
           Отменить
         </div>
       </div>
 
       <div class="info__progress flex">
-        <div class="info__line"/>
-        <template
-          v-for="(item, i) in progress"
-          :key="i"
-        >
-          <div
-            v-show="item === 'prev'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
-            <PreviousIcon/>
+        <div class="info__line" />
+        <template v-for="(item, i) in progress" :key="i">
+          <div v-show="item === 'prev'" class="info__circle" @click="progressPrev(i, item)">
+            <PreviousIcon />
           </div>
-          <div
-            v-show="item === 'current'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
-            <CurrentIcon/>
+          <div v-show="item === 'current'" class="info__circle" @click="progressPrev(i, item)">
+            <CurrentIcon />
           </div>
-          <div
-            v-show="item === 'next'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
-            <NextIcon/>
+          <div v-show="item === 'next'" class="info__circle" @click="progressPrev(i, item)">
+            <NextIcon />
           </div>
         </template>
       </div>
     </div>
 
-    <div
-      v-if="store.state.isSubmit"
-      class="info__submit"
-    >
+    <div v-if="store.state.isSubmit" class="info__submit">
       <div class="auth__item">
         <div class="auth-item__login">
           <div class="auth-item__login-top">
             <h2>Внесение в реестр</h2>
-            <a
-              href="#"
-              @click="store.commit('setIsSubmit', false)"
-            >
-              <XIcon/>
+            <a href="#" @click="store.commit('setIsSubmit', false)">
+              <XIcon />
               Отменить
             </a>
           </div>
@@ -64,59 +40,31 @@
               Для внесения документа в реестр и присвоения уникального номера документу, нужно подтверждение отпечатка
               ваших пальцев и ваша ЭЦП
             </p>
-            <QuestionIcon/>
+            <QuestionIcon />
           </div>
-          <div
-            class="scaner-svg"
-            :class="scanerAnalys ? ' active' : ''"
-          >
-            <FingerprintCircleIcon
-              v-show="!end"
-              @click="handleClick"
-            />
-            <FingerprintSuccessIcon
-              v-show="end"
-            />
+          <div class="scaner-svg" :class="scanerAnalys ? ' active' : ''">
+            <FingerprintCircleIcon v-show="!end" @click="handleClick" />
+            <FingerprintSuccessIcon v-show="end" />
           </div>
-          <div
-            v-show="start"
-            class="auth-item__start auth-item__process"
-          >
+          <div v-show="start" class="auth-item__start auth-item__process">
             Подтверждение отпечатка пальцев
           </div>
-          <div
-            v-show="center"
-            class="auth-item__loading auth-item__process"
-          >
-            <AnimationBubblesIcon/>
+          <div v-show="center" class="auth-item__loading auth-item__process">
+            <AnimationBubblesIcon />
             Проверка отпечатка пальцев
           </div>
-          <div
-            v-show="end"
-            class="auth-item__success auth-item__process"
-          >
+          <div v-show="end" class="auth-item__success auth-item__process">
             Проверка отпечатка пальцев прошла успешно
           </div>
-          <Btn
-            title="Подписать"
-            bg="#1BAA75"
-            :disabled="!end"
-            @click="handleCustomEvent([7, 'next']), store.commit('setIsSubmit', false), store.commit('pushNewItem')"
-          />
+          <Btn title="Подписать" bg="#1BAA75" :disabled="!end"
+            @click="handleCustomEvent([7, 'next']), store.commit('setIsSubmit', false), store.commit('pushNewItem')" />
         </div>
       </div>
     </div>
 
     <div class="info__content">
-      <component
-        v-for="(item, i) in slicedItems"
-        :is="item"
-        :key="i"
-        :on-custom-event="handleCustomEvent"
-        :progress-prev="progressPrev"
-        :short="item?.__name !== slicedItems[0].__name ? 'short' : ''"
-        :i="i"
-      />
+      <component v-for="(item, i) in slicedItems" :is="item" :key="i" :on-custom-event="handleCustomEvent"
+        :progress-prev="progressPrev" :short="item?.__name !== slicedItems[0].__name ? 'short' : ''" :i="i" />
     </div>
   </section>
 </template>
@@ -127,14 +75,14 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import Btn from '@/components/Buttons/Btn.vue'
-import Eighth from '@/components/global/Info/notariusSteps/Steps/Eighth.vue'
-import Fifth from '@/components/global/Info/notariusSteps/Steps/Fifth.vue'
-import First from '@/components/global/Info/notariusSteps/Steps/First.vue'
-import Fourth from '@/components/global/Info/notariusSteps/Steps/Fourth.vue'
-import Second from '@/components/global/Info/notariusSteps/Steps/Second.vue'
-import Seventh from '@/components/global/Info/notariusSteps/Steps/Seventh.vue'
-import Sixth from '@/components/global/Info/notariusSteps/Steps/Sixth.vue'
-import Third from '@/components/global/Info/notariusSteps/Steps/Third.vue'
+import Eighth from '@/components/notarius/steps/Steps/Eighth.vue'
+import Fifth from '@/components/notarius/steps/Steps/Fifth.vue'
+import First from '@/components/notarius/steps/Steps/First.vue'
+import Fourth from '@/components/notarius/steps/Steps/Fourth.vue'
+import Second from '@/components/notarius/steps/Steps/Second.vue'
+import Seventh from '@/components/notarius/steps/Steps/Seventh.vue'
+import Sixth from '@/components/notarius/steps/Steps/Sixth.vue'
+import Third from '@/components/notarius/steps/Steps/Third.vue'
 import Title from '@/components/global/Info/Title.vue'
 import CurrentIcon from '@/views/Icons/CurrentIcon.vue'
 import NextIcon from '@/views/Icons/NextIcon.vue'
@@ -368,6 +316,7 @@ const progressPrev = (id, move) => {
           margin-top: 30px;
 
           .pulse {
+
             &-first,
             &-second,
             &-third {
@@ -397,6 +346,7 @@ const progressPrev = (id, move) => {
 
         .scaner-svg.active {
           .pulse {
+
             &-first,
             &-second,
             &-third {
@@ -652,6 +602,7 @@ const progressPrev = (id, move) => {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -662,6 +613,7 @@ const progressPrev = (id, move) => {
     stroke-width: 3px;
     transform: scale(0.85);
   }
+
   to {
     stroke-width: 0;
     transform: scale(1.2);

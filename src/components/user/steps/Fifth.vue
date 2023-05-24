@@ -50,7 +50,7 @@ import Back from '@/components/global/Info/Btn/Back.vue'
 import Minus from '@/components/global/Info/Btn/Minus.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
 import Plus from '@/components/global/Info/Btn/Plus.vue'
-import FormContent from '@/components/global/Info/Steps/FormContent.vue'
+import FormContent from '@/components/user/steps/FormContent.vue'
 import Suptitle from '@/components/global/Info/Suptitle.vue'
 import Title from '@/components/global/Info/Title.vue'
 

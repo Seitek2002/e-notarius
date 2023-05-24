@@ -3,39 +3,21 @@
     <div class="info__top">
       <div class="info__title flex jcsb">
         <Title text="Оформление заявки" />
-        <div
-          class="info__cancel flex"
-          @click="router.push('/order-list-user')"
-        >
+        <div class="info__cancel flex" @click="router.push('/order-list-user')">
           <CancelIcon />
           Отменить
         </div>
       </div>
       <div class="info__progress flex">
         <div class="info__line" />
-        <template
-          v-for="(item, i) in progress"
-          :key="i"
-        >
-          <div
-            v-show="item === 'prev'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
+        <template v-for="(item, i) in progress" :key="i">
+          <div v-show="item === 'prev'" class="info__circle" @click="progressPrev(i, item)">
             <PreviousIcon />
           </div>
-          <div
-            v-show="item === 'current'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
+          <div v-show="item === 'current'" class="info__circle" @click="progressPrev(i, item)">
             <CurrentIcon />
           </div>
-          <div
-            v-show="item === 'next'"
-            class="info__circle"
-            @click="progressPrev(i, item)"
-          >
+          <div v-show="item === 'next'" class="info__circle" @click="progressPrev(i, item)">
             <NextIcon />
           </div>
         </template>
@@ -43,15 +25,8 @@
     </div>
 
     <div class="info__content">
-      <component
-        v-for="(item, i) in slicedItems"
-        :is="item"
-        :key="i"
-        @handleCustomEvent="handleCustomEvent"
-        :progress-prev="progressPrev"
-        :short="item?.__name !== slicedItems[0].__name ? 'short' : ''"
-        :i="i"
-      />
+      <component v-for="(item, i) in slicedItems" :is="item" :key="i" @handleCustomEvent="handleCustomEvent"
+        :progress-prev="progressPrev" :short="item?.__name !== slicedItems[0].__name ? 'short' : ''" :i="i" />
     </div>
   </section>
 </template>
@@ -60,13 +35,13 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import Fifth from '@/components/global/Info/Steps/Fifth.vue'
-import First from '@/components/global/Info/Steps/First.vue'
-import Fourth from '@/components/global/Info/Steps/Fourth.vue'
-import Second from '@/components/global/Info/Steps/Second.vue'
-import Seventh from '@/components/global/Info/Steps/Seventh.vue'
-import Sixth from '@/components/global/Info/Steps/Sixth.vue'
-import Third from '@/components/global/Info/Steps/Third.vue'
+import Fifth from '@/components/user/steps/Fifth.vue'
+import First from '@/components/user/steps/First.vue'
+import Fourth from '@/components/user/steps/Fourth.vue'
+import Second from '@/components/user/steps/Second.vue'
+import Seventh from '@/components/user/steps/Seventh.vue'
+import Sixth from '@/components/user/steps/Sixth.vue'
+import Third from '@/components/user/steps/Third.vue'
 import Title from '@/components/global/Info/Title.vue'
 import CurrentIcon from '@/views/Icons/CurrentIcon.vue'
 import NextIcon from '@/views/Icons/NextIcon.vue'
