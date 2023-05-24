@@ -2,30 +2,24 @@
   <section class="application">
     <div class="application-head">
       <div class="application-search">
-        <input
-          type="text"
-          class="application-search__input"
-        >
+        <input type="text" class="application-search__input">
         <button class="application-search__btn">
-          <AppSearchIcon/>
+          <AppSearchIcon />
         </button>
       </div>
       <button class="application-export__btn">
         Экспортировать в Exсel
-        <ExcelIcon/>
+        <ExcelIcon />
       </button>
     </div>
     <div class="application-mid">
-      <button
-        class="application-mid__btn"
-        @click="isfilter = !isfilter"
-      >
+      <button class="application-mid__btn" @click="isfilter = !isfilter">
         <template v-if="isfilter">
-          <FilterDisabledIcon/>
+          <FilterDisabledIcon />
           Свернуть фильтр
         </template>
         <template v-else>
-          <FilterEnabledIcon/>
+          <FilterEnabledIcon />
           Открыть фильтр
         </template>
       </button>
@@ -33,81 +27,54 @@
         <span class="application-mid__text">Сортировка за:</span>
         <button class="application-mid__select">
           2022 год
-          <ArrowDownSmallIcon/>
+          <ArrowDownSmallIcon />
         </button>
       </div>
     </div>
-    <div
-      v-show="isfilter"
-      class="application-bottom"
-    >
+    <div v-show="isfilter" class="application-bottom">
       <label class="application-bottom__label">
         Номер реестра
-        <input
-          type="number"
-          class="application-bottom__input"
-        >
+        <input type="number" class="application-bottom__input">
       </label>
       <label class="application-bottom__label">
         Дата добавления в реестр
-        <input
-          type="date"
-          class="application-bottom__input"
-        >
+        <input type="date" class="application-bottom__input">
       </label>
       <label class="application-bottom__label">
         ФИО Нотариуса
-        <input
-          type="text"
-          class="application-bottom__input"
-        >
+        <input type="text" class="application-bottom__input">
       </label>
     </div>
     <div class="application__table">
       <table>
         <thead>
-        <tr>
-          <th>
-            <Sort title="ФИО"/>
-          </th>
-          <th>
-            <Dropdown
-              title="Должность"
-              :option="[]"
-            />
-          </th>
-          <th>
-            <Dropdown
-              title="Дата рождения"
-              :option="[]"
-            />
-          </th>
-          <th>
-            <Dropdown
-              title="Мобильный телефон"
-              :option="[]"
-            />
-          </th>
-          <th>
-            <Dropdown
-              title="E-mail"
-              :option="[]"
-            />
-          </th>
-        </tr>
+          <tr>
+            <th>
+              <Sort title="ФИО" />
+            </th>
+            <th>
+              <Dropdown title="Должность" :option="[]" />
+            </th>
+            <th>
+              <Dropdown title="Дата рождения" :option="[]" />
+            </th>
+            <th>
+              <Dropdown title="Мобильный телефон" :option="[]" />
+            </th>
+            <th>
+              <Dropdown title="E-mail" :option="[]" />
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr
-          v-for="(offer, i) in paginatedItems"
-          :key="i"
-        >
-          <td>Биримкулов Нурамир Тагдырович</td>
-          <td>Сотрудник Консульства</td>
-          <td>01.01.2022</td>
-          <td>0770 00 00 90</td>
-          <td><a href="mailto:nur@bk.com">nur@bk.com</a></td>
-        </tr>
+          <tr v-for="(offer, i) in paginatedItems" :key="i">
+            <td>Биримкулов Нурамир Тагдырович</td>
+            <td>Сотрудник Консульства</td>
+            <td>01.01.2022</td>
+            <td>0770 00 00 90</td>
+            <td><a href="mailto:nur@bk.com">nur@bk.com</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -115,21 +82,17 @@
       <ul class="pagination">
         <li v-if="currentPage > 1">
           <a @click="currentPage--">
-            <ArrowPrevIcon/>
+            <ArrowPrevIcon />
             Пред.
           </a>
         </li>
-        <li
-          v-for="page in pages"
-          :key="page"
-          :class="{ active: currentPage === page }"
-        >
+        <li v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
           <a @click="currentPage = page">{{ page }}</a>
         </li>
         <li v-if="currentPage < totalPages">
           <a @click="currentPage++">
             След.
-            <ArrowNextIcon/>
+            <ArrowNextIcon />
           </a>
         </li>
       </ul>
@@ -147,8 +110,8 @@ import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import FilterDisabledIcon from '@/views/Icons/FilterDisabledIcon.vue'
 import FilterEnabledIcon from '@/views/Icons/FilterEnabledIcon.vue'
-import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
-import Sort from '@/components/Tables/OfferTable/Sort.vue'
+import Dropdown from '@/components/global/Tables/OfferTable/Dropdown.vue'
+import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
 
 const isfilter = ref(true)
 

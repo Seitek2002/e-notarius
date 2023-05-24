@@ -116,11 +116,11 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import FilterActiveIcon from '@/components/Tables/Icons/FilterActiveIcon.vue'
-import QrCodeDisableIcon from '@/components/Tables/Icons/QrCodeDisableIcon.vue'
-import QrCodeEnableIcon from '@/components/Tables/Icons/QrCodeEnableIcon.vue'
+import FilterActiveIcon from '@/components/global/Tables/Icons/FilterActiveIcon.vue'
+import QrCodeDisableIcon from '@/components/global/Tables/Icons/QrCodeDisableIcon.vue'
+import QrCodeEnableIcon from '@/components/global/Tables/Icons/QrCodeEnableIcon.vue'
 import Arrowicon from '@/components/icons/Table/ArrowIcon.vue'
-import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
+import Dropdown from '@/components/global/Tables/OfferTable/Dropdown.vue'
 import Qr from '@/components/icons/Table/Qr.vue'
 
 

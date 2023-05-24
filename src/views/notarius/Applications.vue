@@ -57,25 +57,13 @@
               <Sort title="Номер реестра" style="white-space: nowrap" />
             </th>
             <th>
-              <Dropdown
-                title="Нотариальное действие"
-                :options="firstList"
-                style="white-space: nowrap"
-              />
+              <Dropdown title="Нотариальное действие" :options="firstList" style="white-space: nowrap" />
             </th>
             <th>
-              <Dropdown
-                title="Вид действия"
-                :options="secondList"
-                style="white-space: nowrap"
-              />
+              <Dropdown title="Вид действия" :options="secondList" style="white-space: nowrap" />
             </th>
             <th>
-              <Dropdown
-                title="Вид документа"
-                :options="thirdList"
-                style="white-space: nowrap"
-              />
+              <Dropdown title="Вид документа" :options="thirdList" style="white-space: nowrap" />
             </th>
             <th>
               <Sort title="Обратившееся лицо" style="white-space: nowrap" />
@@ -90,10 +78,7 @@
               <Sort title="Дата отмены" style="white-space: nowrap" />
             </th>
             <th>
-              <Sort
-                title="Дата добавления в реестр"
-                style="width: 190px; text-align: left"
-              />
+              <Sort title="Дата добавления в реестр" style="width: 190px; text-align: left" />
             </th>
             <th>Пошлина</th>
             <th>Причина</th>
@@ -122,11 +107,7 @@
       </table>
     </div>
     <div class="application__bottom">
-      <Pagination
-        :itemsPerPage="itemsPerPage"
-        :items="files"
-        @paginate="paginate"
-      />
+      <Pagination :itemsPerPage="itemsPerPage" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
@@ -141,9 +122,9 @@ import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
 import ExcelIcon from "@/views/Icons/ExcelIcon.vue";
 import FilterDisabledIcon from "@/views/Icons/FilterDisabledIcon.vue";
 import FilterEnabledIcon from "@/views/Icons/FilterEnabledIcon.vue";
-import Dropdown from "@/components/Tables/OfferTable/Dropdown.vue";
-import Qr from "@/components/Tables/OfferTable/Qr.vue";
-import Sort from "@/components/Tables/OfferTable/Sort.vue";
+import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
+import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
+import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 
 const isfilter = ref(true);

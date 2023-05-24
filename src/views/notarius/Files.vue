@@ -2,13 +2,9 @@
   <section class="files-list">
     <div class="files-list__top">
       <h2>Мои загруженные файлы</h2>
-      <Btn
-        title="Добавить файл"
-        bg="#1BAA75"
-        :icon="icon"
-      />
+      <Btn title="Добавить файл" bg="#1BAA75" :icon="icon" />
     </div>
-    <Table :files="paginatedItems"/> 
+    <Table :files="paginatedItems" />
     <div class="files-list__bottom">
       <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
     </div>
@@ -21,7 +17,7 @@ import { computed, onMounted, ref } from 'vue'
 import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'
 import Btn from '@/components/Buttons/Btn.vue'
-import Table from '@/components/Tables/FileTable/Table.vue'
+import Table from '@/components/global/Tables/FileTable/Table.vue'
 import Pagination from "@/components/Pagination/Pagination.vue";
 
 const emits = defineEmits(['islam'])

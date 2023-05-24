@@ -3,38 +3,27 @@
     <h1>{{ title }}</h1>
     <div class="top__action">
       <div class="top__user">
-        <div
-          class="top__user-wrapper"
-          @click="isDropdownShow = !isDropdownShow"
-        >
-          <OrderListUserIcon/>
+        <div class="top__user-wrapper" @click="isDropdownShow = !isDropdownShow">
+          <OrderListUserIcon />
           <!-- <h2 v-if="store.state.auth.chin">ЧН Абдыгулов Баяман Алыкулович</h2> -->
           <h2> {{ store.state.auth.fullName }} </h2>
-          <DropdownIcon
-            :class="isDropdownShow ? 'active' : ''"
-          />
+          <DropdownIcon :class="isDropdownShow ? 'active' : ''" />
         </div>
-        <div
-          v-show="isDropdownShow"
-          class="top__user-dropdown"
-        >
+        <div v-show="isDropdownShow" class="top__user-dropdown">
           <router-link to="#">
             Редактировать профиль
           </router-link>
           <router-link to="#">
             Сменить пароль
           </router-link>
-          <a
-            href="#"
-            @click.prevent="logOut"
-          >Выход с кабинета</a>
+          <a href="#" @click.prevent="logOut">Выход с кабинета</a>
         </div>
       </div>
       <div class="top__notification">
-        <NotificationIcon/>
+        <NotificationIcon />
       </div>
       <div class="header__lang--wrapper">
-        <Lang/>
+        <Lang />
       </div>
     </div>
   </div>
@@ -45,7 +34,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import DropdownIcon from '@/components/Tables/Icons/DropdownIcon.vue'
+import DropdownIcon from '@/components/global/Tables/Icons/DropdownIcon.vue'
 import NotificationIcon from '@/components/icons/OrderList/NotificationIcon.vue'
 import OrderListUserIcon from '@/components/icons/OrderList/OrderListUserIcon.vue'
 import Lang from '@/components/Lang/Lang.vue'

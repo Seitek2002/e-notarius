@@ -2,107 +2,95 @@
   <section class="order-list">
     <div class="order-list__top">
       <h2>Ваши заявки</h2>
-      <Btn
-        title="Оформить заявку"
-        bg="#1BAA75"
-        :icon="icon"
-        @click="router.push('/info-notarius')"
-      />
+      <Btn title="Оформить заявку" bg="#1BAA75" :icon="icon" @click="router.push('/info-notarius')" />
     </div>
     <div class="order-list__table">
       <table>
         <thead>
-        <tr>
-          <th>QR</th>
-          <th>
-            <Sort title="Номер реестра"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              ПИН субъекта
-            </div>
-          </th>
-          <th>
-            <Sort title="ФИО субъекта"/>
-          </th>
-          <th>
-            <Sort title="Дата рождения"/>
-          </th>
-          <th>
-            <Sort title="Дата ввода"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Кем создан
-            </div>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Причина ввода в черный список
-            </div>
-          </th>
-          <th>
-            <div style="display: flex;">
-              ПИН умершего
-            </div>
-          </th>
-          <th>
-            <Sort title="ФИО умершего"/>
-          </th>
-          <th>
-            <Sort title="Дата рождения"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Место последнего проживания
-            </div>
-          </th>
-          <th>
-            <Sort title="Дата смрети"/>
-          </th>
-          <th>
-            <Sort title="Дата создания"/>
-          </th>
-          <th>
-            <div style="display: flex;">
-              Кем создан
-            </div>
-          </th>
-        </tr>
+          <tr>
+            <th>QR</th>
+            <th>
+              <Sort title="Номер реестра" />
+            </th>
+            <th>
+              <div style="display: flex;">
+                ПИН субъекта
+              </div>
+            </th>
+            <th>
+              <Sort title="ФИО субъекта" />
+            </th>
+            <th>
+              <Sort title="Дата рождения" />
+            </th>
+            <th>
+              <Sort title="Дата ввода" />
+            </th>
+            <th>
+              <div style="display: flex;">
+                Кем создан
+              </div>
+            </th>
+            <th>
+              <div style="display: flex;">
+                Причина ввода в черный список
+              </div>
+            </th>
+            <th>
+              <div style="display: flex;">
+                ПИН умершего
+              </div>
+            </th>
+            <th>
+              <Sort title="ФИО умершего" />
+            </th>
+            <th>
+              <Sort title="Дата рождения" />
+            </th>
+            <th>
+              <div style="display: flex;">
+                Место последнего проживания
+              </div>
+            </th>
+            <th>
+              <Sort title="Дата смрети" />
+            </th>
+            <th>
+              <Sort title="Дата создания" />
+            </th>
+            <th>
+              <div style="display: flex;">
+                Кем создан
+              </div>
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr
-          v-for="(offer, i) in paginatedItems"
-          :key="i"
-        >
-          <td>
-            <Qr />
-          </td>
-          <td>125-1563</td>
-          <td>20607199701079</td>
-          <td>Усеналиев Оморбек Токтошевич</td>
-          <td>01.07.1976</td>
-          <td>01.01.2022</td>
-          <td>ЧН Абдыгулов</td>
-          <td>Недееспособный, инвалидность 3-й группы</td>
-          <td>20607199701079</td>
-          <td>Усеналиев Оморбек Токтошевич</td>
-          <td>01.07.1976</td>
-          <td>Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25</td>
-          <td>01.01.2022</td>
-          <td>01.01.2022</td>
-          <td>ЧН Абдыгулов</td>
-        </tr>
+          <tr v-for="(offer, i) in paginatedItems" :key="i">
+            <td>
+              <Qr />
+            </td>
+            <td>125-1563</td>
+            <td>20607199701079</td>
+            <td>Усеналиев Оморбек Токтошевич</td>
+            <td>01.07.1976</td>
+            <td>01.01.2022</td>
+            <td>ЧН Абдыгулов</td>
+            <td>Недееспособный, инвалидность 3-й группы</td>
+            <td>20607199701079</td>
+            <td>Усеналиев Оморбек Токтошевич</td>
+            <td>01.07.1976</td>
+            <td>Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25</td>
+            <td>01.01.2022</td>
+            <td>01.01.2022</td>
+            <td>ЧН Абдыгулов</td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="order-list__bottom">
-      <Pagination
-        :items-per-page="6"
-        :items="files"
-        @paginate="paginate"
-      />
+      <Pagination :items-per-page="6" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
@@ -113,8 +101,8 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import Btn from '@/components/Buttons/Btn.vue'
-import Qr from '@/components/Tables/OfferTable/Qr.vue'
-import Sort from '@/components/Tables/OfferTable/Sort.vue'
+import Qr from '@/components/global/Tables/OfferTable/Qr.vue'
+import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
 const store = useStore()
 
@@ -194,12 +182,12 @@ const paginate = data => {
   table {
     margin-top: 40px;
     border-collapse: collapse;
-  
+
     thead {
       border: 1px solid #cdcdcd;
       border-bottom: 2px solid #cdcdcd;
       height: 64px;
-  
+
       th {
         padding: 22px 13px;
         background: #ffffff;
@@ -210,20 +198,20 @@ const paginate = data => {
         gap: 20px;
       }
     }
-  
+
     tbody {
       tr {
         border: 1px solid transparent;
-  
+
         .order-list__name {
           color: #1BAA75;
         }
-  
+
         &:hover {
           background: #ffffff;
           border-color: #cdcdcd;
         }
-  
+
         td {
           padding: 16px;
           box-sizing: border-box;

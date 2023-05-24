@@ -2,12 +2,7 @@
   <section class="order-list">
     <div class="order-list__top">
       <h2>Ваши заявки</h2>
-      <Btn
-        title="Оформить заявку"
-        bg="#1BAA75"
-        :icon="icon"
-        @click="router.push('/info-notarius')"
-      />
+      <Btn title="Оформить заявку" bg="#1BAA75" :icon="icon" @click="router.push('/info-notarius')" />
     </div>
     <div class="order-list__table">
       <table>
@@ -43,11 +38,7 @@
 
         <tbody>
           <tr v-for="(offer, i) in paginatedItems" :key="i">
-            <td
-              class="qr-code"
-              :class="qrActive ? ' active' : ''"
-              @click="(qrActive = !qrActive), (qrAnother = 'asdaf')"
-            >
+            <td class="qr-code" :class="qrActive ? ' active' : ''" @click="(qrActive = !qrActive), (qrAnother = 'asdaf')">
               <Qr class="qr" :i="i" />
             </td>
             <td>125-1563</td>
@@ -80,8 +71,8 @@ import DownloadIcon from "@/components/icons/Table/DownloadIcon.vue";
 import EditIcon from "@/components/icons/Table/EditIcon.vue";
 import OfferIcon from "@/components/icons/Table/OfferIcon.vue";
 import RemoveIcon from "@/components/icons/Table/RemoveIcon.vue";
-import Qr from "@/components/Tables/OfferTable/Qr.vue";
-import Sort from "@/components/Tables/OfferTable/Sort.vue";
+import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
+import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 
 const qrActive = ref(false);

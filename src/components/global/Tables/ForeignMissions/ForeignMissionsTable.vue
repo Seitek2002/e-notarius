@@ -3,56 +3,46 @@
     <div :class="qr === null ? 'table-content' : 'table-content active'">
       <table>
         <thead>
-        <tr class="table-wrapper another">
-          <th class="table-indicator">
-            ФИО
-            <Arrowicon/>
-          </th>
-          <th
-            class="table-indicator prof"
-            @click="document = !document"
-          >
-            <Dropdown
-              title="Должность"
-              :options="firstList"
-            />
-          </th>
-          <th class="table-indicator second-another">
-            Дата рождения
-            <Arrowicon/>
-          </th>
-          <th class="table-indicator">
-            Мобильный телефон
-            <Arrowicon/>
-          </th>
-          <th class="table-indicator">
-            Email
-            <Arrowicon/>
-          </th> 
-        </tr>
+          <tr class="table-wrapper another">
+            <th class="table-indicator">
+              ФИО
+              <Arrowicon />
+            </th>
+            <th class="table-indicator prof" @click="document = !document">
+              <Dropdown title="Должность" :options="firstList" />
+            </th>
+            <th class="table-indicator second-another">
+              Дата рождения
+              <Arrowicon />
+            </th>
+            <th class="table-indicator">
+              Мобильный телефон
+              <Arrowicon />
+            </th>
+            <th class="table-indicator">
+              Email
+              <Arrowicon />
+            </th>
+          </tr>
         </thead>
         <tbody>
-        <tr
-          v-for="(_, i) in items"
-          :key="i"
-          class="table-wrapper"
-        >
-          <td class="table-item id">
-            Биримкулов Нурамир Тагдырович
-          </td>
-          <td class="table-item number">
-            Сотрудник Акимиата
-          </td>
-          <td class="table-item certificate">
-            01.01.2022
-          </td>
-          <td class="table-item agreement">
-            0770 00 00 90
-          </td>
-          <td class="table-item attorney">
-            nur@bk.com
-          </td>
-        </tr>
+          <tr v-for="(_, i) in items" :key="i" class="table-wrapper">
+            <td class="table-item id">
+              Биримкулов Нурамир Тагдырович
+            </td>
+            <td class="table-item number">
+              Сотрудник Акимиата
+            </td>
+            <td class="table-item certificate">
+              01.01.2022
+            </td>
+            <td class="table-item agreement">
+              0770 00 00 90
+            </td>
+            <td class="table-item attorney">
+              nur@bk.com
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -63,11 +53,11 @@
 import { ref } from 'vue'
 
 import Arrowicon from '@/components/icons/Table/ArrowIcon.vue'
-import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
+import Dropdown from '@/components/global/Tables/OfferTable/Dropdown.vue'
 
 const document = ref(false)
 const qr = ref(null)
-const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство']) 
+const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
 defineProps(['items'])
 </script>
 

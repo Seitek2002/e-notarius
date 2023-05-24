@@ -7,7 +7,7 @@
             <h2>
               {{ title }}
             </h2>
-            <SuccessSmallIcon/>
+            <SuccessSmallIcon />
           </div>
           <div class="send__info">
             <h2 class="send__info__name">
@@ -25,7 +25,7 @@
           </div>
           <div class="send__alimony">
             <h2 class="send__alimony__v">
-              <QrCodeDisableIcon/>
+              <QrCodeDisableIcon />
             </h2>
             <h2 class="send__alimony__confidence">
               {{ store.state.bonusInputs }}
@@ -37,11 +37,12 @@
               01.01.2022
             </h2>
             <h2 class="send__alimony__person">
-              <a href="#">{{ store.state.personNotarius.surname + " " + store.state.personNotarius.name + " " + store.state.personNotarius.lastname }}</a>
+              <a href="#">{{ store.state.personNotarius.surname + " " + store.state.personNotarius.name + " " +
+                store.state.personNotarius.lastname }}</a>
             </h2>
           </div>
           <div class="send__sample">
-            <AddNewRequestIcon/>
+            <AddNewRequestIcon />
             <h2><a href="#">Добавить в мои шаблоны</a></h2>
           </div>
           <div class="send__question">
@@ -50,13 +51,13 @@
               <div class="send__flex">
                 <input type="text">
                 <button>
-                  <ArrowRightIcon/>
+                  <ArrowRightIcon />
                 </button>
               </div>
             </label>
           </div>
           <div class="send__message">
-            <SuccessSendIcon/>
+            <SuccessSendIcon />
             <h2>
               Сообщение успешно отправлено. Перейдите в
               <span>переписки</span>
@@ -64,18 +65,12 @@
             </h2>
           </div>
           <div class="send__btns">
-            <button
-              class="send__btn"
-              @click="handleClick"
-            >
-              <AddNewSmallIcon/>
+            <button class="send__btn" @click="handleClick">
+              <AddNewSmallIcon />
               Оформить новую заявку
             </button>
-            <button
-              class="send__go"
-              @click="router.push('/applications-user')"
-            >
-              <PencilIcon/>
+            <button class="send__go" @click="router.push('/applications-user')">
+              <PencilIcon />
               Перейти в заявки
             </button>
           </div>
@@ -95,7 +90,7 @@ import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.
 import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
 import PencilIcon from '@/components/global/Info/Icons/PencilIcon.vue'
 import SuccessSmallIcon from '@/components/global/Info/Icons/SuccessSmallIcon.vue'
-import QrCodeDisableIcon from '@/components/Tables/Icons/QrCodeDisableIcon.vue'
+import QrCodeDisableIcon from '@/components/global/Tables/Icons/QrCodeDisableIcon.vue'
 
 const router = useRouter()
 const store = useStore()

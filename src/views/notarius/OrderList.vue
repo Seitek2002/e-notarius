@@ -2,87 +2,57 @@
   <section class="order-list">
     <div class="order-list__top">
       <h2>Нотариальные действия</h2>
-      <Btn
-        title="Создать действия"
-        bg="#1BAA75"
-        @click="router.push('/info-notarius')"
-      />
+      <Btn title="Создать действия" bg="#1BAA75" @click="router.push('/info-notarius')" />
     </div>
     <div class="order-list__table">
       <table>
         <thead>
-        <tr>
-          <th>QR</th>
-          <th>
-            <Dropdown
-              title="Вид действия"
-              :options="typeOfDoc"
-            />
-          </th>
-          <th>
-            <Dropdown
-              title="Вид документа"
-              :options="typeOfDoc"
-            />
-          </th>
-          <th>
-            <Dropdown
-              title="Статус"
-              :options="typeOfDoc"
-            />
-          </th>
-          <th>
-            <Sort title="Дата"/>
-          </th>
-          <th>
-            <Dropdown
-              title="Исполнитель"
-              :options="typeOfDoc"
-            />
-          </th>
-        </tr>
+          <tr>
+            <th>QR</th>
+            <th>
+              <Dropdown title="Вид действия" :options="typeOfDoc" />
+            </th>
+            <th>
+              <Dropdown title="Вид документа" :options="typeOfDoc" />
+            </th>
+            <th>
+              <Dropdown title="Статус" :options="typeOfDoc" />
+            </th>
+            <th>
+              <Sort title="Дата" />
+            </th>
+            <th>
+              <Dropdown title="Исполнитель" :options="typeOfDoc" />
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr
-          v-for="(offer, i) in paginatedItems"
-          :key="i"
-        >
-          <td
-            class="qr-code"
-            :class="qrActive ? ' active' : ''"
-            @click="qrActive = !qrActive, qrAnother = 'asdaf'"
-          >
-            <Qr
-              class="qr"
-              :i="i"
-            />
-          </td>
-          <td>{{ offer.typeOfDoc }}</td>
-          <td>Доверенность</td>
-          <td>{{ offer.status }}</td>
-          <td>{{ offer.date }}</td>
-          <td>
-            <div class="order-list__name">
-              {{ offer.executer }}
-            </div>
-            <div class="order-list__actions">
-              <OfferIcon/>
-              <EditIcon/>
-              <DownloadIcon/>
-              <RemoveIcon/>
-            </div>
-          </td>
-        </tr>
+          <tr v-for="(offer, i) in paginatedItems" :key="i">
+            <td class="qr-code" :class="qrActive ? ' active' : ''" @click="qrActive = !qrActive, qrAnother = 'asdaf'">
+              <Qr class="qr" :i="i" />
+            </td>
+            <td>{{ offer.typeOfDoc }}</td>
+            <td>Доверенность</td>
+            <td>{{ offer.status }}</td>
+            <td>{{ offer.date }}</td>
+            <td>
+              <div class="order-list__name">
+                {{ offer.executer }}
+              </div>
+              <div class="order-list__actions">
+                <OfferIcon />
+                <EditIcon />
+                <DownloadIcon />
+                <RemoveIcon />
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="order-list__bottom">
-      <Pagination
-        :itemsPerPage="6"
-        :items="files"
-        @paginate="paginate"
-      />
+      <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
@@ -97,9 +67,9 @@ import DownloadIcon from '@/components/icons/Table/DownloadIcon.vue'
 import EditIcon from '@/components/icons/Table/EditIcon.vue'
 import OfferIcon from '@/components/icons/Table/OfferIcon.vue'
 import RemoveIcon from '@/components/icons/Table/RemoveIcon.vue'
-import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
-import Qr from '@/components/Tables/OfferTable/Qr.vue'
-import Sort from '@/components/Tables/OfferTable/Sort.vue'
+import Dropdown from '@/components/global/Tables/OfferTable/Dropdown.vue'
+import Qr from '@/components/global/Tables/OfferTable/Qr.vue'
+import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
 
 const qrActive = ref(false)
@@ -232,12 +202,12 @@ const paginate = data => {
   table {
     margin-top: 40px;
     border-collapse: collapse;
-  
+
     thead {
       border: 1px solid #cdcdcd;
       border-bottom: 2px solid #cdcdcd;
       height: 64px;
-  
+
       th {
         padding: 22px 13px;
         background: #ffffff;
@@ -248,20 +218,20 @@ const paginate = data => {
         gap: 20px;
       }
     }
-  
+
     tbody {
       tr {
         border: 1px solid transparent;
-  
+
         .order-list__name {
           color: #1BAA75;
         }
-  
+
         &:hover {
           background: #ffffff;
           border-color: #cdcdcd;
         }
-  
+
         td {
           padding: 16px;
           box-sizing: border-box;
@@ -280,5 +250,4 @@ const paginate = data => {
 .qr-code {
   position: relative;
 }
-
 </style>

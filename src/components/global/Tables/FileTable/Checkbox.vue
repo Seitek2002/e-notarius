@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="checkbox"
-    @click="isActive = !isActive"
-  >
+  <div class="checkbox" @click="isActive = !isActive">
     <div class="checkbox-input">
-      <CheckboxSuccessBlackIcon/>
+      <CheckboxSuccessBlackIcon />
     </div>
     {{ title }}
   </div>
@@ -13,7 +10,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import CheckboxSuccessBlackIcon from '@/components/Tables/Icons/CheckboxSuccessBlackIcon.vue'
+import CheckboxSuccessBlackIcon from '@/components/global/Tables/Icons/CheckboxSuccessBlackIcon.vue'
 
 const isActive = ref(false)
 defineProps(['title'])
