@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import OrderSend from '@/components/Info/OrderSend.vue'
+import OrderSend from '@/components/global/Info/OrderSend.vue'
 </script>

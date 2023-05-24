@@ -109,7 +109,7 @@
 <script setup>
 import { onMounted } from 'vue'
 
-import ArrowRightIcon from '@/components/Info/Icons/ArrowRightIcon.vue'
+import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
 import MessagesReadIcon from '@/views/Icons/MessagesReadIcon.vue'
 import MessagesSendIcon from '@/views/Icons/MessagesSendIcon.vue'
 import OnlineStatusIcon from '@/views/Icons/OnlineStatusIcon.vue'

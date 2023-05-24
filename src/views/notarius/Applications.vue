@@ -2,30 +2,24 @@
   <section class="application">
     <div class="application-head">
       <div class="application-search">
-        <input
-          type="text"
-          class="application-search__input"
-        >
+        <input type="text" class="application-search__input">
         <button class="application-search__btn">
-          <AppSearchIcon/>
+          <AppSearchIcon />
         </button>
       </div>
       <button class="application-export__btn">
         Экспортировать в Exсel
-        <ExcelIcon/>
+        <ExcelIcon />
       </button>
     </div>
     <div class="application-mid">
-      <button
-        class="application-mid__btn"
-        @click="isfilter = !isfilter"
-      >
+      <button class="application-mid__btn" @click="isfilter = !isfilter">
         <template v-if="isfilter">
-          <FilterDisabledIcon/>
+          <FilterDisabledIcon />
           Свернуть фильтр
         </template>
         <template v-else>
-          <FilterEnabledIcon/>
+          <FilterEnabledIcon />
           Открыть фильтр
         </template>
       </button>
@@ -33,56 +27,104 @@
         <span class="application-mid__text">Сортировка за:</span>
         <button class="application-mid__select">
           2022 год
-          <ArrowDownSmallIcon/>
+          <ArrowDownSmallIcon />
         </button>
       </div>
     </div>
-    <div
-      v-show="isfilter"
-      class="application-bottom"
-    >
+    <div v-show="isfilter" class="application-bottom">
       <label class="application-bottom__label">
         Номер реестра
-        <input
-          type="number"
-          class="application-bottom__input"
-        >
+        <input type="number" class="application-bottom__input">
       </label>
       <label class="application-bottom__label">
         Дата добавления в реестр
-        <input
-          type="date"
-          class="application-bottom__input"
-        >
+        <input type="date" class="application-bottom__input">
       </label>
       <label class="application-bottom__label">
         ФИО Нотариуса
-        <input
-          type="text"
-          class="application-bottom__input"
-        >
+        <input type="text" class="application-bottom__input">
       </label>
     </div>
-    <ApplicationTable :items="paginatedItems"/>
+    <div class="order-list__table">
+      <table>
+        <thead>
+          <tr>
+            <th>QR</th>
+            <th>
+              <Sort title="ID" />
+            </th>
+            <th>
+              <Sort title="Номер реестра" style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Dropdown title="Нотариальное действие" :options="firstList" style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Dropdown title="Вид действия" :options="secondList"  style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Dropdown title="Вид документа" :options="thirdList"  style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Sort title="Обратившееся лицо" style="white-space: nowrap;"  />
+            </th>
+            <th>
+              <Dropdown title="Статус" :options="thirdList" />
+            </th>
+            <th>
+              <Sort title="Дата создания"  style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Sort title="Дата отмены" style="white-space: nowrap;" />
+            </th>
+            <th>
+              <Sort title="Дата добавления в реестр" style="width: 190px; text-align: left;" />
+            </th>
+            <th>
+              Пошлина
+            </th>
+            <th>
+              Причина
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="(item, i) in paginatedItems" :key="i">
+            <td class="qr-code" :class="qrActive ? ' active' : ''" @click="qrActive = !qrActive, qrAnother = 'asdaf'">
+              <Qr class="qr" />
+            </td>
+            <td>015163</td>
+            <td>125-8563</td>
+            <td>Обеспечение доказательства</td>
+            <td>Соглашение</td>
+            <td>Свидетельство о праве собственности</td>
+            <td>Чалбеков Анарбек Ибраимович</td>
+            <td>Исполнен</td>
+            <td>01.01.2022</td>
+            <td>01.01.2022</td>
+            <td>01.01.2022</td>
+            <td>Освобожден</td>
+            <td style="white-space: nowrap;">Отказ клиента</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="application__bottom">
       <ul class="pagination">
         <li v-if="currentPage > 1">
           <a @click="currentPage--">
-            <ArrowPrevIcon/>
+            <ArrowPrevIcon />
             Пред.
           </a>
         </li>
-        <li
-          v-for="page in pages"
-          :key="page"
-          :class="{ active: currentPage === page }"
-        >
+        <li v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
           <a @click="currentPage = page">{{ page }}</a>
         </li>
         <li v-if="currentPage < totalPages">
           <a @click="currentPage++">
             След.
-            <ArrowNextIcon/>
+            <ArrowNextIcon />
           </a>
         </li>
       </ul>
@@ -93,14 +135,19 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-import ArrowDownSmallIcon from '@/components/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
 import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'
 import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import FilterDisabledIcon from '@/views/Icons/FilterDisabledIcon.vue'
 import FilterEnabledIcon from '@/views/Icons/FilterEnabledIcon.vue'
-import ApplicationTable from '@/components/OwnRoom/application/ApplicationTable.vue'
+import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
+import Qr from '@/components/OwnRoom/OfferTable/Qr.vue'
+import Sort from '@/components/OwnRoom/OfferTable/Sort.vue'
+
+
+const qrActive = ref(false)
 
 const isfilter = ref(true)
 
@@ -121,9 +168,16 @@ const pages = computed(() => {
   }
   return result
 })
+
+const qr = ref(null)
+const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
+const secondList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
+const thirdList = ref(['Исполнен', 'На разъяснении', 'В обработке', 'Отменен', 'Отклонен', 'На исполнении'])
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 .application {
   flex: 1;
 
@@ -259,6 +313,14 @@ const pages = computed(() => {
 
 }
 
+.application-table {
+  table {
+    thead {
+      background: #FFFFFF;
+    }
+  }
+}
+
 .pagination {
   display: flex;
   justify-content: space-between;
@@ -293,5 +355,146 @@ const pages = computed(() => {
       color: #1baa75;
     }
   }
+}
+
+.order-list {
+  flex: 1;
+  box-sizing: border-box;
+
+  &__actions {
+    display: none;
+    justify-content: center;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  &__table {
+    min-height: 448px;
+    overflow-x: scroll;
+    max-width: 73vw;
+  }
+
+  tr {
+    transition: 0.5s;
+  }
+
+  table {
+    width: 3214px;
+
+    tr {
+      height: 80px;
+      transition: 0.5s;
+    }
+  }
+
+  &__top {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-weight: 600;
+      font-size: 18px;
+      color: #1f2937;
+    }
+  }
+
+  &__bottom {
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.qr {
+  &-block {
+    position: absolute;
+    width: 200px;
+    left: 75px;
+    top: -75px;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0 10px 20px #E9E9E9;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    z-index: 1;
+    padding: 10px 0;
+  }
+
+  &-redy {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1BAA75;
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  &-text {
+    font-weight: 400;
+    font-size: 14px;
+    color: #24334B;
+  }
+
+  &-code {
+    font-weight: 600;
+    font-size: 14px;
+    color: #687C9B;
+    text-align: center;
+  }
+}
+
+table {
+  margin-top: 40px;
+  border-collapse: collapse;
+
+  thead {
+    border: 1px solid #cdcdcd;
+    border-bottom: 2px solid #cdcdcd;
+    height: 64px;
+
+    th {
+      padding: 22px 13px;
+      background: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      color: #24334b;
+      gap: 20px;
+    }
+  }
+
+  tbody {
+    tr {
+      border: 1px solid transparent;
+
+      .order-list__name {
+        color: #1BAA75;
+      }
+
+      &:hover {
+        background: #ffffff;
+        border-color: #cdcdcd;
+      }
+
+      td {
+        padding: 16px;
+        box-sizing: border-box;
+        font-weight: 500;
+        font-size: 14px;
+        color: #24334b;
+        text-align: left;
+        padding: 22px 13px;
+      }
+    }
+  }
+}
+
+.qr-code {
+  position: relative;
 }
 </style>

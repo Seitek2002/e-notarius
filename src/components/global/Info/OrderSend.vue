@@ -10,8 +10,11 @@
             <SuccessSmallIcon/>
           </div>
           <div class="send__info">
+            <h2 class="send__info__qr">
+              QR
+            </h2>
             <h2 class="send__info__name">
-              Паспорт
+              Наименование
             </h2>
             <h2 class="send__info__status">
               Статус
@@ -20,12 +23,12 @@
               Дата
             </h2>
             <h2 class="send__info__notarius">
-              Нотариус
+              ФИО заявителя
             </h2>
           </div>
           <div class="send__alimony">
             <h2 class="send__alimony__v">
-              <QrCodeDisableIcon/>
+              <QrCodeIcon/>
             </h2>
             <h2 class="send__alimony__confidence">
               {{ store.state.bonusInputs }}
@@ -37,7 +40,7 @@
               01.01.2022
             </h2>
             <h2 class="send__alimony__person">
-              <a href="#">{{ store.state.personNotarius.surname + " " + store.state.personNotarius.name + " " + store.state.personNotarius.lastname }}</a>
+              <a href="#">{{ store.state.choosenApplicant }}</a>
             </h2>
           </div>
           <div class="send__sample">
@@ -45,10 +48,13 @@
             <h2><a href="#">Добавить в мои шаблоны</a></h2>
           </div>
           <div class="send__question">
-            <h2>Написать сообщение нотариусу</h2>
+            <h2>Написать сообщение заявителю</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input type="text">
+                <input
+                  type="text"
+                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?"
+                >
                 <button>
                   <ArrowRightIcon/>
                 </button>
@@ -56,7 +62,7 @@
             </label>
           </div>
           <div class="send__message">
-            <SuccessSendIcon/>
+            <SuccessMarkSmallIcon/>
             <h2>
               Сообщение успешно отправлено. Перейдите в
               <span>переписки</span>
@@ -68,15 +74,15 @@
               class="send__btn"
               @click="handleClick"
             >
-              <AddNewSmallIcon/>
-              Оформить новую заявку
+              <AddNewRequestWhiteIcon/>
+              Оформить новое действие
             </button>
             <button
               class="send__go"
-              @click="router.push('/applications-user')"
+              @click="router.push('/applications-notarius')"
             >
               <PencilIcon/>
-              Перейти в заявки
+              Перейти в нотариальные действия
             </button>
           </div>
         </div>
@@ -89,19 +95,21 @@
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import AddNewSmallIcon from '@/components/guest/Home/Icons/AddNewSmallIcon.vue'
-import SuccessSendIcon from '@/components/guest/Home/Icons/SuccessSendIcon.vue'
 import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.vue'
+import AddNewRequestWhiteIcon from '@/components/global/Info/Icons/AddNewRequestWhiteIcon.vue'
 import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
 import PencilIcon from '@/components/global/Info/Icons/PencilIcon.vue'
+import QrCodeIcon from '@/components/global/Info/Icons/QrCodeIcon.vue'
+import SuccessMarkSmallIcon from '@/components/global/Info/Icons/SuccessMarkSmallIcon.vue'
 import SuccessSmallIcon from '@/components/global/Info/Icons/SuccessSmallIcon.vue'
-import QrCodeDisableIcon from '@/components/OwnRoom/Icons/QrCodeDisableIcon.vue'
 
 const router = useRouter()
 const store = useStore()
 
+defineProps(['title'])
+
 const handleClick = () => {
-  router.push('/info-user')
+  router.push('/info-notarius')
 }
 </script>
 
@@ -150,6 +158,10 @@ const handleClick = () => {
       font-weight: 600;
       font-size: 16px;
       color: $text-dark-blue;
+    }
+
+    &__qr {
+      width: 9%;
     }
 
     &__name {
@@ -335,7 +347,7 @@ const handleClick = () => {
   &__go {
     font-family: 'Montserrat', sans-serif;
     width: 320px;
-    padding: 14px 0;
+    padding: 14px 15px;
     border: none;
     background: $bg-dark-blue;
     color: $bg-white;

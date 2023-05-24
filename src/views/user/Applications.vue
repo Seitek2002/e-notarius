@@ -80,7 +80,7 @@ import { useStore } from 'vuex'
 
 import ApplicationTable from '@/components/OwnRoom/application/ApplicationTable.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
-import ArrowDownSmallIcon from '@/components/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
 import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import FilterDisabledIcon from '@/views/Icons/FilterDisabledIcon.vue'

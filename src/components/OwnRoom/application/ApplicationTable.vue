@@ -3,136 +3,108 @@
     <div :class="qr === null ? 'table-content' : 'table-content active'">
       <table>
         <thead>
-        <tr class="table-wrapper another">
-          <th class="table-indicator">
-            QR
-          </th>
-          <th class="table-indicator">
-            ID
-            <Arrowicon/>
-          </th>
+          <tr>
+            <th>
+              QR
+            </th>
+            <th>
+              ID
+              <Arrowicon />
+            </th>
 
-          <th class="table-indicator">
-            Номер реестра
-            <Arrowicon/>
-          </th>
-          <th
-            class="table-indicator click"
-            @click="document = !document"
-          >
-            <Dropdown
-              title="Нотариальное действие"
-              :options="firstList"
-            />
-          </th>
-          <th class="table-indicator">
-            Вид действия
-            <FilterActiveIcon/>
-          </th>
-          <th class="table-indicator another click">
-            <Dropdown
-              title="Вид документа"
-              :options="secondList"
-            />
-          </th>
-          <th class="table-indicator second-another">
-            Обратившееся лицо
-            <Arrowicon/>
-          </th>
+            <th>
+              Номер реестра
+              <Arrowicon />
+            </th>
+            <th @click="document = !document">
+              <Dropdown title="Нотариальное действие" :options="firstList" />
+            </th>
+            <th>
+              Вид действия
+              <FilterActiveIcon />
+            </th>
+            <th>
+              <Dropdown title="Вид документа" :options="secondList" />
+            </th>
+            <th>
+              Обратившееся лицо
+              <Arrowicon />
+            </th>
 
-          <th class="table-indicator click">
-            <Dropdown
-              title="Статус"
-              :options="thirdList"
-            />
-          </th>
-          <th class="table-indicator">
-            Дата создания
-            <Arrowicon/>
-          </th>
-          <th class="table-indicator">
-            Дата добавления в реестр
-            <Arrowicon/>
-          </th>
+            <th>
+              <Dropdown title="Статус" :options="thirdList" />
+            </th>
+            <th>
+              Дата создания
+              <Arrowicon />
+            </th>
+            <th>
+              Дата добавления в реестр
+              <Arrowicon />
+            </th>
 
-          <th class="table-indicator">
-            Дата отмены
-            <Arrowicon/>
-          </th>
-          <th class="table-indicator">
-            Пошлина
-          </th>
-          <th class="table-indicator">
-            Причина
-          </th>
-        </tr>
+            <th>
+              Дата отмены
+              <Arrowicon />
+            </th>
+            <th>
+              Пошлина
+            </th>
+            <th>
+              Причина
+            </th>
+          </tr>
         </thead>
         <!-- <ApplicationTableBlock  /> -->
         <tbody>
-        <tr
-          v-for="(item, i) in store.state.registryOfNotariusAction"
-          :key="i"
-          class="table-wrapper"
-        >
-          <td class="table-item qr">
-            <div
-              v-show="qr === i"
-              class="qr-block"
-            >
-              <span class="qr-text">Отсканируйте QR-код</span>
-              <Qr/>
-              <span class="qr-code">A5D75</span>
-              <span
-                class="qr-redy"
-                @click="qr = null"
-              >Закрыть</span>
-            </div>
-            <QrCodeDisableIcon
-              v-if="qr !== i"
-              @click="qr = i"
-            />
-            <QrCodeEnableIcon
-              v-else
-              @click="qr = null"
-            />
-          </td>
-          <td class="table-item id">
-            {{ item.id }}
-          </td>
-          <td class="table-item number">
-            {{ item.registryNumber }}
-          </td>
-          <td class="table-item certificate">
-            {{ item.notariusAction }}
-          </td>
-          <td class="table-item agreement">
-            {{ item.typeOfAction }}
-          </td>
-          <td class="table-item attorney">
-            {{ item.typeOfDocument }}
-          </td>
-          <td class="table-item name-cn">
-            {{ item.applicant }}
-          </td>
-          <td class="table-item fulfilled">
-            {{ item.status }}
-          </td>
-          <td class="table-item data-one">
-            {{ item.dateOfCreating }}
-          </td>
-          <td class="table-item data-two">
-            {{ item.dateOfAdd }}
-          </td>
-          <td class="table-item data-three">
-            {{ item.dateOfCancel }}
-          </td>
-          <td class="table-item duty">
-            {{ item.duty }}
-          </td>
-          <td class="table-item cause">
-            {{ item.cause }}
-          </td>
-        </tr>
+          <tr v-for="(item, i) in store.state.registryOfNotariusAction" :key="i">
+            <td>
+              <div v-show="qr === i">
+                <span>Отсканируйте QR-код</span>
+                <Qr />
+                <span>A5D75</span>
+                <span @click="qr = null">Закрыть</span>
+              </div>
+              <QrCodeDisableIcon v-if="qr !== i" @click="qr = i" />
+              <QrCodeEnableIcon v-else @click="qr = null" />
+            </td>
+            <td>
+              {{ item.id }}
+            </td>
+            <td>
+              {{ item.registryNumber }}
+            </td>
+            <td>
+              {{ item.notariusAction }}
+            </td>
+            <td>
+              {{ item.typeOfAction }}
+            </td>
+            <td>
+              {{ item.typeOfDocument }}
+            </td>
+            <td>
+              {{ item.applicant }}
+            </td>
+            <td>
+              {{ item.status }}
+            </td>
+            <td>
+              {{ item.dateOfCreating }}
+            </td>
+            <td>
+              {{ item.dateOfAdd }}
+            </td>
+            <td>
+              {{ item.dateOfCancel }}
+            </td>
+            <td>
+              {{ item.duty }}
+            </td>
+            <td>
+              {{ item.cause }}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
