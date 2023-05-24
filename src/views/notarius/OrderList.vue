@@ -5,7 +5,6 @@
       <Btn
         title="Создать действия"
         bg="#1BAA75"
-        :icon="icon"
         @click="router.push('/info-notarius')"
       />
     </div>

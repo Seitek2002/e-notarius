@@ -20,7 +20,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import CheckboxTrueIcon from '@/components/Form/Checkbox/Icons/CheckboxTrueIcon.vue'
+import CheckboxTrueIcon from './Icons/CheckboxTrueIcon.vue'
 
 const isActive = ref(false)
 defineProps(['title'])

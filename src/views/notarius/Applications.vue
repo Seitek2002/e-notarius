@@ -112,7 +112,7 @@
     </div>
     <div class="application__bottom">
       <Pagination
-        :items-per-page="6"
+        :itemsPerPage="itemsPerPage"
         :items="files"
         @paginate="paginate"
       />
@@ -142,20 +142,8 @@ const isfilter = ref(true)
 const files = new Array(39)
 const itemsPerPage = 6
 
-const currentPage = ref(1)
+const paginatedItems = ref(files)
 
-const totalPages = computed(() => Math.ceil(files.length / itemsPerPage))
-const startIndex = computed(() => (currentPage.value - 1) * itemsPerPage)
-const endIndex = computed(() => startIndex.value + itemsPerPage)
-
-const paginatedItems = computed(() => files.slice(startIndex.value, endIndex.value))
-const pages = computed(() => {
-  const result = []
-  for (let i = 1; i <= totalPages.value; i++) {
-    result.push(i)
-  }
-  return result
-})
 const paginate = data => {
   paginatedItems.value = data.value // paginatedItems.push(data)
 }
