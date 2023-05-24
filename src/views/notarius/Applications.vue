@@ -111,23 +111,11 @@
       </table>
     </div>
     <div class="application__bottom">
-      <ul class="pagination">
-        <li v-if="currentPage > 1">
-          <a @click="currentPage--">
-            <ArrowPrevIcon />
-            Пред.
-          </a>
-        </li>
-        <li v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
-          <a @click="currentPage = page">{{ page }}</a>
-        </li>
-        <li v-if="currentPage < totalPages">
-          <a @click="currentPage++">
-            След.
-            <ArrowNextIcon />
-          </a>
-        </li>
-      </ul>
+      <Pagination
+        :items-per-page="6"
+        :items="files"
+        @paginate="paginate"
+      />
     </div>
   </section>
 </template>
@@ -145,7 +133,7 @@ import FilterEnabledIcon from '@/views/Icons/FilterEnabledIcon.vue'
 import Dropdown from '@/components/Tables/OfferTable/Dropdown.vue'
 import Qr from '@/components/Tables/OfferTable/Qr.vue'
 import Sort from '@/components/Tables/OfferTable/Sort.vue'
-
+import Pagination from '@/components/Pagination/Pagination.vue'
 
 const qrActive = ref(false)
 
@@ -168,7 +156,9 @@ const pages = computed(() => {
   }
   return result
 })
-
+const paginate = data => {
+  paginatedItems.value = data.value // paginatedItems.push(data)
+}
 const qr = ref(null)
 const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
 const secondList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
