@@ -77,22 +77,13 @@
             />
           </th>
           <th>
-            <Dropdown
-              title="Дата рождения"
-              :option="[]"
-            />
+            <Sort title="Дата рождения"/>
           </th>
           <th>
-            <Dropdown
-              title="Мобильный телефон"
-              :option="[]"
-            />
+            <Sort title="Мобильный телефон"/>
           </th>
           <th>
-            <Dropdown
-              title="E-mail"
-              :option="[]"
-            />
+            <Sort title="E-mail"/>
           </th>
         </tr>
         </thead>
