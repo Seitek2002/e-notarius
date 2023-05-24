@@ -76,15 +76,8 @@
           v-for="(offer, i) in paginatedItems"
           :key="i"
         >
-          <td
-            class="qr-code"
-            :class="qrActive ? ' active' : ''"
-            @click="qrActive = !qrActive, qrAnother = 'asdaf'"
-          >
-            <Qr
-              class="qr"
-              :i="i"
-            />
+          <td>
+            <Qr />
           </td>
           <td>125-1563</td>
           <td>20607199701079</td>
@@ -123,10 +116,7 @@ import Btn from '@/components/Buttons/Btn.vue'
 import Qr from '@/components/Tables/OfferTable/Qr.vue'
 import Sort from '@/components/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'
-
-const qrActive = ref(false)
 const store = useStore()
-const qrAnother = ref('Asdf')
 
 const router = useRouter()
 const emits = defineEmits(['islam'])
@@ -200,44 +190,6 @@ const paginate = data => {
   }
 }
 
-.qr {
-  &-block {
-    position: absolute;
-    width: 200px;
-    left: 75px;
-    top: -75px;
-    background: #FFFFFF;
-    border: 1px solid #EFEFEF;
-    box-shadow: 0 10px 20px #E9E9E9;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    z-index: 1;
-    padding: 10px 0;
-  }
-
-  &-redy {
-    font-weight: 600;
-    font-size: 14px;
-    color: #1BAA75;
-    padding: 12px 20px;
-    cursor: pointer;
-  }
-
-  &-text {
-    font-weight: 400;
-    font-size: 14px;
-    color: #24334B;
-  }
-
-  &-code {
-    font-weight: 600;
-    font-size: 14px;
-    color: #687C9B;
-    text-align: center;
-  }
-}
 .order-list__table {
   table {
     margin-top: 40px;
@@ -285,9 +237,4 @@ const paginate = data => {
     }
   }
 }
-
-.qr-code {
-  position: relative;
-}
-
 </style>

@@ -2,30 +2,24 @@
   <section class="application">
     <div class="application-head">
       <div class="application-search">
-        <input
-          type="text"
-          class="application-search__input"
-        >
+        <input type="text" class="application-search__input" />
         <button class="application-search__btn">
-          <AppSearchIcon/>
+          <AppSearchIcon />
         </button>
       </div>
       <button class="application-export__btn">
         Экспортировать в Exсel
-        <ExcelIcon/>
+        <ExcelIcon />
       </button>
     </div>
     <div class="application-mid">
-      <button
-        class="application-mid__btn"
-        @click="isfilter = !isfilter"
-      >
+      <button class="application-mid__btn" @click="isfilter = !isfilter">
         <template v-if="isfilter">
-          <FilterDisabledIcon/>
+          <FilterDisabledIcon />
           Свернуть фильтр
         </template>
         <template v-else>
-          <FilterEnabledIcon/>
+          <FilterEnabledIcon />
           Открыть фильтр
         </template>
       </button>
@@ -33,75 +27,134 @@
         <span class="application-mid__text">Сортировка за:</span>
         <button class="application-mid__select">
           2022 год
-          <ArrowDownSmallIcon/>
+          <ArrowDownSmallIcon />
         </button>
       </div>
     </div>
-    <div
-      v-show="isfilter"
-      class="application-bottom"
-    >
+    <div v-show="isfilter" class="application-bottom">
       <label class="application-bottom__label">
         Номер реестра
-        <input
-          type="number"
-          class="application-bottom__input"
-        >
+        <input type="number" class="application-bottom__input" />
       </label>
       <label class="application-bottom__label">
         Дата добавления в реестр
-        <input
-          type="date"
-          class="application-bottom__input"
-        >
+        <input type="date" class="application-bottom__input" />
       </label>
       <label class="application-bottom__label">
         ФИО Нотариуса
-        <input
-          type="text"
-          class="application-bottom__input"
-        >
+        <input type="text" class="application-bottom__input" />
       </label>
     </div>
-    <ApplicationTable :items="store.state.registryOfUser"/>
+    <div class="application-table">
+      <table>
+        <thead>
+          <tr>
+            <th>QR</th>
+            <th>
+              <Sort title="ID" />
+            </th>
+            <th>
+              <Sort title="Номер реестра" style="white-space: nowrap" />
+            </th>
+            <th>
+              <Dropdown
+                title="Нотариальное действие"
+                :options="firstList"
+                style="white-space: nowrap"
+              />
+            </th>
+            <th>
+              <Dropdown
+                title="Вид действия"
+                :options="secondList"
+                style="white-space: nowrap"
+              />
+            </th>
+            <th>
+              <Dropdown
+                title="Вид документа"
+                :options="thirdList"
+                style="white-space: nowrap"
+              />
+            </th>
+            <th>
+              <Sort title="Обратившееся лицо" style="white-space: nowrap" />
+            </th>
+            <th>
+              <Dropdown title="Статус" :options="thirdList" />
+            </th>
+            <th>
+              <Sort title="Дата создания" style="white-space: nowrap" />
+            </th>
+            <th>
+              <Sort title="Дата отмены" style="white-space: nowrap" />
+            </th>
+            <th>
+              <Sort
+                title="Дата добавления в реестр"
+                style="width: 190px; text-align: left"
+              />
+            </th>
+            <th>Пошлина</th>
+            <th>Причина</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="(item, i) in paginatedItems" :key="i">
+            <td>
+              <Qr />
+            </td>
+            <td>015163</td>
+            <td>125-8563</td>
+            <td>Обеспечение доказательства</td>
+            <td>Соглашение</td>
+            <td>Свидетельство о праве собственности</td>
+            <td>Чалбеков Анарбек Ибраимович</td>
+            <td>Исполнен</td>
+            <td>01.01.2022</td>
+            <td>01.01.2022</td>
+            <td>01.01.2022</td>
+            <td>Освобожден</td>
+            <td style="white-space: nowrap">Отказ клиента</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="application-pagination">
-      <Pagination
-        :items-per-page="6"
-        :items="files"
-        @paginate="paginate"
-      />
+      <Pagination :items-per-page="6" :items="files" @paginate="paginate" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
-import ApplicationTable from '@/components/Tables/application/ApplicationTable.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
-import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
-import FilterDisabledIcon from '@/views/Icons/FilterDisabledIcon.vue'
-import FilterEnabledIcon from '@/views/Icons/FilterEnabledIcon.vue'
+import ApplicationTable from "@/components/Tables/application/ApplicationTable.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
+import ArrowDownSmallIcon from "@/components/global/Info/Icons/ArrowDownSmallIcon.vue";
+import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
+import ExcelIcon from "@/views/Icons/ExcelIcon.vue";
+import FilterDisabledIcon from "@/views/Icons/FilterDisabledIcon.vue";
+import FilterEnabledIcon from "@/views/Icons/FilterEnabledIcon.vue";
 
-const store = useStore()
-const emits = defineEmits(['islam'])
+const store = useStore();
+const emits = defineEmits(["islam"]);
 
 onMounted(() => {
-  (() => emits('islam', 'Реестр нотариальных действий'))()
-})
+  (() => emits("islam", "Реестр нотариальных действий"))();
+});
 
-const isfilter = ref(true)
+const isfilter = ref(true);
 
-const files = ref(store.state.registryOfUser)
+const files = ref(store.state.registryOfUser);
 
-const paginatedItems = ref(files.value)
+const paginatedItems = ref(files.value);
 
-const paginate = data => {
-  paginatedItems.value = data.value // paginatedItems.push(data)
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value; // paginatedItems.push(data)
+};
 </script>
 
 <style lang="scss" scoped>
@@ -214,8 +267,8 @@ const paginate = data => {
       width: 90%;
       border: 1px solid #cdcdcd;
 
-      &[type='number']::-webkit-inner-spin-button,
-      &[type='number']::-webkit-outer-spin-button {
+      &[type="number"]::-webkit-inner-spin-button,
+      &[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
@@ -241,6 +294,56 @@ const paginate = data => {
   &-pagination {
     max-width: 578px;
     margin: 20px auto;
+  }
+}
+.application-table {
+  max-width: 1115px;
+  overflow: auto;
+
+  table {
+    margin-top: 40px;
+    border-collapse: collapse;
+
+    thead {
+      border: 1px solid #cdcdcd;
+      border-bottom: 2px solid #cdcdcd;
+      height: 64px;
+
+      th {
+        padding: 22px 13px;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        color: #24334b;
+        gap: 20px;
+      }
+    }
+
+    tbody {
+      tr {
+        border: 1px solid transparent;
+
+        .order-list__name {
+          color: #1baa75;
+        }
+
+        &:hover {
+          background: #ffffff;
+          border-color: #cdcdcd;
+        }
+
+        td {
+          padding: 16px;
+          box-sizing: border-box;
+          font-weight: 500;
+          font-size: 14px;
+          color: #24334b;
+          text-align: left;
+          padding: 22px 13px;
+        }
+      }
+    }
   }
 }
 </style>
