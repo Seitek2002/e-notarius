@@ -2,14 +2,7 @@
   <section class="application-table"/>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-// const document = ref(false)
-const qr = ref(null)
-// const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
-// const secondList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
-// const thirdList = ref(['Исполнен', 'На разъяснении', 'В обработке', 'Отменен', 'Отклонен', 'На исполнении'])
+<script setup> 
 defineProps(['items'])
 </script>
 

@@ -123,6 +123,7 @@ import Arrowicon from '@/components/icons/Table/ArrowIcon.vue'
 import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
 import Qr from '@/components/icons/Table/Qr.vue'
 
+
 const store = useStore()
 const document = ref(false)
 const qr = ref(null)

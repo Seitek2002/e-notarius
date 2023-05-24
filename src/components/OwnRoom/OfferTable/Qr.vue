@@ -19,7 +19,7 @@
   <QrCodeEnableIcon
     v-else
     @click="qr = null"
-  />
+  /> 
 </template>
 
 <script setup>

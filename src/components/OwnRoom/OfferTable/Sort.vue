@@ -7,7 +7,7 @@
 
 <script setup>
 import ArrowIcon from '@/components/icons/Table/ArrowIcon.vue'
-
+ 
 defineProps(['title'])
 </script>
 

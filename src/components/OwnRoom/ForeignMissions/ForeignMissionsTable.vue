@@ -74,9 +74,7 @@ import Dropdown from '@/components/OwnRoom/OfferTable/Dropdown.vue'
 
 const document = ref(false)
 const qr = ref(null)
-const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
-// const secondList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство'])
-// const thirdList = ref(['Исполнен', 'На разъяснении', 'В обработке', 'Отменен', 'Отклонен', 'На исполнении'])
+const firstList = ref(['Согласие', 'Доверенность', 'Заявление', 'Выдача', 'Копии', 'Факты', 'Свидетельство']) 
 defineProps(['items'])
 </script>
 
