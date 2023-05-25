@@ -212,7 +212,7 @@ import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIco
 import SearchIcon from '@/components/global/Info/Icons/SearchIcon.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
-import Title from '@/components/global/Info/Title.vue'
+import Title from '@/components/globalUI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)

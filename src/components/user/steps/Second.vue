@@ -58,12 +58,12 @@ import Back from '@/components/global/Info/Btn/Back.vue'
 import Minus from '@/components/global/Info/Btn/Minus.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
 import Plus from '@/components/global/Info/Btn/Plus.vue'
-import Dropdown from '@/components/global/Info/Dropdown.vue'
+import Dropdown from '@/components/globalUI/Info/Dropdown.vue'
 import File from '@/components/global/Info/Input/File.vue'
 import Text from '@/components/global/Info/Input/Text.vue'
-import Mark from '@/components/global/Info/Mark.vue'
-import Suptitle from '@/components/global/Info/Suptitle.vue'
-import Title from '@/components/global/Info/Title.vue'
+import Mark from '@/components/globalUIUI/Info/Mark.vue'
+import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
+import Title from '@/components/globalUI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)

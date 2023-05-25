@@ -700,7 +700,7 @@ import SearchIcon from '@/components/global/Info/Icons/SearchIcon.vue'
 import SuccessSearchResultIcon from '@/components/global/Info/Icons/SuccessSearchResultIcon.vue'
 import RadioCheckedIcon from '@/components/global/Info/Icons/RadioCheckedIcon.vue'
 import RadioNulledIcon from '@/components/global/Info/Icons/RadioNulledIcon.vue'
-import Suptitle from '@/components/global/Info/Suptitle.vue'
+import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
 import File from '@/components/global/Info/Input/File.vue'
 
 const store = useStore()

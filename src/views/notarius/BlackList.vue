@@ -100,7 +100,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import Btn from '@/components/global/Buttons/Btn.vue'
+import Btn from '@/components/global/UI/Buttons/Btn.vue'
 import Qr from '@/components/global/Tables/OfferTable/Qr.vue'
 import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
 import Pagination from '@/components/Pagination/Pagination.vue'

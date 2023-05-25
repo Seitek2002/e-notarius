@@ -35,8 +35,8 @@ import Minus from '@/components/global/Info/Btn/Minus.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
 import Plus from '@/components/global/Info/Btn/Plus.vue'
 import FormContentFirst from '@/components/notarius/steps/FormContent/FormContentFirst.vue'
-import Suptitle from '@/components/global/Info/Suptitle.vue'
-import Title from '@/components/global/Info/Title.vue'
+import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
+import Title from '@/components/globalUI/Info/Title.vue'
 
 const isActive = ref(false)
 // const ForeignFace = ref(false)

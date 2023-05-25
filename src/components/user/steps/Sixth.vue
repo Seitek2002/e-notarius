@@ -49,8 +49,8 @@ import PdfFileIcon from '@/components/global/Info/Icons/PdfFileIcon.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Back from '@/components/global/Info/Btn/Back.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
-import Suptitle from '@/components/global/Info/Suptitle.vue'
-import Title from '@/components/global/Info/Title.vue'
+import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
+import Title from '@/components/globalUI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 const router = useRouter()

@@ -30,7 +30,7 @@
 import { RouterLink } from 'vue-router'
 
 import logo from '@/components/icons/Header/logo.vue'
-import Lang from '@/components/global/Lang/Lang.vue'
+import Lang from '@/components/global/UI/Lang/Lang.vue'
 </script>
 
 <style lang="scss">
