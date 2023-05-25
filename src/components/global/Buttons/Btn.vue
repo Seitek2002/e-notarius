@@ -12,14 +12,14 @@
 </template>
 
 <script setup>
-import AddNewIcon from '@/components/Buttons/Icons/AddNewIcon.vue'
+import AddNewIcon from './Icons/AddNewIcon.vue'
 
 const props = defineProps(['title', 'bg', 'icon', 'disabled'])
 
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/variables.scss";
+@import "@/assets/scss/variables.scss";
 
 .btn {
   font-family: "Montserrat", sans-serif;

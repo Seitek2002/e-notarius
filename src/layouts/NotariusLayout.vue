@@ -156,7 +156,7 @@ const sidebarList = [
     id: 1,
     img: imgTwo,
     text: 'Мои шаблоны',
-    link: '/',
+    link: '#',
   },
   {
     id: 2,
