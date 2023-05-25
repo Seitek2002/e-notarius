@@ -32,7 +32,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import icon from '@/components/icons/Button/offer-icon.vue'
 import Dropdown from '@/components/Info/Dropdown.vue'
 

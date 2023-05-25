@@ -74,7 +74,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import Eighth from '@/components/notarius/steps/Steps/Eighth.vue'
 import Fifth from '@/components/notarius/steps/Steps/Fifth.vue'
 import First from '@/components/notarius/steps/Steps/First.vue'

@@ -37,7 +37,7 @@ import { useStore } from 'vuex'
 import DropdownIcon from '@/components/global/Tables/Icons/DropdownIcon.vue'
 import NotificationIcon from '@/components/icons/OrderList/NotificationIcon.vue'
 import OrderListUserIcon from '@/components/icons/OrderList/OrderListUserIcon.vue'
-import Lang from '@/components/Lang/Lang.vue'
+import Lang from '@/components/global/Lang/Lang.vue'
 
 const router = useRouter()
 const store = useStore()

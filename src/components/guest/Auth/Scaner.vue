@@ -71,7 +71,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import AnimationCircleIcon from '@/components/guest/Auth/Icons/AnimationCircleIcon.vue'
 import FingerprintCircleIcon from '@/components/guest/Auth/Icons/FingerprintCircleIcon.vue'
 import FingerprintIcon from '@/components/guest/Auth/Icons/FingerprintIcon.vue'

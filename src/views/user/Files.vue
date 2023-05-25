@@ -14,7 +14,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import Table from '@/components/global/Tables/FileTable/Table.vue'
 import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
 import Pagination from "@/components/Pagination/Pagination.vue";

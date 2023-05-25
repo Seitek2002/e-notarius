@@ -71,7 +71,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
 import AnimationBubblesIcon from '@/components/global/Info/Icons/AnimationBubblesIcon.vue'
 import CancelIcon from '@/components/modalWindows/Icons/CancelIcon.vue'

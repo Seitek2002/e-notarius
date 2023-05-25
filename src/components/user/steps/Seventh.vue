@@ -47,7 +47,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import Btn from '@/components/Buttons/Btn.vue'
+import Btn from '@/components/global/Buttons/Btn.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Back from '@/components/global/Info/Btn/Back.vue'
 import Minus from '@/components/global/Info/Btn/Minus.vue'
