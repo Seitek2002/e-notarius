@@ -97,6 +97,7 @@ import { ref } from 'vue'
 
 import close from '@/layouts/Icons/sidebar/close.vue'
 import imageFour from '@/layouts/Icons/sidebar/imageFour.vue'
+import imageFive from '@/layouts/Icons/sidebar/imageFive.vue'
 import imageOne from '@/layouts/Icons/sidebar/imageOne.vue'
 import imageThree from '@/layouts/Icons/sidebar/imageThree.vue'
 import imageTwo from '@/layouts/Icons/sidebar/imageTwo.vue'
@@ -188,6 +189,12 @@ const sidebarListSecond = [
     id: 2,
     img: imageFour,
     text: 'Профиль',
+    link: '/',
+  },
+  {
+    id: 3,
+    img: imageFive,
+    text: 'Реестр пользователей',
     link: '/',
   },
 ]
