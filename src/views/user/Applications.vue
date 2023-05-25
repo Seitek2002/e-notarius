@@ -116,7 +116,6 @@
 import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 
-import ApplicationTable from "@/components/global/Tables/application/ApplicationTable.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 import ArrowDownSmallIcon from "@/components/global/Info/Icons/ArrowDownSmallIcon.vue";
 import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";

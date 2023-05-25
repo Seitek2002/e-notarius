@@ -62,7 +62,6 @@ import Text from '@/components/global/Info/Input/Text.vue'
 import Mark from '@/components/global/Info/Mark.vue'
 import Suptitle from '@/components/global/Info/Suptitle.vue'
 import Title from '@/components/global/Info/Title.vue'
-import RegistryModal from '@/components/modalWindows/RegistryModal.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 import FormContentSix from './FormContentSix.vue'
