@@ -156,7 +156,7 @@ const sidebarList = [
     id: 1,
     img: imgTwo,
     text: 'Мои шаблоны',
-    link: '#',
+    link: 'exemple-notarius',
   },
   {
     id: 2,
@@ -182,7 +182,7 @@ const sidebarListSecond = [
     id: 1,
     img: imageThree,
     text: 'Руководства пользователя',
-    link: '/',
+    link: '/manual-notarius',
   },
   {
     id: 2,

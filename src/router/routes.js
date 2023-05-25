@@ -229,6 +229,38 @@ export const routes = [
     name: 'check-qr',
     component: () => import('../views/QRResult.vue'),
   },
+  {
+    path: '/exemple-user',
+    name: 'exemple-user',
+    meta: {
+      layout: 'user', 
+    },
+    component: () => import('../views/user/Exemple.vue'),
+  },
+  {
+    path: '/exemple-notarius',
+    name: 'exemple-notarius',
+    meta: {
+      layout: 'notarius', 
+    },
+    component: () => import('../views/notarius/Exemple.vue'),
+  },
+  {
+    path: '/manual-notarius',
+    name: 'manual-notarius',
+    meta: {
+      layout: 'notarius', 
+    },
+    component: () => import('../views/Manual.vue'),
+  },
+  {
+    path: '/manual-user',
+    name: 'manual-user',
+    meta: {
+      layout: 'user', 
+    },
+    component: () => import('../views/Manual.vue'),
+  },
   ...NOTARY_PAGES,
   ...USERS_PAGES,
 ]

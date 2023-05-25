@@ -108,7 +108,7 @@
     </div>
     <div class="application-pagination">
       <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
-    </div>
+    </div> 
   </section>
 </template>
 
@@ -143,6 +143,34 @@ const paginatedItems = ref(files.value);
 const paginate = (data) => {
   paginatedItems.value = data.value; // paginatedItems.push(data)
 };
+
+
+const firstList = ref([
+  "Согласие",
+  "Доверенность",
+  "Заявление",
+  "Выдача",
+  "Копии",
+  "Факты",
+  "Свидетельство",
+]);
+const secondList = ref([
+  "Согласие",
+  "Доверенность",
+  "Заявление",
+  "Выдача",
+  "Копии",
+  "Факты",
+  "Свидетельство",
+]);
+const thirdList = ref([
+  "Исполнен",
+  "На разъяснении",
+  "В обработке",
+  "Отменен",
+  "Отклонен",
+  "На исполнении",
+]);
 </script>
 
 <style lang="scss" scoped>

@@ -101,7 +101,7 @@ const sidebarList = [
     id: 1,
     img: imgTwo,
     text: 'Мои шаблоны',
-    link: '/',
+    link: '/exemple-user',
   },
   {
     id: 2,
@@ -145,7 +145,7 @@ const sidebarListSecond = [
     id: 2,
     img: imageThree,
     text: 'Руководства пользователя',
-    link: '/',
+    link: '/manual-user',
   },
   {
     id: 3,

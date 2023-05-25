@@ -42,6 +42,7 @@ const isShow = ref(false)
 
   &__wrapper {
     display: flex;
+    justify-content: space-between;
     gap: 60px;
     align-items: center;
     cursor: pointer;
