@@ -91,9 +91,21 @@ const routeItems = [
 @import "@/assets/scss/variables.scss";
 
 .document {
+   @media screen and (max-width: 991px) {
+      max-width: 520px;
+      margin: 0 auto;
+    }
   &__content {
     margin: 97px 0 167px 0;
     position: relative;
+    @media screen and (max-width: 1212px) {
+      margin-bottom: 70px;
+            margin-top: 70px;
+    }
+    @media screen and (max-width: 520px) {
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
   }
 
   &__block {
@@ -181,12 +193,21 @@ const routeItems = [
 }
 
 .services {
+  @media screen and (max-width: 991px) {
+      max-width: 520px;
+      margin: 0 auto;
+    }
   &__title {
     font-weight: 600;
     font-size: 36px;
     line-height: 44px;
     color: $text-dark-blue;
     margin-bottom: 50px;
+    @media screen and (max-width: 1212px) {
+      font-size: 24px;
+      line-height: 29px;
+      margin-bottom: 30px;
+    }
   }
 
   &__block {
@@ -203,7 +224,8 @@ const routeItems = [
             justify-content: space-between;
 
     }
-    @media screen and (max-width: 512px) {
+    @media screen and (max-width: 991px) {
+      margin-bottom: 50px;
       justify-content: center;
     }
   }

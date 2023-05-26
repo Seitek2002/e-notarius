@@ -6,53 +6,44 @@
         <div class="register__input">
           <label class="register__search">
             <div class="register__flex">
-              <input
-                v-model="searchVal"
-                type="text"
+              <input v-model="searchVal" type="text" />
+              <button
+                @click="
+                  paginatedItems = items.filter((item) =>
+                    item.name.includes(searchVal)
+                  )
+                "
               >
-              <button @click="paginatedItems = items.filter(item => item.name.includes(searchVal))">
-                <SearchContentIcon/>
+                <SearchContentIcon />
               </button>
             </div>
           </label>
         </div>
         <div class="register__filter">
           <button @click="showFilters = !showFilters">
-            <FilterDisableIcon v-show="showFilters"/>
-            <FilterEnableIcon v-show="!showFilters"/>
-            {{ showFilters ? 'Свернуть' : 'Развернуть' }} фильтр
+            <FilterDisableIcon v-show="showFilters" />
+            <FilterEnableIcon v-show="!showFilters" />
+            {{ showFilters ? "Свернуть" : "Развернуть" }} фильтр
           </button>
           <div class="register__fixed">
             <label
               :class="isCheckFirst ? ' active' : ''"
               @click="isCheckFirst = !isCheckFirst"
             >
-              <div
-                v-show="isCheckFirst"
-                class="register__pin"
-              >
-                <SuccessContentIcon/>
+              <div v-show="isCheckFirst" class="register__pin">
+                <SuccessContentIcon />
               </div>
-              <div
-                v-show="!isCheckFirst"
-                class="register__mark"
-              />
+              <div v-show="!isCheckFirst" class="register__mark" />
               Круглосуточно
             </label>
             <label
               :class="isCheckSecond ? ' active' : ''"
               @click="isCheckSecond = !isCheckSecond"
             >
-              <div
-                v-show="isCheckSecond"
-                class="register__pin"
-              >
-                <SuccessContentIcon/>
+              <div v-show="isCheckSecond" class="register__pin">
+                <SuccessContentIcon />
               </div>
-              <div
-                v-show="!isCheckSecond"
-                class="register__mark"
-              />
+              <div v-show="!isCheckSecond" class="register__mark" />
               Выездной
             </label>
           </div>
@@ -64,15 +55,14 @@
               @click="isActive = !isActive"
             >
               <p>{{ setSort }}</p>
-              <ArrowDownSmallIcon/>
+              <ArrowDownSmallIcon />
             </div>
-            <div
-              v-show="isActive"
-              class="register__sort sort"
-            >
+            <div v-show="isActive" class="register__sort sort">
               <div
                 class="sort__option"
-                @click="(setSort = 'В алфавитном порядке'), (isActive = !isActive)"
+                @click="
+                  (setSort = 'В алфавитном порядке'), (isActive = !isActive)
+                "
               >
                 В алфавитном порядке
               </div>
@@ -85,21 +75,65 @@
             </div>
           </div>
         </div>
-        <Filter v-show="showFilters"/>
+        <Filter v-show="showFilters" />
+        <div class="register__adaptive">
+          <div class="register__fixed">
+            <label
+              :class="isCheckFirst ? ' active' : ''"
+              @click="isCheckFirst = !isCheckFirst"
+            >
+              <div v-show="isCheckFirst" class="register__pin">
+                <SuccessContentIcon />
+              </div>
+              <div v-show="!isCheckFirst" class="register__mark" />
+              Круглосуточно
+            </label>
+            <label
+              :class="isCheckSecond ? ' active' : ''"
+              @click="isCheckSecond = !isCheckSecond"
+            >
+              <div v-show="isCheckSecond" class="register__pin">
+                <SuccessContentIcon />
+              </div>
+              <div v-show="!isCheckSecond" class="register__mark" />
+              Выездной
+            </label>
+          </div>
+          <div class="register__fix">
+            <p>Сортировка:</p>
+            <div
+              class="register__box"
+              :class="isActive ? 'active' : ''"
+              @click="isActive = !isActive"
+            >
+              <p>{{ setSort }}</p>
+              <ArrowDownSmallIcon />
+            </div>
+            <div v-show="isActive" class="register__sort sort">
+              <div
+                class="sort__option"
+                @click="
+                  (setSort = 'В алфавитном порядке'), (isActive = !isActive)
+                "
+              >
+                В алфавитном порядке
+              </div>
+              <div
+                class="sort__option"
+                @click="(setSort = 'По оценкам'), (isActive = !isActive)"
+              >
+                По оценкам
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="register__user">
-          <template
-            v-for="item in paginatedItems"
-            :key="item.id"
-          >
-            <Item :item="item"/>
+          <template v-for="item in paginatedItems" :key="item.id">
+            <Item :item="item" />
           </template>
         </div>
         <div class="register__scroll">
-          <Pagination
-            :items-per-page="4"
-            :items="items"
-            @paginate="paginate"
-          />
+          <Pagination :items-per-page="4" :items="items" @paginate="paginate" />
         </div>
         <div class="register__map">
           <h2>Поиск нотариуса на карте</h2>
@@ -119,46 +153,46 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import FilterDisableIcon from '@/components/guest/NotariusList/Icons/FilterDisableIcon.vue'
-import FilterEnableIcon from '@/components/guest/NotariusList/Icons/FilterEnableIcon.vue'
-import SearchContentIcon from '@/components/guest/NotariusList/Icons/SearchContentIcon.vue'
-import SuccessContentIcon from '@/components/guest/NotariusList/Icons/SuccessContentIcon.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
+import FilterDisableIcon from "@/components/guest/NotariusList/Icons/FilterDisableIcon.vue";
+import FilterEnableIcon from "@/components/guest/NotariusList/Icons/FilterEnableIcon.vue";
+import SearchContentIcon from "@/components/guest/NotariusList/Icons/SearchContentIcon.vue";
+import SuccessContentIcon from "@/components/guest/NotariusList/Icons/SuccessContentIcon.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
 
-import Filter from './Filter.vue'
-import Item from './Item.vue'
+import Filter from "./Filter.vue";
+import Item from "./Item.vue";
 
-const store = useStore()
+const store = useStore();
 
-const showFilters = ref(false)
-const items = ref(store.state.notariusList)
-const isActive = ref(false)
-const isCheckFirst = ref(false)
-const isCheckSecond = ref(false)
-const searchVal = ref('')
-const setSort = ref('В алфавитном порядке')
+const showFilters = ref(false);
+const items = ref(store.state.notariusList);
+const isActive = ref(false);
+const isCheckFirst = ref(false);
+const isCheckSecond = ref(false);
+const searchVal = ref("");
+const setSort = ref("В алфавитном порядке");
 
 const paginatedItems = ref([
   {
     id: 0,
   },
-])
+]);
 
-const paginate = data => {
-  paginatedItems.value = data.value
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value;
+};
 
 onMounted(() => {
-  window.scrollTo({ top: 0 })
-})
+  window.scrollTo({ top: 0 });
+});
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .register {
   &__fixed {
@@ -185,7 +219,8 @@ onMounted(() => {
     height: 16px;
     box-sizing: border-box;
     border: 1px solid #cdcdcd;
-    box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06), 0 5px 30px -5px rgba(160, 160, 160, 0.1);
+    box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
+      0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #1baa75;
     border-radius: 2px;
     text-align: center;
@@ -214,19 +249,26 @@ onMounted(() => {
     box-sizing: border-box;
 
     border: 1px solid #cdcdcd;
-    box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06), 0 5px 30px -5px rgba(160, 160, 160, 0.1);
+    box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
+      0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #ffffff;
     border-radius: 2px;
   }
 
   &__content {
     margin-top: 100px;
-
+    @media screen and (max-width: 1050px) {
+      margin-top: 0;
+    }
     h1 {
       font-weight: 600;
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
+      @media screen and (max-width: 1050px) {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -255,6 +297,15 @@ onMounted(() => {
       &:disabled {
         opacity: 0.5;
         cursor: not-allowed;
+      }
+      @media screen and (max-width: 1050px) {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+    div {
+      @media screen and (max-width: 1050px) {
+        display: none;
       }
     }
   }
@@ -290,7 +341,7 @@ onMounted(() => {
     }
 
     input {
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       width: 100%;
       font-weight: 400;
       font-size: 16px;
@@ -365,6 +416,10 @@ onMounted(() => {
       box-sizing: border-box;
       cursor: pointer;
 
+      @media screen and (max-width: 1050px) {
+        width: 100%;
+        margin-bottom: 0;
+      }
       &.active {
         border: 1px solid #1baa75;
 
@@ -384,6 +439,10 @@ onMounted(() => {
       color: #24334b;
       margin-bottom: 5px;
     }
+    @media screen and (max-width: 1050px) {
+      margin-top: 0;
+      width: 100%;
+    }
   }
 
   &__block {
@@ -392,6 +451,10 @@ onMounted(() => {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
+    @media screen and (max-width: 1050px) {
+      gap: 0;
+      max-width: 100%;
+    }
   }
 
   &__btn {
@@ -410,7 +473,9 @@ onMounted(() => {
       gap: 10px;
       transition: 0.3s;
       background: #3f5984;
-
+      @media screen and (max-width: 1050px) {
+        width: 100%;
+      }
       &:not(:disabled):hover {
         opacity: 0.96;
         box-shadow: 0 10px 20px #99dbaf;
@@ -421,8 +486,37 @@ onMounted(() => {
         cursor: not-allowed;
       }
     }
+    @media screen and (max-width: 1050px) {
+      margin-bottom: 0;
+    }
   }
-
+  &__adaptive {
+    display: none;
+    padding-top: 22px;
+    div {
+      margin-top: 34px;
+      label {
+        div {
+          margin-top: 0;
+        }
+      }
+    }
+    .register__fix {
+      flex-direction: column;
+      align-items: start;
+      gap: 0;
+    }
+    .register__box {
+      margin-top: 0;
+      width: 100%;
+      justify-content: space-between;
+      box-sizing: border-box;
+      height: 44px;
+    }
+    @media screen and (max-width: 1050px) {
+      display: block;
+    }
+  }
   &__profile {
     max-width: 286px;
     padding: 23px 21px 31px 20px;
@@ -430,10 +524,15 @@ onMounted(() => {
     box-sizing: border-box;
     transition: 0.3s;
     margin-top: 56px;
-
     &:hover {
       background: #fff;
       box-shadow: 0 5px 20px #e9e9e9;
+    }
+    @media screen and (max-width: 1050px) {
+      max-width: 100%;
+      width: 100%;
+      padding: 16px 16px;
+      margin-top: 10px;
     }
   }
 
@@ -444,6 +543,10 @@ onMounted(() => {
       width: 100px;
       height: 100px;
       border-radius: 100%;
+      @media screen and (max-width: 1050px) {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     h1 {
@@ -452,17 +555,29 @@ onMounted(() => {
       text-align: center;
       color: #24334b;
       margin-top: 20px;
+      @media screen and (max-width: 1050px) {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 10px;
+      }
+    }
+    @media screen and (max-width: 1050px) {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
     }
   }
 
   &__stars {
     display: flex;
     gap: 8px;
-
+    margin-top: 10px;
+    align-items: center;
     h1 {
       font-weight: 600;
       font-size: 16px;
       color: #24334b;
+      margin: 0;
     }
 
     p {
@@ -471,6 +586,10 @@ onMounted(() => {
       max-width: 246px;
       height: 60px;
       color: #bdbdbd;
+      margin: 0;
+      @media screen and (max-width: 1050px) {
+        height: 100%;
+      }
     }
   }
 
@@ -480,6 +599,9 @@ onMounted(() => {
     font-size: 16px;
     color: #24334b;
     margin-top: -22px;
+    @media screen and (max-width: 1050px) {
+      display: none;
+    }
   }
 
   &__user {
@@ -487,6 +609,9 @@ onMounted(() => {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 50px;
+    @media screen and (max-width: 1050px) {
+      gap: 0;
+    }
   }
 
   &__scroll {
@@ -494,6 +619,16 @@ onMounted(() => {
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 120px;
+    @media screen and (max-width: 1050px) {
+      margin-bottom: 0;
+    }
+    .pagination {
+      @media screen and (max-width: 1050px) {
+      margin: 0 0;
+      padding: 8px 20%;
+      // box-sizing: content-box;
+    }
+    }
   }
 
   &__map {
@@ -502,6 +637,10 @@ onMounted(() => {
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
+      @media screen and (max-width: 1050px) {
+        margin-top: 45px;
+        font-size: 24px;
+      }
     }
 
     iframe {

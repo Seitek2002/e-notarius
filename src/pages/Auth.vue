@@ -28,6 +28,9 @@ import Scaner from '@/components/guest/Auth/Scaner.vue'
     font-size: 36px;
     text-align: center;
     color: $text-dark-blue;
+    @media screen and (max-width: 456px) {
+      font-size: 24px;
+    }
   }
 
   &__content {
