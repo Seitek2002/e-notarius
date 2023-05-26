@@ -173,14 +173,6 @@ export const routes = [
     component: () => import('../views/AboutView.vue'),
   },
   {
-    path: '/components',
-    name: 'components',
-    meta: {
-      layout: 'user',
-    },
-    component: () => import('../views/Components.vue'),
-  },
-  {
     path: '/notarius-page/:id',
     name: 'NotariusPage',
     component: () => import('../views/NotariusPage.vue'),

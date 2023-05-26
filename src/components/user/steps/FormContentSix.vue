@@ -11,8 +11,9 @@
         <div class="dropdown">
           <p>Срок доверенности</p>
           <label
+          ref="believeIsActiveRef"
             :class="believeIsActive ? 'active' : ''"
-            @click="believeIsActive = !believeIsActive"
+            @click="believeIsActive = true"
           >
             <span>{{ believeTime }}</span>
             <ArrowDownSmallIcon
@@ -28,7 +29,7 @@
               v-for="option in ['1 месяц', '3 месяца', '6 месяцев', '1 год', '3 года', 'другое']"
               :key="option"
               class="dropdown-search__option"
-              @click=";(believeTime = option), (believeIsActive = !believeIsActive)"
+              @click=";(believeTime = option), (believeIsActive = false)"
             >
               {{ option }}
             </div>
@@ -37,12 +38,12 @@
         <div class="dropdown">
           <p>Степень родства</p>
           <label
+          ref="relationIsActiveRef"
             :class="relationIsActive ? 'active' : ''"
-            @click="relationIsActive = !relationIsActive"
+            @click="relationIsActive = true"
           >
             <span>{{ relation }}</span>
             <ArrowDownSmallIcon
-              class="arrow"
               :class="{ active: relationIsActive }"
             />
           </label>
@@ -54,7 +55,7 @@
               v-for="option in ['Дети', 'Родители', 'Супруги', 'Иные физические лица']"
               :key="option"
               class="dropdown-search__option"
-              @click=";(relation = option), (relationIsActive = !relationIsActive)"
+              @click=";(relation = option), (relationIsActive = false)"
             >
               {{ option }}
             </div>
@@ -74,8 +75,9 @@
         <div class="dropdown">
           <p>Право передоверия</p>
           <label
+          ref="believeIsActiveRightRef"
             :class="believeIsActiveRight ? 'active' : ''"
-            @click="believeIsActiveRight = !believeIsActiveRight"
+            @click="believeIsActiveRight = true"
           >
             <span>{{ promises }}</span>
             <ArrowDownSmallIcon
@@ -91,7 +93,7 @@
               v-for="option in ['С правом передоверия', 'Без права передоверия']"
               :key="option"
               class="dropdown-search__option"
-              @click=";(believeRight = option), (believeIsActiveRight = !believeIsActiveRight)"
+              @click=";(believeRight = option), (believeIsActiveRight = false)"
             >
               {{ option }}
             </div>
@@ -175,6 +177,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
 
 import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
@@ -221,15 +224,23 @@ const believeTime = ref('1 месяц')
 const autoNumber = ref('09KG774')
 const promises = ref('C правом передоверия')
 const believeTimeIsActive = ref('')
+const believeTimeIsActiveRef = ref(null)
+onClickOutside(believeTimeIsActiveRef, () => believeTimeIsActive.value = false);
 
 const relation = ref('Иные физические лица')
 const relationIsActive = ref('')
+const relationIsActiveRef = ref(null)
+onClickOutside(relationIsActiveRef, () => relationIsActive.value = false);
 
 const believe = ref('')
 const believeIsActive = ref(false)
+const believeIsActiveRef = ref(null)
+onClickOutside(believeIsActiveRef, () => believeIsActive.value = false);
 
 const believeRight = ref('')
 const believeIsActiveRight = ref(false)
+const believeIsActiveRightRef = ref(null)
+onClickOutside(believeIsActiveRightRef, () => believeIsActiveRight.value = false);
 
 const isLoading = ref(false)
 const end = ref(false)

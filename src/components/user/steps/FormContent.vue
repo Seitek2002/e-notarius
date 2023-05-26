@@ -129,8 +129,9 @@
           <div class="w-50 dropdown-search">
             <p>Гражданство</p>
             <label
+            ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
-              @click="citizenshipIsActive = !citizenshipIsActive"
+              @click="citizenshipIsActive = true"
             >
               <span>
                 <SearchIcon/>
@@ -146,7 +147,7 @@
                 v-for="option in ['Кыргызстан']"
                 :key="option"
                 class="dropdown-search__option"
-                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = !citizenshipIsActive)"
+                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = false)"
               >
                 {{ option }}
               </div>
@@ -159,8 +160,9 @@
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
+              ref="regionIsActiveRef"
                 :class="regionIsActive ? 'active' : ''"
-                @click="regionIsActive = !regionIsActive"
+                @click="regionIsActive = true"
               >
                 <span>
                   {{ regionActiveOption }}
@@ -175,7 +177,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOption = option), (regionIsActive = !regionIsActive)"
+                  @click=";(regionActiveOption = option), (regionIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -184,8 +186,9 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
+              ref="areaIsActiveRef"
                 :class="areaIsActive ? 'active' : ''"
-                @click="areaIsActive = !areaIsActive"
+                @click="areaIsActive = true"
               >
                 <span>
                   {{ areaActiveOption }}
@@ -200,7 +203,7 @@
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOption = option), (areaIsActive = !areaIsActive)"
+                  @click=";(areaActiveOption = option), (areaIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -211,8 +214,9 @@
             <div class="city dropdown">
               <p>Населенный пункт, город</p>
               <label
+              ref="cityIsActiveRef"
                 :class="cityIsActive ? 'active' : ''"
-                @click="cityIsActive = !cityIsActive"
+                @click="cityIsActive = true"
               >
                 <span>
                   {{ cityActiveOption }}
@@ -245,7 +249,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOption = option), (cityIsActive = !cityIsActive)"
+                  @click=";(cityActiveOption = option), (cityIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -278,8 +282,9 @@
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
+              ref="regionIsActiveSecondRef"
                 :class="regionIsActiveSecond ? 'active' : ''"
-                @click="regionIsActiveSecond = !regionIsActiveSecond"
+                @click="regionIsActiveSecond = true"
               >
                 <span>
                   {{ regionActiveOptionSecond }}
@@ -294,7 +299,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = !regionIsActiveSecond)"
+                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -303,8 +308,9 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
+              ref="areaIsActiveSecondRef"
                 :class="areaIsActiveSecond ? 'active' : ''"
-                @click="areaIsActiveSecond = !areaIsActiveSecond"
+                @click="areaIsActiveSecond = true"
               >
                 <span>
                   {{ areaActiveOptionSecond }}
@@ -319,7 +325,7 @@
                   v-for="option in areasSecond"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = !areaIsActiveSecond)"
+                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -533,6 +539,7 @@ import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
 import Dropdown from '@/components/global/UI/Info/Dropdown.vue'
 import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
 import File from '@/components/global/UI/Info/Input/File.vue'
+import { onClickOutside } from '@vueuse/core'
 
 const store = useStore()
 const INNVal = ref('')
@@ -570,23 +577,35 @@ const officialNameVal = ref('')
 const nationalNameVal = ref('')
 
 const cityIsActive = ref(false)
+const cityIsActiveRef = ref(null)
+onClickOutside(cityIsActiveRef, () => cityIsActive.value = false);
 const cityActiveOption = ref('')
 // const cityIsActiveSecond = ref(false)
 // const cityActiveOptionSecond = ref('')
 
 const citizenshipIsActive = ref(false)
+const citizenshipIsActiveRef = ref(null)
+onClickOutside(citizenshipIsActiveRef, () => citizenshipIsActive.value = false);
 const citizenshipActiveOption = ref('')
 
 const regionIsActive = ref(false)
+const regionIsActiveRef = ref(null)
+onClickOutside(regionIsActiveRef, () => regionIsActive.value = false);
 const regionActiveOption = ref('')
 
 const areaIsActive = ref(false)
+const areaIsActiveRef = ref(null)
+onClickOutside(areaIsActiveRef, () => areaIsActive.value = false);
 const areaActiveOption = ref('')
 
 const regionIsActiveSecond = ref(false)
+const regionIsActiveSecondRef = ref(null)
+onClickOutside(regionIsActiveSecondRef, () => regionIsActiveSecond.value = false);
 const regionActiveOptionSecond = ref('')
 
 const areaIsActiveSecond = ref(false)
+const areaIsActiveSecondRef = ref(null)
+onClickOutside(areaIsActiveSecondRef, () => areaIsActiveSecond.value = false);
 const areaActiveOptionSecond = ref('')
 
 const streetFisrt = ref('')
@@ -846,7 +865,7 @@ input {
 
   &__select {
     position: absolute;
-    top: 65px;
+    top: 100%;
     left: 0;
     background: #fff;
     max-height: 200px;

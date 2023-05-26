@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
+
+const isActiveRef = ref(null)
 
 const isActive = ref(false)
 const activeOption = ref('Все')
@@ -40,7 +43,7 @@ const handleChange = value => {
     })
   }
 }
-
+onClickOutside(isActiveRef, () => isActive.value = false);
 </script>
 
 <template>
@@ -48,6 +51,7 @@ const handleChange = value => {
     <p>{{ title }}</p>
     <label
       :class="isActive ? 'active' : ''"
+      ref="isActiveRef"
       @click="isActive = !isActive"
     >
       <span>{{ activeOption }}</span>

@@ -74,8 +74,8 @@
 <script setup>
 import { ref } from 'vue'
 
-import MinusIcon from '@/components/Auth/Icons/MinusIcon.vue'
-import PlusIcon from '@/components/Auth/Icons/PlusIcon.vue'
+import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
+import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 import AppSearchSmallIcon from '@/views/Icons/AppSearchSmallIcon.vue'
 import PersonSmallIcon from '@/views/Icons/PersonSmallIcon.vue'
 import EmptyIcon from '@/components/icons/HeirsSearch/EmptyIcon.vue'

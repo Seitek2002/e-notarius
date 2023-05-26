@@ -9,7 +9,7 @@
 
     <div class="top__action">
       <div class="top__user">
-        <div class="top__user-wrapper" @click="isDropdownShow = !isDropdownShow">
+        <div class="top__user-wrapper" ref="dropDownRef" @click="isDropdownShow = !isDropdownShow">
           <OrderListUserIcon />
           <!-- <h2 v-if="store.state.auth.chin">ЧН Абдыгулов Баяман Алыкулович</h2> -->
           <h2> {{ store.state.auth.fullName }} </h2>
@@ -39,6 +39,7 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
 
 import DropdownIcon from '@/components/global/Tables/Icons/DropdownIcon.vue'
 import NotificationIcon from '@/components/icons/OrderList/NotificationIcon.vue'
@@ -47,6 +48,8 @@ import Lang from '@/components/global/UI/Lang/Lang.vue'
 
 const router = useRouter()
 const store = useStore()
+
+const dropDownRef = ref(null)
 
 const logOut = () => {
   router.push('/')
@@ -60,6 +63,8 @@ onMounted(() => {
   const user = localStorage.getItem('auth-user')
   if (user) store.state.auth = JSON.parse(user)
 })
+
+onClickOutside(dropDownRef, () => isDropdownShow.value = false);
 </script>
 
 <style lang="scss">

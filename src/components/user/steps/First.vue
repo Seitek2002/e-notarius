@@ -15,6 +15,7 @@
         <div class="dropdown">
           <p>Область</p>
           <label
+            ref="isActiveRegionRef"
             :class="isActiveRegion ? 'active' : ''"
             @click="isActiveRegion = !isActiveRegion"
           >
@@ -29,7 +30,7 @@
               v-for="(region, i) in regions"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionRegion = region), (isActiveRegion = !isActiveRegion)"
+              @click=";(activeOptionRegion = region), (isActiveRegion = false)"
             >
               {{ region }}
             </div>
@@ -38,6 +39,7 @@
         <div class="dropdown">
           <p>Районы</p>
           <label
+            ref="isActiveAreaRef"
             :class="isActiveArea ? 'active' : ''"
             @click="isActiveArea = !isActiveArea"
           >
@@ -52,7 +54,7 @@
               v-for="(area, i) in areas"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionArea = area), (isActiveArea = !isActiveArea)"
+              @click=";(activeOptionArea = area), (isActiveArea = false)"
             >
               {{ area }}
             </div>
@@ -63,6 +65,7 @@
         <div class="dropdown">
           <p>Город</p>
           <label
+            ref="isActiveCityRef"
             :class="isActiveCity ? 'active' : ''"
             @click="isActiveCity = !isActiveCity"
           >
@@ -97,7 +100,7 @@
               ]"
               :key="option"
               class="dropdown__option"
-              @click=";(activeOptionCity = option), (isActiveCity = !isActiveCity)"
+              @click=";(activeOptionCity = option), (isActiveCity = false)"
             >
               {{ option }}
             </div>
@@ -106,6 +109,7 @@
         <div class="dropdown">
           <p>Нотариальный округ</p>
           <label
+            ref="isActiveNotariusAreaRef"
             :class="isActiveNotariusArea ? 'active' : ''"
             @click="isActiveNotariusArea = !isActiveNotariusArea"
           >
@@ -163,7 +167,7 @@
               ]"
               :key="option"
               class="dropdown__option"
-              @click=";(activeOptionNotariusArea = option), (isActiveNotariusArea = !isActiveNotariusArea)"
+              @click=";(activeOptionNotariusArea = option), (isActiveNotariusArea = false)"
             >
               {{ option }}
             </div>
@@ -173,6 +177,7 @@
       <div class="dropdown-search">
         <p>Нотариус</p>
         <label
+          ref="isActiveRef"
           :class="isActive ? 'active' : ''"
           @click="isActive = !isActive"
         >
@@ -194,7 +199,7 @@
             ]"
             :key="option"
             class="dropdown-search__option"
-            @click=";(activeOption = option), (isActive = !isActive)"
+            @click=";(activeOption = option), (isActive = false)"
           >
             {{ option }}
           </div>
@@ -206,7 +211,8 @@
 </template>
 
 <script setup>
-import { ref, watch, defineEmits } from 'vue'
+import { ref, watch, defineEmits, onUnmounted } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
@@ -214,6 +220,12 @@ import Approved from '@/components/global/UI/Info/Approved.vue'
 import Next from '@/components/global/UI/Info/Btn/Next.vue'
 import Title from '@/components/global/UI/Info/Title.vue'
 
+const isActiveRegionRef = ref(null)
+const isActiveAreaRef = ref(null)
+const isActiveCityRef = ref(null)
+const isActiveNotariusAreaRef = ref(null)
+
+const isActiveRef = ref(null)
 const isActive = ref(false)
 const isActiveRadio = ref(0)
 const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
@@ -264,6 +276,13 @@ const emits = defineEmits(['handleCustomEvent'])
 const handleClick = (id, move) => {
   emits('handleCustomEvent', id)
 }
+
+onClickOutside(isActiveRegionRef, () => isActiveRegion.value = false);
+onClickOutside(isActiveAreaRef, () => isActiveArea.value = false);
+onClickOutside(isActiveCityRef, () => isActiveCity.value = false);
+onClickOutside(isActiveNotariusAreaRef, () => isActiveNotariusArea.value = false);
+onClickOutside(isActiveRef, () => isActive.value = false);
+
 </script>
 
 <style lang="scss">
