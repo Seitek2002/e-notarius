@@ -218,15 +218,15 @@ const container = ref(null);
 
 const handleScrollRight = () => {
   container.value.scrollBy({
-    left: -200,
-    behavior: "smooth"
+    left: 200,
+    behavior: "smooth",
   });
 };
 
 const handleScrollLeft = () => {
   container.value.scrollBy({
-    left: 200,
-    behavior: "smooth"
+    left: -200,
+    behavior: "smooth",
   });
 };
 </script>
@@ -264,11 +264,10 @@ const handleScrollLeft = () => {
 
   &__table {
     min-height: 448px;
-    // direction: rtl;
     overflow-x: auto;
-    // height: 50px;
-    // width: 50px;
-    width: 500px;
+      max-width: 1040px;
+    @media screen and (max-width: 1224px) {
+    }
   }
 
   tr {
