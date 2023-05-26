@@ -195,7 +195,7 @@ const changeTitle = newTitle => {
   display: flex;
 }
 
-.content { 
+.content {
   padding: 60px;
   box-sizing: border-box;
   max-width: 100%;
