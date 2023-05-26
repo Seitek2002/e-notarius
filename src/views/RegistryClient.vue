@@ -1,6 +1,6 @@
-<template>
+<template> 
     <section class="registryClient">
-        <button class="registryClient-btn">Добавить нового пользователя</button>
+        <button @click="store.state.registryClientBigModal = !store.state.registryClientBigModal" class="registryClient-btn">Добавить нового пользователя</button>
         <div class="registryClient-head">
             <div class="registryClient-info">
                 <div class="registryClient-search">
@@ -106,6 +106,8 @@
         <div class="registryClient-pagination">
             <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
         </div>
+        <BigModal v-show="store.state.registryClientBigModal" />
+        <MiniModal v-show="store.state.registryClientMiniModal" />
     </section>
 </template>
 
@@ -115,9 +117,10 @@ import Search from "@/components/icons/exemple/Search.vue";
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import Accordeon from '@/components/global/UI/Info/Accordeon.vue'
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
-import Pagination from "@/components/Pagination/Pagination.vue";
-import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
+import Pagination from "@/components/Pagination/Pagination.vue"; 
 import { useStore } from "vuex";
+import BigModal from "@/components/global/modal/RegistryClient/BigModal.vue";
+import MiniModal from "@/components/global/modal/RegistryClient/MiniModal.vue";
 const store = useStore()
 const emits = defineEmits(['islam'])
 onMounted(() => {
