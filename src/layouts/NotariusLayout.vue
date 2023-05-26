@@ -1,84 +1,61 @@
 <template>
   <div class="app-notarius-layout">
-    <section :class="isActive ? 'sidebar active' : 'sidebar'">
+    <section :class="store.state.notariusSidebar ? 'sidebar active' : 'sidebar'">
       <div class="sidebar-wrapper">
         <div class="sidebar-head">
           <router-link to="/">
-            <logo/>
+            <logo />
           </router-link>
-          <close @click="isActive = !isActive"/>
+          <close @click="store.state.notariusSidebar = !store.state.notariusSidebar" />
         </div>
         <h2 class="sidebar-title">
           Личный кабинет
         </h2>
-        <div :class="isActive ? 'sidebar-list active' : 'sidebar-list'">
-          <router-link
-            v-for="(item, i) in sidebarList"
-            :key="item.id"
-            :to="item.link"
-            class="sidebar-item"
-            @click="(firstIndex = i)"
-          >
-            <component
-              :is="item.img"
-              class="sidebar-icons"
-            />
+        <div :class="store.state.notariusSidebar ? 'sidebar-list active' : 'sidebar-list'">
+          <router-link v-for="(item, i) in sidebarList" :key="item.id" :to="item.link" class="sidebar-item"
+            @click="(firstIndex = i)">
+            <component :is="item.img" class="sidebar-icons" />
             <!-- <img :src="item.img" alt="icons" class="sidebar-icons"> -->
             <span class="sidebar-link">{{ item.text }}</span>
           </router-link>
         </div>
 
-        <div :class="isActive ? 'sidebar-list active' : 'sidebar-list'">
+        <div :class="store.state.notariusSidebar ? 'sidebar-list active' : 'sidebar-list'">
           <router-link to="/">
             <div class="sidebar-item">
-              <imageOne class="sidebar-icons"/>
+              <imageOne class="sidebar-icons" />
               <span class="sidebar-link">Шаблоны</span>
             </div>
           </router-link>
 
           <div @click="secondIndex = !secondIndex">
             <div :class="secondIndex ? 'sidebar-item active' : 'sidebar-item'">
-              <imageTwo class="sidebar-icons"/>
+              <imageTwo class="sidebar-icons" />
               <span class="sidebar-link">Реестр нотариальных действий</span>
-              <up
-                v-show="!isActive"
-                :class="secondIndex ? 'sidebar-up active' : 'sidebar-up'"
-              />
+              <up v-show="!store.state.notariusSidebar" :class="secondIndex ? 'sidebar-up active' : 'sidebar-up'" />
             </div>
           </div>
-          <div v-show="secondIndex && !isActive">
-            <div
-              v-for="(item, i) in showRendering"
-              :key="item.text"
+          <div v-show="secondIndex && !store.state.notariusSidebar">
+            <div v-for="(item, i) in showRendering" :key="item.text"
               :class="thirdIndex === i ? ' sidebar-item sidebar-mini-item active' : 'sidebar-item sidebar-mini-item'"
-              @click="thirdIndex = i;firstIndex = null"
-            >
-              <router-link
-                class="sidebar-link"
-                :to="item.link"
-              >
+              @click="thirdIndex = i; firstIndex = null">
+              <router-link class="sidebar-link" :to="item.link">
                 {{ item.text }}
               </router-link>
             </div>
           </div>
 
-          <router-link
-            v-for="item in sidebarListSecond"
-            :key="item.id"
-            :to="item.link"
-          >
+          <router-link v-for="item in sidebarListSecond" :key="item.id" :to="item.link">
             <div class="sidebar-item">
-              <component :is="item.img"/>
+              <component :is="item.img" />
               <span class="sidebar-link">{{ item.text }}</span>
             </div>
           </router-link>
         </div>
 
-        <router-link
-          to="/"
-          :class="isActive ? 'sidebar-item sidebar-last-item close' : 'sidebar-item sidebar-last-item '"
-        >
-          <left/>
+        <router-link to="/"
+          :class="store.state.notariusSidebar ? 'sidebar-item sidebar-last-item close' : 'sidebar-item sidebar-last-item '">
+          <left />
           <div class="sidebar-link sidebar-last-link">
             Выход с кабинета
           </div>
@@ -86,8 +63,8 @@
       </div>
     </section>
     <div class="content">
-      <OwnRoomTop :title="title"/>
-      <router-view @islam="changeTitle"/>
+      <OwnRoomTop :title="title" />
+      <router-view @islam="changeTitle" />
     </div>
   </div>
 </template>
@@ -110,9 +87,10 @@ import left from '@/layouts/Icons/sidebar/left.vue'
 import logo from '@/layouts/Icons/sidebar/logo.vue'
 import up from '@/layouts/Icons/sidebar/up.vue'
 import OwnRoomTop from './OwnRoomTop.vue'
+import { useStore } from 'vuex'
 
-const title = ref('Заявки')
-const isActive = ref(false)
+const store = useStore()
+const title = ref('Заявки') 
 const firstIndex = ref(0)
 const secondIndex = ref(false)
 const showRendering = ref([
@@ -217,15 +195,13 @@ const changeTitle = a => {
   display: flex;
 }
 
-.content {
+.content { 
   padding: 60px;
   flex: 1;
 }
 
 .sidebar {
   width: 280px;
-  // height: 100vh;
-  // overflow: auto;
   background: #1baa75;
   padding: 50px 0 10px;
   box-sizing: border-box;
@@ -338,6 +314,35 @@ const changeTitle = a => {
 
   &-close {
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width:1490px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .content {
+  margin-left: 73px; 
+}
+
+}
+@media screen and (max-width:768px) {
+  .content {
+    padding: 20px;
+  }
+} 
+@media screen and (max-width:530px) {
+ .sidebar {
+  width: 100%;
+  &.active {
+    width: 0;
+  }
+ }
+ .content {
+    margin-left: 0;
   }
 }
 </style>

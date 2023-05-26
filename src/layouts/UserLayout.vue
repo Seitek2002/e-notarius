@@ -1,6 +1,6 @@
 <template>
   <div class="app-user-layout">
-    <section :class="isActive ? 'sidebar active' : 'sidebar'">
+    <section :class="store.state.userSidebar ? 'sidebar active' : 'sidebar'">
       <div class="sidebar-wrapper">
         <div class="sidebar-head">
           <router-link to="/">
@@ -8,13 +8,13 @@
           </router-link>
           <close
             class="sidebar-close"
-            @click="isActive = !isActive"
+            @click="store.state.userSidebar = !store.state.userSidebar"
           />
         </div>
         <h2 class="sidebar-title">
           Личный кабинет
         </h2>
-        <div :class="isActive ? 'sidebar-list active' : 'sidebar-list'">
+        <div :class="store.state.userSidebar ? 'sidebar-list active' : 'sidebar-list'">
           <router-link
             v-for="(item, i) in sidebarList"
             :key="item.id"
@@ -29,7 +29,7 @@
             <span class="sidebar-link">{{ item.text }}</span>
           </router-link>
         </div>
-        <div :class="isActive ? 'sidebar-list active' : 'sidebar-list'">
+        <div :class="store.state.userSidebar ? 'sidebar-list active' : 'sidebar-list'">
           <router-link
             v-for="item in sidebarListSecond"
             :key="item.id"
@@ -48,7 +48,7 @@
 
         <router-link
           to="/"
-          :class="isActive ? 'sidebar-item sidebar-last-item close' : 'sidebar-item sidebar-last-item'"
+          :class="store.state.userSidebar ? 'sidebar-item sidebar-last-item close' : 'sidebar-item sidebar-last-item'"
         >
           <left class="sidebar-icons"/>
           <div class="sidebar-link sidebar-last-link">
@@ -81,9 +81,9 @@ import imgTwo from '@/layouts/Icons/sidebar/imgTwo.vue'
 import left from '@/layouts/Icons/sidebar/left.vue'
 import logo from '@/layouts/Icons/sidebar/logo.vue'
 import OwnRoomTop from './OwnRoomTop.vue'
-
-const title = ref('Заявки')
-const isActive = ref(false)
+import { useStore } from 'vuex'
+const store = useStore()
+const title = ref('Заявки') 
 const firstIndex = ref(0)
 const SecondIndex = ref(null)
 const changeTitle = a => {
@@ -286,5 +286,33 @@ const sidebarListSecond = [
 .content {
   flex: 1;
   padding: 60px;
+}
+@media screen and (max-width:1490px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .content {
+  margin-left: 73px; 
+}
+
+}
+@media screen and (max-width:768px) {
+  .content {
+    padding: 20px;
+  }
+} 
+@media screen and (max-width:530px) {
+ .sidebar {
+  width: 100%;
+  &.active {
+    width: 0;
+  }
+ }
+ .content {
+    margin-left: 0;
+  }
 }
 </style>

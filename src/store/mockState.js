@@ -1290,6 +1290,8 @@ export const state = {
     name: '',
   },
   isAdmin: true,
+  notariusSidebar:true,
+  userSidebar:true,
   chooseObject: false,
   typeOfObject: false,
   notarialActs: false,

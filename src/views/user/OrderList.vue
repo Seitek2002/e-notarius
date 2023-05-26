@@ -1,5 +1,5 @@
 <template>
-  <section class="order-list">
+  <!-- <section class="order-list">
     <div class="order-list__top">
       <h2>Ваши заявки</h2>
       <Btn title="Оформить заявку" bg="#1BAA75" :icon="icon" @click="router.push('/info-user')" />
@@ -52,7 +52,7 @@
     <div class="order-list__bottom">
       <Pagination :items-per-page="6" :items="files" @paginate="paginate" />
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script setup>
