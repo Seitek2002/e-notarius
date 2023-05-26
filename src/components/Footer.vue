@@ -6,27 +6,29 @@
           <logo/>
           E-notariat
         </div>
-        <ul>
-          <li>Общество</li>
-          <li>About Us</li>
-          <li>Guidelines and how to</li>
-          <li>Quote from the best</li>
-          <li>How to start a blog</li>
-        </ul>
-        <ul>
-          <li>Образец</li>
-          <li>About Us</li>
-          <li>Guidelines and how to</li>
-          <li>Quote from the best</li>
-          <li>How to start a blog</li>
-        </ul>
-        <ul>
-          <li>Ресурсы</li>
-          <li>Accessibility</li>
-          <li>Usability</li>
-          <li>Marketplace</li>
-          <li>Design & Dev</li>
-        </ul>
+        <div class="footer__right">
+          <ul>
+            <li>Общество</li>
+            <li>About Us</li>
+            <li>Guidelines and how to</li>
+            <li>Quote from the best</li>
+            <li>How to start a blog</li>
+          </ul>
+          <ul>
+            <li>Образец</li>
+            <li>About Us</li>
+            <li>Guidelines and how to</li>
+            <li>Quote from the best</li>
+            <li>How to start a blog</li>
+          </ul>
+          <ul>
+            <li>Ресурсы</li>
+            <li>Accessibility</li>
+            <li>Usability</li>
+            <li>Marketplace</li>
+            <li>Design & Dev</li>
+          </ul>
+        </div>
       </div>
       <div class="footer__bottom">
         <div class="footer__analys">
@@ -74,31 +76,62 @@ import whatsup from '@/components/icons/Footer/whatsup.vue'
   &__icons {
     display: flex;
     gap: 25px;
+    @media screen and (max-width: 768px) {
+      margin-top: 20px;
+    }
   }
 
   &__bottom {
     margin-top: 64px;
+    @media screen and (max-width: 768px) {
+      margin-top: 30px;
+    }
   }
 
   &__bottom,
   &__analys {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: start;
+    }
   }
 
   &__analys {
     gap: 32px;
+    @media screen and (max-width: 768px) {
+      gap: 20px;
+    }
   }
 
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
-
-  &__logo {
-    width: 40%;
+  &__right {
+    display: flex;
+    @media screen and (max-width: 768px) {
+      justify-content: space-between;
+    }
+    @media screen and (max-width: 560px) {
+      flex-direction: column;
+    }
+    ul {
+      margin-left: 30px;
+      margin-top: 0;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+    }
   }
 
   ul {
@@ -106,13 +139,16 @@ import whatsup from '@/components/icons/Footer/whatsup.vue'
       font-weight: 400;
       font-size: 16px;
       color: $text-white;
-      margin-bottom: 20px;
+      margin-top: 20px;
 
       &:first-child {
         font-weight: 600;
         font-size: 20px;
         color: $bg-white;
         margin-bottom: 26px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 16px;
+        }
       }
     }
   }

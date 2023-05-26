@@ -88,7 +88,7 @@ const routeItems = [
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .document {
   &__content {
@@ -104,7 +104,7 @@ const routeItems = [
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 266px;
@@ -142,11 +142,10 @@ const routeItems = [
     }
   }
 
-
   &__row {
     font-weight: 600;
     font-size: 28px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     max-width: 635px;
     width: 100%;
     line-height: 140%;
@@ -198,10 +197,14 @@ const routeItems = [
     height: 242px;
     margin-bottom: 120px;
 
-    @media screen and (max-width: 991px) {
+    @media screen and (max-width: 1212px) {
       flex-wrap: wrap;
       height: unset;
-      justify-content: space-between;
+            justify-content: space-between;
+
+    }
+    @media screen and (max-width: 512px) {
+      justify-content: center;
     }
   }
 
@@ -240,7 +243,7 @@ const routeItems = [
       font-weight: 600;
       font-size: 18px;
       line-height: 22px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       width: 150px;
       color: $text-dark-blue;
     }
