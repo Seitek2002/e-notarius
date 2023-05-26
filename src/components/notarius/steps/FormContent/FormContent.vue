@@ -47,8 +47,9 @@
       <div class="w-55 dropdown">
         <strong>Роль субъекта</strong>
         <label
+        ref="roleIsActiveRef"
           :class="roleIsActive ? 'active' : ''"
-          @click="roleIsActive = !roleIsActive"
+          @click="roleIsActive = true"
         >
                 <span>
                   {{ roleSubject }}
@@ -63,7 +64,7 @@
             v-for="option in ROLE_SUBJECT"
             :key="option"
             class="dropdown-search__option"
-            @click="(roleSubject = option), (roleIsActive = !roleIsActive)"
+            @click="(roleSubject = option), (roleIsActive = false)"
           >
             {{ option }}
           </div>
@@ -166,8 +167,9 @@
               <div class="flex">
                 <div class="dropdown">
                   <label
+                  ref="passportSeriesIsActiveRef"
                     :class="passportSeriesIsActive ? 'active' : ''"
-                    @click="passportSeriesIsActive = !passportSeriesIsActive"
+                    @click="passportSeriesIsActive = true"
                   >
                     <span>
                       {{ passportSeriesActive }}
@@ -182,7 +184,7 @@
                       v-for="option in ['ID', 'AN', 'AC']"
                       :key="option"
                       class="dropdown-search__option"
-                      @click=";(passportSeriesActive = option), (passportSeriesIsActive = !passportSeriesIsActive)"
+                      @click=";(passportSeriesActive = option), (passportSeriesIsActive = false)"
                     >
                       {{ option }}
                     </div>
@@ -253,8 +255,9 @@
           <div class="w-50 dropdown-search">
             <p>Гражданство</p>
             <label
+            ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
-              @click="citizenshipIsActive = !citizenshipIsActive"
+              @click="citizenshipIsActive = true"
             >
               <span>
                 <SearchIcon/>
@@ -270,7 +273,7 @@
                 v-for="option in ['Кыргызстан']"
                 :key="option"
                 class="dropdown-search__option"
-                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = !citizenshipIsActive)"
+                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = false)"
               >
                 {{ option }}
               </div>
@@ -283,8 +286,9 @@
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
+              ref="regionIsActiveRef"
                 :class="regionIsActive ? 'active' : ''"
-                @click="regionIsActive = !regionIsActive"
+                @click="regionIsActive = true"
               >
                 <span>
                   {{ regionActiveOption }}
@@ -299,7 +303,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOption = option), (regionIsActive = !regionIsActive)"
+                  @click=";(regionActiveOption = option), (regionIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -308,8 +312,9 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
+              ref="areaIsActiveRef"
                 :class="areaIsActive ? 'active' : ''"
-                @click="areaIsActive = !areaIsActive"
+                @click="areaIsActive = true"
               >
                 <span>
                   {{ areaActiveOption }}
@@ -324,7 +329,7 @@
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOption = option), (areaIsActive = !areaIsActive)"
+                  @click=";(areaActiveOption = option), (areaIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -335,8 +340,9 @@
             <div class="city dropdown">
               <p>Населенный пункт, город</p>
               <label
+              ref="cityIsActiveRef"
                 :class="cityIsActive ? 'active' : ''"
-                @click="cityIsActive = !cityIsActive"
+                @click="cityIsActive = true"
               >
                 <span>
                   {{ cityActiveOption }}
@@ -369,7 +375,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOption = option), (cityIsActive = !cityIsActive)"
+                  @click=";(cityActiveOption = option), (cityIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -402,8 +408,9 @@
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
+              ref="regionIsActiveSecondRef"
                 :class="regionIsActiveSecond ? 'active' : ''"
-                @click="regionIsActiveSecond = !regionIsActiveSecond"
+                @click="regionIsActiveSecond = true"
               >
                 <span>
                   {{ regionActiveOptionSecond }}
@@ -418,7 +425,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = !regionIsActiveSecond)"
+                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -427,8 +434,9 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
+              ref="areaIsActiveSecondRef"
                 :class="areaIsActiveSecond ? 'active' : ''"
-                @click="areaIsActiveSecond = !areaIsActiveSecond"
+                @click="areaIsActiveSecond = true"
               >
                 <span>
                   {{ areaActiveOptionSecond }}
@@ -443,7 +451,7 @@
                   v-for="option in areasSecond"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = !areaIsActiveSecond)"
+                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -454,8 +462,9 @@
             <div class="dropdown city">
               <p>Населенный пункт, город</p>
               <label
+              ref="cityIsActiveSecondRef"
                 :class="cityIsActiveSecond ? 'active' : ''"
-                @click="cityIsActiveSecond = !cityIsActiveSecond"
+                @click="cityIsActiveSecond = true"
               >
                 <span>
                   {{ cityActiveOptionSecond }}
@@ -488,7 +497,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOptionSecond = option), (cityIsActiveSecond = !cityIsActiveSecond)"
+                  @click=";(cityActiveOptionSecond = option), (cityIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -690,6 +699,7 @@
 
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
 
 import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
@@ -740,11 +750,15 @@ const officialNameVal = ref('')
 const nationalNameVal = ref('')
 
 const passportSeriesIsActive = ref(false)
+const passportSeriesIsActiveRef = ref(null)
+onClickOutside(passportSeriesIsActiveRef, () => passportSeriesIsActive.value = false);
 const passportSeriesActive = ref('')
 
 const passportVal = ref('')
 
 const citizenshipIsActive = ref(false)
+const citizenshipIsActiveRef = ref(null)
+onClickOutside(citizenshipIsActiveRef, () => citizenshipIsActive.value = false);
 const citizenshipActiveOption = ref('')
 
 const passportOrgan = ref('')
@@ -753,20 +767,32 @@ const passportDate = ref('')
 const passportID = ref('')
 
 const regionIsActive = ref(false)
+const regionIsActiveRef = ref(null)
+onClickOutside(regionIsActiveRef, () => regionIsActive.value = false);
 const regionActiveOption = ref('')
 
 const areaIsActive = ref(false)
+const areaIsActiveRef = ref(null)
+onClickOutside(areaIsActiveRef, () => areaIsActive.value = false);
 const areaActiveOption = ref('')
 
 const regionIsActiveSecond = ref(false)
+const regionIsActiveSecondRef = ref(null)
+onClickOutside(regionIsActiveSecondRef, () => regionIsActiveSecond.value = false);
 const regionActiveOptionSecond = ref('')
 
 const areaIsActiveSecond = ref(false)
+const areaIsActiveSecondRef = ref(null)
+onClickOutside(areaIsActiveSecondRef, () => areaIsActiveSecond.value = false);
 const areaActiveOptionSecond = ref('')
 
 const cityIsActive = ref(false)
+const cityIsActiveRef = ref(null)
+onClickOutside(cityIsActiveRef, () => cityIsActive.value = false);
 const cityActiveOption = ref('')
 const cityIsActiveSecond = ref(false)
+const cityIsActiveSecondRef = ref(null)
+onClickOutside(cityIsActiveSecondRef, () => cityIsActiveSecond.value = false);
 const cityActiveOptionSecond = ref('')
 
 const streetFisrt = ref('')
@@ -782,7 +808,8 @@ const emailVal = ref('')
 const phoneVal = ref('')
 
 const avatarImg = ref('')
-const isActive = ref(false)
+const isActiveRef = ref(null)
+onClickOutside(isActiveRef, () => isActive.value = false);
 const isActiveRadio = ref(0)
 const isActiveRadioSec = ref(0)
 const isActiveRadioFace = ref(false)
@@ -807,6 +834,8 @@ const qntyOfMembersVal = ref('')
 
 const roleSubject = ref('')
 const roleIsActive = ref(false)
+const roleIsActiveRef = ref(null)
+onClickOutside(roleIsActiveRef, () => roleIsActive.value = false);
 const ROLE_SUBJECT = ['Участник', 'Попечитель', 'Лицо действующее по доверенности','Сурдопереводчик']
 
 const getUsers = () => {

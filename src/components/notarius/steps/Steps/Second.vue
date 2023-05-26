@@ -27,8 +27,9 @@
         </p>
         <div class="accordeon">
           <label
+          ref="exampleIsActiveRef"
             :class="exampleIsActive ? 'active' : ''"
-            @click="exampleIsActive = !exampleIsActive"
+            @click="exampleIsActive = true"
           >
             <span>{{ example }}</span>
             <ArrowDownSmallIcon
@@ -53,7 +54,7 @@
               ]"
               :key="option"
               class="accordeon__option"
-              @click=";(example = option), (exampleIsActive = !exampleIsActive)"
+              @click=";(example = option), (exampleIsActive = false)"
             >
               {{ option }}
             </div>
@@ -65,8 +66,9 @@
           Выбрать системный шаблон по коду документа
         </p>
         <div
+        ref="secondIsActiveRef"
           class="accordeon"
-          @click="secondIsActive = !secondIsActive"
+          @click="secondIsActive = true"
         >
           <div
             class="label"
@@ -142,7 +144,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
 import Approved from '@/components/global/UI/Info/Approved.vue'
 import Back from '@/components/global/UI/Info/Btn/Back.vue'
@@ -153,8 +156,10 @@ import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmall
 import RadioCheckedIcon from '@/components/global/UI/Info/Icons/RadioCheckedIcon.vue'
 import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
 
-const secondIsActive = ref(false)
 const secondActiveOption = ref('')
+const secondIsActive = ref(false)
+const secondIsActiveRef = ref(null)
+onClickOutside(secondIsActiveRef, () => secondIsActive.value = false);
 
 const isActiveRadio = ref(0)
 
@@ -186,7 +191,9 @@ const handleOptionClick = option => {
 }
 
 const example = ref('Все')
-const exampleIsActive = ref('')
+const exampleIsActive = ref(false)
+const exampleIsActiveRef = ref(null)
+onClickOutside(exampleIsActiveRef, () => exampleIsActive.value = false);
 
 const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 
@@ -194,8 +201,9 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
-  
 }
+
+// onClickOutside(dropDownRef, () => isDropdownShow.value = false);
 </script>
 
 <style lang="scss">
@@ -235,6 +243,7 @@ const handleClick = (id, move) => {
   input {
     border: none;
     padding: 0;
+    width: 90%;
   }
 
   .label {

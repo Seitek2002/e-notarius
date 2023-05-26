@@ -28,8 +28,9 @@
           class="accordeon"
         >
           <label
+          ref="notActionIsActiveRef"
             :class="notActionIsActive ? 'active' : ''"
-            @click="notActionIsActive = !notActionIsActive"
+            @click="notActionIsActive = true"
           >
             <span>{{ notActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -52,7 +53,7 @@
               ]"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'notarialActs', data: option}), notActionActiveOption = option, notActionIsActive = !notActionIsActive"
+              @click="store.commit('setKey', {key: 'notarialActs', data: option}), notActionActiveOption = option, notActionIsActive = false"
             >
               {{ option }}
             </div>
@@ -63,8 +64,9 @@
           class="accordeon"
         >
           <label
+          ref="notActionIsActiveRef"
             :class="notActionIsActive ? 'active' : ''"
-            @click="notActionIsActive = !notActionIsActive"
+            @click="notActionIsActive = true"
           >
             <span>{{ notActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -86,7 +88,7 @@
               ]"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'notarialActs', data: option}), notActionActiveOption = option, notActionIsActive = !notActionIsActive"
+              @click="store.commit('setKey', {key: 'notarialActs', data: option}), notActionActiveOption = option, notActionIsActive = false"
             >
               {{ option }}
             </div>
@@ -100,8 +102,9 @@
           class="accordeon"
         >
           <label
+          ref="typeOfActionIsActiveRef"
             :class="typeOfActionIsActive ? 'active' : ''"
-            @click="typeOfActionIsActive = !typeOfActionIsActive"
+            @click="typeOfActionIsActive = true"
           >
             <span>{{ typeOfActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -117,7 +120,7 @@
               v-for="option in ['Доверенности', 'Договоры']"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'typeOfAction', data: option}), typeOfActionActiveOption = option, typeOfActionIsActive = !typeOfActionIsActive"
+              @click="store.commit('setKey', {key: 'typeOfAction', data: option}), typeOfActionActiveOption = option, typeOfActionIsActive = false"
             >
               {{ option }}
             </div>
@@ -128,8 +131,9 @@
           class="accordeon"
         >
           <label
+          ref="typeOfActionIsActiveRef"
             :class="typeOfActionIsActive ? 'active' : ''"
-            @click="typeOfActionIsActive = !typeOfActionIsActive"
+            @click="typeOfActionIsActive = true"
           >
             <span>{{ typeOfActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -145,7 +149,7 @@
               v-for="option in ['Доверенности', 'Договоры', 'Соглашение', 'Завещание']"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'typeOfAction', data: option}), typeOfActionActiveOption = option, typeOfActionIsActive = !typeOfActionIsActive"
+              @click="store.commit('setKey', {key: 'typeOfAction', data: option}), typeOfActionActiveOption = option, typeOfActionIsActive = false"
             >
               {{ option }}
             </div>
@@ -159,8 +163,9 @@
           class="accordeon"
         >
           <label
+          ref="actionIsActiveRef"
             :class="actionIsActive ? 'active' : ''"
-            @click="actionIsActive = !actionIsActive"
+            @click="actionIsActive = true"
           >
             <span>{{ actionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -176,7 +181,7 @@
               v-for="option in ['Получение', 'Управление и распоряжение', 'Продажа']"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'doc', data: option}), actionActiveOption = option, actionIsActive = !actionIsActive"
+              @click="store.commit('setKey', {key: 'doc', data: option}), actionActiveOption = option, actionIsActive = false"
             >
               {{ option }}
             </div>
@@ -188,7 +193,7 @@
         >
           <label
             :class="actionIsActive ? 'active' : ''"
-            @click="actionIsActive = !actionIsActive"
+            @click="actionIsActive = true"
           >
             <span>{{ actionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -219,7 +224,7 @@
               ]"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'doc', data: option}), actionActiveOption = option, actionIsActive = !actionIsActive"
+              @click="store.commit('setKey', {key: 'doc', data: option}), actionActiveOption = option, actionIsActive = false"
             >
               {{ option }}
             </div>
@@ -233,8 +238,9 @@
           class="accordeon"
         >
           <label
+          ref="docIsActiveRef"
             :class="docIsActive ? 'active' : ''"
-            @click="docIsActive = !docIsActive"
+            @click="docIsActive = true"
           >
             <span>{{ docActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -250,7 +256,7 @@
               v-for="option in ['Доверенность на получение алиментов']"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'bonusInputs', data: option}), docActiveOption = option, docIsActive = !docIsActive"
+              @click="store.commit('setKey', {key: 'bonusInputs', data: option}), docActiveOption = option, docIsActive = false"
             >
               {{ option }}
             </div>
@@ -261,8 +267,9 @@
           class="accordeon"
         >
           <label
+          ref="docIsActiveRef"
             :class="docIsActive ? 'active' : ''"
-            @click="docIsActive = !docIsActive"
+            @click="docIsActive = true"
           >
             <span>{{ docActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -282,7 +289,7 @@
               ]"
               :key="option"
               class="accordeon__option"
-              @click="store.commit('setKey', {key: 'bonusInputs', data: option}, docActiveOption = option), docIsActive = !docIsActive"
+              @click="store.commit('setKey', {key: 'bonusInputs', data: option}, docActiveOption = option), docIsActive = false"
             >
               {{ option }}
             </div>
@@ -297,6 +304,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
 
 import Approved from '@/components/global/UI/Info/Approved.vue'
 import Back from '@/components/global/UI/Info/Btn/Back.vue'
@@ -307,18 +315,28 @@ import Title from '@/components/global/UI/Info/Title.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 
 const notActionIsActive = ref(false)
+const notActionIsActiveRef = ref(null)
+onClickOutside(notActionIsActiveRef, () => notActionIsActive.value = false);
 const notActionActiveOption = ref('Все')
 
 const typeOfActionIsActive = ref(false)
+const typeOfActionIsActiveRef = ref(null)
+onClickOutside(typeOfActionIsActiveRef, () => typeOfActionIsActive.value = false);
 const typeOfActionActiveOption = ref('Все')
 
 const actionIsActive = ref(false)
+const actionIsActiveRef = ref(null)
+onClickOutside(actionIsActiveRef, () => actionIsActive.value = false);
 const actionActiveOption = ref('Все')
 
 const docIsActive = ref(false)
+const docIsActiveRef = ref(null)
+onClickOutside(docIsActiveRef, () => docIsActive.value = false);
 const docActiveOption = ref('Все')
 
 const isActive = ref(false)
+const isActiveRef = ref(null)
+onClickOutside(isActiveRef, () => isActive.value = false);
 const isActiveRadio = ref(0)
 const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
 const store = useStore()
@@ -332,8 +350,6 @@ const handleClick = (id, move) => {
   
 }
 
-const handleChange = e => {
-}
 </script>
 
 <style lang="scss">
