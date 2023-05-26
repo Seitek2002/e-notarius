@@ -291,8 +291,10 @@ const sidebarListSecond = [
 }
 
 .content {
-  flex: 1;
   padding: 60px;
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-grow: 1;
 }
 @media screen and (max-width:1490px) {
   .sidebar {

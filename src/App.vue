@@ -30,6 +30,7 @@ const layout = computed(() => {
 @media screen and (max-width:1490px) { 
   .content {
   margin-left: 73px; 
+  // max-width: 100%;
 }
 
 }

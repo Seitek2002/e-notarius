@@ -195,9 +195,11 @@ const changeTitle = newTitle => {
   display: flex;
 }
 
-.content { 
+.content {
   padding: 60px;
-  flex: 1;
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-grow: 1;
 }
 
 .sidebar {

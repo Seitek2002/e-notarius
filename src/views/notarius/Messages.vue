@@ -127,7 +127,11 @@ onMounted(() => {
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
-
+  &__chat {
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
+  }
   &__content {
     display: flex;
   }
@@ -158,6 +162,7 @@ onMounted(() => {
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
     gap: 16px;
 
+
     h4 {
       color: $bg-light-gray;
       font-style: normal;
@@ -183,7 +188,9 @@ onMounted(() => {
     align-items: center;
     padding: 12px 16px 12px 16px;
     gap: 16px;
-
+    @media screen and (max-width: 991px) {
+      width: 100%;
+    }
     h4 {
       font-style: normal;
       font-weight: 500;
@@ -211,7 +218,12 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin: 45px 0 11px 390px;
-
+    @media screen and (max-width: 1241px) {
+      margin-left: 195px;
+    }
+        @media screen and (max-width: 1100px) {
+      margin-left: 40px;
+    }
     p {
       font-weight: 400;
       line-height: 140%;
@@ -240,7 +252,10 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin-left: 30px;
-
+    @media screen and (max-width: 1250px) {
+      margin-right: 0;
+    }
+    
     p {
       font-weight: 400;
       font-size: 14px;
@@ -262,13 +277,13 @@ onMounted(() => {
 
   &__box__input {
     display: flex;
-    width: 710px;
+    width: 100%;
     margin: 59px 0 0 30px;
 
     textarea {
       resize: none;
       padding: 22px 0 1px 15px;
-      width: 600px;
+      width: 100%;
       border-width: 1px 0 1px 1px;
       border-style: solid;
       border-color: $border-gray;
