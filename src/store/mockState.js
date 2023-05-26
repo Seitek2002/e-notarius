@@ -1293,6 +1293,8 @@ export const state = {
   notariusSidebar:true,
   userSidebar:true,
   chooseObject: false,
+  registryClientBigModal: false,
+  registryClientMiniModal: false,
   typeOfObject: false,
   notarialActs: false,
   typeOfNotarialActs: false,

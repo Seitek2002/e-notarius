@@ -231,8 +231,8 @@
           </div>
         </div>
       </div>
-      <div class="info__form--wrapper">
-        <Suptitle text="Нотариальный документ"/>
+        <div class="info__form--wrapper">
+          <Suptitle text="Нотариальный документ"/>
         <div
           v-if="store.state.doc !== 'Управление и распоряжение'"
           class="accordeon"
