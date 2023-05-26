@@ -167,7 +167,7 @@ const sidebarListSecond = [
     id: 2,
     img: imageFour,
     text: 'Профиль',
-    link: '/',
+    link: '/profile-notarius',
   },
   {
     id: 3,

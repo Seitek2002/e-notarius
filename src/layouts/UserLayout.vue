@@ -151,7 +151,7 @@ const sidebarListSecond = [
     id: 3,
     img: imageFour,
     text: 'Профиль',
-    link: '/',
+    link: '/profile-user',
   },
 ]
 </script>
