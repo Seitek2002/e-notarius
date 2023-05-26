@@ -131,7 +131,7 @@
             <label
             ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
-              @click="citizenshipIsActive = !citizenshipIsActive"
+              @click="citizenshipIsActive = true"
             >
               <span>
                 <SearchIcon/>
@@ -147,7 +147,7 @@
                 v-for="option in ['Кыргызстан']"
                 :key="option"
                 class="dropdown-search__option"
-                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = !citizenshipIsActive)"
+                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = false)"
               >
                 {{ option }}
               </div>
@@ -162,7 +162,7 @@
               <label
               ref="regionIsActiveRef"
                 :class="regionIsActive ? 'active' : ''"
-                @click="regionIsActive = !regionIsActive"
+                @click="regionIsActive = true"
               >
                 <span>
                   {{ regionActiveOption }}
@@ -177,7 +177,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOption = option), (regionIsActive = !regionIsActive)"
+                  @click=";(regionActiveOption = option), (regionIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -188,7 +188,7 @@
               <label
               ref="areaIsActiveRef"
                 :class="areaIsActive ? 'active' : ''"
-                @click="areaIsActive = !areaIsActive"
+                @click="areaIsActive = true"
               >
                 <span>
                   {{ areaActiveOption }}
@@ -203,7 +203,7 @@
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOption = option), (areaIsActive = !areaIsActive)"
+                  @click=";(areaActiveOption = option), (areaIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -216,7 +216,7 @@
               <label
               ref="cityIsActiveRef"
                 :class="cityIsActive ? 'active' : ''"
-                @click="cityIsActive = !cityIsActive"
+                @click="cityIsActive = true"
               >
                 <span>
                   {{ cityActiveOption }}
@@ -249,7 +249,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOption = option), (cityIsActive = !cityIsActive)"
+                  @click=";(cityActiveOption = option), (cityIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -284,7 +284,7 @@
               <label
               ref="regionIsActiveSecondRef"
                 :class="regionIsActiveSecond ? 'active' : ''"
-                @click="regionIsActiveSecond = !regionIsActiveSecond"
+                @click="regionIsActiveSecond = true"
               >
                 <span>
                   {{ regionActiveOptionSecond }}
@@ -299,7 +299,7 @@
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = !regionIsActiveSecond)"
+                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
@@ -310,7 +310,7 @@
               <label
               ref="areaIsActiveSecondRef"
                 :class="areaIsActiveSecond ? 'active' : ''"
-                @click="areaIsActiveSecond = !areaIsActiveSecond"
+                @click="areaIsActiveSecond = true"
               >
                 <span>
                   {{ areaActiveOptionSecond }}
@@ -325,7 +325,7 @@
                   v-for="option in areasSecond"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = !areaIsActiveSecond)"
+                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = false)"
                 >
                   {{ option }}
                 </div>
