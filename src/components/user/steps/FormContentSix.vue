@@ -176,11 +176,11 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import AnimationBubblesIcon from '@/components/global/Info/Icons/AnimationBubblesIcon.vue'
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import RadioNulledIcon from '@/components/global/Info/Icons/RadioNulledIcon.vue'
-import RadioSuccessIcon from '@/components/global/Info/Icons/RadioSuccessIcon.vue'
-import SuccessSmallIcon from '@/components/global/Info/Icons/SuccessSmallIcon.vue'
+import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
+import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
+import RadioSuccessIcon from '@/components/global/UI/Info/Icons/RadioSuccessIcon.vue'
+import SuccessSmallIcon from '@/components/global/UI/Info/Icons/SuccessSmallIcon.vue'
 
 const store = useStore()
 

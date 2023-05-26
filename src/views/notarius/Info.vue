@@ -91,7 +91,7 @@ import CancelIcon from '@/views/Icons/CancelIcon.vue'
 import FingerprintCircleIcon from '@/components/guest/Auth/Icons/FingerprintCircleIcon.vue'
 import FingerprintSuccessIcon from '@/components/guest/Auth/Icons/FingerprintSuccessIcon.vue'
 import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
-import AnimationBubblesIcon from '@/components/global/Info/Icons/AnimationBubblesIcon.vue'
+import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
 import XIcon from '@/views/Icons/XIcon.vue'
 
 const store = useStore()

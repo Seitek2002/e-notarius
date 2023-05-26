@@ -45,7 +45,7 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import approveImg from '@/assets/images/approved.png'
 
-import PdfFileIcon from '@/components/global/Info/Icons/PdfFileIcon.vue'
+import PdfFileIcon from '@/components/global/UI/Info/Icons/PdfFileIcon.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Back from '@/components/global/Info/Btn/Back.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'

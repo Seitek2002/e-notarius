@@ -110,7 +110,7 @@
 import { onMounted } from 'vue'
 
 import SuccessSendIcon from '@/components/guest/Home/Icons/SuccessSendIcon.vue'
-import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
+import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
 import MessagesReadIcon from '@/views/Icons/MessagesReadIcon.vue'
 import OnlineStatusIcon from '@/views/Icons/OnlineStatusIcon.vue'
 

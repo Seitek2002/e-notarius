@@ -95,13 +95,13 @@
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.vue'
-import AddNewRequestWhiteIcon from '@/components/global/Info/Icons/AddNewRequestWhiteIcon.vue'
-import ArrowRightIcon from '@/components/global/Info/Icons/ArrowRightIcon.vue'
-import PencilIcon from '@/components/global/Info/Icons/PencilIcon.vue'
-import QrCodeIcon from '@/components/global/Info/Icons/QrCodeIcon.vue'
-import SuccessMarkSmallIcon from '@/components/global/Info/Icons/SuccessMarkSmallIcon.vue'
-import SuccessSmallIcon from '@/components/global/Info/Icons/SuccessSmallIcon.vue'
+import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
+import AddNewRequestWhiteIcon from '@/components/global/UI/Info/Icons/AddNewRequestWhiteIcon.vue'
+import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
+import PencilIcon from '@/components/global/UI/Info/Icons/PencilIcon.vue'
+import QrCodeIcon from '@/components/global/UI/Info/Icons/QrCodeIcon.vue'
+import SuccessMarkSmallIcon from '@/components/global/UI/Info/Icons/SuccessMarkSmallIcon.vue'
+import SuccessSmallIcon from '@/components/global/UI/Info/Icons/SuccessSmallIcon.vue'
 
 const router = useRouter()
 const store = useStore()

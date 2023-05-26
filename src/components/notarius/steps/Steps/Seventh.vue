@@ -77,7 +77,7 @@ import Plus from '@/components/global/Info/Btn/Plus.vue'
 import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
 import Title from '@/components/globalUI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
-import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.vue'
+import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
 
 const router = useRouter()
 const store = useStore()

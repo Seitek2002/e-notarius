@@ -149,9 +149,9 @@ import Back from '@/components/global/Info/Btn/Back.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
 import Mark from '@/components/globalUIUI/Info/Mark.vue'
 import Title from '@/components/globalUI/Info/Title.vue'
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import RadioCheckedIcon from '@/components/global/Info/Icons/RadioCheckedIcon.vue'
-import RadioNulledIcon from '@/components/global/Info/Icons/RadioNulledIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
+import RadioCheckedIcon from '@/components/global/UI/Info/Icons/RadioCheckedIcon.vue'
+import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
 
 const secondIsActive = ref(false)
 const secondActiveOption = ref('')

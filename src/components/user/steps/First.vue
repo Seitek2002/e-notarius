@@ -208,8 +208,8 @@
 <script setup>
 import { ref, watch, defineEmits } from 'vue'
 
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import SearchIcon from '@/components/global/Info/Icons/SearchIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
+import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'
 import Title from '@/components/globalUI/Info/Title.vue'

@@ -57,9 +57,9 @@ import Next from '@/components/global/Info/Btn/Next.vue'
 import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
 import Title from '@/components/globalUI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
-import AddNewRequestIcon from '@/components/global/Info/Icons/AddNewRequestIcon.vue'
-import PdfFileIcon from '@/components/global/Info/Icons/PdfFileIcon.vue'
-import PrintFileIcon from '@/components/global/Info/Icons/PrintFileIcon.vue'
+import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
+import PdfFileIcon from '@/components/global/UI/Info/Icons/PdfFileIcon.vue'
+import PrintFileIcon from '@/components/global/UI/Info/Icons/PrintFileIcon.vue'
 
 const router = useRouter()
 const store = useStore()

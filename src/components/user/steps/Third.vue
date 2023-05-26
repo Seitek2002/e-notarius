@@ -298,7 +298,7 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import Approved from '@/components/global/Info/Approved.vue'
 import Back from '@/components/global/Info/Btn/Back.vue'
 import Next from '@/components/global/Info/Btn/Next.vue'

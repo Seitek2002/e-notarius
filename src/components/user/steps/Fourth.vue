@@ -368,8 +368,8 @@
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
-import SearchIcon from '@/components/global/Info/Icons/SearchIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
+import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
 import Title from '@/components/globalUI/Info/Title.vue'
 import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
 import Approved from '@/components/global/Info/Approved.vue'

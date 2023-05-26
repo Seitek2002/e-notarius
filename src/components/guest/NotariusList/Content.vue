@@ -122,7 +122,7 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
 
-import ArrowDownSmallIcon from '@/components/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import FilterDisableIcon from '@/components/guest/NotariusList/Icons/FilterDisableIcon.vue'
 import FilterEnableIcon from '@/components/guest/NotariusList/Icons/FilterEnableIcon.vue'
 import SearchContentIcon from '@/components/guest/NotariusList/Icons/SearchContentIcon.vue'

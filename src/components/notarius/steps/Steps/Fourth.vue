@@ -304,7 +304,7 @@ import Next from '@/components/global/Info/Btn/Next.vue'
 import Mark from '@/components/globalUIUI/Info/Mark.vue'
 import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
 import Title from '@/components/globalUI/Info/Title.vue'
-import ArrowDownSmallIcon from '@/components/global/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 
 const notActionIsActive = ref(false)
 const notActionActiveOption = ref('Все')
