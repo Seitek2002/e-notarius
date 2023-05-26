@@ -238,8 +238,6 @@ const handleScrollLeft = () => {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    // @media screen and (max-width: 991px) {
-    // }
   }
   &__left svg {
     cursor: pointer;
@@ -250,8 +248,7 @@ const handleScrollLeft = () => {
   }
 }
 .order-list {
-  flex: 1;
-  box-sizing: border-box;
+  max-width: 100%;
 
   &__actions {
     display: none;
@@ -265,9 +262,7 @@ const handleScrollLeft = () => {
   &__table {
     min-height: 448px;
     overflow-x: auto;
-      max-width: 1040px;
-    @media screen and (max-width: 1224px) {
-    }
+    max-width: 100%;
   }
 
   tr {
@@ -358,6 +353,11 @@ const handleScrollLeft = () => {
   table {
     margin-top: 40px;
     border-collapse: collapse;
+    width: 100%;
+
+    tr {
+      width: 100%;
+    }
 
     thead {
       border: 1px solid #cdcdcd;
