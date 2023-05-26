@@ -1,14 +1,14 @@
 <template>
     <section class="manual">
-        <h2 class="manual-title">Вопросы и ответы</h2>
-        <ManualBlock v-for="item in list" :key="item.id" :item="item" />
-        <div class="manual-content">
-            <h2 class="manual-title">Ссылки и инструкции</h2>
-            <div v-for="link in links" :key="link.id" class="manual-list">
-                <router-link class="manual-item" :to="link.link">{{ link.text }} <div class="manual-icon"></div>
-                    </router-link>
-            </div>
-        </div>
+        <h2 class="manual-title">Вопросы и ответы</h2> 
+            <ManualBlock v-for="item in list" :key="item.id" :item="item" />
+            <div class="manual-content">
+                <h2 class="manual-title">Ссылки и инструкции</h2>
+                <div v-for="link in links" :key="link.id" class="manual-list">
+                    <router-link class="manual-item" :to="link.link">{{ link.text }} <div class="manual-icon"></div>
+                        </router-link>
+                </div>
+            </div> 
     </section>
 </template>
 
@@ -18,7 +18,7 @@ import ManualBlock from "../components/global/manual/ManualBlock.vue";
 
 const emits = defineEmits(['islam'])
 onMounted(() => {
-    (() => emits('islam', 'Мои шаблоны'))()
+    (() => emits('islam', 'Руководство пользователя'))()
 })
 
 const list = ref([
@@ -79,6 +79,7 @@ const links = ref([
     padding: 40px;
     background: #FFFFFF;
     box-shadow: 0px 10px 40px #E9E9E9;
+    margin-top: 70px;
 
     &-title {
         font-weight: 600;
@@ -123,5 +124,24 @@ const links = ref([
         }
 
     } 
+}
+
+@media screen and (max-width:820px) {
+    .manual {
+        padding: 0;
+        background: unset;
+        box-shadow: none;
+        margin-top: 30px; 
+        &-content {
+            margin-top: 50px;
+        }
+        &-head {
+            font-size: 16px;
+        }
+        &-title {
+            font-size: 20px;
+        }
+        
+    }
 }
 </style>

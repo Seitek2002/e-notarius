@@ -261,6 +261,14 @@ export const routes = [
     },
     component: () => import('../views/Manual.vue'),
   },
+  {
+    path: '/temp-notarius',
+    name: 'temp-notarius',
+    meta: {
+      layout: 'notarius', 
+    },
+    component: () => import('../views/notarius/Temp.vue'),
+  },
   ...NOTARY_PAGES,
   ...USERS_PAGES,
 ]

@@ -21,7 +21,7 @@
         </div>
 
         <div :class="store.state.notariusSidebar ? 'sidebar-list active' : 'sidebar-list'">
-          <router-link to="/">
+          <router-link to="/temp-notarius">
             <div class="sidebar-item">
               <imageOne class="sidebar-icons" />
               <span class="sidebar-link">Шаблоны</span>
@@ -135,7 +135,7 @@ const sidebarList = [
     id: 1,
     img: imgTwo,
     text: 'Мои шаблоны',
-    link: 'exemple-notarius',
+    link: '/exemple-notarius',
   },
   {
     id: 2,

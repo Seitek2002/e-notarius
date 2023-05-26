@@ -50,6 +50,7 @@ defineProps(["item"])
         font-weight: 400;
         font-size: 14px;
         color: #24334B;
+        background: #fff;
         line-height: 140%;
         padding: 20px 15px 25px;
     }
