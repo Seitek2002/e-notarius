@@ -2,6 +2,7 @@
   <div class="lang">
     <div
       class="lang__wrapper"
+      ref="isActiveRef"
       @click="isActive = !isActive"
     >
       {{ currentLang }}
@@ -26,9 +27,9 @@
 
 <script setup>
 import { ref } from 'vue'
-
+import { onClickOutside } from '@vueuse/core'
 import arrow from '@/components/icons/Header/arrow.vue'
-
+const isActiveRef = ref(null)
 const isActive = ref(false)
 const currentLang = ref('Рус')
 const langs = ['Рус', 'Кырг', 'Англ']
@@ -37,6 +38,8 @@ const choose = lang => {
   currentLang.value = lang
   isActive.value = false
 }
+
+onClickOutside(isActiveRef, () => isActive.value = false);
 </script>
 
 <style lang="scss">

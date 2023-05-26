@@ -2,13 +2,14 @@
   <div class="dropdown">
     <div
       class="dropdown__wrapper"
-      @click="isShow = !isShow"
+      ref="isShowRef"
+      @click="isShow = true"
     >
       {{ title }}
       <FilterIcon :class="isShow ? 'active' : ''"/>
     </div>
     <div
-      v-show="isShow"
+      v-if="isShow"
       class="dropdown__content"
     >
       <Checkbox
@@ -17,7 +18,7 @@
         :title="option"
       />
       <div class="dropdown__bottom">
-        <button @click="isShow = !isShow">
+        <button @click="isShow = false">
           Готово
         </button>
       </div>
@@ -27,13 +28,17 @@
 
 <script setup>
 import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
 import Checkbox from './Checkbox/Checkbox.vue'
 import FilterIcon from '@/components/icons/Table/FilterIcon.vue'
 
 defineProps(['title', 'options'])
 
+const isShowRef = ref(null)
 const isShow = ref(false)
+
+onClickOutside(isShowRef, () => isShow.value = false);
 </script>
 
 <style lang="scss">

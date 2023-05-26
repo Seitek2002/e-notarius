@@ -25,12 +25,12 @@
                 <div class="registryClient-content">
                     <p>Роль пользователя</p>
                     <Accordeon style="border:unset; width:320px;"
-                        :options="['Алименты', 'Заработная плата', 'Пенсии', 'Индексированная сумма сбережений']" />
+                        :options="['Пользователь', 'Нотариус', 'Должностное лицо ОМСУ', 'Стажер']" />
                 </div>
                 <div class="registryClient-content">
                     <p>Кем зарегистрировано</p>
                     <Accordeon style="border:unset; width:320px;"
-                        :options="['Алименты', 'Заработная плата', 'Пенсии', 'Индексированная сумма сбережений']" />
+                        :options="['Алименты', 'Заработная плата', 'Пенсии', 'Стажер']" />
                 </div>
             </div>
             <div class="registryClient-info">

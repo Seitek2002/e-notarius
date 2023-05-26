@@ -66,11 +66,12 @@
           <div class="w-55 dropdown-search">
             <p>Гражданство</p>
             <label
+            ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
               @click="citizenshipIsActive = !citizenshipIsActive"
             >
               <span>
-                <SearchIcon />
+                <SearchIcon/>
                 {{ citizenshipActiveOption }}
               </span>
               <ArrowDownSmallIcon/>
@@ -110,8 +111,9 @@
           <div class="flex">
             <div class="dropdown">
               <label
+              ref="passportSeriesIsActiveRef"
                 :class="passportSeriesIsActive ? 'active' : ''"
-                @click="passportSeriesIsActive = !passportSeriesIsActive"
+                @click="passportSeriesIsActive = true"
               >
                 <span>
                   {{ passportSeriesActive }}
@@ -126,7 +128,7 @@
                   v-for="option in ['ID', 'AN', 'AC']"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(passportSeriesActive = option), (passportSeriesIsActive = !passportSeriesIsActive)"
+                  @click=";(passportSeriesActive = option), (passportSeriesIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -162,8 +164,9 @@
         <div class="w-55 dropdown">
           <p>Область</p>
           <label
+          ref="regionIsActiveRef"
             :class="isActiveRegion ? 'active' : ''"
-            @click="isActiveRegion = !isActiveRegion"
+            @click="isActiveRegion = true"
           >
             <span>{{ activeOptionRegion }}</span>
             <ArrowDownSmallIcon />
@@ -176,7 +179,7 @@
               v-for="(region, i) in regions"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionRegion = region), (isActiveRegion = !isActiveRegion)"
+              @click=";(activeOptionRegion = region), (isActiveRegion = false)"
             >
               {{ region }}
             </div>
@@ -186,7 +189,8 @@
           <p>Районы</p>
           <label
             :class="isActiveArea ? 'active' : ''"
-            @click="isActiveArea = !isActiveArea"
+              ref="areaIsActiveRef"
+            @click="isActiveArea = true"
           >
             <span>{{ activeOptionArea }}</span>
             <ArrowDownSmallIcon />
@@ -199,7 +203,7 @@
               v-for="(area, i) in areas"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionArea = area), (isActiveArea = !isActiveArea)"
+              @click=";(activeOptionArea = area), (isActiveArea = false)"
             >
               {{ area }}
             </div>
@@ -211,8 +215,9 @@
         <div class="w-55 dropdown">
           <p>Область</p>
           <label
+              ref="regionIsActiveSecondRef"
             :class="regionIsActiveSecond ? 'active' : ''"
-            @click="regionIsActiveSecond = !regionIsActiveSecond"
+            @click="regionIsActiveSecond = true"
           >
             <span>
               {{ regionActiveOptionSecond }}
@@ -227,7 +232,7 @@
               v-for="option in ['Чуй', 'Ош', 'Ыссык-Кол', 'Талас', 'Нарын', 'Жалал-Абад', 'Баткен']"
               :key="option"
               class="dropdown-search__option"
-              @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = !regionIsActiveSecond)"
+              @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = false)"
             >
               {{ option }}
             </div>
@@ -236,8 +241,9 @@
         <div class="w-55 dropdown">
           <p>Районы</p>
           <label
+              ref="areaIsActiveSecondRef"
             :class="areaIsActiveSecond ? 'active' : ''"
-            @click="areaIsActiveSecond = !areaIsActiveSecond"
+            @click="areaIsActiveSecond = true"
           >
             <span>
               {{ areaActiveOptionSecond }}
@@ -264,7 +270,7 @@
               ]"
               :key="option"
               class="dropdown-search__option"
-              @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = !areaIsActiveSecond)"
+              @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = false)"
             >
               {{ option }}
             </div>
@@ -277,8 +283,9 @@
             Населенный пункт, город
           </p>
           <label
+              ref="cityIsActiveRef"
             :class="cityIsActiveSecond ? 'active' : ''"
-            @click="cityIsActiveSecond = !cityIsActiveSecond"
+            @click="cityIsActiveSecond = true"
           >
             <span>
               {{ cityActiveOptionSecond }}
@@ -311,7 +318,7 @@
               ]"
               :key="option"
               class="dropdown-search__option"
-              @click=";(cityActiveOptionSecond = option), (cityIsActiveSecond = !cityIsActiveSecond)"
+              @click=";(cityActiveOptionSecond = option), (cityIsActiveSecond = false)"
             >
               {{ option }}
             </div>
@@ -367,6 +374,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
+import { onClickOutside } from '@vueuse/core'
 
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
@@ -376,10 +384,14 @@ import Approved from '@/components/global/UI/Info/Approved.vue'
 import Back from '@/components/global/UI/Info/Btn/Back.vue'
 import Next from '@/components/global/UI/Info/Btn/Next.vue'
 
-// const cityIsActive = ref(false)
+const cityIsActive = ref(false)
 const cityActiveOption = ref('')
 const cityIsActiveSecond = ref(false)
 const cityActiveOptionSecond = ref('')
+
+const regionIsActiveSecond = ref(false)
+
+const areaIsActiveSecond = ref(false)
 
 const passportSeriesIsActive = ref(false)
 const passportSeriesActive = ref('')
@@ -547,6 +559,23 @@ const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
   getUsers()
 }
+
+const citizenshipIsActiveRef = ref(null)
+const cityIsActiveRef = ref(null)
+const regionIsActiveRef = ref(null)
+const areaIsActiveRef = ref(null)
+const regionIsActiveSecondRef = ref(null)
+const areaIsActiveSecondRef = ref(null)
+const passportSeriesIsActiveRef = ref(null)
+
+onClickOutside(cityIsActiveRef, () => cityIsActiveSecond.value = false);
+onClickOutside(citizenshipIsActiveRef, () => citizenshipIsActive.value = false);
+onClickOutside(regionIsActiveRef, () => isActiveRegion.value = false);
+onClickOutside(areaIsActiveRef, () => isActiveArea.value = false);
+onClickOutside(regionIsActiveSecondRef, () => regionIsActiveSecond.value = false);
+onClickOutside(areaIsActiveSecondRef, () => areaIsActiveSecond.value = false);
+onClickOutside(passportSeriesIsActiveRef, () => passportSeriesIsActive.value = false);
+
 </script>
 
 <style lang="scss" scoped>
@@ -579,7 +608,7 @@ input {
 
   &__select {
     position: absolute;
-    top: 65px;
+    top: 100%;
     left: 0;
     background: #fff;
     max-height: 200px;
