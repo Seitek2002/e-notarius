@@ -11,15 +11,20 @@
 
       <div class="info__progress flex">
         <div class="info__line" />
-        <template v-for="(item, i) in progress" :key="i">
-          <div v-show="item === 'prev'" class="info__circle" @click="progressPrev(i, item)">
-            <PreviousIcon />
-          </div>
-          <div v-show="item === 'current'" class="info__circle" @click="progressPrev(i, item)">
-            <CurrentIcon />
-          </div>
-          <div v-show="item === 'next'" class="info__circle" @click="progressPrev(i, item)">
-            <NextIcon />
+        <template v-for="(step, index) in steps" :key="index">
+          <div
+            :class="['info__circle', {'info__circle--prev': index < currentStep, 'info__circle--current': index === currentStep, 'info__circle--next': index > currentStep}]"
+            @click="changeStep(index)"
+          >
+            <template v-if="index < currentStep">
+              <PreviousIcon />
+            </template>
+            <template v-else-if="index === currentStep">
+              <CurrentIcon />
+            </template>
+            <template v-else>
+              <NextIcon />
+            </template>
           </div>
         </template>
       </div>
@@ -46,15 +51,15 @@
             <FingerprintCircleIcon v-show="!end" @click="handleClick" />
             <FingerprintSuccessIcon v-show="end" />
           </div>
-          <div v-show="start" class="auth-item__start auth-item__process">
-            Подтверждение отпечатка пальцев
-          </div>
-          <div v-show="center" class="auth-item__loading auth-item__process">
-            <AnimationBubblesIcon />
-            Проверка отпечатка пальцев
-          </div>
-          <div v-show="end" class="auth-item__success auth-item__process">
-            Проверка отпечатка пальцев прошла успешно
+          <div v-show="start || center || end" :class="['auth-item__process', {'auth-item__start': start, 'auth-item__loading': center, 'auth-item__success': end}]">
+            <template v-if="start">Подтверждение отпечатка пальцев</template>
+            <template v-else-if="center">
+              <AnimationBubblesIcon />
+              Проверка отпечатка пальцев
+            </template>
+            <template v-else>
+              Проверка отпечатка пальцев прошла успешно
+            </template>
           </div>
           <Btn title="Подписать" bg="#1BAA75" :disabled="!end"
             @click="handleCustomEvent([7, 'next']), store.commit('setIsSubmit', false), store.commit('pushNewItem')" />
@@ -62,18 +67,16 @@
       </div>
     </div>
 
-    <div class="info__content">
-      <component v-for="(item, i) in slicedItems" :is="item" :key="i" :on-custom-event="handleCustomEvent"
-        :progress-prev="progressPrev" :short="item?.__name !== slicedItems[0].__name ? 'short' : ''" :i="i" />
+     <div class="info__content">
+      <component :is="currentStepComponent" @handleCustomEvent="changeStep" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-
 import Btn from '@/components/global/UI/Buttons/Btn.vue'
 import Eighth from '@/components/notarius/steps/Steps/Eighth.vue'
 import Fifth from '@/components/notarius/steps/Steps/Fifth.vue'
@@ -113,80 +116,35 @@ const handleClick = () => {
   }, 5000)
 }
 
-const progress = ref(['current', Array(7).fill('next')].flat())
+const progress = ref(['current', ...Array(7).fill('next')])
 const router = useRouter()
+
 const emits = defineEmits(['islam'])
 onMounted(() => {
   emits('islam', 'Нотариальное действие')
 })
 
-const items = [First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth]
+const steps = [
+  { component: First },
+  { component: Second },
+  { component: Third },
+  { component: Fourth },
+  { component: Fifth },
+  { component: Sixth },
+  { component: Seventh },
+];
 
-const slicedItems = ref([First, Second])
+const slicedItems = ref(First)
+const currentStep = ref(0);
 
-const nextStep = () => {
-  slicedItems.value.shift()
-
-  const item = items.findIndex(item => item.__name === slicedItems.value[0].__name)
-
-  if (items[item + 1]) {
-    slicedItems.value.push(items[item + 1])
-    progressPrev(item, 'next')
+const changeStep = (stepIndex) => {
+  console.log(stepIndex)
+  if (stepIndex >= 0 && stepIndex < steps.length) {
+    currentStep.value = stepIndex;
   }
-}
+};
 
-const prevStep = () => {
-  slicedItems.value.pop()
-
-  const index = items.findIndex(item => item.__name === slicedItems.value[0].__name)
-  slicedItems.value.unshift(items[index - 1])
-}
-
-const handleCustomEvent = data => {
-  const [id, move] = data
-
-  if (move === 'prev') {
-    progress.value = progress.value.map((item, i) => {
-      if (id === i) return 'current'
-      if (id > i) return 'prev'
-      if (id < i) return 'next'
-    })
-
-    prevStep()
-  } else {
-    for (let i = 0; i < id; i++) {
-      progress.value[i] = 'prev'
-
-      if (i !== progress.value.length) {
-        progress.value[i + 1] = 'current'
-      }
-    }
-
-    nextStep()
-  }
-}
-
-const progressPrev = (id, move) => {
-  slicedItems.value = []
-  slicedItems.value.push(items[id])
-  slicedItems.value.push(items[id + 1])
-
-  if (move === 'prev') {
-    progress.value = progress.value.map((item, i) => {
-      if (id === i) return 'current'
-      if (id > i) return 'prev'
-      if (id < i) return 'next'
-    })
-  } else {
-    for (let i = 0; i < id; i++) {
-      progress.value[i] = 'prev'
-
-      if (i + 1 !== progress.value.length) {
-        progress.value[i + 1] = 'current'
-      }
-    }
-  }
-}
+const currentStepComponent = computed(() => steps[currentStep.value].component);
 </script>
 
 <style lang="scss">

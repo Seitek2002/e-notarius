@@ -329,8 +329,7 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
-  // TODO, need to remove this shit
-  props.progressPrev(id, move)
+  
 }
 
 const handleChange = e => {

@@ -66,7 +66,7 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
-import Btn from "@/components/Buttons/Btn.vue";
+import Btn from '@/components/global/UI/Buttons/Btn.vue'
 import DownloadIcon from "@/components/icons/Table/DownloadIcon.vue";
 import EditIcon from "@/components/icons/Table/EditIcon.vue";
 import OfferIcon from "@/components/icons/Table/OfferIcon.vue";

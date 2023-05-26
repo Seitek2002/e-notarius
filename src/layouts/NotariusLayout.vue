@@ -177,8 +177,8 @@ const sidebarListSecond = [
   },
 ]
 
-const changeTitle = a => {
-  title.value = a
+const changeTitle = newTitle => {
+  title.value = newTitle
 }
 </script>
 

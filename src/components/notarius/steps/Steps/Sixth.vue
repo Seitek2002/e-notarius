@@ -82,8 +82,7 @@ const decrement = () => {
 
 const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
-  // TODO, need to remove this shit
-  props.progressPrev(id, move)
+  
 }
 </script>
 
