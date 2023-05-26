@@ -69,6 +69,7 @@ import { ref } from 'vue'
 
 import close from '@/layouts/Icons/sidebar/close.vue'
 import imageExtra from '@/layouts/Icons/sidebar/imageExtra.vue'
+import imageFive from '@/layouts/Icons/sidebar/imageFive.vue'
 import imageFour from '@/layouts/Icons/sidebar/imageFour.vue'
 import imageOne from '@/layouts/Icons/sidebar/imageOne.vue'
 import imageThree from '@/layouts/Icons/sidebar/imageThree.vue'
@@ -127,7 +128,7 @@ const sidebarListSecond = [
     id: 0,
     img: imageOne,
     text: 'Шаблоны',
-    link: '/',
+    link: '/temp-user',
   },
   {
     id: 1,
@@ -146,6 +147,12 @@ const sidebarListSecond = [
     img: imageThree,
     text: 'Руководства пользователя',
     link: '/manual-user',
+  },
+  {
+    id: 3,
+    img: imageFive,
+    text: 'Реестр пользователей',
+    link: '/registry-client-user',
   },
   {
     id: 3,

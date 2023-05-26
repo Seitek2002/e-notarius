@@ -146,7 +146,7 @@ const sidebarList = [
   {
     id: 3,
     img: imgFour,
-    text: 'Переписка',
+    text: 'Переписка', 
     link: '/messages-notarius',
   },
   {
@@ -173,7 +173,7 @@ const sidebarListSecond = [
     id: 3,
     img: imageFive,
     text: 'Реестр пользователей',
-    link: '/',
+    link: '/registry-client-notarius',
   },
 ]
 

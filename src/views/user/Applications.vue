@@ -1,7 +1,7 @@
 <template>
   <section class="application">
     <div class="application-head">
-      <div class="application-search">
+      <div class="application-search"> 
         <input type="text" class="application-search__input" />
         <button class="application-search__btn">
           <AppSearchIcon />
