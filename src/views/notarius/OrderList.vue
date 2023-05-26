@@ -235,9 +235,12 @@ const handleScrollLeft = () => {
 @import "@/assets/scss/variables.scss";
 .order {
   &__adaptive {
-    display: flex;
+    display: none;
     justify-content: space-between;
     margin-top: 30px;
+    @media screen and (max-width: 1138px) {
+      display: flex;
+    }
   }
   &__left svg {
     cursor: pointer;
@@ -300,6 +303,14 @@ const handleScrollLeft = () => {
       font-weight: 600;
       font-size: 18px;
       color: #1f2937;
+      @media screen and (max-width: 768px) {
+      display: none;
+    }
+    }
+    button {
+      @media screen and (max-width: 768px) {
+      width: 100%;
+    }
     }
   }
 
@@ -307,6 +318,12 @@ const handleScrollLeft = () => {
     margin: 50px auto 0;
     display: flex;
     justify-content: center;
+    .pagination {
+      @media screen and (max-width: 1050px) {
+      margin: 0 0;
+      padding: 8px 20%;
+    }
+    }
   }
 }
 
