@@ -59,13 +59,13 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import Accordeon from '@/components/global/Info/Accordeon.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Mark from '@/components/globalUIUI/Info/Mark.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Accordeon from '@/components/global/UI/Info/Accordeon.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Mark from '@/components/global/UI/Info/Mark.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)
@@ -77,9 +77,8 @@ const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
-  // TODO, need to remove this shit
-  props.progressPrev(id, move)
+  emits('handleCustomEvent',id)
+  
 }
 </script>
 

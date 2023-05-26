@@ -94,7 +94,9 @@ const handleClick = () => {
 .hero {
   margin: 100px 0 100px 0;
 
-  
+  @media screen and (max-width: 991px) {
+      margin: 0;
+    }
 
   &__content {
     display: flex;
@@ -102,8 +104,8 @@ const handleClick = () => {
     @media screen and (max-width: 991px) {
       justify-content: center;
       flex-wrap: wrap;
-      gap: 70px;
     }
+
   }
 
   &__btns {
@@ -199,6 +201,9 @@ const handleClick = () => {
       font-size: 33px;
       color: $text-dark-blue;
       margin-bottom: 40px;
+      @media screen and (max-width: 991px) {
+        font-size: 28px;
+      }
     }
 
     span {
@@ -215,6 +220,9 @@ const handleClick = () => {
   &__right img {
     max-width: 100%;
     object-fit: cover;
+    @media screen and (max-width: 991px) {
+        display: none;
+      }
   }
 
   &__input {

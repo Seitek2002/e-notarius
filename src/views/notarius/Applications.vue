@@ -115,7 +115,7 @@
 <script setup>
 import { computed, ref } from "vue";
 
-import ArrowDownSmallIcon from "@/components/global/Info/Icons/ArrowDownSmallIcon.vue";
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
 import ArrowNextIcon from "@/components/Pagination/Icons/ArrowNextIcon.vue";
 import ArrowPrevIcon from "@/components/Pagination/Icons/ArrowPrevIcon.vue";
 import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";

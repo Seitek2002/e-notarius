@@ -27,7 +27,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 
-import ArrowDownSmallIcon from '@/components/Info/Icons/ArrowDownSmallIcon.vue'
+import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 
 const isActive = ref(false)
 const activeOption = ref('Все')

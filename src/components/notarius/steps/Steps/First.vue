@@ -30,13 +30,13 @@
 <script setup>
 import { ref } from 'vue'
 
-import Approved from '@/components/global/Info/Approved.vue'
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
 import FormContentFirst from '@/components/notarius/steps/FormContent/FormContentFirst.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 // const ForeignFace = ref(false)
@@ -59,9 +59,8 @@ const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
-  // TODO, need to remove this shit
-  props.progressPrev(id, move)
+  emits('handleCustomEvent',id)
+  
 }
 
 const qntyOfParticipants = ref([

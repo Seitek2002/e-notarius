@@ -3,125 +3,84 @@
     <div class="info__top">
       <div class="info__title flex jcsb">
         <Title text="Оформление заявки" />
-        <div class="info__cancel flex" @click="router.push('/order-list-user')">
+        <div class="info__cancel flex" @click="cancelOrder">
           <CancelIcon />
           Отменить
         </div>
       </div>
       <div class="info__progress flex">
         <div class="info__line" />
-        <template v-for="(item, i) in progress" :key="i">
-          <div v-show="item === 'prev'" class="info__circle" @click="progressPrev(i, item)">
-            <PreviousIcon />
-          </div>
-          <div v-show="item === 'current'" class="info__circle" @click="progressPrev(i, item)">
-            <CurrentIcon />
-          </div>
-          <div v-show="item === 'next'" class="info__circle" @click="progressPrev(i, item)">
-            <NextIcon />
+        <template v-for="(step, index) in steps" :key="index">
+          <div
+            :class="['info__circle', {'info__circle--prev': index < currentStep, 'info__circle--current': index === currentStep, 'info__circle--next': index > currentStep}]"
+            @click="changeStep(index)"
+          >
+            <template v-if="index < currentStep">
+              <PreviousIcon />
+            </template>
+            <template v-else-if="index === currentStep">
+              <CurrentIcon />
+            </template>
+            <template v-else>
+              <NextIcon />
+            </template>
           </div>
         </template>
       </div>
     </div>
 
     <div class="info__content">
-      <component v-for="(item, i) in slicedItems" :is="item" :key="i" @handleCustomEvent="handleCustomEvent"
-        :progress-prev="progressPrev" :short="item?.__name !== slicedItems[0].__name ? 'short' : ''" :i="i" />
+      <component :is="currentStepComponent" @handleCustomEvent="changeStep" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, watch, computed } from "vue";
+import { useRouter } from "vue-router";
 
-import Fifth from '@/components/user/steps/Fifth.vue'
-import First from '@/components/user/steps/First.vue'
-import Fourth from '@/components/user/steps/Fourth.vue'
-import Second from '@/components/user/steps/Second.vue'
-import Seventh from '@/components/user/steps/Seventh.vue'
-import Sixth from '@/components/user/steps/Sixth.vue'
-import Third from '@/components/user/steps/Third.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
-import CurrentIcon from '@/views/Icons/CurrentIcon.vue'
-import NextIcon from '@/views/Icons/NextIcon.vue'
-import PreviousIcon from '@/views/Icons/PreviousIcon.vue'
-import CancelIcon from '@/views/Icons/CancelIcon.vue'
+import Fifth from "@/components/user/steps/Fifth.vue";
+import First from "@/components/user/steps/First.vue";
+import Fourth from "@/components/user/steps/Fourth.vue";
+import Second from "@/components/user/steps/Second.vue";
+import Seventh from "@/components/user/steps/Seventh.vue";
+import Sixth from "@/components/user/steps/Sixth.vue";
+import Third from "@/components/user/steps/Third.vue";
+import Title from "@/components/global/UI/Info/Title.vue";
+import CurrentIcon from "@/views/Icons/CurrentIcon.vue";
+import NextIcon from "@/views/Icons/NextIcon.vue";
+import PreviousIcon from "@/views/Icons/PreviousIcon.vue";
+import CancelIcon from "@/views/Icons/CancelIcon.vue";
 
-const progress = ref(['current', Array(6).fill('next')].flat())
-const router = useRouter()
+const steps = [
+  { component: First },
+  { component: Second },
+  { component: Third },
+  { component: Fourth },
+  { component: Fifth },
+  { component: Seventh },
+  { component: Sixth },
+];
+const currentStep = ref(0);
+const router = useRouter();
 
-const items = [First, Second, Third, Fourth, Fifth, Seventh, Sixth]
+const cancelOrder = () => {
+  router.push("/order-list-user");
+};
 
-const slicedItems = ref([First, Second])
-
-const nextStep = () => {
-  slicedItems.value.shift()
-
-  const item = items.findIndex(item => item.__name === slicedItems.value[0].__name)
-
-  if (items[item + 1]) {
-    slicedItems.value.push(items[item + 1])
-    progressPrev(item, 'next')
+const changeStep = (stepIndex) => {
+  console.log(stepIndex)
+  if (stepIndex >= 0 && stepIndex < steps.length) {
+    currentStep.value = stepIndex;
   }
-}
+};
 
-const prevStep = () => {
-  slicedItems.value.pop()
-
-  const index = items.findIndex(item => item.__name === slicedItems.value[0].__name)
-  slicedItems.value.unshift(items[index - 1])
-}
-
-const handleCustomEvent = data => {
-  const [id, move] = data
-
-  if (move === 'prev') {
-    progress.value = progress.value.map((item, i) => {
-      if (id === i) return 'current'
-      if (id > i) return 'prev'
-      if (id < i) return 'next'
-    })
-
-    prevStep()
-  } else {
-    for (let i = 0; i < id; i++) {
-      progress.value[i] = 'prev'
-
-      if (i !== progress.value.length) {
-        progress.value[i + 1] = 'current'
-      }
-    }
-
-    nextStep()
-  }
-}
-
-const progressPrev = (id, move) => {
-  slicedItems.value = []
-  slicedItems.value.push(items[id])
-  slicedItems.value.push(items[id + 1])
-
-  if (move === 'prev') {
-    progress.value = progress.value.map((item, i) => {
-      if (id === i) return 'current'
-      if (id > i) return 'prev'
-      if (id < i) return 'next'
-    })
-  } else {
-    for (let i = 0; i < id; i++) {
-      progress.value[i] = 'prev'
-
-      if (i !== progress.value.length) {
-        progress.value[i + 1] = 'current'
-      }
-    }
-  }
-}
+const currentStepComponent = computed(() => steps[currentStep.value].component);
 </script>
 
+
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .flex {
   display: flex;
@@ -152,7 +111,7 @@ const progressPrev = (id, move) => {
   align-items: center;
 
   &__qnty {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
@@ -248,7 +207,7 @@ const progressPrev = (id, move) => {
   }
 
   &__cancel {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
     color: #1baa75;
@@ -319,7 +278,7 @@ const progressPrev = (id, move) => {
 
       p {
         font-weight: 500;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 14px;
         line-height: 130%;
         color: #24334b;
@@ -328,7 +287,7 @@ const progressPrev = (id, move) => {
 
       input {
         padding: 11px 10px;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 16px;
         line-height: 140%;
         color: #24334b;
@@ -376,7 +335,7 @@ const progressPrev = (id, move) => {
 }
 
 label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: block;
   font-weight: 400;
   font-size: 16px;

@@ -60,10 +60,18 @@ const items = [
 @import "@/assets/scss/variables.scss";
 
 .question {
+   @media screen and (max-width: 991px) {
+      max-width: 520px;
+      margin: 0 auto;
+    }
   &__content {
     display: flex;
     justify-content: space-between;
     margin-bottom: 120px;
+    @media screen and (max-width: 991px) {
+      margin-bottom: 50px;
+      justify-content: center;
+    }
   }
 
   &__info {

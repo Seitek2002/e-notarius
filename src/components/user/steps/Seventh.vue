@@ -48,19 +48,19 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import MinusSixth from '@/components/global/Info/Btn/MinusSixth.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
-import PlusSixth from '@/components/global/Info/Btn/PlusSixth.vue'
-import Dropdown from '@/components/globalUI/Info/Dropdown.vue'
-import File from '@/components/global/Info/Input/File.vue'
-import Text from '@/components/global/Info/Input/Text.vue'
-import Mark from '@/components/globalUIUI/Info/Mark.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import MinusSixth from '@/components/global/UI/Info/Btn/MinusSixth.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
+import PlusSixth from '@/components/global/UI/Info/Btn/PlusSixth.vue'
+import Dropdown from '@/components/global/UI/Info/Dropdown.vue'
+import File from '@/components/global/UI/Info/Input/File.vue'
+import Text from '@/components/global/UI/Info/Input/Text.vue'
+import Mark from '@/components/global/UI/Info/Mark.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 import FormContentSix from './FormContentSix.vue'
@@ -89,7 +89,7 @@ const decrement = () => {
 }
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
 }
 </script>
 
