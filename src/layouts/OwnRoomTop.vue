@@ -1,6 +1,12 @@
 <template>
   <div class="top">
     <h1>{{ title }}</h1>
+    <svg @click="store.state.notariusSidebar = !store.state.notariusSidebar; store.state.userSidebar = !store.state.userSidebar" class="top-close" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="44" height="44" fill="white"/>
+    <path d="M22 17L27 22L22 27" stroke="#24334B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 17L21 22L16 27" stroke="#24334B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
     <div class="top__action">
       <div class="top__user">
         <div class="top__user-wrapper" @click="isDropdownShow = !isDropdownShow">
@@ -70,6 +76,11 @@ onMounted(() => {
     color: $text-light-green;
   }
 
+  &-close {
+    display: none;
+    cursor: pointer;
+  }
+
   &__action {
     display: flex;
     gap: 30px;
@@ -121,4 +132,47 @@ onMounted(() => {
     }
   }
 }
-</style>
+
+@media screen and (max-width:1050px) {
+  .top {
+    h1 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width:860px) {
+  .top {
+    h2 {
+      display: none;
+    }
+
+    &__user-wrapper {
+      justify-content: end;
+    }
+
+    &__user {
+      width: unset;
+    }
+
+    &__user-dropdown {
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width:530px) {
+  .top {
+    position: relative;
+    padding-bottom: 60px; 
+
+    h1 {
+      position: absolute;
+      bottom: 0;
+      left: 0; 
+    }
+    &-close {
+      display: block;
+    }
+  }
+}</style>
