@@ -267,7 +267,15 @@ export const routes = [
     meta: {
       layout: 'notarius', 
     },
-    component: () => import('../views/notarius/Temp.vue'),
+    component: () => import('../views/Temp.vue'),
+  },
+  {
+    path: '/temp-user',
+    name: 'temp-user',
+    meta: {
+      layout: 'user', 
+    },
+    component: () => import('../views/Temp.vue'),
   },
   {
     path: '/profile-user',
@@ -284,6 +292,22 @@ export const routes = [
       layout: 'notarius', 
     },
     component: () => import('../views/Profile.vue'),
+  },
+  {
+    path: '/registry-client-user',
+    name: 'registry-client-user',
+    meta: {
+      layout: 'user', 
+    },
+    component: () => import('../views/RegistryClient.vue'),
+  },
+  {
+    path: '/registry-client-notarius',
+    name: 'registry-client-notarius',
+    meta: {
+      layout: 'notarius', 
+    },
+    component: () => import('../views/RegistryClient.vue'),
   },
   ...NOTARY_PAGES,
   ...USERS_PAGES,

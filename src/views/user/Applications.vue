@@ -1,7 +1,7 @@
 <template>
   <section class="application">
     <div class="application-head">
-      <div class="application-search">
+      <div class="application-search"> 
         <input type="text" class="application-search__input" />
         <button class="application-search__btn">
           <AppSearchIcon />
@@ -117,7 +117,7 @@ import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 
 import Pagination from "@/components/Pagination/Pagination.vue";
-import ArrowDownSmallIcon from "@/components/global/Info/Icons/ArrowDownSmallIcon.vue";
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
 import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
 import ExcelIcon from "@/views/Icons/ExcelIcon.vue";
 import FilterDisabledIcon from "@/views/Icons/FilterDisabledIcon.vue";
