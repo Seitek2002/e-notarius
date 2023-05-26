@@ -62,7 +62,8 @@
         </label>
       </div>
       <div class="order__right">
-        <svg @click="handleScroll"
+        <svg
+          @click="handleScrollLeft"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -90,7 +91,8 @@
             </clipPath>
           </defs>
         </svg>
-        <svg @click="handleScroll"
+        <svg
+          @click="handleScrollRight"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -120,8 +122,8 @@
         </svg>
       </div>
     </div>
-    <div  class="order-list__table">
-      <table ref="container">
+    <div ref="container" class="order-list__table">
+      <table>
         <thead>
           <tr>
             <th>QR</th>
@@ -211,20 +213,22 @@ const paginatedItems = ref(files);
 const paginate = (data) => {
   paginatedItems.value = data.value; // paginatedItems.push(data)
 };
-const container = ref(null)
-  const handleScroll = () => {
 
-    // Scroll the container horizontally by a specific amount (e.g., 200 pixels)
-    // container.scrollBy({
-    //   left: 200,
-    // });
-    // console.log(container.value);
+const container = ref(null);
 
-    // Alternatively, you can use the following code for immediate scrolling without animation:
-    // container.scrollBy(200, 0);
+const handleScrollRight = () => {
+  container.value.scrollBy({
+    left: -200,
+    behavior: "smooth"
+  });
+};
 
-  }
-
+const handleScrollLeft = () => {
+  container.value.scrollBy({
+    left: 200,
+    behavior: "smooth"
+  });
+};
 </script>
 
 <style lang="scss">
