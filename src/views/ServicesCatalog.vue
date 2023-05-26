@@ -38,7 +38,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-import SuccessContentIcon from '@/components/NotariusList/Icons/SuccessContentIcon.vue'
+import SuccessContentIcon from '@/components/guest/NotariusList/Icons/SuccessContentIcon.vue'
 
 const isActive = ref(3)
 
