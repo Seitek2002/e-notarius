@@ -22,7 +22,12 @@ import Scaner from '@/components/guest/Auth/Scaner.vue'
   max-width: 520px;
   box-sizing: border-box;
   margin: 80px auto;
-
+  @media screen and (max-width: 991px) {
+      margin: 0 auto;
+    }
+  @media screen and (max-width: 520px) {
+      width: 90%;
+    }
   h2 {
     font-weight: 600;
     font-size: 36px;
