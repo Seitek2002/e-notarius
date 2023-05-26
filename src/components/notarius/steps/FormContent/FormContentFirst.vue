@@ -724,8 +724,8 @@
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import File from '@/components/global/Info/Input/File.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import File from '@/components/global/UI/Info/Input/File.vue'
 import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import CheckboxCheckedIcon from '@/components/global/UI/Info/Icons/CheckboxCheckedIcon.vue'

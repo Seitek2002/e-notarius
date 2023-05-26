@@ -299,12 +299,12 @@ import { ref } from 'vue'
 import { useStore } from 'vuex'
 
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Mark from '@/components/globalUIUI/Info/Mark.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Mark from '@/components/global/UI/Info/Mark.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 const notActionIsActive = ref(false)
 const notActionActiveOption = ref('Все')
@@ -328,7 +328,7 @@ const props = defineProps(['active', 'i', 'short'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
 }
 
 const handleChange = e => {

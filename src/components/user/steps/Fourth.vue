@@ -370,11 +370,11 @@ import { useStore } from 'vuex'
 
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
 
 // const cityIsActive = ref(false)
 const cityActiveOption = ref('')
@@ -544,7 +544,7 @@ const getUsers = () => {
 }
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
   getUsers()
 }
 </script>

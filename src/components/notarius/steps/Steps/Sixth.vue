@@ -47,13 +47,13 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 import FormContentSix from '../FormContent/FormContentSix.vue'
 
@@ -81,7 +81,7 @@ const decrement = () => {
 }
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
   // TODO, need to remove this shit
   props.progressPrev(id, move)
 }

@@ -46,11 +46,11 @@ import { useStore } from 'vuex'
 import approveImg from '@/assets/images/approved.png'
 
 import PdfFileIcon from '@/components/global/UI/Info/Icons/PdfFileIcon.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 const router = useRouter()

@@ -530,9 +530,9 @@ import RadioCheckedIcon from '@/components/global/UI/Info/Icons/RadioCheckedIcon
 import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
 import RadioSuccesWhiteIcon from '@/components/global/UI/Info/Icons/RadioSuccesWhiteIcon.vue'
 import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
-import Dropdown from '@/components/globalUI/Info/Dropdown.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import File from '@/components/global/Info/Input/File.vue'
+import Dropdown from '@/components/global/UI/Info/Dropdown.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import File from '@/components/global/UI/Info/Input/File.vue'
 
 const store = useStore()
 const INNVal = ref('')
