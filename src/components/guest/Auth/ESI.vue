@@ -206,6 +206,9 @@ const handleClick = () => {
       display: inline;
       background: #fff;
       padding: 5px;
+      @media screen and (max-width: 360px) {
+        font-size: 12px;
+      }
     }
   }
 
