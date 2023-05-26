@@ -44,11 +44,11 @@
 <script setup>
 import { ref } from 'vue'
 
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import AddFileIcon from '@/components/global/Info/Input/Icons/AddFileIcon.vue'
-import AttachFileIcon from '@/components/global/Info/Input/Icons/AttachFileIcon.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import AddFileIcon from '@/components/global/UI/Info/Input/Icons/AddFileIcon.vue'
+import AttachFileIcon from '@/components/global/UI/Info/Input/Icons/AttachFileIcon.vue'
 
 const items = ref([
   {

@@ -70,12 +70,12 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import approveImg from '@/assets/images/approved.png'
-import Approved from '@/components/global/Info/Approved.vue'
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
 
@@ -91,14 +91,14 @@ const handleClick = (id, move) => {
   if (id === 7) {
     store.commit('setIsSubmit', true)
   } else {
-    emits('handleCustomEvent', [id, move])
+    emits('handleCustomEvent',id)
     // TODO, need to remove this shit
     props.progressPrev(id, move)
   }
 }
 
 const back = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
 }
 </script>
 

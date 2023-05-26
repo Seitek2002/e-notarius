@@ -52,18 +52,18 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import Accordeon from '@/components/global/Info/Accordeon.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Back from '@/components/global/Info/Btn/Back.vue'
-import Minus from '@/components/global/Info/Btn/Minus.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Plus from '@/components/global/Info/Btn/Plus.vue'
-import Dropdown from '@/components/globalUI/Info/Dropdown.vue'
-import File from '@/components/global/Info/Input/File.vue'
-import Text from '@/components/global/Info/Input/Text.vue'
-import Mark from '@/components/globalUIUI/Info/Mark.vue'
-import Suptitle from '@/components/globalUIUI/Info/Suptitle.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Accordeon from '@/components/global/UI/Info/Accordeon.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
+import Minus from '@/components/global/UI/Info/Btn/Minus.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Plus from '@/components/global/UI/Info/Btn/Plus.vue'
+import Dropdown from '@/components/global/UI/Info/Dropdown.vue'
+import File from '@/components/global/UI/Info/Input/File.vue'
+import Text from '@/components/global/UI/Info/Input/Text.vue'
+import Mark from '@/components/global/UI/Info/Mark.vue'
+import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)
@@ -75,7 +75,7 @@ const props = defineProps(['active', 'i', 'short'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent',id)
 }
 </script>
 

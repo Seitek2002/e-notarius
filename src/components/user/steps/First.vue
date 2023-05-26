@@ -201,7 +201,7 @@
         </div>
       </div>
     </div>
-    <Next @click="handleClick"/>
+    <Next @click="handleClick(1, 'next')"/>
   </div>
 </template>
 
@@ -210,9 +210,9 @@ import { ref, watch, defineEmits } from 'vue'
 
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
-import Approved from '@/components/global/Info/Approved.vue'
-import Next from '@/components/global/Info/Btn/Next.vue'
-import Title from '@/components/globalUI/Info/Title.vue'
+import Approved from '@/components/global/UI/Info/Approved.vue'
+import Next from '@/components/global/UI/Info/Btn/Next.vue'
+import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)
@@ -262,7 +262,7 @@ defineProps(['active'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', [id, move])
+  emits('handleCustomEvent', id)
 }
 </script>
 

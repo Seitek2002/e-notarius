@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import ArrowDownIcon from '@/components/global/Info/Btn/Icons/ArrowDownIcon.vue'
+import ArrowDownIcon from '@/components/global/UI/Info/Btn/Icons/ArrowDownIcon.vue'
 
 defineProps(['title'])
 </script>

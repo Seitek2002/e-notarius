@@ -173,7 +173,7 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-import Text from '@/components/global/Info/Input/Text.vue'
+import Text from '@/components/global/UI/Info/Input/Text.vue'
 import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
 import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
