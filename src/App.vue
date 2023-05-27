@@ -165,8 +165,12 @@ const layout = computed(() => {
 .content {
   padding: 60px;
   box-sizing: border-box;
-  max-width: 80%;
   flex-grow: 1;
+  max-width: 80%;
+}
+
+.sidebar.active ~ .content {
+  max-width: 95%;
 }
 
 @media screen and (max-width:768px) {
