@@ -12,7 +12,14 @@
         <div class="info__line" />
         <template v-for="(step, index) in steps" :key="index">
           <div
-            :class="['info__circle', {'info__circle--prev': index < currentStep, 'info__circle--current': index === currentStep, 'info__circle--next': index > currentStep}]"
+            :class="[
+              'info__circle',
+              {
+                'info__circle--prev': index < currentStep,
+                'info__circle--current': index === currentStep,
+                'info__circle--next': index > currentStep,
+              },
+            ]"
             @click="changeStep(index)"
           >
             <template v-if="index < currentStep">
@@ -69,7 +76,7 @@ const cancelOrder = () => {
 };
 
 const changeStep = (stepIndex) => {
-  console.log(stepIndex)
+  console.log(stepIndex);
   if (stepIndex >= 0 && stepIndex < steps.length) {
     currentStep.value = stepIndex;
   }
@@ -85,6 +92,10 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 .flex {
   display: flex;
   gap: 20px;
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 0;
+  }
 }
 
 .circle {
@@ -129,7 +140,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 }
 
 .dropdown-search {
-  width: 50%;
+  // width: 50%;
   position: relative;
 
   span {
@@ -204,6 +215,11 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
     flex: 1;
     background: #ffffff;
     box-shadow: 0 10px 40px #e9e9e9;
+    @media screen and (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0;
+    }
   }
 
   &__cancel {
@@ -256,7 +272,13 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
     padding-left: 52px;
     padding-bottom: 30px;
     position: relative;
-
+    @media screen and (max-width: 768px) {
+      border-left: none;
+      padding-left: 0;
+      .approved {
+        display: none;
+      }
+    }
     &.active {
       border-color: #1baa75;
     }
@@ -351,6 +373,83 @@ label {
     padding: 11px 10px;
     width: 100%;
     box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 768px) {
+  .next-btn {
+    width: 50%;
+    justify-content: center;
+  }
+  .info__form {
+    gap: 0;
+  }
+  .info__form--wrapper {
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+    .w-55,
+    .w-33,
+    .w-50 {
+      width: 100%;
+    }
+    .dropdown {
+      width: 100%;
+    }
+    .chek {
+      width: 50%;
+    }
+  }
+  .info__form--details {
+    width: 100%;
+  }
+  .info__member {
+    // flex-direction: column;
+    gap: 10px;
+  }
+  .info__subject {
+    h3 {
+      margin: 0;
+    }
+  }
+  .info__radio {
+    margin-bottom: 15px;
+
+    margin-right: 30px;
+    &--button {
+      .radio {
+        margin-right: 8px;
+      }
+      div {
+        border-radius: 100%;
+      }
+    }
+  }
+  .jcsb {
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .info__progress {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 530px) {
+  .info__top {
+    margin-top: 0;
+  }
+
+}
+@media screen and (max-width: 500px) {
+  .next-btn {
+    width: 100%;
+  }
+     .info__form--wrapper  {
+  .chek {
+    width: 100%;
+  }
+  }
+  .file__input .text, .file__input {
+    width: 100%;
   }
 }
 </style>

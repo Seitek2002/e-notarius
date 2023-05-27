@@ -54,7 +54,7 @@
       <div class="info__form--wrapper">
         <div
           class="flex"
-          style="gap: 25px"
+          
         >
           <label class="w-55">
             <p>Дата рождения</p>
