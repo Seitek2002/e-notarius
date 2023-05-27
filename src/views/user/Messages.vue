@@ -125,7 +125,7 @@ onMounted(() => {
   margin: 60px 0 92px 0;
   flex: 1;
   &__chat {
-    @media screen and (max-width: 991px) {
+        @media screen and (max-width: 991px) {
       display: none;
     }
   }
@@ -139,10 +139,10 @@ onMounted(() => {
     justify-content: space-between;
     gap: 10px;
     width: 320px;
-
-    @media screen and (max-width: 991px) {
+     @media screen and (max-width: 991px) {
       width: 100%;
     }
+
   }
 
   &__nuvbar__title {
@@ -162,6 +162,7 @@ onMounted(() => {
     background: $text-dark-blue;
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
     gap: 16px;
+
 
     h4 {
       color: $bg-light-gray;
@@ -223,9 +224,23 @@ onMounted(() => {
     @media screen and (max-width: 1241px) {
       margin-left: 195px;
     }
-    @media screen and (max-width: 1100px) {
+        @media screen and (max-width: 1100px) {
       margin-left: 40px;
     }
+    @media screen and (max-width: 991px) {
+      margin-left: 390px;
+    }
+    @media screen and (max-width: 965px) {
+     margin-left: 195px;
+    }
+       @media screen and (max-width: 698px) {
+      margin-left: 40px;
+    }
+    @media screen and (max-width: 460px) {
+      width: 80%;
+      margin-left: 0;
+    }
+
     p {
       font-weight: 400;
       line-height: 140%;
@@ -257,7 +272,10 @@ onMounted(() => {
     @media screen and (max-width: 1250px) {
       margin-right: 0;
     }
-
+    @media screen and (max-width: 460px) {
+      margin-left: 0;
+      width: 80%;
+    }
     p {
       font-weight: 400;
       font-size: 14px;
@@ -281,7 +299,10 @@ onMounted(() => {
     display: flex;
     width: 100%;
     margin: 59px 0 0 30px;
+@media screen and (max-width: 460px) {
 
+      margin-left: 0;
+    }
     textarea {
       resize: none;
       padding: 22px 0 1px 15px;
@@ -296,6 +317,10 @@ onMounted(() => {
       color: #9a9a9a;
       outline: none;
       margin-left: 30px;
+      @media screen and (max-width: 460px) {
+      width: 80%;
+      margin-left: 0;
+    }
     }
   }
 

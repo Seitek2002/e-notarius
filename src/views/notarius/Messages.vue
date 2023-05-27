@@ -129,7 +129,9 @@ onMounted(() => {
   margin: 60px 0 92px 0;
   flex: 1;
   &__chat {
-    
+        @media screen and (max-width: 991px) {
+      display: none;
+    }
   }
   &__content {
     display: flex;
@@ -144,9 +146,7 @@ onMounted(() => {
      @media screen and (max-width: 991px) {
       width: 100%;
     }
-    @media screen and (max-width: 991px) {
-      display: none;
-    }
+
   }
 
   &__nuvbar__title {
