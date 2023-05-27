@@ -12,17 +12,14 @@
       <div class="info__progress flex">
         <div class="info__line" />
         <template v-for="(step, index) in steps" :key="index">
-          <div
-            :class="[
-              'info__circle',
-              {
-                'info__circle--prev': index < currentStep,
-                'info__circle--current': index === currentStep,
-                'info__circle--next': index > currentStep,
-              },
-            ]"
-            @click="changeStep(index)"
-          >
+          <div :class="[
+            'info__circle',
+            {
+              'info__circle--prev': index < currentStep,
+              'info__circle--current': index === currentStep,
+              'info__circle--next': index > currentStep,
+            },
+          ]" @click="changeStep(index)">
             <template v-if="index < currentStep">
               <PreviousIcon />
             </template>
@@ -54,21 +51,18 @@
             </p>
             <QuestionIcon />
           </div>
-          <div class="scaner-svg" :class="scanerAnalys ? ' active' : ''">
+          <div class="scanner-svg" :class="scannerAnalysis ? ' active' : ''">
             <FingerprintCircleIcon v-show="!end" @click="handleClick" />
             <FingerprintSuccessIcon v-show="end" />
           </div>
-          <div
-            v-show="start || center || end"
-            :class="[
-              'auth-item__process',
-              {
-                'auth-item__start': start,
-                'auth-item__loading': center,
-                'auth-item__success': end,
-              },
-            ]"
-          >
+          <div v-show="start || center || end" :class="[
+            'auth-item__process',
+            {
+              'auth-item__start': start,
+              'auth-item__loading': center,
+              'auth-item__success': end,
+            },
+          ]">
             <template v-if="start">Подтверждение отпечатка пальцев</template>
             <template v-else-if="center">
               <AnimationBubblesIcon />
@@ -78,16 +72,11 @@
               Проверка отпечатка пальцев прошла успешно
             </template>
           </div>
-          <Btn
-            title="Подписать"
-            bg="#1BAA75"
-            :disabled="!end"
-            @click="
-              handleCustomEvent([7, 'next']),
-                store.commit('setIsSubmit', false),
-                store.commit('pushNewItem')
-            "
-          />
+          <Btn title="Подписать" bg="#1BAA75" :disabled="!end" @click="
+            changeStep(8),
+            store.commit('setIsSubmit', false),
+            store.commit('pushNewItem')
+          " />
         </div>
       </div>
     </div>
@@ -103,7 +92,6 @@ import { onMounted, ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import Btn from "@/components/global/UI/Buttons/Btn.vue";
-import Eighth from "@/components/notarius/steps/Steps/Eighth.vue";
 import Fifth from "@/components/notarius/steps/Steps/Fifth.vue";
 import First from "@/components/notarius/steps/Steps/First.vue";
 import Fourth from "@/components/notarius/steps/Steps/Fourth.vue";
@@ -121,9 +109,10 @@ import FingerprintSuccessIcon from "@/components/guest/Auth/Icons/FingerprintSuc
 import QuestionIcon from "@/components/guest/Auth/Icons/QuestionIcon.vue";
 import AnimationBubblesIcon from "@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue";
 import XIcon from "@/views/Icons/XIcon.vue";
+import Eighth from "@/components/notarius/steps/Steps/Eighth.vue";
 
 const store = useStore();
-const scanerAnalys = ref(false);
+const scannerAnalysis = ref(false);
 const start = ref(true);
 const center = ref(false);
 const end = ref(false);
@@ -132,21 +121,20 @@ const handleClick = () => {
   start.value = false;
   center.value = true;
   end.value = false;
-  scanerAnalys.value = true;
+  scannerAnalysis.value = true;
 
   setTimeout(() => {
     center.value = false;
-    scanerAnalys.value = false;
+    scannerAnalysis.value = false;
     end.value = true;
   }, 5000);
 };
 
-const progress = ref(["current", ...Array(7).fill("next")]);
 const router = useRouter();
 
-const emits = defineEmits(["islam"]);
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  emits("islam", "Нотариальное действие");
+  emits("handleChangeTitle", "Нотариальное действие");
 });
 
 const steps = [
@@ -157,13 +145,12 @@ const steps = [
   { component: Fifth },
   { component: Sixth },
   { component: Seventh },
+  { component: Eighth }
 ];
 
-const slicedItems = ref(First);
 const currentStep = ref(0);
 
 const changeStep = (stepIndex) => {
-  console.log(stepIndex);
   if (stepIndex >= 0 && stepIndex < steps.length) {
     currentStep.value = stepIndex;
   }
@@ -288,11 +275,11 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
         padding: 40px 20px;
         box-sizing: border-box;
 
-        .scaner-svg {
+        .scanner-svg {
           text-align: center;
         }
 
-        .scaner-svg {
+        .scanner-svg {
           position: relative;
           z-index: 11;
           text-align: center;
@@ -326,7 +313,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
           }
         }
 
-        .scaner-svg.active {
+        .scanner-svg.active {
           .pulse {
             &-first,
             &-second,
@@ -729,7 +716,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
       width: 100%;
     }
   }
-  
+
 }
 @media screen and (max-width: 500px) {
   .next-btn {
@@ -744,7 +731,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
     width: 100%;
   }
   .file__wrapper .file{
-    width: 10%; 
+    width: 10%;
   }
 }
 </style>

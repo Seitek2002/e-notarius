@@ -265,10 +265,10 @@ import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 
 const store = useStore();
-const emits = defineEmits(["islam"]);
+const emits = defineEmits(["handleChangeTitle"]);
 
 onMounted(() => {
-  (() => emits("islam", "Реестр нотариальных действий"))();
+  (() => emits("handleChangeTitle", "Реестр нотариальных действий"))();
 });
 
 const isfilter = ref(true);
@@ -278,7 +278,7 @@ const files = ref(store.state.registryOfUser);
 const paginatedItems = ref(files.value);
 
 const paginate = (data) => {
-  paginatedItems.value = data.value; // paginatedItems.push(data)
+  paginatedItems.value = data.value;
 };
 
 const firstList = ref([
@@ -350,8 +350,8 @@ const handleScrollLeft = () => {
       display: flex;
     }
     @media screen and (max-width: 768px) {
-        margin-top: 30px;
-      }
+      margin-top: 30px;
+    }
   }
   &__left svg {
     cursor: pointer;
@@ -367,8 +367,8 @@ const handleScrollLeft = () => {
     margin: 40px 0;
     max-width: 100%;
     @media screen and (max-width: 768px) {
-        margin: 30px 0
-      }
+      margin: 30px 0;
+    }
   }
 
   &-search {
@@ -427,8 +427,8 @@ const handleScrollLeft = () => {
       align-items: center;
       gap: 10px;
       @media screen and (max-width: 768px) {
-      display: none;
-    }
+        display: none;
+      }
     }
 
     &__btn {
@@ -443,9 +443,9 @@ const handleScrollLeft = () => {
       padding: 10px 30px;
       width: 235px;
       @media screen and (max-width: 768px) {
-      width: 100%;
-      justify-content: center;
-    }
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     &__text {
@@ -504,8 +504,8 @@ const handleScrollLeft = () => {
       flex-direction: column;
       gap: 5px;
       @media screen and (max-width: 789px) {
-      align-items: start;
-    }
+        align-items: start;
+      }
     }
   }
 }
@@ -520,8 +520,8 @@ const handleScrollLeft = () => {
     border-collapse: collapse;
     width: 100%;
     @media screen and (max-width: 768px) {
-        margin-top: 10px;
-      }
+      margin-top: 10px;
+    }
     tr {
       width: 100%;
     }

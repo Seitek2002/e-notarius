@@ -259,21 +259,21 @@
             <label class="street">
               <p>Улица</p>
               <input
-                v-model="streetFisrt"
+                v-model="streetFirst"
                 type="text"
               >
             </label>
             <label class="home">
               <p>Дом</p>
               <input
-                v-model="houseFisrt"
+                v-model="houseFirst"
                 type="text"
               >
             </label>
             <label class="home">
               <p>Квартира</p>
               <input
-                v-model="flatFisrt"
+                v-model="flatFirst"
                 type="text"
               >
             </label>
@@ -581,8 +581,6 @@ const cityIsActive = ref(false)
 const cityIsActiveRef = ref(null)
 onClickOutside(cityIsActiveRef, () => cityIsActive.value = false);
 const cityActiveOption = ref('')
-// const cityIsActiveSecond = ref(false)
-// const cityActiveOptionSecond = ref('')
 
 const citizenshipIsActive = ref(false)
 const citizenshipIsActiveRef = ref(null)
@@ -609,9 +607,9 @@ const areaIsActiveSecondRef = ref(null)
 onClickOutside(areaIsActiveSecondRef, () => areaIsActiveSecond.value = false);
 const areaActiveOptionSecond = ref('')
 
-const streetFisrt = ref('')
-const houseFisrt = ref('')
-const flatFisrt = ref('')
+const streetFirst = ref('')
+const houseFirst = ref('')
+const flatFirst = ref('')
 
 const streetSecond = ref('')
 const houseSecond = ref('')
@@ -656,9 +654,9 @@ const getUsers = () => {
   streetSecond.value = ''
   houseSecond.value = ''
   flatSecond.value = ''
-  streetFisrt.value = ''
-  houseFisrt.value = ''
-  flatFisrt.value = ''
+  streetFirst.value = ''
+  houseFirst.value = ''
+  flatFirst.value = ''
   citizenshipActiveOption.value = ''
   regionActiveOption.value = ''
   regionActiveOptionSecond.value = ''
@@ -684,9 +682,9 @@ const getUsers = () => {
         streetSecond.value = fact.street
         houseSecond.value = fact.house
         flatSecond.value = fact.flat
-        streetFisrt.value = registration.street
-        houseFisrt.value = registration.house
-        flatFisrt.value = registration.flat
+        streetFirst.value = registration.street
+        houseFirst.value = registration.house
+        flatFirst.value = registration.flat
         citizenshipActiveOption.value = citizenship
         regionActiveOption.value = region
         regionActiveOptionSecond.value = region
@@ -700,80 +698,6 @@ const getUsers = () => {
     } catch {
       isLoading.value = false
       isErr.value = true
-    }
-  } else {
-    isLoading.value = false
-    isErr.value = true
-  }
-}
-
-const getLayerUser = () => {
-  end.value = false
-  isLoading.value = true
-  isErr.value = false
-  fullNameVal.value = ''
-  foreigParticipantVal.value = ''
-  registryNumberVal.value = ''
-  okpoNumberVal.value = ''
-  orderDateVal.value = ''
-  regionVal.value = ''
-  areaVal.value = ''
-  cityVal.value = ''
-  layerStreet.value = ''
-  layerHouse.value = ''
-  supervisorVal.value = ''
-  foundersVal.value = ''
-  foundersLayerVal.value = ''
-  qntyOfMembersVal.value = ''
-  officialNameVal.value = ''
-  nationalNameVal.value = ''
-
-  if (INNVal.value.trim() !== '') {
-    try {
-      const {
-        fullName,
-        foreigParticipant,
-        registryNumber,
-        okpoNumber,
-        INN,
-        orderDate,
-        region,
-        area,
-        city,
-        fact,
-        supervisor,
-        founders,
-        foundersLayer,
-        qntyOfMembers,
-        officialName,
-        nationalName,
-      } = store.state.users.find(item => item.INN === INNVal.value)
-
-      setTimeout(() => {
-        fullNameVal.value = fullName
-        foreigParticipantVal.value = foreigParticipant
-        registryNumberVal.value = registryNumber
-        okpoNumberVal.value = okpoNumber
-        orderDateVal.value = orderDate
-        regionVal.value = region
-        areaVal.value = area
-        cityVal.value = city
-        layerStreet.value = fact.street
-        layerHouse.value = fact.house
-        supervisorVal.value = supervisor
-        foundersVal.value = founders
-        foundersLayerVal.value = foundersLayer
-        qntyOfMembersVal.value = qntyOfMembers
-        officialNameVal.value = officialNameVal
-        nationalNameVal.value = nationalNameVal
-
-        isLoading.value = false
-        end.value = true
-        store.commit('setChoosenApplicant', fullNameVal.value)
-      }, 3000)
-    } catch {
-      isErr.value = true
-      isLoading.value = false
     }
   } else {
     isLoading.value = false
@@ -896,23 +820,6 @@ input {
   }
 }
 
-.warning {
-  color: red;
-}
-
-.loading-svg-check {
-  position: absolute;
-  right: 0;
-  transform-origin: center;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
-  &.active {
-    right: -50px;
-    animation-name: round;
-  }
-}
 
 @keyframes round {
   from {

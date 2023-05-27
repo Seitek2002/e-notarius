@@ -22,7 +22,6 @@
     <div class="info__form">
       <div class="info__form--wrapper">
         <Suptitle text="Нотариальное действие"/>
-        <!-- <Accordeon v-if="!store.state.typeOfObject" notarius="notariusAction" /> -->
         <div
           v-if="!store.state.typeOfObject"
           class="accordeon"
@@ -318,20 +317,14 @@ const actionActiveOption = ref('Все')
 const docIsActive = ref(false)
 const docActiveOption = ref('Все')
 
-const isActive = ref(false)
-const isActiveRadio = ref(0)
-const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
 const store = useStore()
 
 const props = defineProps(['active', 'i', 'short'])
 
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id, move) => {
+const handleClick = (id) => {
   emits('handleCustomEvent',id)
-}
-
-const handleChange = e => {
 }
 </script>
 

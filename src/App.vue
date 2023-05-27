@@ -7,14 +7,12 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
-import { useStore } from 'vuex'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 import NotariusLayout from '@/layouts/NotariusLayout.vue'
 import UserLayout from '@/layouts/UserLayout.vue'
 
 const route = useRoute()
-const store = useStore()
 const layout = computed(() => {
   if (route.meta.layout === 'user') return UserLayout
   if (route.meta.layout === 'notarius') return NotariusLayout
@@ -27,14 +25,15 @@ const layout = computed(() => {
 @import '@/assets/scss/base.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.router-link-active.router-link-exact-active.sidebar-item {
-  background: #24334b;
+@media screen and (max-width:1490px) {
+  .content {
+  margin-left: 73px;
+  }
 }
 
 .router-link-active.router-link-exact-active .sidebar-item {
   background: #24334b !important;
 }
-
 
 .sidebar {
   width: 20%;
@@ -96,12 +95,12 @@ const layout = computed(() => {
     gap: 10px;
     @media screen and (max-width: 1300px) {
         padding: 0 10px;
-        
+
       }
     svg {
       @media screen and (max-width: 1300px) {
         max-width: 100%;
-        
+
       }
     }
   }
@@ -194,4 +193,5 @@ const layout = computed(() => {
     padding: 20px;
   }
 }
+
 </style>

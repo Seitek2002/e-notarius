@@ -59,7 +59,7 @@
       </div>
       <div class="files-list__right">
         <svg
-          @click="handleScrollLeftt"
+          @click="handleScrollLeft"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -88,7 +88,7 @@
           </defs>
         </svg>
         <svg
-          @click="handleScrollRightt"
+          @click="handleScrollRight"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -118,47 +118,49 @@
         </svg>
       </div>
     </div>
-    <div  ref="containerr" class="files-list__table">
+    <div ref="container" class="files-list__table">
       <Table :files="paginatedItems" />
     </div>
     <div class="files-list__bottom">
-      <Pagination :itemsPerPage="itemsPerPage" :items="files" @paginate="paginate" />
+      <Pagination
+        :itemsPerPage="itemsPerPage"
+        :items="files"
+        @paginate="paginate"
+      />
     </div>
   </section>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from "vue";
 
-import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import Table from '@/components/global/Tables/FileTable/Table.vue'
-import ArrowNextIcon from '@/components/Pagination/Icons/ArrowNextIcon.vue'
+import Btn from "@/components/global/UI/Buttons/Btn.vue";
+import Table from "@/components/global/Tables/FileTable/Table.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
-import ArrowPrevIcon from '@/components/Pagination/Icons/ArrowPrevIcon.vue'
 
-const emits = defineEmits(['islam'])
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  (() => emits('islam', 'Мои файлы'))()
-})
+  (() => emits("handleChangeTitle", "Мои файлы"))();
+});
 
-const files = new Array(39)
-const itemsPerPage = 6
+const files = new Array(39);
+const itemsPerPage = 6;
 
-const paginatedItems = ref(files)
+const paginatedItems = ref(files);
 const paginate = (data) => {
-  paginatedItems.value = data.value; // paginatedItems.push(data)
+  paginatedItems.value = data.value;
 };
-const containerr = ref(null);
+const container = ref(null);
 
-const handleScrollRightt = () => {
-  containerr.value.scrollBy({
+const handleScrollRight = () => {
+  container.value.scrollBy({
     left: 200,
     behavior: "smooth",
   });
 };
 
-const handleScrollLeftt = () => {
-  containerr.value.scrollBy({
+const handleScrollLeft = () => {
+  container.value.scrollBy({
     left: -200,
     behavior: "smooth",
   });
@@ -166,12 +168,12 @@ const handleScrollLeftt = () => {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .files-list {
   flex: 1;
   &__table {
-        overflow-x: auto;
+    overflow-x: auto;
     max-width: 100%;
   }
   &__adaptive {
@@ -190,8 +192,8 @@ const handleScrollLeftt = () => {
     flex-wrap: wrap;
     button {
       @media screen and (max-width: 768px) {
-      width: 100%;
-    }
+        width: 100%;
+      }
     }
     h2 {
       font-weight: 600;

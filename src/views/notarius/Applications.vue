@@ -13,8 +13,8 @@
       </button>
     </div>
     <div class="application-mid">
-      <button class="application-mid__btn" @click="isfilter = !isfilter">
-        <template v-if="isfilter">
+      <button class="application-mid__btn" @click="isFilter = !isFilter">
+        <template v-if="isFilter">
           <FilterDisabledIcon />
           Свернуть фильтр
         </template>
@@ -31,7 +31,7 @@
         </button>
       </div>
     </div>
-    <div v-show="isfilter" class="application-bottom">
+    <div v-show="isFilter" class="application-bottom">
       <label class="application-bottom__label">
         Номер реестра
         <input type="number" class="application-bottom__input" />
@@ -236,11 +236,9 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
-import ArrowNextIcon from "@/components/Pagination/Icons/ArrowNextIcon.vue";
-import ArrowPrevIcon from "@/components/Pagination/Icons/ArrowPrevIcon.vue";
 import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
 import ExcelIcon from "@/views/Icons/ExcelIcon.vue";
 import FilterDisabledIcon from "@/views/Icons/FilterDisabledIcon.vue";
@@ -250,7 +248,7 @@ import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 
-const isfilter = ref(true);
+const isFilter = ref(true);
 
 const files = new Array(39);
 const itemsPerPage = 6;
@@ -272,9 +270,8 @@ const itemsPerPage = 6;
 const paginatedItems = ref(files);
 
 const paginate = (data) => {
-  paginatedItems.value = data.value; // paginatedItems.push(data)
+  paginatedItems.value = data.value;
 };
-const qr = ref(null);
 const firstList = ref([
   "Согласие",
   "Доверенность",

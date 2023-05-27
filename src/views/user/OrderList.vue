@@ -2,7 +2,12 @@
   <section class="order-list">
     <div class="order-list__top">
       <h2>Ваши заявки</h2>
-      <Btn title="Оформить заявку" bg="#1BAA75" :icon="icon" @click="router.push('/info-user')" />
+      <Btn
+        title="Оформить заявку"
+        bg="#1BAA75"
+        :icon="icon"
+        @click="router.push('/info-user')"
+      />
     </div>
     <div class="order__adaptive">
       <div class="order__left">
@@ -141,7 +146,11 @@
 
         <tbody>
           <tr v-for="(offer, i) in paginatedItems" :key="i">
-            <td class="qr-code" :class="qrActive ? ' active' : ''" @click="qrActive = !qrActive, qrAnother = 'asdaf'">
+            <td
+              class="qr-code"
+              :class="qrActive ? ' active' : ''"
+              @click="(qrActive = !qrActive), (qrAnother = 'asdaf')"
+            >
               <Qr :i="i" />
             </td>
             <td>{{ offer.viewAction }}</td>
@@ -170,39 +179,38 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import DownloadIcon from '@/components/icons/Table/DownloadIcon.vue'
-import EditIcon from '@/components/icons/Table/EditIcon.vue'
-import OfferIcon from '@/components/icons/Table/OfferIcon.vue'
-import RemoveIcon from '@/components/icons/Table/RemoveIcon.vue'
-import Dropdown from '@/components/global/Tables/OfferTable/Dropdown.vue'
-import Qr from '@/components/global/Tables/OfferTable/Qr.vue'
-import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
+import Btn from "@/components/global/UI/Buttons/Btn.vue";
+import DownloadIcon from "@/components/icons/Table/DownloadIcon.vue";
+import EditIcon from "@/components/icons/Table/EditIcon.vue";
+import OfferIcon from "@/components/icons/Table/OfferIcon.vue";
+import RemoveIcon from "@/components/icons/Table/RemoveIcon.vue";
+import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
+import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
+import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
 
-const qrActive = ref(false)
-const store = useStore()
-const qrAnother = ref('Asdf')
+const qrActive = ref(false);
+const store = useStore();
+const qrAnother = ref("Asdf");
 
-const router = useRouter()
-const emits = defineEmits(['islam'])
+const router = useRouter();
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  (() => emits('islam', 'Заявки'))()
-})
-const typeOfDoc = ['Доверенность', 'Договор', 'Соглашение', 'Завещание']
-// const isfilter = ref(true)
+  (() => emits("handleChangeTitle", "Заявки"))();
+});
+const typeOfDoc = ["Доверенность", "Договор", "Соглашение", "Завещание"];
 
-const files = store.state.tableListUser
+const files = store.state.tableListUser;
 
-const paginatedItems = ref(files)
+const paginatedItems = ref(files);
 
-const paginate = data => {
-  paginatedItems.value = data.value // paginatedItems.push(data)
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value;
+};
 const container = ref(null);
 
 const handleScrollRight = () => {
@@ -293,13 +301,13 @@ const handleScrollLeft = () => {
       font-size: 18px;
       color: #1f2937;
       @media screen and (max-width: 768px) {
-      display: none;
-    }
+        display: none;
+      }
     }
     button {
       @media screen and (max-width: 768px) {
-      width: 100%;
-    }
+        width: 100%;
+      }
     }
   }
 
@@ -309,9 +317,9 @@ const handleScrollLeft = () => {
     justify-content: center;
     .pagination {
       @media screen and (max-width: 1050px) {
-      margin: 0 0;
-      padding: 8px 20%;
-    }
+        margin: 0 0;
+        padding: 8px 20%;
+      }
     }
   }
 }
@@ -333,7 +341,7 @@ const handleScrollLeft = () => {
     padding: 10px 0;
   }
 
-  &-redy {
+  &-ready {
     font-weight: 600;
     font-size: 14px;
     color: #1baa75;

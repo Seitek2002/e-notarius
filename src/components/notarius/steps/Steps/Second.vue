@@ -202,8 +202,6 @@ const emits = defineEmits(['handleCustomEvent'])
 const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
 }
-
-// onClickOutside(dropDownRef, () => isDropdownShow.value = false);
 </script>
 
 <style lang="scss">

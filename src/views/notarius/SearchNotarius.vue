@@ -220,22 +220,6 @@ const isActive = ref(false)
     margin-top: 35px;
   }
 
-  //   &__top  {
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: space-between;
-  //     padding: 23px;
-  //     font-weight: 600;
-  //     font-size: 16px;
-  //     color: #24334b;
-  //     div {
-  //       display: flex;
-  //       gap: 19px;
-  //     }
-  //     .minus {
-  //       display: none;
-  //     }
-  //   }
   &__top {
     display: flex;
     align-items: center;

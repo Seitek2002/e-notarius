@@ -56,7 +56,6 @@
     <div class="editor__font-style flex aic jcsb">
       <EditorBoldIcon @click="editor.chain().toggleBold().focus().run()"/>
       <EditorItalicIcon @click="editor.chain().focus().toggleItalic().run()"/>
-      <!--      <EditorToggleUnderlineIcon @click="editor.chain().focus().toggleUnderline().run()"/>-->
       <EditorToggleStrikeIcon @click="editor.chain().focus().toggleStrike().run()"/>
     </div>
     <div class="editor__font-color flex aic jcsb">

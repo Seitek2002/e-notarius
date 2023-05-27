@@ -79,7 +79,6 @@ import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
 
-const router = useRouter()
 const store = useStore()
 const qntyCopy = ref(1)
 
@@ -87,14 +86,8 @@ const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 const progress = ref(Array(6).fill('prev'))
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id, move) => {
-  if (id === 7) {
-    store.commit('setIsSubmit', true)
-  } else {
-    emits('handleCustomEvent',id)
-    // TODO, need to remove this shit
-    props.progressPrev(id, move)
-  }
+const handleClick = () => {
+  store.commit('setIsSubmit', true)
 }
 
 const back = (id, move) => {
@@ -151,29 +144,6 @@ const back = (id, move) => {
   a {
     text-decoration: underline;
   }
-
-  // .ProseMirror [contenteditable="false"] img {
-  //   width: 100% !important;
-  // }
-  //  h1,
-  // .ProseMirror h2,
-  // .ProseMirror h3,
-  // .ProseMirror h4,
-  // .ProseMirror h5,
-  // .ProseMirror h6 {
-  //   margin-top: 0.83em;
-  //   margin-bottom: 0.83em;
-  // }
-
-  // .ProseMirror p {
-  //   margin-top: 1em;
-  //   margin-bottom: 1em;
-  // }
-
-  // .ProseMirror ul {
-  //   padding: 0 15px;
-  //   list-style: disc;
-  // }
 
   &__font {
     font-weight: 400;
