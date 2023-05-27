@@ -1168,6 +1168,9 @@ input {
   align-items: center;
   gap: 10px;
   transition: 0.3s;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .dropdown {

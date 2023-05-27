@@ -102,4 +102,12 @@ const store = useStore()
         color: #F6F6F6;
     }
 }
+
+@media screen and (max-width:530px) {
+    .mini_modal {
+        &-wrapper {
+            width: 100%;
+        }
+    }
+}
 </style>

@@ -58,7 +58,9 @@
                 <p>оффлайн</p>
               </div>
             </div>
+            <OnlineStatusIcon v-show="item.notice" />
           </div>
+
         </div>
         <div class="messages__chat">
           <div class="messages__box__my">
@@ -80,7 +82,9 @@
           <div class="messages__box__my">
             <p>Хорошо, спасибо, я подойду завтра утром.</p>
             <div class="messages__time__my">
-              <p class="messages__time__num">16:42</p>
+              <p class="messages__time__num">
+                16:42
+              </p>
               <MessagesSendIcon />
             </div>
           </div>
@@ -97,12 +101,56 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from 'vue'
 
-import ArrowRightIcon from "@/components/global/UI/Info/Icons/ArrowRightIcon.vue";
-import MessagesReadIcon from "@/views/Icons/MessagesReadIcon.vue";
-import MessagesSendIcon from "@/views/Icons/MessagesSendIcon.vue";
-import OnlineStatusIcon from "@/views/Icons/OnlineStatusIcon.vue";
+import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
+import MessagesReadIcon from '@/views/Icons/MessagesReadIcon.vue'
+import MessagesSendIcon from '@/views/Icons/MessagesSendIcon.vue'
+import OnlineStatusIcon from '@/views/Icons/OnlineStatusIcon.vue'
+const contacts = ref([
+  {
+    id: 0,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: true,
+  },
+  {
+    id: 1,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: false,
+  },
+  {
+    id: 2,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: true,
+    notice: true,
+  },
+  {
+    id: 3,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: true,
+  },
+  {
+    id: 4,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: false,
+  },
+  {
+    id: 5,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: true,
+    notice: true,
+  },
+])
 
 const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
@@ -127,11 +175,13 @@ onMounted(() => {
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
+
   &__chat {
     @media screen and (max-width: 991px) {
       display: none;
     }
   }
+
   &__content {
     display: flex;
   }
@@ -177,10 +227,7 @@ onMounted(() => {
       font-weight: 500;
       font-size: 14px;
       line-height: 12px;
-
-      span {
-        color: $text-light-green;
-      }
+      color: $text-light-green;
     }
   }
 
@@ -192,9 +239,11 @@ onMounted(() => {
     height: 64px;
     padding: 12px 16px 12px 16px;
     gap: 16px;
+
     @media screen and (max-width: 991px) {
       width: 100%;
     }
+
     h4 {
       font-style: normal;
       font-weight: 500;
@@ -222,6 +271,7 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin: 45px 0 11px 390px;
+
     @media screen and (max-width: 1241px) {
       margin-left: 195px;
     }
@@ -270,12 +320,9 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin-left: 30px;
+
     @media screen and (max-width: 1250px) {
       margin-right: 0;
-    }
-    @media screen and (max-width: 460px) {
-      margin-left: 0;
-      width: 80%;
     }
     p {
       font-weight: 400;
@@ -332,6 +379,12 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 991px) {
+    &__nuvbar {
+      width: 100%;
+    }
   }
 }
 </style>

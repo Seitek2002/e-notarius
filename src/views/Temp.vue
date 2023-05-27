@@ -239,11 +239,7 @@ const handleScrollLeft = () => {
       color: #bdbdbd;
     }
   }
-
   &-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   &-pagination {
