@@ -534,7 +534,7 @@ const handleScrollLeft = () => {
 }
 
 .exemple-table {
-  //   max-width: 1115px;
+  max-width: 100%;
   overflow: auto;
 
   table {

@@ -192,7 +192,6 @@ const sidebarListSecond = [
   &.active {
     width: 73px;
     padding: 20px 0;
-    overflow: hidden;
 
     & .sidebar-head {
       flex-direction: column;
@@ -298,7 +297,6 @@ const sidebarListSecond = [
 }
 @media screen and (max-width:1490px) {
   .sidebar {
-    position: absolute;
     left: 0;
     top: 0;
     z-index: 2;

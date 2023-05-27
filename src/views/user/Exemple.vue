@@ -328,7 +328,7 @@ const thirdList = ref([
 }
 
 .exemple-table {
-  //   max-width: 1115px;
+  max-width: 100%;
   overflow: auto;
 
   table {
@@ -347,6 +347,7 @@ const thirdList = ref([
 
       th {
         padding: 22px 13px;
+        box-sizing: border-box;
         background: #ffffff;
         font-weight: 600;
         font-size: 16px;
