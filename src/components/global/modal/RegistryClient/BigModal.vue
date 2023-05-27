@@ -46,20 +46,20 @@
                 <Suptitle text="Данные для выгрузки с портала “Тундук”" />
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Фамилия</p>
-                    <input type="text" class="big_modal-input" required placeholder="Фамилия" v-model="first">
+                    <input type="text" class="big_modal-input" required placeholder="Фамилия" v-model="firstName">
                 </div>
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Имя</p>
-                    <input type="text" class="big_modal-input" required placeholder="Имя" v-model="second">
+                    <input type="text" class="big_modal-input" required placeholder="Имя" v-model="secondname">
                 </div>
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Отчество</p>
-                    <input type="text" class="big_modal-input" required placeholder="Отчество" v-model="third">
+                    <input type="text" class="big_modal-input" required placeholder="Отчество" v-model="thirdName">
                 </div>
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Персональный номер (ИНН)</p>
                     <input type="text" class="big_modal-input" required placeholder="Персональный номер (ИНН)"
-                        v-model="fourth">
+                        v-model="numberINN">
                 </div>
             </div>
             <Suptitle text="Документ, удостоверяющий личность" />
@@ -105,18 +105,18 @@
                             </div>
                         </div>
                     </div>
-                    <input type="text" class="big_modal-input" required placeholder="Персональный номер (ИНН)"
-                        v-model="fourth">
+                    <input type="text" class="big_modal-input" required placeholder="0228339"
+                        v-model="numberId">
                 </div>
 
             </div>
             <div class="big_modal__form--wrapper">
                 <p class="big_modal-text">Орган и дата выдачи</p>
                 <div class="big_modal-flex">
-                    <input placeholder="МКК" class="big_modal-input" style="max-width:80px;" type="text">
-                    <input placeholder="217021" class="big_modal-input" type="number">
+                    <input placeholder="МКК" class="big_modal-input" v-model="MKK" style="max-width:80px;" type="text">
+                    <input placeholder="217021" class="big_modal-input" v-model="numberMKK" type="number">
                     от
-                    <input placeholder="01.08.2017" class="big_modal-input" style="max-width:100px;" type="number">
+                    <input placeholder="01.08.2017" class="big_modal-input" v-model="dateMKK" style="max-width:100px;" type="number">
                 </div>
             </div>
             <Suptitle text="Адрес прописки (регистрации)" />
@@ -197,16 +197,16 @@
                 </div>
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Улица</p>
-                    <input type="text" class="big_modal-input" required placeholder="Каримова" v-model="first">
+                    <input type="text" class="big_modal-input" required placeholder="Каримова" v-model="street">
                 </div>
                 <div class="big_modal-flex">
                     <div class="big_modal__form--wrapper" style="width: 100%;">
                         <p class="big_modal-text">Дом</p>
-                        <input type="number" class="big_modal-input" required placeholder="23" v-model="first">
+                        <input type="number" class="big_modal-input" required placeholder="23" v-model="home">
                     </div>
                     <div class="big_modal__form--wrapper" style="width: 100%;">
                         <p class="big_modal-text">Квартира</p>
-                        <input type="text" class="big_modal-input" required placeholder="16" v-model="first">
+                        <input type="text" class="big_modal-input" required placeholder="16" v-model="apartment">
                     </div>
                 </div>
             </div>
@@ -287,22 +287,22 @@
                 </div>
                 <div class="big_modal__form--wrapper">
                     <p class="big_modal-text">Улица</p>
-                    <input type="text" class="big_modal-input" required placeholder="Каримова" v-model="first">
+                    <input type="text" class="big_modal-input" required placeholder="Каримова" v-model="streetSecond">
                 </div>
                 <div class="big_modal-flex">
                     <div class="big_modal__form--wrapper" style="width: 100%;">
                         <p class="big_modal-text">Дом</p>
-                        <input type="number" class="big_modal-input" required placeholder="23" v-model="first">
+                        <input type="number" class="big_modal-input" required placeholder="23" v-model="homeSecond">
                     </div>
                     <div class="big_modal__form--wrapper" style="width: 100%;">
                         <p class="big_modal-text">Квартира</p>
-                        <input type="text" class="big_modal-input" required placeholder="16" v-model="first">
+                        <input type="text" class="big_modal-input" required placeholder="16" v-model="apartmentSecond">
                     </div>
                 </div>
             </div>
             
             <div class="big_modal-btns">
-                <button class="big_modal-btn-first">
+                <button v-show="checked == false" class="big_modal-btn-first">
                     Проверить
                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.5 5H6.5C5.39543 5 4.5 5.89543 4.5 7V19C4.5 20.1046 5.39543 21 6.5 21H12.197"
@@ -332,11 +332,11 @@
                 <Suptitle text="Контактные данные" />
                     <div class="big_modal__form--wrapper">
                         <p class="big_modal-text">E-mail*</p>
-                        <input type="email" class="big_modal-input" required placeholder="E-mail*" v-model="first">
+                        <input type="email" class="big_modal-input" required placeholder="E-mail*" v-model="email">
                     </div>
                     <div class="big_modal__form--wrapper">
                         <p class="big_modal-text">Номер телефона*</p>
-                        <input type="number" class="big_modal-input" required placeholder="Номер телефона*" v-model="second">
+                        <input type="number" class="big_modal-input" required placeholder="Номер телефона*" v-model="phoneNumber">
                     </div>
                 <button class="big_modal-btn-second">Зарегистрировать</button>
             </div>
@@ -371,22 +371,48 @@ const citySecondActionIsActive = ref(false)
 const citySecondActionActiveOption = ref('село Беловодское')
 
 const store = useStore()
+
 const checked = ref(false)
-const first = ref("")
-const second = ref("")
-const third = ref("")
-const fourth = ref("")
+const firstName = ref("")
+const secondName = ref("")
+const thirdName = ref("")
+const numberINN = ref("")
+const numberId = ref("")
+const MKK = ref("")
+const numberMKK = ref("")
+const dateMKK = ref("")
+const street = ref("")
+const home = ref("")
+const apartment = ref("")
+const streetSecond = ref("")
+const homeSecond = ref("")
+const apartmentSecond = ref("")
+const email = ref("")
+const phoneNumber = ref("")
 
 const deleteData = () => {
-    first.value = ""
-    second.value = ""
-    third.value = ""
-    fourth.value = ""
+    firstName.value = ""
+    secondName.value = ""
+    thirdName.value = ""
+    numberINN.value = ""
+    numberId.value = ""
+    MKK.value = ""
+    numberMKK.value = ""
+    dateMKK.value = ""
+    street.value = ""
+    home.value = ""
+    apartment.value = ""
+    streetSecond.value = ""
+    homeSecond.value = ""
+    apartmentSecond.value = ""
+    email.value = ""
+    phoneNumber.value = ""
 }
 
 </script>
 
-<style lang="scss"> .big_modal {
+<style lang="scss"> 
+.big_modal {
 
      input {
 
@@ -563,4 +589,16 @@ const deleteData = () => {
              border-bottom: 1px solid transparent;
          }
      }
- }</style>
+ }
+ @media screen and (max-width:630px) {
+    .big_modal {
+        &-wrapper {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            transform: unset;
+        }
+    }
+ }
+ </style>
