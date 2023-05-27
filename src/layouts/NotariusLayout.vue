@@ -326,10 +326,6 @@ const changeTitle = newTitle => {
     top: 0;
     z-index: 2;
   }
-  .content {
-  margin-left: 73px; 
-}
-
 }
 @media screen and (max-width:768px) {
   .content {
