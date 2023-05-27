@@ -3,68 +3,60 @@
     <div class="container">
       <div class="messages__content">
         <div class="messages__nuvbar">
-          <p class="messages__nuvbar__title">
-            Ваши сообщения
-          </p>
+          <p class="messages__nuvbar__title">Ваши сообщения</p>
           <div class="messages__block__online">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p><span>онлайн</span></p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Баланчаева Б.Б.</h4>
+                <p><span>онлайн</span></p>
+              </div>
             </div>
           </div>
           <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Алапаев Н.К.</h4>
-              <p>оффлайн</p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Алапаев Н.К.</h4>
+                <p>оффлайн</p>
+              </div>
             </div>
-            <OnlineStatusIcon/>
+            <OnlineStatusIcon />
           </div>
           <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Баланчаева Б.Б.</h4>
+                <p>оффлайн</p>
+              </div>
             </div>
           </div>
           <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Баланчаева Б.Б.</h4>
+                <p>оффлайн</p>
+              </div>
             </div>
           </div>
           <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Баланчаева Б.Б.</h4>
+                <p>оффлайн</p>
+              </div>
             </div>
           </div>
           <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
+            <div class="message__content">
+              <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
+              <div class="messages__name">
+                <h4>Баланчаева Б.Б.</h4>
+                <p>оффлайн</p>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +65,7 @@
             <p>Здравствуйте! Я оставил вам заявку на доверенность</p>
             <div class="messages__time__my">
               <p>16:29</p>
-              <MessagesReadIcon/>
+              <MessagesReadIcon />
             </div>
           </div>
           <div class="messages__box__companion">
@@ -88,16 +80,14 @@
           <div class="messages__box__my">
             <p>Хорошо, спасибо, я подойду завтра утром.</p>
             <div class="messages__time__my">
-              <p class="messages__time__num">
-                16:42
-              </p>
-              <MessagesSendIcon/>
+              <p class="messages__time__num">16:42</p>
+              <MessagesSendIcon />
             </div>
           </div>
           <div class="messages__box__input">
-            <textarea name=""/>
+            <textarea name="" />
             <div class="messages__send">
-              <ArrowRightIcon/>
+              <ArrowRightIcon />
             </div>
           </div>
         </div>
@@ -107,22 +97,29 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted } from "vue";
 
-import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
-import MessagesReadIcon from '@/views/Icons/MessagesReadIcon.vue'
-import MessagesSendIcon from '@/views/Icons/MessagesSendIcon.vue'
-import OnlineStatusIcon from '@/views/Icons/OnlineStatusIcon.vue'
+import ArrowRightIcon from "@/components/global/UI/Info/Icons/ArrowRightIcon.vue";
+import MessagesReadIcon from "@/views/Icons/MessagesReadIcon.vue";
+import MessagesSendIcon from "@/views/Icons/MessagesSendIcon.vue";
+import OnlineStatusIcon from "@/views/Icons/OnlineStatusIcon.vue";
 
-const emits = defineEmits(['islam'])
+const emits = defineEmits(["islam"]);
 onMounted(() => {
-  (() => emits('islam', 'Переписки'))()
-})
+  (() => emits("islam", "Переписки"))();
+});
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-
+.message__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  img {
+    height: 40px;
+  }
+}
 .messages {
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
@@ -142,6 +139,10 @@ onMounted(() => {
     justify-content: space-between;
     gap: 10px;
     width: 320px;
+
+    @media screen and (max-width: 991px) {
+      width: 100%;
+    }
   }
 
   &__nuvbar__title {
@@ -161,7 +162,6 @@ onMounted(() => {
     background: $text-dark-blue;
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
     gap: 16px;
-
 
     h4 {
       color: $bg-light-gray;
@@ -186,6 +186,8 @@ onMounted(() => {
   &__block {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
     padding: 12px 16px 12px 16px;
     gap: 16px;
     @media screen and (max-width: 991px) {
@@ -221,7 +223,7 @@ onMounted(() => {
     @media screen and (max-width: 1241px) {
       margin-left: 195px;
     }
-        @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1100px) {
       margin-left: 40px;
     }
     p {
@@ -255,7 +257,7 @@ onMounted(() => {
     @media screen and (max-width: 1250px) {
       margin-right: 0;
     }
-    
+
     p {
       font-weight: 400;
       font-size: 14px;
