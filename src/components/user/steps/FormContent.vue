@@ -24,7 +24,12 @@
             </div>
             Юридическое лицо
           </div>
-          <div
+          
+        </div>
+      </div>
+
+      <Suptitle text="Личные данные"/>
+      <div
             class="info__radio"
             @click="isActiveRadioFace = !isActiveRadioFace, end = false"
           >
@@ -42,10 +47,6 @@
             </div>
             Иностранное лицо
           </div>
-        </div>
-      </div>
-
-      <Suptitle text="Личные данные"/>
       <label>
         <p v-if="isActiveRadio === 0">Персональный номер (ИНН)</p>
         <p v-else>Идентификационный номер (ИНН)</p>
@@ -942,4 +943,5 @@ input {
     gap: 20px;
   }
 }
+
 </style>
