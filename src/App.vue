@@ -55,6 +55,10 @@ const layout = computed(() => {
       padding: 0;
       width: 50px;
       overflow: hidden;
+      @media screen and (max-width: 1400px) {
+        width: 90%;
+        margin: 0 auto;
+      }
     }
 
     & .sidebar-title {
@@ -89,6 +93,17 @@ const layout = computed(() => {
     justify-content: space-between;
     padding: 0 25px;
     box-sizing: border-box;
+    gap: 10px;
+    @media screen and (max-width: 1300px) {
+        padding: 0 10px;
+        
+      }
+    svg {
+      @media screen and (max-width: 1300px) {
+        max-width: 100%;
+        
+      }
+    }
   }
 
   &-title {
@@ -150,6 +165,7 @@ const layout = computed(() => {
   &-close {
     cursor: pointer;
   }
+
 }
 
 @media screen and (max-width:530px) {
