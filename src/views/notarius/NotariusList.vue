@@ -212,6 +212,7 @@ onMounted(() => {
 
 .register {
   &__input {
+
     @media screen and (max-width: 1050px) {
         margin-top: 30px;
       }
@@ -277,7 +278,7 @@ onMounted(() => {
   }
 
   &__content {
-    margin-top: 100px;
+    margin-top: 60px;
     @media screen and (max-width: 1050px) {
       margin-top: 0;
     }
