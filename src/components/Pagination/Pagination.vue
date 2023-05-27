@@ -93,5 +93,8 @@ watch(paginatedItems, () => {
       color: #1baa75;
     }
   }
+  @media screen and (max-width: 530px) {
+    width: 100%;
+  }
 }
 </style>
