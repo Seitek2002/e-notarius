@@ -93,6 +93,7 @@ const tabs = ref([
     align-items: center;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
   }
 
   &__tab {
