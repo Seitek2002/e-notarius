@@ -51,13 +51,13 @@ const layout = computed(() => {
       align-items: start;
       gap: 20px;
       margin: 0;
-      margin-left: 14.5px;
+        margin: 0 auto;
       padding: 0;
       width: 50px;
       overflow: hidden;
       @media screen and (max-width: 1400px) {
-        width: 90%;
-        margin: 0 auto;
+        width: 80%;
+
       }
     }
 
