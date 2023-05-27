@@ -75,6 +75,7 @@ const handleClick = () => {
 
   &__tabs {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__tab {
@@ -102,6 +103,10 @@ const handleClick = () => {
       font-size: 16px;
       gap: 10px;
       padding: 11px 20px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
 

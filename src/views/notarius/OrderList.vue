@@ -214,21 +214,21 @@ const paginate = (data) => {
   paginatedItems.value = data.value; // paginatedItems.push(data)
 };
 
-const container = ref(null);
+  const container = ref(null);
 
-const handleScrollRight = () => {
-  container.value.scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-};
+  const handleScrollRight = () => {
+    container.value.scrollBy({
+      left: 200,
+      behavior: "smooth",
+    });
+  };
 
-const handleScrollLeft = () => {
-  container.value.scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-};
+  const handleScrollLeft = () => {
+    container.value.scrollBy({
+      left: -200,
+      behavior: "smooth",
+    });
+  };
 </script>
 
 <style lang="scss">

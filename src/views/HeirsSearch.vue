@@ -145,6 +145,11 @@ onMounted(() => {
     align-items: flex-end;
     margin-top: 50px;
     gap: 40px;
+    @media screen and (max-width: 932px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+    }
   }
 
   &__block {
@@ -153,7 +158,9 @@ onMounted(() => {
     flex-direction: column;
     justify-content: flex-end;
     gap: 5px;
-
+    @media screen and (max-width: 932px) {
+      width: 100%;
+    }
     input {
       padding-left: 10px;
       color: #bdbdbd;
@@ -189,7 +196,9 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     gap: 10px;
-
+@media screen and (max-width: 932px) {
+      width: 100%;
+    }
     &:disabled {
       opacity: 0.5;
       cursor: progress;
@@ -201,6 +210,9 @@ onMounted(() => {
     margin-top: 5px;
     font-family: 'Montserrat', sans-serif;
     color: #3f5984;
+    @media screen and (max-width: 932px) {
+      display: none;
+    }
   }
 
   &__case {

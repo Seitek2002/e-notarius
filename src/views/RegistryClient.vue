@@ -176,7 +176,7 @@
 
 <script setup>
 import { onMounted, ref } from "vue"
-import Search from "@/components/icons/exemple/Search.vue";
+import Search from "@/components/icons/Exemple/Search.vue";
 import ExcelIcon from '@/views/Icons/ExcelIcon.vue'
 import Accordeon from '@/components/global/UI/Info/Accordeon.vue'
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";

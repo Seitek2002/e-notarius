@@ -189,9 +189,9 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
-import Search from "@/components/icons/exemple/Search.vue";
-import Add from "@/components/icons/exemple/Add.vue";
-import Remove from "@/components/icons/exemple/Remove.vue";
+import Search from "@/components/icons/Exemple/Search.vue";
+import Add from "@/components/icons/Exemple/Add.vue";
+import Remove from "@/components/icons/Exemple/Remove.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 import { useStore } from "vuex";
@@ -328,7 +328,7 @@ const thirdList = ref([
 }
 
 .exemple-table {
-  //   max-width: 1115px;
+  max-width: 100%;
   overflow: auto;
 
   table {
@@ -347,6 +347,7 @@ const thirdList = ref([
 
       th {
         padding: 22px 13px;
+        box-sizing: border-box;
         background: #ffffff;
         font-weight: 600;
         font-size: 16px;

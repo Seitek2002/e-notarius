@@ -111,20 +111,30 @@ const contacts = ref([
 ])
 const emits = defineEmits(['islam'])
 onMounted(() => {
-  (() => emits('islam', 'Переписки'))()
-})
+  (() => emits("islam", "Переписки"))();
+});
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-
+.message__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  img {
+    height: 40px;
+  }
+}
 .messages {
+  @media screen and (max-width: 991px) {
+      margin-top: 0;
+    }
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
 
   &__chat {
-    @media screen and (max-width: 991px) {
+        @media screen and (max-width: 991px) {
       display: none;
     }
   }
@@ -139,6 +149,10 @@ onMounted(() => {
     justify-content: space-between;
     gap: 10px;
     width: 320px;
+     @media screen and (max-width: 991px) {
+      width: 100%;
+    }
+
   }
 
   &__nuvbar__title {
@@ -146,14 +160,16 @@ onMounted(() => {
     font-weight: 600;
     font-size: 18px;
     line-height: 18px;
-    width: 320px;
-    height: 64px;
+    // width: 320px;
+    // height: 64px;
     color: $text-dark-blue;
+    
   }
 
   &__block__online {
     display: flex;
     align-items: center;
+    height: 64px;
     padding: 12px 16px 12px 16px;
     background: $text-dark-blue;
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
@@ -180,6 +196,9 @@ onMounted(() => {
   &__block {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+        height: 64px;
     padding: 12px 16px 12px 16px;
     gap: 16px;
 
@@ -255,7 +274,6 @@ onMounted(() => {
     @media screen and (max-width: 1250px) {
       margin-right: 0;
     }
-
     p {
       font-weight: 400;
       font-size: 14px;
@@ -279,7 +297,10 @@ onMounted(() => {
     display: flex;
     width: 100%;
     margin: 59px 0 0 30px;
+@media screen and (max-width: 460px) {
 
+      margin-left: 0;
+    }
     textarea {
       resize: none;
       padding: 22px 0 1px 15px;
@@ -294,6 +315,10 @@ onMounted(() => {
       color: #9a9a9a;
       outline: none;
       margin-left: 30px;
+      @media screen and (max-width: 460px) {
+      width: 80%;
+      margin-left: 0;
+    }
     }
   }
 

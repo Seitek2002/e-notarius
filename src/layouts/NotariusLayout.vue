@@ -217,7 +217,6 @@ const changeTitle = newTitle => {
   &.active {
     width: 73px;
     padding: 20px 0;
-    overflow: hidden;
 
     & .sidebar-head {
       flex-direction: column;
@@ -321,15 +320,10 @@ const changeTitle = newTitle => {
 
 @media screen and (max-width:1490px) {
   .sidebar {
-    position: absolute;
     left: 0;
     top: 0;
     z-index: 2;
   }
-  .content {
-  margin-left: 73px; 
-}
-
 }
 @media screen and (max-width:768px) {
   .content {
