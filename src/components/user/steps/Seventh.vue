@@ -114,7 +114,7 @@ hr {
   display: flex;
 }
 
-.chek {
+.check {
   width: 190px;
   height: 40px;
   display: flex;

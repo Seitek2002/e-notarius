@@ -35,7 +35,7 @@
     <div class="info__bottom">
       <Next
         title="Завершить"
-        @click="handleClick"
+        @click="handleClick(8)"
       />
       <span>
         <AddNewRequestIcon/>
@@ -68,8 +68,9 @@ const props = defineProps(['active', 'i', 'short'])
 
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id, move) => {
+const handleClick = (id) => {
   router.push('/OrderSend-notarius')
+  emits('handleCustomEvent', id)
 }
 const print = () => {
   printJS('/example.pdf')

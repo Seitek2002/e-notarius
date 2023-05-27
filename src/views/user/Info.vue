@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
 import Fifth from "@/components/user/steps/Fifth.vue";
@@ -69,7 +69,6 @@ const cancelOrder = () => {
 };
 
 const changeStep = (stepIndex) => {
-  console.log(stepIndex)
   if (stepIndex >= 0 && stepIndex < steps.length) {
     currentStep.value = stepIndex;
   }

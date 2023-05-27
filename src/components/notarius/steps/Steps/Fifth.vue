@@ -40,29 +40,15 @@ import FormContent from '@/components/notarius/steps/FormContent/FormContent.vue
 import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
 import Title from '@/components/global/UI/Info/Title.vue'
 
-const isActive = ref(false)
-// const ForeignFace = ref(false)
-const isActiveRadio = ref(0)
-// const isActiveRadioSec = ref(0)
-// const isActiveRadioFace = ref(false)
-const activeOption = ref('Н Абылгазиева Нурмира НарматоЧвна')
-
-const items = ref([
-  {
-    id: 0,
-    value: '',
-  },
-])
-
 const isActiveParticipants = ref(0)
 
 const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id, move) => {
+const handleClick = (id) => {
   emits('handleCustomEvent',id)
-  
+
 }
 
 const qntyOfParticipants = ref([

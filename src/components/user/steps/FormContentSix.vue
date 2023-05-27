@@ -102,7 +102,7 @@
       </div>
       <button
         :disabled="isLoading"
-        class="chek"
+        class="check"
         @click="handleClick"
       >
         Проверить
@@ -113,7 +113,7 @@
         <span
           v-if="end"
           class="end"
-          :class="{acive: end}"
+          :class="{active: end}"
         >
           <SuccessSmallIcon/>
           Данные действительны в базе данных ГП Унаа
@@ -221,7 +221,6 @@ const showAutoNumber = ref(false)
 const isActiveRadio = ref(false)
 
 const believeTime = ref('1 месяц')
-const autoNumber = ref('09KG774')
 const promises = ref('C правом передоверия')
 const believeTimeIsActive = ref('')
 const believeTimeIsActiveRef = ref(null)
@@ -232,7 +231,6 @@ const relationIsActive = ref('')
 const relationIsActiveRef = ref(null)
 onClickOutside(relationIsActiveRef, () => relationIsActive.value = false);
 
-const believe = ref('')
 const believeIsActive = ref(false)
 const believeIsActiveRef = ref(null)
 onClickOutside(believeIsActiveRef, () => believeIsActive.value = false);
@@ -244,14 +242,6 @@ onClickOutside(believeIsActiveRightRef, () => believeIsActiveRight.value = false
 
 const isLoading = ref(false)
 const end = ref(false)
-
-const inputValue = () => {
-  if (inpVal.value === '') {
-    !buttonShow.value
-  } else {
-    buttonShow.value
-  }
-}
 
 const handleClick = () => {
   isLoading.value = true
@@ -267,7 +257,7 @@ const handleClick = () => {
 </script>
 
 <style lang="scss" scoped>
-.chek {
+.check {
   position: relative;
 
   .end {
@@ -318,7 +308,7 @@ hr {
   display: flex;
 }
 
-.chek {
+.check {
   width: 190px;
   height: 40px;
   display: flex;

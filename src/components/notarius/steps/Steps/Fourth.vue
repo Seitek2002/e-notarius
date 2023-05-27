@@ -22,7 +22,6 @@
     <div class="info__form">
       <div class="info__form--wrapper">
         <Suptitle text="Нотариальное действие"/>
-        <!-- <Accordeon v-if="!store.state.typeOfObject" notarius="notariusAction" /> -->
         <div
           v-if="!store.state.typeOfObject"
           class="accordeon"
@@ -347,7 +346,7 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
   emits('handleCustomEvent',id)
-  
+
 }
 
 </script>

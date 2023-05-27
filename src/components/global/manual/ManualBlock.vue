@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
-const isActive = ref(false)
 import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
 import { ref } from "vue";
+const isActive = ref(false)
 defineProps(["item"])
 
 </script>

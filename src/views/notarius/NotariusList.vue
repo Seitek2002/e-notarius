@@ -5,53 +5,44 @@
         <div class="register__input">
           <label class="register__search">
             <div class="register__flex">
-              <input
-                v-model="searchVal"
-                type="text"
+              <input v-model="searchVal" type="text" />
+              <button
+                @click="
+                  paginatedItems = items.filter((item) =>
+                    item.name.includes(searchVal)
+                  )
+                "
               >
-              <button @click="paginatedItems = items.filter(item => item.name.includes(searchVal))">
-                <AppSearchIcon/>
+                <AppSearchIcon />
               </button>
             </div>
           </label>
         </div>
         <div class="register__filter">
           <button @click="showFilters = !showFilters">
-            <FilterDisableIcon v-show="showFilters"/>
-            <FilterEnableIcon v-show="!showFilters"/>
-            {{ showFilters ? 'Свернуть' : 'Развернуть' }} фильтр
+            <FilterDisableIcon v-show="showFilters" />
+            <FilterEnableIcon v-show="!showFilters" />
+            {{ showFilters ? "Свернуть" : "Развернуть" }} фильтр
           </button>
           <div class="register__fixed">
             <label
               :class="isCheckFirst ? ' active' : ''"
               @click="isCheckFirst = !isCheckFirst"
             >
-              <div
-                v-show="isCheckFirst"
-                class="register__pin"
-              >
-                <SuccessContentIcon/>
+              <div v-show="isCheckFirst" class="register__pin">
+                <SuccessContentIcon />
               </div>
-              <div
-                v-show="!isCheckFirst"
-                class="register__mark"
-              />
+              <div v-show="!isCheckFirst" class="register__mark" />
               Круглосуточно
             </label>
             <label
               :class="isCheckSecond ? ' active' : ''"
               @click="isCheckSecond = !isCheckSecond"
             >
-              <div
-                v-show="isCheckSecond"
-                class="register__pin"
-              >
-                <SuccessContentIcon/>
+              <div v-show="isCheckSecond" class="register__pin">
+                <SuccessContentIcon />
               </div>
-              <div
-                v-show="!isCheckSecond"
-                class="register__mark"
-              />
+              <div v-show="!isCheckSecond" class="register__mark" />
               Выездной
             </label>
           </div>
@@ -63,28 +54,27 @@
               @click="isActive = !isActive"
             >
               <p>{{ setSort }}</p>
-              <ArrowDownSmallIcon/>
+              <ArrowDownSmallIcon />
             </div>
-            <div
-              v-show="isActive"
-              class="register__sort sort"
-            >
+            <div v-show="isActive" class="register__sort sort">
               <div
                 class="sort__option"
-                @click=";(setSort = 'В алфавитном порядке'), (isActive = !isActive)"
+                @click="
+                  (setSort = 'В алфавитном порядке'), (isActive = !isActive);
+                "
               >
                 В алфавитном порядке
               </div>
               <div
                 class="sort__option"
-                @click=";(setSort = 'По оценкам'), (isActive = !isActive)"
+                @click="(setSort = 'По оценкам'), (isActive = !isActive);"
               >
                 По оценкам
               </div>
             </div>
           </div>
         </div>
-        <Filter v-show="showFilters"/>
+        <Filter v-show="showFilters" />
         <div class="register__adaptive">
           <div class="register__fixed">
             <label
@@ -137,19 +127,12 @@
           </div>
         </div>
         <div class="register__user">
-          <template
-            v-for="item in paginatedItems"
-            :key="item.id"
-          >
-            <Item :item="item"/>
+          <template v-for="item in paginatedItems" :key="item.id">
+            <Item :item="item" />
           </template>
         </div>
         <div class="register__scroll">
-          <Pagination
-            :items-per-page="3"
-            :items="items"
-            @paginate="paginate"
-          />
+          <Pagination :items-per-page="3" :items="items" @paginate="paginate" />
         </div>
         <div class="register__map">
           <h2>Поиск нотариуса на карте</h2>
@@ -169,42 +152,42 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
-import Filter from '@/components/guest/NotariusList/Filter.vue'
-import Item from '@/components/guest/NotariusList/Item.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import FilterDisableIcon from '@/components/guest/NotariusList/Icons/FilterDisableIcon.vue'
-import FilterEnableIcon from '@/components/guest/NotariusList/Icons/FilterEnableIcon.vue'
-import SuccessContentIcon from '@/components/guest/NotariusList/Icons/SuccessContentIcon.vue'
-import AppSearchIcon from '@/views/Icons/AppSearchIcon.vue'
+import Filter from "@/components/guest/NotariusList/Filter.vue";
+import Item from "@/components/guest/NotariusList/Item.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
+import FilterDisableIcon from "@/components/guest/NotariusList/Icons/FilterDisableIcon.vue";
+import FilterEnableIcon from "@/components/guest/NotariusList/Icons/FilterEnableIcon.vue";
+import SuccessContentIcon from "@/components/guest/NotariusList/Icons/SuccessContentIcon.vue";
+import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
 
-const store = useStore()
-const emits = defineEmits(['islam'])
-const showFilters = ref(false)
-const items = ref(store.state.notariusList)
-const isActive = ref(false)
-const isCheckFirst = ref(false)
-const isCheckSecond = ref(false)
-const searchVal = ref('')
-const setSort = ref('В алфавитном порядке')
+const store = useStore();
+const emits = defineEmits(["handleChangeTitle"]);
+const showFilters = ref(false);
+const items = ref(store.state.notariusList);
+const isActive = ref(false);
+const isCheckFirst = ref(false);
+const isCheckSecond = ref(false);
+const searchVal = ref("");
+const setSort = ref("В алфавитном порядке");
 
 const paginatedItems = ref([
   {
     id: 0,
   },
-])
+]);
 
-const paginate = data => {
-  paginatedItems.value = data.value
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value;
+};
 
 onMounted(() => {
   window.scrollTo({ top: 0 });
-  (() => emits('islam', 'Реестр нотариусов'))()
-})
+  (() => emits("handleChangeTitle", "Реестр нотариусов"))();
+});
 </script>
 
 <style lang="scss">
@@ -212,10 +195,9 @@ onMounted(() => {
 
 .register {
   &__input {
-
     @media screen and (max-width: 1050px) {
-        margin-top: 30px;
-      }
+      margin-top: 30px;
+    }
   }
   &__fixed {
     display: flex;
@@ -646,10 +628,9 @@ onMounted(() => {
     }
     .pagination {
       @media screen and (max-width: 1050px) {
-      margin: 0 0;
-      padding: 8px 20%;
-      // box-sizing: content-box;
-    }
+        margin: 0 0;
+        padding: 8px 20%;
+      }
     }
   }
 

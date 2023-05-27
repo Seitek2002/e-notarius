@@ -34,7 +34,7 @@
             v-for="item in sidebarListSecond"
             :key="item.id"
             :to="item.link"
-            class="sidebar-itemm"
+            class="sidebar-item"
           >
             <div class="sidebar-item">
               <component
@@ -84,7 +84,7 @@ import logo from '@/layouts/Icons/sidebar/logo.vue'
 import OwnRoomTop from './OwnRoomTop.vue'
 import { useStore } from 'vuex'
 const store = useStore()
-const title = ref('Заявки') 
+const title = ref('Заявки')
 const firstIndex = ref(0)
 const SecondIndex = ref(null)
 const changeTitle = a => {
@@ -304,7 +304,7 @@ const sidebarListSecond = [
     z-index: 2;
   }
   .content {
-  margin-left: 73px; 
+  margin-left: 73px;
 }
 
 }
@@ -312,7 +312,7 @@ const sidebarListSecond = [
   .content {
     padding: 20px;
   }
-} 
+}
 @media screen and (max-width:530px) {
  .sidebar {
   width: 100%;

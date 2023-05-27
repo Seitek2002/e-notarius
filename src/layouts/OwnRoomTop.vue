@@ -11,7 +11,6 @@
       <div class="top__user">
         <div class="top__user-wrapper" ref="dropDownRef" @click="isDropdownShow = !isDropdownShow">
           <OrderListUserIcon />
-          <!-- <h2 v-if="store.state.auth.chin">ЧН Абдыгулов Баяман Алыкулович</h2> -->
           <h2> {{ store.state.auth.fullName }} </h2>
           <DropdownIcon :class="isDropdownShow ? 'active' : ''" />
         </div>
@@ -169,15 +168,16 @@ onClickOutside(dropDownRef, () => isDropdownShow.value = false);
 @media screen and (max-width:530px) {
   .top {
     position: relative;
-    padding-bottom: 60px; 
+    padding-bottom: 60px;
 
     h1 {
       position: absolute;
       bottom: 0;
-      left: 0; 
+      left: 0;
     }
     &-close {
       display: block;
     }
   }
-}</style>
+}
+</style>

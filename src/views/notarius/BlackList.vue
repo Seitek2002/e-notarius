@@ -2,7 +2,12 @@
   <section class="order-list">
     <div class="order-list__top">
       <h2>Ваши заявки</h2>
-      <Btn title="Оформить заявку" bg="#1BAA75" :icon="icon" @click="router.push('/info-notarius')" />
+      <Btn
+        title="Оформить заявку"
+        bg="#1BAA75"
+        :icon="icon"
+        @click="router.push('/info-notarius')"
+      />
     </div>
     <div class="order-list__table">
       <table>
@@ -13,9 +18,7 @@
               <Sort title="Номер реестра" />
             </th>
             <th>
-              <div style="display: flex;">
-                ПИН субъекта
-              </div>
+              <div style="display: flex">ПИН субъекта</div>
             </th>
             <th>
               <Sort title="ФИО субъекта" />
@@ -27,19 +30,13 @@
               <Sort title="Дата ввода" />
             </th>
             <th>
-              <div style="display: flex;">
-                Кем создан
-              </div>
+              <div style="display: flex">Кем создан</div>
             </th>
             <th>
-              <div style="display: flex;">
-                Причина ввода в черный список
-              </div>
+              <div style="display: flex">Причина ввода в черный список</div>
             </th>
             <th>
-              <div style="display: flex;">
-                ПИН умершего
-              </div>
+              <div style="display: flex">ПИН умершего</div>
             </th>
             <th>
               <Sort title="ФИО умершего" />
@@ -48,9 +45,7 @@
               <Sort title="Дата рождения" />
             </th>
             <th>
-              <div style="display: flex;">
-                Место последнего проживания
-              </div>
+              <div style="display: flex">Место последнего проживания</div>
             </th>
             <th>
               <Sort title="Дата смрети" />
@@ -59,9 +54,7 @@
               <Sort title="Дата создания" />
             </th>
             <th>
-              <div style="display: flex;">
-                Кем создан
-              </div>
+              <div style="display: flex">Кем создан</div>
             </th>
           </tr>
         </thead>
@@ -81,7 +74,9 @@
             <td>20607199701079</td>
             <td>Усеналиев Оморбек Токтошевич</td>
             <td>01.07.1976</td>
-            <td>Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25</td>
+            <td>
+              Кыргызстан, Таласская обл., село Арпачы, ул Бакыракай-Ата, ул 25
+            </td>
             <td>01.01.2022</td>
             <td>01.01.2022</td>
             <td>ЧН Абдыгулов</td>
@@ -96,35 +91,32 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import Qr from '@/components/global/Tables/OfferTable/Qr.vue'
-import Sort from '@/components/global/Tables/OfferTable/Sort.vue'
-import Pagination from '@/components/Pagination/Pagination.vue'
-const store = useStore()
+import Btn from "@/components/global/UI/Buttons/Btn.vue";
+import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
+import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
+const store = useStore();
 
-const router = useRouter()
-const emits = defineEmits(['islam'])
+const router = useRouter();
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  (() => emits('islam', 'Черный список'))()
-})
-const typeOfDoc = ['Доверенность', 'Договор', 'Соглашение', 'Завещание']
-const isfilter = ref(true)
+  (() => emits("handleChangeTitle", "Черный список"))();
+});
+const files = store.state.tableListNotarius;
 
-const files = store.state.tableListNotarius
+const paginatedItems = ref(files);
 
-const paginatedItems = ref(files)
-
-const paginate = data => {
-  paginatedItems.value = data.value // paginatedItems.push(data)
-}
+const paginate = (data) => {
+  paginatedItems.value = data.value;
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .order-list {
   flex: 1;
@@ -204,7 +196,7 @@ const paginate = data => {
         border: 1px solid transparent;
 
         .order-list__name {
-          color: #1BAA75;
+          color: #1baa75;
         }
 
         &:hover {

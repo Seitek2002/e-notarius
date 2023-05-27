@@ -23,7 +23,7 @@
         </svg>
       </button>
       <span class="qr-more"> Подробнее </span>
-      <span class="qr-redy" @click="qr = null">Закрыть</span>
+      <span class="qr-ready" @click="qr = null">Закрыть</span>
     </div>
 
     <QrCodeDisableIcon v-if="qr !== i" @click="qr = i" />
@@ -77,7 +77,7 @@ const handleShare = async () => {
     padding: 10px 0;
   }
 
-  &-redy {
+  &-ready {
     font-weight: 600;
     font-size: 14px;
     color: #1baa75;

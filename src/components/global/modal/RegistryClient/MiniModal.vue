@@ -22,25 +22,7 @@
 
 <script setup>
 import { useStore } from "vuex";
-import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import { ref } from "vue";
-const notActionIsActive = ref(false)
-const notActionActiveOption = ref('Все')
 const store = useStore()
-const checked = ref(false)
-const first = ref("")
-const second = ref("")
-const third = ref("")
-const fourth = ref("")
-
-const deleteData = () => {
-    first.value = ""
-    second.value = ""
-    third.value = ""
-    fourth.value = ""
-}
-
 </script>
 
 

@@ -63,7 +63,7 @@
       </div>
       <div class="exemple__right">
         <svg
-          @click="handleScrollLeftt"
+          @click="handleScrollLeft"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -92,7 +92,7 @@
           </defs>
         </svg>
         <svg
-          @click="handleScrollRightt"
+          @click="handleScrollRight"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -122,7 +122,7 @@
         </svg>
       </div>
     </div>
-    <div ref="containerr" class="exemple-table">
+    <div ref="container" class="exemple-table">
       <table>
         <thead>
           <tr>
@@ -195,17 +195,17 @@ import Remove from "@/components/icons/Exemple/Remove.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 import { useStore } from "vuex";
-const containerr= ref(null);
+const container = ref(null);
 
-const handleScrollRightt = () => {
-  containerr.value.scrollBy({
+const handleScrollRight = () => {
+  container.value.scrollBy({
     left: 200,
     behavior: "smooth",
   });
 };
 
-const handleScrollLeftt = () => {
-  containerr.value.scrollBy({
+const handleScrollLeft = () => {
+  container.value.scrollBy({
     left: -200,
     behavior: "smooth",
   });
@@ -221,7 +221,7 @@ const files = ref(store.state.registryOfUser);
 const paginatedItems = ref(files.value);
 
 const paginate = (data) => {
-  paginatedItems.value = data.value; // paginatedItems.push(data)
+  paginatedItems.value = data.value;
 };
 
 const firstList = ref([
@@ -252,6 +252,7 @@ const thirdList = ref([
 ]);
 </script>
 <style scoped lang="scss">
+// Надо исправить адаптив
 .exemple {
   &__adaptive {
     display: none;
@@ -270,14 +271,11 @@ const thirdList = ref([
   &-head {
     display: flex;
     align-items: center;
-//  @media screen and (max-width: 517px) {
-//             flex-wrap: wrap;
-//         }
     justify-content: space-between;
     button {
-        @media screen and (max-width: 517px) {
-            width: 100%;
-        }
+      @media screen and (max-width: 517px) {
+        width: 100%;
+      }
     }
   }
 
@@ -328,7 +326,6 @@ const thirdList = ref([
 }
 
 .exemple-table {
-  //   max-width: 1115px;
   overflow: auto;
 
   table {

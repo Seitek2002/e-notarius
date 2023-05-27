@@ -12,10 +12,14 @@
       <div class="info__progress flex">
         <div class="info__line" />
         <template v-for="(step, index) in steps" :key="index">
-          <div
-            :class="['info__circle', {'info__circle--prev': index < currentStep, 'info__circle--current': index === currentStep, 'info__circle--next': index > currentStep}]"
-            @click="changeStep(index)"
-          >
+          <div :class="[
+            'info__circle',
+            {
+              'info__circle--prev': index < currentStep,
+              'info__circle--current': index === currentStep,
+              'info__circle--next': index > currentStep,
+            },
+          ]" @click="changeStep(index)">
             <template v-if="index < currentStep">
               <PreviousIcon />
             </template>
@@ -42,16 +46,23 @@
           </div>
           <div class="auth-item__alert">
             <p>
-              Для внесения документа в реестр и присвоения уникального номера документу, нужно подтверждение отпечатка
-              ваших пальцев и ваша ЭЦП
+              Для внесения документа в реестр и присвоения уникального номера
+              документу, нужно подтверждение отпечатка ваших пальцев и ваша ЭЦП
             </p>
             <QuestionIcon />
           </div>
-          <div class="scaner-svg" :class="scanerAnalys ? ' active' : ''">
+          <div class="scanner-svg" :class="scannerAnalysis ? ' active' : ''">
             <FingerprintCircleIcon v-show="!end" @click="handleClick" />
             <FingerprintSuccessIcon v-show="end" />
           </div>
-          <div v-show="start || center || end" :class="['auth-item__process', {'auth-item__start': start, 'auth-item__loading': center, 'auth-item__success': end}]">
+          <div v-show="start || center || end" :class="[
+            'auth-item__process',
+            {
+              'auth-item__start': start,
+              'auth-item__loading': center,
+              'auth-item__success': end,
+            },
+          ]">
             <template v-if="start">Подтверждение отпечатка пальцев</template>
             <template v-else-if="center">
               <AnimationBubblesIcon />
@@ -61,68 +72,70 @@
               Проверка отпечатка пальцев прошла успешно
             </template>
           </div>
-          <Btn title="Подписать" bg="#1BAA75" :disabled="!end"
-            @click="handleCustomEvent([7, 'next']), store.commit('setIsSubmit', false), store.commit('pushNewItem')" />
+          <Btn title="Подписать" bg="#1BAA75" :disabled="!end" @click="
+            changeStep(8),
+            store.commit('setIsSubmit', false),
+            store.commit('pushNewItem')
+          " />
         </div>
       </div>
     </div>
 
-     <div class="info__content">
+    <div class="info__content">
       <component :is="currentStepComponent" @handleCustomEvent="changeStep" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
-import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import Eighth from '@/components/notarius/steps/Steps/Eighth.vue'
-import Fifth from '@/components/notarius/steps/Steps/Fifth.vue'
-import First from '@/components/notarius/steps/Steps/First.vue'
-import Fourth from '@/components/notarius/steps/Steps/Fourth.vue'
-import Second from '@/components/notarius/steps/Steps/Second.vue'
-import Seventh from '@/components/notarius/steps/Steps/Seventh.vue'
-import Sixth from '@/components/notarius/steps/Steps/Sixth.vue'
-import Third from '@/components/notarius/steps/Steps/Third.vue'
-import Title from '@/components/global/UI/Info/Title.vue'
-import CurrentIcon from '@/views/Icons/CurrentIcon.vue'
-import NextIcon from '@/views/Icons/NextIcon.vue'
-import PreviousIcon from '@/views/Icons/PreviousIcon.vue'
-import CancelIcon from '@/views/Icons/CancelIcon.vue'
-import FingerprintCircleIcon from '@/components/guest/Auth/Icons/FingerprintCircleIcon.vue'
-import FingerprintSuccessIcon from '@/components/guest/Auth/Icons/FingerprintSuccessIcon.vue'
-import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
-import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
-import XIcon from '@/views/Icons/XIcon.vue'
+import { onMounted, ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import Btn from "@/components/global/UI/Buttons/Btn.vue";
+import Fifth from "@/components/notarius/steps/Steps/Fifth.vue";
+import First from "@/components/notarius/steps/Steps/First.vue";
+import Fourth from "@/components/notarius/steps/Steps/Fourth.vue";
+import Second from "@/components/notarius/steps/Steps/Second.vue";
+import Seventh from "@/components/notarius/steps/Steps/Seventh.vue";
+import Sixth from "@/components/notarius/steps/Steps/Sixth.vue";
+import Third from "@/components/notarius/steps/Steps/Third.vue";
+import Title from "@/components/global/UI/Info/Title.vue";
+import CurrentIcon from "@/views/Icons/CurrentIcon.vue";
+import NextIcon from "@/views/Icons/NextIcon.vue";
+import PreviousIcon from "@/views/Icons/PreviousIcon.vue";
+import CancelIcon from "@/views/Icons/CancelIcon.vue";
+import FingerprintCircleIcon from "@/components/guest/Auth/Icons/FingerprintCircleIcon.vue";
+import FingerprintSuccessIcon from "@/components/guest/Auth/Icons/FingerprintSuccessIcon.vue";
+import QuestionIcon from "@/components/guest/Auth/Icons/QuestionIcon.vue";
+import AnimationBubblesIcon from "@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue";
+import XIcon from "@/views/Icons/XIcon.vue";
+import Eighth from "@/components/notarius/steps/Steps/Eighth.vue";
 
-const store = useStore()
-const scanerAnalys = ref(false)
-const start = ref(true)
-const center = ref(false)
-const end = ref(false)
+const store = useStore();
+const scannerAnalysis = ref(false);
+const start = ref(true);
+const center = ref(false);
+const end = ref(false);
 
 const handleClick = () => {
-  start.value = false
-  center.value = true
-  end.value = false
-  scanerAnalys.value = true
+  start.value = false;
+  center.value = true;
+  end.value = false;
+  scannerAnalysis.value = true;
 
   setTimeout(() => {
-    center.value = false
-    scanerAnalys.value = false
-    end.value = true
-  }, 5000)
-}
+    center.value = false;
+    scannerAnalysis.value = false;
+    end.value = true;
+  }, 5000);
+};
 
-const progress = ref(['current', ...Array(7).fill('next')])
-const router = useRouter()
+const router = useRouter();
 
-const emits = defineEmits(['islam'])
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  emits('islam', 'Нотариальное действие')
-})
+  emits("handleChangeTitle", "Нотариальное действие");
+});
 
 const steps = [
   { component: First },
@@ -132,13 +145,12 @@ const steps = [
   { component: Fifth },
   { component: Sixth },
   { component: Seventh },
+  { component: Eighth }
 ];
 
-const slicedItems = ref(First)
 const currentStep = ref(0);
 
 const changeStep = (stepIndex) => {
-  console.log(stepIndex)
   if (stepIndex >= 0 && stepIndex < steps.length) {
     currentStep.value = stepIndex;
   }
@@ -148,7 +160,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .flex {
   display: flex;
@@ -179,7 +191,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
   align-items: center;
 
   &__qnty {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
@@ -263,11 +275,11 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
         padding: 40px 20px;
         box-sizing: border-box;
 
-        .scaner-svg {
+        .scanner-svg {
           text-align: center;
         }
 
-        .scaner-svg {
+        .scanner-svg {
           position: relative;
           z-index: 11;
           text-align: center;
@@ -302,7 +314,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
           }
         }
 
-        .scaner-svg.active {
+        .scanner-svg.active {
           .pulse {
 
             &-first,
@@ -382,7 +394,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -427,7 +439,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
   }
 
   &__cancel {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
     color: #1baa75;
@@ -500,7 +512,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 
       p {
         font-weight: 500;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 14px;
         line-height: 130%;
         color: #24334b;
@@ -509,7 +521,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 
       input {
         padding: 11px 10px;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 16px;
         line-height: 140%;
         color: #24334b;

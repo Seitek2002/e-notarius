@@ -384,7 +384,6 @@ import Approved from '@/components/global/UI/Info/Approved.vue'
 import Back from '@/components/global/UI/Info/Btn/Back.vue'
 import Next from '@/components/global/UI/Info/Btn/Next.vue'
 
-const cityIsActive = ref(false)
 const cityActiveOption = ref('')
 const cityIsActiveSecond = ref(false)
 const cityActiveOptionSecond = ref('')
@@ -440,32 +439,12 @@ watch(activeOptionRegion, () => {
 const passportOrgan = ref('')
 const passportNumber = ref('')
 
-const region = ref('')
-const area = ''
-const city = ref('')
-const street = ref('')
-const house = ref('')
-const flat = ref('')
-
-const regionFact = ref('')
-const areaFact = ''
-const cityFact = ref('')
-const streetFact = ref('')
-const houseFact = ref('')
-const flatFact = ref('')
-
-const email = ref('')
-const phoneNumber = ref('')
 const store = useStore()
 const INNVal = ref('')
 const name = ref('')
 const surname = ref('')
 const lastname = ref('')
 
-const passportId = ref('')
-const passportNum = ref('')
-const mkk = ref('')
-const mkkNumber = ref('')
 const passportDate = ref('')
 
 const dateOfBirthVal = ref('')
@@ -504,7 +483,7 @@ const getUsers = () => {
   if (INNVal.value.trim() !== '') {
     try {
       const {
-        fullName, avatar, citizenship, dateOfBirth, region, area, registration, fact, passport, city, cityFact,
+        fullName, citizenship, dateOfBirth, region, area, registration, fact, passport, city, cityFact,
       } = store.state.users.find(item => item.INN === INNVal.value)
       const [a, b, c] = fullName.split(' ')
 

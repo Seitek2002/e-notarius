@@ -68,8 +68,6 @@ const handleClickPlus = () => {
   }
 
   items.value.push(item)
-
-  console.log(items.value)
 }
 
 const handleClickMinus = id => {

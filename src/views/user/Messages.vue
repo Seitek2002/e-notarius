@@ -2,8 +2,8 @@
   <section class="messages">
     <div class="container">
       <div class="messages__content">
-        <div class="messages__nuvbar">
-          <p class="messages__nuvbar__title">Ваши сообщения</p>
+        <div class="messages__navbar">
+          <p class="messages__navbar__title">Ваши сообщения</p>
           <div class="messages__block__online">
             <div class="message__content">
               <img src="@/assets/images/Messages/Ellipse.png" alt="#" />
@@ -104,9 +104,9 @@ import MessagesReadIcon from "@/views/Icons/MessagesReadIcon.vue";
 import MessagesSendIcon from "@/views/Icons/MessagesSendIcon.vue";
 import OnlineStatusIcon from "@/views/Icons/OnlineStatusIcon.vue";
 
-const emits = defineEmits(["islam"]);
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  (() => emits("islam", "Переписки"))();
+  (() => emits("handleChangeTitle", "Переписки"))();
 });
 </script>
 
@@ -122,13 +122,13 @@ onMounted(() => {
 }
 .messages {
   @media screen and (max-width: 991px) {
-      margin-top: 0;
-    }
+    margin-top: 0;
+  }
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
   &__chat {
-        @media screen and (max-width: 991px) {
+    @media screen and (max-width: 991px) {
       display: none;
     }
   }
@@ -136,27 +136,23 @@ onMounted(() => {
     display: flex;
   }
 
-  &__nuvbar {
+  &__navbar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
     width: 320px;
-     @media screen and (max-width: 991px) {
+    @media screen and (max-width: 991px) {
       width: 100%;
     }
-
   }
 
-  &__nuvbar__title {
+  &__navbar__title {
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 18px;
-    // width: 320px;
-    // height: 64px;
     color: $text-dark-blue;
-    
   }
 
   &__block__online {
@@ -167,7 +163,6 @@ onMounted(() => {
     background: $text-dark-blue;
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
     gap: 16px;
-
 
     h4 {
       color: $bg-light-gray;
@@ -194,7 +189,7 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-        height: 64px;
+    height: 64px;
     padding: 12px 16px 12px 16px;
     gap: 16px;
     @media screen and (max-width: 991px) {
@@ -230,16 +225,16 @@ onMounted(() => {
     @media screen and (max-width: 1241px) {
       margin-left: 195px;
     }
-        @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1100px) {
       margin-left: 40px;
     }
     @media screen and (max-width: 991px) {
       margin-left: 390px;
     }
     @media screen and (max-width: 965px) {
-     margin-left: 195px;
+      margin-left: 195px;
     }
-       @media screen and (max-width: 698px) {
+    @media screen and (max-width: 698px) {
       margin-left: 40px;
     }
     @media screen and (max-width: 460px) {
@@ -305,8 +300,7 @@ onMounted(() => {
     display: flex;
     width: 100%;
     margin: 59px 0 0 30px;
-@media screen and (max-width: 460px) {
-
+    @media screen and (max-width: 460px) {
       margin-left: 0;
     }
     textarea {
@@ -324,9 +318,9 @@ onMounted(() => {
       outline: none;
       margin-left: 30px;
       @media screen and (max-width: 460px) {
-      width: 80%;
-      margin-left: 0;
-    }
+        width: 80%;
+        margin-left: 0;
+      }
     }
   }
 

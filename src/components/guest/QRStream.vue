@@ -26,10 +26,6 @@
       Включить камеру
     </button>
 
-    <!-- <router-link to="/src/assets/AutoLayoutVertical.pdf" target="_blank">
-        pdf
-    </router-link> -->
-
     <qrcode-stream
       :camera="camera"
       @init="onInit"
@@ -60,10 +56,6 @@ export default {
     }
   },
 
-  //   mounted: () => {
-  //     console.log(pdf);
-  //   },
-
   methods: {
     switchCamera() {
       switch (this.camera) {
@@ -84,9 +76,8 @@ export default {
       this.camera = 'auto'
     },
 
-    onDecode(res) {
+    onDecode() {
       this.$router.push('/check-qr')
-      // window.open("/check-qr", '_blank');
     },
 
     async onInit(promise) {
