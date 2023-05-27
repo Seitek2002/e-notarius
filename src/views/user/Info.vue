@@ -411,6 +411,10 @@ label {
       margin: 0;
     }
   }
+  .info__form--wrapper {.dropdown.city {
+    width: 100%;
+  }
+  }
   .info__radio {
     margin-bottom: 15px;
 
