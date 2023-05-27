@@ -80,6 +80,7 @@
                 <span class="profile-time">{{ item.time }}</span>
                 <div v-show="item.notice" class="profile-notice"></div>
             </div>
+            <button class="profile-clear">Очистить</button>
         </div>
     </section>
 </template>
@@ -185,6 +186,15 @@ const notice = ref([
         button {
             padding: 13px 37px;
         }
+    }
+
+    &-clear {
+        font-weight: 600;
+        font-size: 16px;
+        background: #3F5984;
+        color: #FFFFFF;
+        padding: 12.5px 120px;
+        margin-top: 30px;
     }
 
     &__form--wrapper {
@@ -302,7 +312,7 @@ const notice = ref([
         position: relative;
         padding: 15px;
         border-bottom: 1px solid #F6F6F6;
-
+        background: #Fff;
         &:hover {
             background: #F6F6F6;
         }
@@ -360,23 +370,30 @@ const notice = ref([
         }
 
         &-gren-btn {
-           
+
             padding: 13px 37px !important;
         }
 
         &-white-btn {
-           
-            padding: 13px 37px!important;
+
+            padding: 13px 37px !important;
         }
     }
 }
+
 @media screen and (max-width:430px) {
     .profile {
         background: unset;
         padding: 0;
+
         &-more {
-            gap:10px; 
+            gap: 10px;
             flex-direction: column;
+        }
+
+        &-clear {
+            padding:12.5px;
+            width: 100%;
         }
     }
 }

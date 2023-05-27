@@ -6,74 +6,25 @@
           <p class="messages__nuvbar__title">
             Ваши сообщения
           </p>
-          <div class="messages__block__online">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
+
+          <div v-for="item in contacts" :key="item.id"
+            :class="item.online ? 'messages__block__online' : 'messages__block'">
+            <img :src="item.img" alt="#">
             <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p><span>онлайн</span></p>
+              <h4>{{ item.name }}</h4>
+              <p v-if="item.online">онлайн</p>
+              <p v-else>оффлайн</p>
             </div>
+            <OnlineStatusIcon v-show="item.notice" />
           </div>
-          <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Алапаев Н.К.</h4>
-              <p>оффлайн</p>
-            </div>
-            <OnlineStatusIcon/>
-          </div>
-          <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
-            </div>
-          </div>
-          <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
-            </div>
-          </div>
-          <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
-            </div>
-          </div>
-          <div class="messages__block">
-            <img
-              src="@/assets/images/Messages/Ellipse.png"
-              alt="#"
-            >
-            <div class="messages__name">
-              <h4>Баланчаева Б.Б.</h4>
-              <p>оффлайн</p>
-            </div>
-          </div>
+
         </div>
         <div class="messages__chat">
           <div class="messages__box__my">
             <p>Здравствуйте! Я оставил вам заявку на доверенность</p>
             <div class="messages__time__my">
               <p>16:29</p>
-              <MessagesReadIcon/>
+              <MessagesReadIcon />
             </div>
           </div>
           <div class="messages__box__companion">
@@ -91,13 +42,13 @@
               <p class="messages__time__num">
                 16:42
               </p>
-              <MessagesSendIcon/>
+              <MessagesSendIcon />
             </div>
           </div>
           <div class="messages__box__input">
-            <textarea name=""/>
+            <textarea name="" />
             <div class="messages__send">
-              <ArrowRightIcon/>
+              <ArrowRightIcon />
             </div>
           </div>
         </div>
@@ -107,13 +58,57 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
 import MessagesReadIcon from '@/views/Icons/MessagesReadIcon.vue'
 import MessagesSendIcon from '@/views/Icons/MessagesSendIcon.vue'
 import OnlineStatusIcon from '@/views/Icons/OnlineStatusIcon.vue'
+const contacts = ref([
+  {
+    id: 0,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: true,
+  },
+  {
+    id: 1,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: false,
+  },
+  {
+    id: 2,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: true,
+    notice: true,
+  },
+  {
+    id: 3,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: true,
+  },
+  {
+    id: 4,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: false,
+    notice: false,
+  },
+  {
+    id: 5,
+    name: "Баланчаева Б.Б.",
+    img: "/src/assets/images/Messages/Ellipse.png",
+    online: true,
+    notice: true,
+  },
 
+])
 const emits = defineEmits(['islam'])
 onMounted(() => {
   (() => emits('islam', 'Переписки'))()
@@ -127,11 +122,13 @@ onMounted(() => {
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
+
   &__chat {
     @media screen and (max-width: 991px) {
       display: none;
     }
   }
+
   &__content {
     display: flex;
   }
@@ -176,10 +173,7 @@ onMounted(() => {
       font-weight: 500;
       font-size: 14px;
       line-height: 12px;
-
-      span {
-        color: $text-light-green;
-      }
+      color: $text-light-green;
     }
   }
 
@@ -188,9 +182,11 @@ onMounted(() => {
     align-items: center;
     padding: 12px 16px 12px 16px;
     gap: 16px;
+
     @media screen and (max-width: 991px) {
       width: 100%;
     }
+
     h4 {
       font-style: normal;
       font-weight: 500;
@@ -218,12 +214,15 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin: 45px 0 11px 390px;
+
     @media screen and (max-width: 1241px) {
       margin-left: 195px;
     }
-        @media screen and (max-width: 1100px) {
+
+    @media screen and (max-width: 1100px) {
       margin-left: 40px;
     }
+
     p {
       font-weight: 400;
       line-height: 140%;
@@ -252,10 +251,11 @@ onMounted(() => {
     align-items: flex-end;
     justify-content: center;
     margin-left: 30px;
+
     @media screen and (max-width: 1250px) {
       margin-right: 0;
     }
-    
+
     p {
       font-weight: 400;
       font-size: 14px;
@@ -305,6 +305,12 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 991px) {
+    &__nuvbar { 
+      width: 100%;
+    }
   }
 }
 </style>
