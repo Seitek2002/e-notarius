@@ -121,6 +121,9 @@ onMounted(() => {
   }
 }
 .messages {
+  @media screen and (max-width: 991px) {
+      margin-top: 0;
+    }
   font-family: "Montserrat", sans-serif;
   margin: 60px 0 92px 0;
   flex: 1;
@@ -150,14 +153,16 @@ onMounted(() => {
     font-weight: 600;
     font-size: 18px;
     line-height: 18px;
-    width: 320px;
-    height: 64px;
+    // width: 320px;
+    // height: 64px;
     color: $text-dark-blue;
+    
   }
 
   &__block__online {
     display: flex;
     align-items: center;
+    height: 64px;
     padding: 12px 16px 12px 16px;
     background: $text-dark-blue;
     box-shadow: 0 10px 20px #acbbd2, 0 5px 20px #dfdfdf;
@@ -189,6 +194,7 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+        height: 64px;
     padding: 12px 16px 12px 16px;
     gap: 16px;
     @media screen and (max-width: 991px) {
