@@ -37,12 +37,13 @@ const layout = computed(() => {
 
 
 .sidebar {
+  width: 20%;
   background: #1baa75;
   padding: 50px 0 10px;
   box-sizing: border-box;
 
   &.active {
-    width: 73px;
+    width: 5%;
     padding: 20px 0;
 
     & .sidebar-head {
@@ -51,6 +52,9 @@ const layout = computed(() => {
       gap: 20px;
       margin: 0;
       margin-left: 14.5px;
+      padding: 0;
+      width: 50px;
+      overflow: hidden;
     }
 
     & .sidebar-title {
@@ -83,12 +87,15 @@ const layout = computed(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 25px;
+    box-sizing: border-box;
   }
 
   &-title {
     font-weight: 700;
     font-size: 18px;
     color: #ffffff;
+    padding: 0 25px;
   }
 
   &-item {
@@ -158,7 +165,7 @@ const layout = computed(() => {
 .content {
   padding: 60px;
   box-sizing: border-box;
-  max-width: 95%;
+  max-width: 80%;
   flex-grow: 1;
 }
 
