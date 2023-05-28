@@ -185,4 +185,14 @@ const addImage = () => {
   box-sizing: border-box;
   outline: none;
 }
+@media screen and (max-width: 1275px) {
+  .editor__menu.flex.aic.jcsb {
+    overflow-x: auto;
+    max-width: 100%;
+flex-wrap: nowrap;
+    .flex {
+    flex-wrap: nowrap;
+    }
+  }
+}
 </style>
