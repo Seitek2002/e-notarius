@@ -24,7 +24,7 @@
       <label class="personal-number">
         <p class="auth-item__descr">Логин</p>
         <input
-          v-model="loginVal"
+          v-model="user.username"
           type="text"
           class="auth-item__input"
         >
@@ -32,7 +32,7 @@
       <label class="auth-password">
         <p class="auth-item__descr">Пароль</p>
         <input
-          v-model="passwordVal"
+          v-model="user.password"
           type="password"
           class="auth-item__input"
         >
@@ -40,7 +40,7 @@
           class="auth-item__eye"
         />
         <span
-          v-show="isErr"
+          v-show="!loginFailure"
           class="auth-item__forgot"
         >Забыли пароль?</span>
       </label>
@@ -51,7 +51,7 @@
 
       <button
         class="auth-item__btn"
-        @click="handleClick"
+        @click="handleLogin"
       >
         Войти
       </button>
@@ -59,40 +59,81 @@
   </div>
 </template>
 
-<script setup>
+<script >
+
+import User from '../../../models/user';
+
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { useStore, mapGetters } from 'vuex'
 
 import EyesIcon from '@/components/guest/Auth/Icons/EyesIcon.vue'
 import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
 import PersonIcon from '@/components/guest/Auth/Icons/PersonIcon.vue'
 import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
+import errors from "vue3-qrcode-reader";
 
 const router = useRouter()
 const store = useStore()
-const loginVal = ref('')
-const passwordVal = ref('')
-const isErr = ref(false)
-
-const isActive = ref(false)
-
-const handleClick = () => {
-  isErr.value = false
-  const user = store.state.users.find(item => item.login === loginVal.value && item.password === passwordVal.value)
-
-  if (user) {
-    localStorage.setItem('auth-user', JSON.stringify({ ...user, check: true }))
-    store.commit('checkUserClient', { ...user, check: true })
-    if (user.role === 'notarius') {
-      router.push('/order-list-notarius')
-    } else {
-      router.push('/order-list-user')
+export default {
+  name: 'LoginAndPassword',
+  data() {
+    return {
+      user: new User('', ''),
+      loading: false,
+      message: '',
+      isErr : ref(false),
+      isActive : ref(false)
+    };
+  },
+  computed: {
+    ...mapGetters('auth',['GET_ROLE']),
+    loggedIn() {
+      return this.$store.state.auth.isLoggedIn;
+    },
+    loginFailure(){
+      return this.$store.state.auth.isLoggedIn;
+    },
+    role() {
+      return this.GET_ROLE;
     }
-  } else {
-    isErr.value = true
+  },
+  created() {
+    if (this.loggedIn) {
+      if(this.role === 'ADMINS'){
+        this.$router.push('/order-list-user');
+      }
+    }
+  },
+  methods: {
+    errors,
+    handleLogin() {
+      this.loading = true;
+        if (this.user.username && this.user.password) {
+          this.$store.dispatch('auth/login', this.user).then(
+            () => {
+              this.$router.push('/order-list-user');
+              /*this.$store.dispatch('auth/getRole', this.user).then();
+              if(this.role === 'ADMINS'){
+                 this.$router.push('/order-list-user');
+              } else {
+                console.log(this.role)
+               // this.$router.push('/order-list-user');
+              }*/
+            },
+            error => {
+              this.isErr.value = true
+              this.loading = false;
+              this.message =
+                (error.response && error.response.data && error.response.data.message) ||
+                error.message ||
+                error.toString();
+            }
+          );
+        }
+    }
   }
-}
+};
 
 </script>
 

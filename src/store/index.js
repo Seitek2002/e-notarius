@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
 import { state } from './mockState'
+import { auth } from './auth.module';
 
 const store = createStore({
+  modules: {
+    auth
+  },
   state,
   mutations: {
     checkUserClient(state, data) {
