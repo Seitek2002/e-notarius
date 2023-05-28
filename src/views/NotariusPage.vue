@@ -2,7 +2,7 @@
   <section class="notarius">
     <div class="container">
       <div class="notarius__content">
-        <div class="notarius__blox">
+        <div class="notarius__box">
           <div class="notarius__left">
             <img
               :src="data.avatar"
@@ -146,7 +146,7 @@ onMounted(() => {
     font-family: "Montserrat", sans-serif;
   }
 
-  &__blox {
+  &__box {
     display: flex;
   }
 

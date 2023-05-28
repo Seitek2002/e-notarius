@@ -1,40 +1,39 @@
 <template>
   <component :is="layout">
-    <router-view/>
+    <router-view />
   </component>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { RouterView, useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { computed } from "vue";
+import { RouterView, useRoute } from "vue-router";
 
-import MainLayout from '@/layouts/MainLayout.vue'
-import NotariusLayout from '@/layouts/NotariusLayout.vue'
-import UserLayout from '@/layouts/UserLayout.vue'
+import MainLayout from "@/layouts/MainLayout.vue";
+import NotariusLayout from "@/layouts/NotariusLayout.vue";
+import UserLayout from "@/layouts/UserLayout.vue";
 
-const route = useRoute()
-const store = useStore()
+const route = useRoute();
 const layout = computed(() => {
-  if (route.meta.layout === 'user') return UserLayout
-  if (route.meta.layout === 'notarius') return NotariusLayout
-  return MainLayout
-})
+  if (route.meta.layout === "user") return UserLayout;
+  if (route.meta.layout === "notarius") return NotariusLayout;
+  return MainLayout;
+});
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/base.scss';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/base.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.router-link-active.router-link-exact-active.sidebar-item {
-  background: #24334b;
+@media screen and (max-width: 1490px) {
+  .content {
+    margin-left: 73px;
+  }
 }
 
 .router-link-active.router-link-exact-active .sidebar-item {
   background: #24334b !important;
 }
-
 
 .sidebar {
   width: 20%;
@@ -51,10 +50,13 @@ const layout = computed(() => {
       align-items: start;
       gap: 20px;
       margin: 0;
-      margin-left: 14.5px;
+      margin: 0 auto;
       padding: 0;
       width: 50px;
       overflow: hidden;
+      @media screen and (max-width: 1400px) {
+        width: 80%;
+      }
     }
 
     & .sidebar-title {
@@ -89,6 +91,15 @@ const layout = computed(() => {
     justify-content: space-between;
     padding: 0 25px;
     box-sizing: border-box;
+    gap: 10px;
+    @media screen and (max-width: 1300px) {
+      padding: 0 10px;
+    }
+    svg {
+      @media screen and (max-width: 1300px) {
+        max-width: 100%;
+      }
+    }
   }
 
   &-title {
@@ -152,14 +163,14 @@ const layout = computed(() => {
   }
 }
 
-@media screen and (max-width:530px) {
- .sidebar {
-  width: 100%;
+@media screen and (max-width: 530px) {
+  .sidebar {
+    width: 100%;
 
-  &.active {
-    width: 0;
+    &.active {
+      width: 0;
+    }
   }
- }
 }
 
 .content {
@@ -173,9 +184,12 @@ const layout = computed(() => {
   max-width: 95%;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .content {
     padding: 20px;
   }
+}
+.content {
+  margin-left: 0;
 }
 </style>

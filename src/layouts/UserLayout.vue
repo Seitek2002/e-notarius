@@ -37,7 +37,7 @@
             v-for="item in sidebarListSecond"
             :key="item.id"
             :to="item.link"
-            class="sidebar-itemm"
+            class="sidebar-item"
           >
             <div class="sidebar-item">
               <component :is="item.img" class="sidebar-icons" />
@@ -69,29 +69,29 @@
 <script setup>
 import { ref } from "vue";
 
-import close from "@/layouts/Icons/sidebar/close.vue";
-import imageExtra from "@/layouts/Icons/sidebar/imageExtra.vue";
-import imageFive from "@/layouts/Icons/sidebar/imageFive.vue";
-import imageFour from "@/layouts/Icons/sidebar/imageFour.vue";
-import imageOne from "@/layouts/Icons/sidebar/imageOne.vue";
-import imageThree from "@/layouts/Icons/sidebar/imageThree.vue";
-import imageTwo from "@/layouts/Icons/sidebar/imageTwo.vue";
-import imgFive from "@//layouts/Icons/sidebar/imgFive.vue";
-import imgFour from "@/layouts/Icons/sidebar/imgFour.vue";
-import imgOne from "@/layouts/Icons/sidebar/imgOne.vue";
-import imgThree from "@/layouts/Icons/sidebar/imgThree.vue";
-import imgTwo from "@/layouts/Icons/sidebar/imgTwo.vue";
-import left from "@/layouts/Icons/sidebar/left.vue";
-import logo from "@/layouts/Icons/sidebar/logo.vue";
-import OwnRoomTop from "./OwnRoomTop.vue";
-import { useStore } from "vuex";
-const store = useStore();
-const title = ref("Заявки");
-const firstIndex = ref(0);
-const SecondIndex = ref(null);
-const changeTitle = (a) => {
-  title.value = a;
-};
+import close from '@/layouts/Icons/sidebar/close.vue'
+import imageExtra from '@/layouts/Icons/sidebar/imageExtra.vue'
+import imageFive from '@/layouts/Icons/sidebar/imageFive.vue'
+import imageFour from '@/layouts/Icons/sidebar/imageFour.vue'
+import imageOne from '@/layouts/Icons/sidebar/imageOne.vue'
+import imageThree from '@/layouts/Icons/sidebar/imageThree.vue'
+import imageTwo from '@/layouts/Icons/sidebar/imageTwo.vue'
+import imgFive from '@//layouts/Icons/sidebar/imgFive.vue'
+import imgFour from '@/layouts/Icons/sidebar/imgFour.vue'
+import imgOne from '@/layouts/Icons/sidebar/imgOne.vue'
+import imgThree from '@/layouts/Icons/sidebar/imgThree.vue'
+import imgTwo from '@/layouts/Icons/sidebar/imgTwo.vue'
+import left from '@/layouts/Icons/sidebar/left.vue'
+import logo from '@/layouts/Icons/sidebar/logo.vue'
+import OwnRoomTop from './OwnRoomTop.vue'
+import { useStore } from 'vuex'
+const store = useStore()
+const title = ref('Заявки')
+const firstIndex = ref(0)
+const SecondIndex = ref(null)
+const changeTitle = a => {
+  title.value = a
+}
 
 const sidebarList = [
   {

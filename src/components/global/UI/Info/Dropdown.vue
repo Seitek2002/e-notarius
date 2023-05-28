@@ -4,19 +4,13 @@ import { ref } from 'vue'
 const isActive = ref(false)
 const activeOption = ref('Все')
 
-// const result = ref()
 
-const handleChange = (title, value) => {
+const handleChange = (value) => {
   activeOption.value = value
   isActive.value = false
-  // const values = {}
-  // values[title] = value
-  // console.log(values);
-  // emits('qwerty', values)
 }
 
 defineProps(['title', 'options'])
-// const emits = defineEmits(['qwerty'])
 </script>
 
 <template>

@@ -626,7 +626,6 @@ onMounted(() => {
       @media screen and (max-width: 1050px) {
       margin: 0 0;
       padding: 8px 20%;
-      // box-sizing: content-box;
     }
     }
   }

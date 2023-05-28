@@ -1,7 +1,7 @@
 <template>
   <section class="temp">
     <div class="temp-head">
-      <input type="text" placeholder="Поиск по ключевому слову" class="temp-input">
+      <input type="text" placeholder="Поиск по ключевому слову" class="temp-input" />
       <Search />
     </div>
     <div class="temp__adaptive">
@@ -66,7 +66,7 @@
               <Sort title="ID шаблона" style="white-space: nowrap" />
             </th>
             <th>
-              <Sort title="Наименование шаблона" style="white-space: nowrap; gap: 80px;" />
+              <Sort title="Наименование шаблона" style="white-space: nowrap; gap: 80px" />
             </th>
             <th>
               <Dropdown title="Вид действия" :options="firstList" style="white-space: nowrap" />
@@ -78,31 +78,33 @@
               <Dropdown title="Вид объекта" :options="thirdList" style="white-space: nowrap" />
             </th>
             <th>
-              <div style="white-space: nowrap">
-                Выполнить действие
-              </div>
+              <div style="white-space: nowrap">Выполнить действие</div>
             </th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="(_, i) in paginatedItems" :key="i">
-            <td> 01238 </td>
+            <td>01238</td>
             <td class="temp-hover_none">Доверенность на получение з/п</td>
             <td class="temp-hover_active">
               <div class="temp-btns">
                 <router-link to="/order-list-notarius" class="temp-new">Новая заявка</router-link>
-                <router-link to="/exemple-notarius" class="temp-exemple"> В Мои шаблоны</router-link>
+                <router-link to="/example-notarius" class="temp-example">
+                  В Мои шаблоны</router-link>
               </div>
             </td>
             <td>Удостоверение</td>
-            <td style="white-space: nowrap">Договор купли продажи квартиры(жилого дома) с участием представителя
+            <td style="white-space: nowrap">
+              Договор купли продажи квартиры(жилого дома) с участием
+              представителя
             </td>
             <td>Заработная плата</td>
             <td>
               <div class="temp-btns">
                 <router-link to="/order-list-notarius" class="temp-new">Новая заявка</router-link>
-                <router-link to="/exemple-notarius" class="temp-exemple"> В Мои шаблоны</router-link>
+                <router-link to="/example-notarius" class="temp-example">
+                  В Мои шаблоны</router-link>
               </div>
             </td>
           </tr>
@@ -115,29 +117,25 @@
   </section>
 </template>
 <script setup>
-import { onMounted, ref } from "vue"
+import { onMounted, ref } from "vue";
 import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
 import Search from "@/components/icons/Exemple/Search.vue";
-import Add from "@/components/icons/Exemple/Add.vue";
-import Remove from "@/components/icons/Exemple/Remove.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
 import { useStore } from "vuex";
 
-const store = useStore()
-const emits = defineEmits(['islam'])
+const store = useStore();
+const emits = defineEmits(["handleChangeTitle"]);
 onMounted(() => {
-  (() => emits('islam', 'Мои шаблоны'))()
-})
-
-
+  (() => emits("handleChangeTitle", "Мои шаблоны"))();
+});
 
 const files = ref(store.state.registryOfUser);
 
 const paginatedItems = ref(files.value);
 
 const paginate = (data) => {
-  paginatedItems.value = data.value; // paginatedItems.push(data)
+  paginatedItems.value = data.value;
 };
 
 const firstList = ref([
@@ -209,21 +207,20 @@ const handleScrollLeft = () => {
   }
 
   &-new {
-    background: #1BAA75;
+    background: #1baa75;
     padding: 7px 17px;
     font-weight: 600;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
-  &-exemple {
+  &-example {
     background: #fff;
     padding: 7px 17px;
     font-weight: 600;
     font-size: 14px;
-    color: #1BAA75;
+    color: #1baa75;
   }
-
 
   &-input {
     width: 100%;
@@ -231,22 +228,18 @@ const handleScrollLeft = () => {
     box-sizing: border-box;
     outline: unset;
     border: none;
-    background: #FFFFFF;
+    background: #ffffff;
     border-width: 1px 0px 1px 1px;
     border-style: solid;
-    border-color: #CDCDCD;
+    border-color: #cdcdcd;
 
     &::placeholder {
       font-weight: 400;
       font-size: 14px;
-      color: #BDBDBD;
+      color: #bdbdbd;
     }
   }
-
   &-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   &-pagination {
@@ -318,7 +311,6 @@ const handleScrollLeft = () => {
           color: #24334b;
           text-align: left;
         }
-
       }
     }
   }

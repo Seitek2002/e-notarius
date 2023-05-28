@@ -180,12 +180,10 @@ import Lang from "@/components/global/UI/Lang/Lang.vue";
   position: fixed;
   visibility: hidden;
   top: 0;
-  // left: -100%;
   width: 100%;
   height: 100%;
   z-index: 2;
   margin: 0;
-  // padding: 80px 0;
   background-color: #eceff1;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
 }

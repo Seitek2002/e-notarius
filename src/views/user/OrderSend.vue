@@ -265,6 +265,9 @@ const handleScrollLeft = () => {
     padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
+    @media screen and (max-width: 768px) {
+      padding: 20px;
+    }
   }
 
   &__row {

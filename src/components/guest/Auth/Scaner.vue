@@ -21,12 +21,12 @@
       class="auth-item__login"
     >
       <div class="auth-item__alert">
-        <p>Для входа вам необходимо подвердить отпечаток пальца</p>
+        <p>Для входа вам необходимо подтвердить отпечаток пальца</p>
         <QuestionIcon/>
       </div>
       <div
-        class="scaner-svg"
-        :class="scanerAnalys ? ' active' : ''"
+        class="scanner-svg"
+        :class="scannerAnalysis ? ' active' : ''"
       >
         <FingerprintCircleIcon
           v-show="!end"
@@ -81,7 +81,7 @@ import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
 
 const isActive = ref(true)
-const scanerAnalys = ref(false)
+const scannerAnalysis = ref(false)
 const router = useRouter()
 const start = ref(true)
 const center = ref(false)
@@ -91,11 +91,11 @@ const handleClick = () => {
   start.value = false
   center.value = true
   end.value = false
-  scanerAnalys.value = true
+  scannerAnalysis.value = true
 
   setTimeout(() => {
     center.value = false
-    scanerAnalys.value = false
+    scannerAnalysis.value = false
     end.value = true
   }, 1500)
 }
@@ -121,14 +121,14 @@ const handleClick = () => {
     }
   }
 
-  .scaner-svg {
+  .scanner-svg {
     position: relative;
     z-index: 1;
     text-align: center;
     margin-top: 30px;
   }
 
-  .scaner-svg.active {
+  .scanner-svg.active {
     .pulse {
       &-first,
       &-second,

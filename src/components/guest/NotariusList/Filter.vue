@@ -222,6 +222,4 @@ watch(activeOptionRegion, () => {
   areas.value = data.value[activeOptionRegion.value]
 })
 
-// console.log(data[activeOptionRegion.value]);
-// { "Chui": { "Perv": {""}, "": {} } }
 </script>
