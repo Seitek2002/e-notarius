@@ -84,7 +84,11 @@ const links = ref([
   background: #ffffff;
   box-shadow: 0px 10px 40px #e9e9e9;
   margin-top: 70px;
-
+  &-head {
+    svg {
+      min-width: 24px;
+    }
+  }
   &-title {
     font-weight: 600;
     font-size: 20px;
