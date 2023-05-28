@@ -1,33 +1,33 @@
 <template>
-  <section class="registryClient">
+  <section class="registry_client">
     <button @click="
       store.state.registryClientBigModal = !store.state.registryClientBigModal
-    " class="registryClient-btn">
+    " class="registry_client-btn">
       Добавить нового пользователя
     </button>
-    <div class="registryClient-head">
-      <div class="registryClient-info">
-        <div class="registryClient-search">
-          <input type="text" placeholder="Поиск по ключевому слову" class="registryClient-input" />
+    <div class="registry_client-head">
+      <div class="registry_client-info">
+        <div class="registry_client-search">
+          <input type="text" placeholder="Поиск по ключевому слову" class="registry_client-input" />
           <Search />
         </div>
-        <button class="registryClient-excel">
+        <button class="registry_client-excel">
           Экспортировать в Exсel
           <ExcelIcon />
         </button>
       </div>
-      <div class="registryClient-info">
-        <div class="registryClient-content">
-          <div class="registryClient-label">
-            <p class="registryClient-another">Период регистрации</p>
-            <div class="registryClient-wrapper">
+      <div class="registry_client-info">
+        <div class="registry_client-content">
+          <div class="registry_client-label">
+            <p class="registry_client-another">Период регистрации</p>
+            <div class="registry_client-wrapper">
               <input type="number" placeholder="__/__/____" />
               по
               <input type="number" placeholder="__/__/____" />
             </div>
           </div>
         </div>
-        <div class="registryClient-content">
+        <div class="registry_client-content">
           <p>Роль пользователя</p>
           <Accordeon style="border: unset; width: 320px" :options="[
             'Пользователь',
@@ -36,14 +36,14 @@
             'Стажер',
           ]" />
         </div>
-        <div class="registryClient-content">
+        <div class="registry_client-content">
           <p>Кем зарегистрировано</p>
           <Accordeon style="border: unset; width: 320px"
             :options="['Алименты', 'Заработная плата', 'Пенсии', 'Стажер']" />
         </div>
       </div>
-      <div class="registryClient-info">
-        <button class="registryClient-filter">
+      <div class="registry_client-info">
+        <button class="registry_client-filter">
           <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M13.5002 21.0031L21.8002 12.7031C22.8002 11.8031 22.8002 10.3031 21.8002 9.30313L16.2002 3.70312C15.3002 2.70312 13.8002 2.70312 12.8002 3.70312L3.2002 13.3031C2.2002 14.2031 2.2002 15.7031 3.2002 16.7031L7.5002 21.0031H22.5002M5.5002 11.0031L14.5002 20.0031"
@@ -53,7 +53,7 @@
         </button>
       </div>
     </div>
-    <div class="registryClient-table">
+    <div class="registry_client-table">
       <table>
         <thead>
           <tr>
@@ -96,7 +96,7 @@
             <td>01.01.2022 00:00:00</td>
             <td>nuramir@example.org</td>
             <td>
-              <div class="registryClient-table_icons">
+              <div class="registry_client-table_icons">
                 <svg style="cursor: pointer" width="44" height="44" viewBox="0 0 44 44" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -117,10 +117,7 @@
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="registryClient-pagination">
-      <Pagination :itemsPerPage="6" :items="files" @paginate="paginate" />
-    </div>
+    </div> 
     <BigModal v-show="store.state.registryClientBigModal" />
     <MiniModal v-show="store.state.registryClientMiniModal" />
   </section>
@@ -131,8 +128,7 @@ import { onMounted, ref } from "vue";
 import Search from "@/components/icons/Exemple/Search.vue";
 import ExcelIcon from "@/views/Icons/ExcelIcon.vue";
 import Accordeon from "@/components/global/UI/Info/Accordeon.vue";
-import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
-import Pagination from "@/components/Pagination/Pagination.vue";
+import Sort from "@/components/global/Tables/OfferTable/Sort.vue"; 
 import { useStore } from "vuex";
 import BigModal from "@/components/global/modal/RegistryClient/BigModal.vue";
 import MiniModal from "@/components/global/modal/RegistryClient/MiniModal.vue";
@@ -152,7 +148,7 @@ const paginate = (data) => {
 </script>
 
 <style lang="scss">
-.registryClient {
+.registry_client {
   margin-top: 60px;
 
   &-btn {
@@ -208,7 +204,7 @@ const paginate = (data) => {
       margin-bottom: 5px;
     }
 
-    .registryClient-another {
+    .registry_client-another {
       margin-bottom: 10px;
     }
   }
@@ -271,7 +267,7 @@ const paginate = (data) => {
       margin-bottom: 5px;
     }
 
-    .gg-another {
+    .registry_client-another {
       margin-bottom: 10px;
     }
   }
@@ -342,7 +338,7 @@ const paginate = (data) => {
 
 }
 
-.gg-table {
+.registry_client-table {
     max-width: 100%;
     overflow-x: auto;
 
@@ -373,7 +369,7 @@ const paginate = (data) => {
           color: #1baa75;
         }
 
-        .gg-hover_active {
+        .registry_client-hover_active {
           display: none;
         }
 
@@ -381,11 +377,11 @@ const paginate = (data) => {
           background: #ffffff;
           border-color: #cdcdcd;
 
-          .gg-hover_active {
+          .registry_client-hover_active {
             display: block;
           }
 
-          .gg-hover_none {
+          .registry_client-hover_none {
             display: none;
           }
         }
@@ -411,7 +407,7 @@ const paginate = (data) => {
         color: #1baa75;
       }
 
-      .registryClient-hover_active {
+      .registry_client-hover_active {
         display: none;
       }
 
@@ -419,11 +415,11 @@ const paginate = (data) => {
         background: #ffffff;
         border-color: #cdcdcd;
 
-        .registryClient-hover_active {
+        .registry_client-hover_active {
           display: block;
         }
 
-        .registryClient-hover_none {
+        .registry_client-hover_none {
           display: none;
         }
       }
@@ -485,7 +481,7 @@ const paginate = (data) => {
 }
 
 @media screen and (max-width:1300px) {
-  .gg {
+  .registry_client {
     &-excel {
       display: none;
     }
@@ -513,8 +509,8 @@ const paginate = (data) => {
 }
 
 @media screen and (max-width:1200px) {
-  .gg {
-    &-info.another {
+  .registry_client {
+    &-info {
       flex-direction: column;
     }
 
@@ -536,7 +532,7 @@ const paginate = (data) => {
 }
 
 @media screen and (max-width:530px) {
-  .gg {
+  .registry_client {
     &-filter {
       display: none;
     }
@@ -544,7 +540,7 @@ const paginate = (data) => {
 }
 
 @media screen and (max-width:400px) {
-  .gg {
+  .registry_client {
     &-wrapper {
       justify-content: space-between;
 
