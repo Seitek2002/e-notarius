@@ -356,7 +356,7 @@ const handleScrollLeft = () => {
 }
 
 .gg-table {
-    max-width: 1115px;
+    max-width: 100%;
     overflow-x: auto;
 
     table {
