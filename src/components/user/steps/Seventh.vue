@@ -38,7 +38,7 @@
       <FormContentSix v-show="isActiveForm === i"/>
     </template>
 
-    <Next @click="handleClick(6, 'next')"/>
+    <Next title="Подтвердить" @click="handleClick(6, 'next')"/>
   </div>
 </template>
 

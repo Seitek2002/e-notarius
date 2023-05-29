@@ -24,7 +24,7 @@
       <label class="personal-number">
         <p class="auth-item__descr">Логин</p>
         <input
-          v-model="user.username"
+          v-model="loginVal"
           type="text"
           class="auth-item__input"
         >
@@ -32,7 +32,7 @@
       <label class="auth-password">
         <p class="auth-item__descr">Пароль</p>
         <input
-          v-model="user.password"
+          v-model="password"
           type="password"
           class="auth-item__input"
         >
@@ -75,15 +75,16 @@ import errors from "vue3-qrcode-reader";
 
 const router = useRouter()
 const store = useStore()
+
 export default {
   name: 'LoginAndPassword',
   data() {
     return {
-      user: new User('', ''),
       loading: false,
       message: '',
-      isErr : ref(false),
-      isActive : ref(false)
+      isErr : false,
+      isActive : false,
+      loginVal: ""
     };
   },
   computed: {
@@ -108,30 +109,51 @@ export default {
   methods: {
     errors,
     handleLogin() {
-      this.loading = true;
-        if (this.user.username && this.user.password) {
-          this.$store.dispatch('auth/login', this.user).then(
-            () => {
-              this.$router.push('/order-list-user');
-              /*this.$store.dispatch('auth/getRole', this.user).then();
-              if(this.role === 'ADMINS'){
-                 this.$router.push('/order-list-user');
-              } else {
-                console.log(this.role)
-               // this.$router.push('/order-list-user');
-              }*/
-            },
-            error => {
-              this.isErr.value = true
-              this.loading = false;
-              this.message =
-                (error.response && error.response.data && error.response.data.message) ||
-                error.message ||
-                error.toString();
-            }
-          );
+      this.isErr = false
+      this.loading = true
+      const user = this.$store.state.users.find(item => item.login === this.loginVal && item.password === this.password)
+
+      if (user) {
+        localStorage.setItem('auth-user', JSON.stringify({ ...user, check: true }))
+        this.$store.commit('checkUserClient', { ...user, check: true })
+        if (user.role === 'notarius') {
+          this.$router.push('/order-list-notarius')
+          this.loading = false
+        } else {
+          this.$router.push('/order-list-user')
+          this.loading = false
         }
+      } else {
+        this.isErr = true
+        this.loading = false
+      }
+        this.loading = false
     }
+    // handleLogin() {
+    //   this.loading = true;
+    //     if (this.user.username && this.user.password) {
+    //       this.$store.dispatch('auth/login', this.user).then(
+    //         () => {
+    //           this.$router.push('/order-list-user');
+    //           /*this.$store.dispatch('auth/getRole', this.user).then();
+    //           if(this.role === 'ADMINS'){
+    //              this.$router.push('/order-list-user');
+    //           } else {
+    //             console.log(this.role)
+    //            // this.$router.push('/order-list-user');
+    //           }*/
+    //         },
+    //         error => {
+    //           this.isErr.value = true
+    //           this.loading = false;
+    //           this.message =
+    //             (error.response && error.response.data && error.response.data.message) ||
+    //             error.message ||
+    //             error.toString();
+    //         }
+    //       );
+    //     }
+    // }
   }
 };
 
