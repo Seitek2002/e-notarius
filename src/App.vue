@@ -25,150 +25,138 @@ const layout = computed(() => {
 @import "@/assets/scss/base.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@media screen and (max-width: 1490px) {
-  .content {
-    margin-left: 73px;
-  }
-}
 
-.router-link-active.router-link-exact-active .sidebar-item {
-  background: #24334b !important;
-}
+
 
 .sidebar {
-  width: 20%;
-  background: #1baa75;
-  padding: 50px 0 10px;
+  min-width: 75px;
+  max-width: 75px;
   box-sizing: border-box;
+  padding: 15px 0;
+  background: #1BAA75;
+  overflow: hidden;
 
   &.active {
-    width: 5%;
-    padding: 20px 0;
-
-    & .sidebar-head {
-      flex-direction: column;
-      align-items: start;
-      gap: 20px;
-      margin: 0;
-      margin: 0 auto;
-      padding: 0;
-      width: 50px;
-      overflow: hidden;
-      @media screen and (max-width: 1400px) {
-        width: 80%;
-      }
-    }
+    min-width: 280px;
+    max-width: 280px;
+    padding: 50px 0;
+    height: 100%;
 
     & .sidebar-title {
-      display: none;
+      display: block;
     }
 
     & .sidebar-link {
-      display: none;
+      padding: 10px 20px 10px 25px;
+      justify-content: unset;
     }
 
-    & .sidebar-item {
-      padding: 0;
-      justify-content: center;
+    & .sidebar-head {
+      flex-direction: unset;
+      gap: 35px;
+      margin-bottom: 40px;
     }
 
-    & .sidebar-close {
-      transform: rotate(180deg);
+    & .sidebar-list {
+      pointer-events: auto;
     }
-
-    & .sidebar-icons {
-      padding: 10px 0;
-    }
-  }
-
-  &-mini-item {
-    background: #3f5984;
   }
 
   &-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 25px;
-    box-sizing: border-box;
-    gap: 10px;
-    @media screen and (max-width: 1300px) {
-      padding: 0 10px;
-    }
+    gap: 20px;
+    padding: 0 20px;
+    flex-direction: column-reverse;
+
     svg {
-      @media screen and (max-width: 1300px) {
-        max-width: 100%;
-      }
+      cursor: pointer;
     }
   }
 
   &-title {
     font-weight: 700;
     font-size: 18px;
-    color: #ffffff;
-    padding: 0 25px;
-  }
-
-  &-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 25px 12px 20px;
-    box-sizing: border-box;
-    cursor: pointer;
-    position: relative;
-
-    &:hover {
-      transition: 0.2s;
-      background: #24334b;
-    }
-
-    &.active {
-      background: #24334b;
-    }
-
-    &.sidebar-another-item {
-      background: #3f5984;
-      position: relative;
-    }
-  }
-
-  &-up {
-    position: absolute;
-    z-index: 1;
-    right: 10px;
-    transform: rotate(180deg);
-    transition: 0.3s;
-
-    &.active {
-      transform: rotate(0);
-    }
+    color: #FFFFFF;
+    padding-left: 25px;
+    display: none;
   }
 
   &-list {
-    padding: 20px 0;
-    box-sizing: border-box;
-    border-bottom: 1px solid #ffffff;
+    margin: 20px 0;
+    pointer-events: none;
   }
 
   &-link {
-    font-weight: 500;
-    font-size: 16px;
-    color: #ffffff;
-    max-width: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+
+    span {
+      font-weight: 500;
+      font-size: 16px;
+      color: #FFFFFF;
+      line-height: 20px;
+    }
   }
 
-  &-close {
-    cursor: pointer;
+  &-link.another {
+    background: #3F5984;
+  }
+
+  &-hr {
+    width: 100%;
+    height: 1px;
+    background: #fff;
+  }
+
+  &-up {
+    transition: .2s;
+
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+
+}
+
+.router-link-active.router-link-exact-active.sidebar-link {
+  background: #24334B;
+}
+
+@media screen and (max-width:960px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    height: 100%;
   }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width:769px) {
   .sidebar {
-    width: 100%;
+    min-width: 0;
+    max-width: 0;
 
     &.active {
-      width: 0;
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    &-head {
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width:450px) {
+  .sidebar {
+    &.active {
+      padding-top: 8px;
     }
   }
 }
@@ -177,19 +165,26 @@ const layout = computed(() => {
   padding: 60px;
   box-sizing: border-box;
   flex-grow: 1;
-  max-width: 80%;
-}
-
-.sidebar.active ~ .content {
   max-width: 95%;
 }
 
-@media screen and (max-width: 768px) {
-  .content {
-    padding: 20px;
+.sidebar.active~.content {
+  max-width: 80%;
+}
+
+@media screen and (max-width: 960px) {
+  .sidebar.active~.content {
+    max-width: 95%;
   }
 }
-.content {
-  margin-left: 0;
+
+@media screen and (max-width: 769px) {
+  .content {
+    padding: 20px;
+    max-width: 100%;
+  }
 }
-</style>
+
+.content {
+  margin-left: auto;
+}</style>

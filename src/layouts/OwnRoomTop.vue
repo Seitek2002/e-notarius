@@ -165,7 +165,7 @@ onClickOutside(dropDownRef, () => isDropdownShow.value = false);
   }
 }
 
-@media screen and (max-width:530px) {
+@media screen and (max-width:769px) {
   .top {
     position: relative;
     padding-bottom: 60px;
