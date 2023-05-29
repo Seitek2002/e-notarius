@@ -80,7 +80,7 @@ import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
 import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
 import QuestionIcon from '@/components/guest/Auth/Icons/QuestionIcon.vue'
 
-const isActive = ref(true)
+const isActive = ref(false)
 const scannerAnalysis = ref(false)
 const router = useRouter()
 const start = ref(true)

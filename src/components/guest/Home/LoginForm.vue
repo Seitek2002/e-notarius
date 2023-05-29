@@ -7,52 +7,46 @@
             Добро пожаловать в единую платформу
             <span>Электронного нотариата КР</span>
           </h1>
-          <div class="hero__item">
-            <label
-              for="test"
-              class="hero__label"
-            >
-              <p class="hero__login">Логин</p>
-              <input
-                id="test"
-                v-model="loginVal"
-                type="text"
-                class="hero__input"
-              >
-            </label>
-          </div>
-          <div class="hero__item">
-            <label class="hero__label">
-              <p class="hero__password">Пароль</p>
-              <input
-                v-model="passwordVal"
-                type="password"
-                class="hero__input"
-              >
-            </label>
-          </div>
-          <img
-            src="/src/assets/images/Hero/Captcha.png"
-            alt="Captcha-icon"
-          >
-          <div class="hero__btns">
-            <button @click="handleClick">
-              Войти
-            </button>
-            <router-link to="/auth">
-              Другие способы входа
-            </router-link>
-          </div>
-          <a
-            href="#"
-            class="hero__text"
-          >Забыли пароль?</a>
+          <form class="hero__form" @submit.prevent>
+            <div class="hero__item">
+              <label for="test" class="hero__label">
+                <p class="hero__login">Логин</p>
+                <input
+                  id="test"
+                  v-model="loginVal"
+                  type="text"
+                  class="hero__input"
+                  required
+                />
+              </label>
+            </div>
+            <div class="hero__item">
+              <label class="hero__label">
+                <p class="hero__password">Пароль</p>
+                <input
+                  v-model="passwordVal"
+                  type="password"
+                  class="hero__input"
+                  required
+                />
+              </label>
+            </div>
+            <p v-if="isErr" class="hero__warning">
+              Неправильный логин или пароль
+            </p>
+            <img src="/src/assets/images/Hero/Captcha.png" alt="Captcha-icon" />
+            <div class="hero__btns">
+              <button @click="handleClick">Войти</button>
+              <router-link to="/auth"> Другие способы входа </router-link>
+            </div>
+            <a href="#" class="hero__text">Забыли пароль?</a>
+          </form>
         </div>
         <div class="hero__right">
           <img
             src="/src/assets/images/Hero/e-notariat.png"
             alt="notariat-icon"
-          >
+          />
         </div>
       </div>
     </div>
@@ -60,43 +54,46 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-const router = useRouter()
-const store = useStore()
-const loginVal = ref('')
-const passwordVal = ref('')
-const isErr = ref(false)
+const router = useRouter();
+const store = useStore();
+const loginVal = ref("");
+const passwordVal = ref("");
+const isErr = ref(false);
 
 const handleClick = () => {
-  isErr.value = false
-  const user = store.state.users.find(item => item.login === loginVal.value && item.password === passwordVal.value)
+  isErr.value = false;
+  const user = store.state.users.find(
+    (item) =>
+      item.login === loginVal.value && item.password === passwordVal.value
+  );
 
   if (user) {
-    localStorage.setItem('auth-user', JSON.stringify({ ...user, check: true }))
-    store.commit('checkUserClient', { ...user, check: true })
-    if (user.role === 'notarius') {
-      router.push('/order-list-notarius')
+    localStorage.setItem("auth-user", JSON.stringify({ ...user, check: true }));
+    store.commit("checkUserClient", { ...user, check: true });
+    if (user.role === "notarius") {
+      router.push("/order-list-notarius");
     } else {
-      router.push('/order-list-user')
+      router.push("/order-list-user");
     }
   } else {
-    isErr.value = true
+    isErr.value = true;
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .hero {
   margin: 100px 0 100px 0;
 
   @media screen and (max-width: 991px) {
-      margin: 0;
-    }
+    margin: 0;
+  }
 
   &__content {
     display: flex;
@@ -105,7 +102,6 @@ const handleClick = () => {
       justify-content: center;
       flex-wrap: wrap;
     }
-
   }
 
   &__btns {
@@ -209,20 +205,14 @@ const handleClick = () => {
     span {
       color: $text-light-green;
     }
-
-    p {
-      font-weight: 600;
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: $text-dark-blue;
-    }
   }
+
   &__right img {
     max-width: 100%;
     object-fit: cover;
     @media screen and (max-width: 991px) {
-        display: none;
-      }
+      display: none;
+    }
   }
 
   &__input {
@@ -245,6 +235,11 @@ const handleClick = () => {
     top: -10px;
     left: 20px;
     background: $bg-white;
+  }
+
+  &__warning {
+    color: red;
+    font-weight: normal;
   }
 }
 </style>

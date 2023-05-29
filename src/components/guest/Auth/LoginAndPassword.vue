@@ -43,15 +43,15 @@
       </svg>
     </div>
 
-    <div v-if="isActive" class="auth-item another">
+    <form @submit.prevent v-if="isActive" class="auth-item another">
+      <p v-if="isErr" class="auth-item__warning">Неправильный логин или пароль</p>
       <label class="personal-number">
         <p class="auth-item__descr">Логин</p>
-        <input v-model="loginVal" type="text" class="auth-item__input" />
+        <input required v-model="loginVal" type="text" class="auth-item__input" />
       </label>
       <label class="auth-password">
         <p class="auth-item__descr">Пароль</p>
-        <input v-model="password" type="password" class="auth-item__input" />
-
+        <input required v-model="password" type="password" class="auth-item__input" />
         <svg
           class="auth-item__eye"
           width="24"
@@ -77,28 +77,24 @@
             stroke-linejoin="round"
           />
         </svg>
-        <span v-show="!loginFailure" class="auth-item__forgot"
-          >Забыли пароль?</span
-        >
       </label>
+      <span class="auth-item__forgot">
+        Забыли пароль?
+      </span>
       <img src="/src/assets/images/Hero/Captcha.png" alt="Captcha-icon" />
 
       <button class="auth-item__btn" @click="handleLogin">Войти</button>
-    </div>
+    </form>
   </div>
 </template>
 
-<script >
+<script>
 import User from "../../../models/user";
 
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore, mapGetters } from "vuex";
 
-import EyesIcon from "@/components/guest/Auth/Icons/EyesIcon.vue";
-import MinusIcon from "@/components/guest/Auth/Icons/MinusIcon.vue";
-import PersonIcon from "@/components/guest/Auth/Icons/PersonIcon.vue";
-import PlusIcon from "@/components/guest/Auth/Icons/PlusIcon.vue";
 import errors from "vue3-qrcode-reader";
 
 const router = useRouter();
@@ -139,11 +135,11 @@ export default {
     handleLogin() {
       this.isErr = false;
       this.loading = true;
+
       const user = this.$store.state.users.find(
         (item) =>
           item.login === this.loginVal && item.password === this.password
       );
-
       if (user) {
         localStorage.setItem(
           "auth-user",
@@ -161,6 +157,7 @@ export default {
         this.isErr = true;
         this.loading = false;
       }
+
       this.loading = false;
     },
     // handleLogin() {
@@ -194,6 +191,11 @@ export default {
 
 <style lang="scss" scoped>
 .auth-item {
+  &__warning {
+    font-weight: 400;
+    color: red;
+  }
+
   &__top.active {
     svg {
       path {
