@@ -29,7 +29,7 @@
             <span class="sidebar-link">{{ item.text }}</span>
           </router-link>
         </div>
-
+         
         <div
           :class="
             store.state.notariusSidebar ? 'sidebar-list active' : 'sidebar-list'
