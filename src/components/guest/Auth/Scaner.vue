@@ -6,7 +6,7 @@
       @click="isActive = !isActive"
     >
       <div>
-        <FingerprintIcon/>
+        <DigitalSignatureIcon/>
         <h3>Вход по отпечаткам пальцев</h3>
       </div>
       <PlusIcon
@@ -74,7 +74,7 @@ import { useRouter } from 'vue-router'
 import Btn from '@/components/global/UI/Buttons/Btn.vue'
 import AnimationCircleIcon from '@/components/guest/Auth/Icons/AnimationCircleIcon.vue'
 import FingerprintCircleIcon from '@/components/guest/Auth/Icons/FingerprintCircleIcon.vue'
-import FingerprintIcon from '@/components/guest/Auth/Icons/FingerprintIcon.vue'
+import DigitalSignatureIcon from '@/components/guest/Auth/Icons/DigitalSignatureIcon.vue'
 import FingerprintSuccessIcon from '@/components/guest/Auth/Icons/FingerprintSuccessIcon.vue'
 import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
 import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
