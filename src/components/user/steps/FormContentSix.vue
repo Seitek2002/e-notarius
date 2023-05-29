@@ -13,7 +13,7 @@
           <label
           ref="believeIsActiveRef"
             :class="believeIsActive ? 'active' : ''"
-            @click="believeIsActive = true"
+            @click="believeIsActive = !believeIsActive"
           >
             <span>{{ believeTime }}</span>
             <ArrowDownSmallIcon
@@ -40,7 +40,7 @@
           <label
           ref="relationIsActiveRef"
             :class="relationIsActive ? 'active' : ''"
-            @click="relationIsActive = true"
+            @click="relationIsActive = !relationIsActive"
           >
             <span>{{ relation }}</span>
             <ArrowDownSmallIcon
@@ -76,7 +76,7 @@
           <label
           ref="believeIsActiveRightRef"
             :class="believeIsActiveRight ? 'active' : ''"
-            @click="believeIsActiveRight = true"
+            @click="believeIsActiveRight = !believeIsActiveRight"
           >
             <span>{{ promises }}</span>
             <ArrowDownSmallIcon
