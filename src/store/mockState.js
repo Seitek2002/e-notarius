@@ -7,7 +7,7 @@ export const state = {
       INN: '22102200250339',
       userId: '1234567890',
       role: 'client',
-      fullName: 'Бегалиев Сейтек Улугбекович',
+      fullName: 'Берманова Карина Асланмухамедовна',
       dateOfBirth: '21.02.2002',
       citizenship: 'Кыргызстан',
       sex: 'male',
@@ -315,7 +315,7 @@ export const state = {
       foundersLayer: '0',
       qntyOfMembers: '2',
       chin: 'ЧН',
-      fullName: 'Кобаев Эльдияр Эгембердиевич',
+      fullName: 'Абдыгулов Баяман Алыкулович',
       registration: {
         street: 'М. Алыбаев',
         house: '10',

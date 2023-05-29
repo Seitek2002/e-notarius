@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix --ext .js,.vue ./"
   },
   "dependencies": {
+    "@nextcloud/router": "^2.1.1",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-highlight": "^2.0.3",
     "@tiptap/extension-image": "^2.0.3",
