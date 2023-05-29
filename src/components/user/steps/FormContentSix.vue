@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-      <button
+      <!-- <button
         :disabled="isLoading"
         class="check"
         @click="handleClick"
@@ -117,8 +117,8 @@
           <SuccessSmallIcon/>
           Данные действительны в базе данных ГП Унаа
         </span>
-      </button>
-      <div
+      </button> -->
+      <!-- <div
         v-if="showAutoNumber"
         class=""
       >
@@ -141,9 +141,9 @@
             {{ descr }}
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
-    <div
+    <!-- <div
       class="flex"
       style="margin-top: 15px"
     >
@@ -157,9 +157,9 @@
         text="Вознаграждение нотариуса"
         placeholder=""
       />
-    </div>
+    </div> -->
     <div class="info__form">
-      <div
+      <!-- <div
         class="info__radio"
         @click="isActiveRadio = !isActiveRadio"
       >
@@ -168,6 +168,9 @@
           <RadioNulledIcon v-else/>
         </div>
         Освобожден
+      </div> -->
+      <div class="info__form--wrapper">
+        <File/>
       </div>
     </div>
   </div>
@@ -183,6 +186,7 @@ import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmall
 import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
 import RadioSuccessIcon from '@/components/global/UI/Info/Icons/RadioSuccessIcon.vue'
 import SuccessSmallIcon from '@/components/global/UI/Info/Icons/SuccessSmallIcon.vue'
+import File from '@/components/global/UI/Info/Input/File.vue'
 
 const store = useStore()
 
