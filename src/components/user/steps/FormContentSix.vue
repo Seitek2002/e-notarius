@@ -63,14 +63,13 @@
         </div>
       </div>
       <div
-        v-if="store.state.bonusInputs === 'Доверенность на управление и распоряжение автотранспортным средством'"
         class="flex number"
         style="margin-top: 15px"
       >
-        <div class="dropdown">
+        <div class="dropdown w-55">
           <p>Гос номер авто</p>
 
-          <Input class="inputNumberAuto"/>
+          <Input class="inputNumberAuto" style="width: 99%;" />
         </div>
         <div class="dropdown">
           <p>Право передоверия</p>
