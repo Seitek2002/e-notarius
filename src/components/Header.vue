@@ -10,7 +10,8 @@
         <a href="#faq">Вопросы-ответы</a>
         <a href="#acts">Нормативные акты</a>
       </nav>
-      <div class="header__action">
+      <div>
+        <div class="header__action">
         <RouterLink to="/auth">
           <own-room />
           Личный кабинет нотариуса
@@ -80,6 +81,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </header>
@@ -289,6 +291,7 @@ const isActive = ref(false)
   &__action {
     display: flex;
     gap: 40px;
+    margin-right: 34px;
 
     a {
       display: flex;
