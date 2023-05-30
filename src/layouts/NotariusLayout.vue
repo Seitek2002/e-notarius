@@ -24,7 +24,7 @@
         </div>
         <h3 class="sidebar-title">Личный кабинет</h3>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar"
+          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
             v-for="item in sidebarList" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>
@@ -32,7 +32,7 @@
         </div>
         <div class="sidebar-hr"></div>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar"
+          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
             v-for="item in sidebarListSecond.slice(0, 1)" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>
@@ -53,7 +53,7 @@
           
           <!-- Конец -->
 
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar"
+          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
             v-for="item in sidebarListSecond.slice(1)" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>

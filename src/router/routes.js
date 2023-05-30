@@ -111,8 +111,8 @@ const USERS_PAGES = [
     component: () => import('../views/user/Messages.vue'),
   },
   {
-    path: '/OrderSend',
-    name: 'OrderSend',
+    path: '/OrderSend-user',
+    name: 'OrderSend-user',
     meta: {
       layout: 'user',
       requiresAuth: true,

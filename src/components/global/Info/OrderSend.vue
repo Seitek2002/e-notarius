@@ -53,7 +53,7 @@
               <div class="send__flex">
                 <input
                   type="text"
-                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?"
+                  placeholder="Ваша доверенность готова"
                 >
                 <button>
                   <ArrowRightIcon/>

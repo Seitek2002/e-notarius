@@ -87,10 +87,17 @@
           <tr v-for="(_, i) in paginatedItems" :key="i">
             <td>01238</td>
             <td class="temp-hover_none">Доверенность на получение з/п</td>
-            <td class="temp-hover_active">
+            <td v-if="layout == 'notarius'" class="temp-hover_active">
               <div class="temp-btns">
                 <router-link to="/order-list-notarius" class="temp-new">Новая заявка</router-link>
-                <router-link to="/example-notarius" class="temp-example">
+                <router-link to="/exemple-notarius" class="temp-example">
+                  В Мои шаблоны</router-link>
+              </div>
+            </td>
+            <td v-if="layout == 'user'" class="temp-hover_active">
+              <div class="temp-btns">
+                <router-link to="/order-list-user" class="temp-new">Новая заявка</router-link>
+                <router-link to="/exemple-user" class="temp-example">
                   В Мои шаблоны</router-link>
               </div>
             </td>
@@ -101,9 +108,14 @@
             </td>
             <td>Заработная плата</td>
             <td>
-              <div class="temp-btns">
+              <div v-if="layout == 'notarius'" class="temp-btns">
                 <router-link to="/order-list-notarius" class="temp-new">Новая заявка</router-link>
-                <router-link to="/example-notarius" class="temp-example">
+                <router-link to="/exemple-notarius" class="temp-example">
+                  В Мои шаблоны</router-link>
+              </div>
+              <div v-if="layout == 'user'" class="temp-btns">
+                <router-link to="/order-list-user" class="temp-new">Новая заявка</router-link>
+                <router-link to="/exemple-user" class="temp-example">
                   В Мои шаблоны</router-link>
               </div>
             </td>
@@ -122,7 +134,11 @@ import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
 import Search from "@/components/icons/Exemple/Search.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
-import { useStore } from "vuex";
+import { useStore } from "vuex"; 
+import { useRoute } from "vue-router"; 
+
+const route = useRoute();
+const layout = route.meta.layout;
 
 const store = useStore();
 const emits = defineEmits(["handleChangeTitle"]);
