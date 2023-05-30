@@ -6,7 +6,7 @@
       </RouterLink>
       <nav>
         <a href="#notariuses">О нас</a>
-        <a href="#notariuses">Нотариусы</a>
+        <router-link to="/notarius-list">Нотариусы</router-link>
         <a href="#faq">Вопросы-ответы</a>
         <a href="#acts">Нормативные акты</a>
       </nav>
