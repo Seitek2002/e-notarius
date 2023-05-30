@@ -73,9 +73,9 @@
             </template>
           </div>
           <Btn title="Подписать" bg="#1BAA75" :disabled="!end" @click="
-            changeStep(8),
             store.commit('setIsSubmit', false),
-            store.commit('pushNewItem')
+            store.commit('pushNewItem'),
+            changeStep(7)
           " />
         </div>
       </div>

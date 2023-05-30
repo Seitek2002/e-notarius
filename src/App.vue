@@ -40,7 +40,6 @@ const layout = computed(() => {
     min-width: 280px;
     max-width: 280px;
     padding: 50px 0;
-    height: 100%;
 
     & .sidebar-title {
       display: block;

@@ -2,42 +2,36 @@
   <div>
     <div class="info__form">
       <div class="info__subject">
-        <Suptitle text="Субъект"/>
+        <Suptitle text="Субъект" />
         <div class="flex">
           <div
             class="info__radio"
-            @click=";(isActiveRadio = 0), (INNVal = ''), end = false"
+            @click="(isActiveRadio = 0), (INNVal = ''), (end = false);"
           >
             <div class="info__radio--button">
-              <RadioCheckedIcon v-if="isActiveRadio === 0"/>
-              <RadioNulledIcon v-else/>
+              <RadioCheckedIcon v-if="isActiveRadio === 0" />
+              <RadioNulledIcon v-else />
             </div>
             Физическое лицо
           </div>
           <div
             class="info__radio"
-            @click=";(isActiveRadio = 1), (INNVal = ''), end = false"
+            @click="(isActiveRadio = 1), (INNVal = ''), (end = false);"
           >
             <div class="info__radio--button">
-              <RadioCheckedIcon v-if="isActiveRadio === 1"/>
-              <RadioNulledIcon v-else/>
+              <RadioCheckedIcon v-if="isActiveRadio === 1" />
+              <RadioNulledIcon v-else />
             </div>
             Юридическое лицо
           </div>
           <div
             class="info__radio"
-            @click="isActiveRadioFace = !isActiveRadioFace, end = false"
+            @click="(isActiveRadioFace = !isActiveRadioFace), (end = false)"
           >
             <div class="info__radio--button">
-              <div
-                class="radio"
-                :class="{ active: isActiveRadioFace }"
-              >
-                <CheckboxCheckedIcon v-if="isActiveRadioFace"/>
-                <div
-                  v-else
-                  class="radio-check"
-                />
+              <div class="radio" :class="{ active: isActiveRadioFace }">
+                <CheckboxCheckedIcon v-if="isActiveRadioFace" />
+                <div v-else class="radio-check" />
               </div>
             </div>
             Иностранное лицо
@@ -47,41 +41,32 @@
       <div class="w-55 dropdown">
         <strong>Роль субъекта</strong>
         <label
-        ref="roleIsActiveRef"
+          ref="roleIsActiveRef"
           :class="roleIsActive ? 'active' : ''"
-          @click="roleIsActive = true"
+          @click="roleIsActive = !roleIsActive"
         >
-                <span>
-                  {{ roleSubject }}
-                </span>
-          <ArrowDownSmallIcon/>
+          <span>
+            {{ roleSubject }}
+          </span>
+          <ArrowDownSmallIcon />
         </label>
-        <div
-          v-show="roleIsActive"
-          class="dropdown__select"
-        >
+        <div v-show="roleIsActive" class="dropdown__select">
           <div
             v-for="option in ROLE_SUBJECT"
             :key="option"
             class="dropdown-search__option"
-            @click="(roleSubject = option), (roleIsActive = false)"
+            @click="(roleSubject = option), (roleIsActive = !roleIsActive)"
           >
             {{ option }}
           </div>
         </div>
       </div>
-      <Suptitle text="Личные данные"/>
+      <Suptitle text="Личные данные" />
       <label>
         <p v-if="isActiveRadio === 0">Персональный номер (ИНН)</p>
         <p v-else>Идентификационный номер (ИНН)</p>
-        <input
-          v-model="INNVal"
-          type="text"
-        >
-        <p
-          v-show="isErr"
-          class="warning"
-        >
+        <input v-model="INNVal" type="text" />
+        <p v-show="isErr" class="warning">
           Пожалуйста внимательно заполните поле
           <span v-if="isActiveRadio === 0">Персональный номер (ИНН)</span>
           <span v-else>Идентификационный номер (ИНН)</span>
@@ -94,71 +79,47 @@
         @click="getUsers"
       >
         Проверить
-        <PersonCheckIcon/>
+        <PersonCheckIcon />
         <AnimationBubblesIcon
           :class="isLoading ? 'loading-svg-check active' : 'loading-svg-check'"
         />
       </button>
-      <SuccessSearchResultIcon v-if="end && isActiveRadio === 0 && !isActiveRadioFace"/>
-      <div
-        v-if="isActiveRadio === 0"
-        class="face"
-      >
+      <SuccessSearchResultIcon
+        v-if="end && isActiveRadio === 0 && !isActiveRadioFace"
+      />
+      <div v-if="isActiveRadio === 0" class="face">
         <div class="info__profile">
-          <div
-            v-show="!isActiveRadioFace"
-            class="info__avatar"
-          >
-            <img
-              v-if="avatarImg"
-              :src="avatarImg"
-              alt=""
-            >
-            <PersonFilledIcon v-else/>
+          <div v-show="!isActiveRadioFace" class="info__avatar">
+            <img v-if="avatarImg" :src="avatarImg" alt="" />
+            <PersonFilledIcon v-else />
           </div>
           <div class="info__forms">
             <div class="info__form--wrapper">
               <label>
                 <p>Фамилия</p>
-                <input
-                  v-model="surname"
-                  type="text"
-                >
+                <input v-model="surname" type="text" />
               </label>
             </div>
             <div class="info__form--wrapper">
               <label>
                 <p>Имя</p>
-                <input
-                  v-model="name"
-                  type="text"
-                >
+                <input v-model="name" type="text" />
               </label>
             </div>
             <div class="info__form--wrapper">
               <label>
                 <p>Отчество</p>
-                <input
-                  v-model="lastname"
-                  type="text"
-                >
+                <input v-model="lastname" type="text" />
               </label>
             </div>
           </div>
         </div>
-        <div
-          v-show="isActiveRadio === 0"
-          class="info__form"
-        >
-          <Suptitle text="Документ, удостоверяющий личность"/>
+        <div v-show="isActiveRadio === 0" class="info__form">
+          <Suptitle text="Документ, удостоверяющий личность" />
           <div class="info__form--wrapper">
             <label>
               <p>Наименование документа</p>
-              <input
-                v-model="passportVal"
-                type="text"
-                placeholder="Паспорт"
-              >
+              <input v-model="passportVal" type="text" placeholder="Паспорт" />
             </label>
           </div>
           <div class="info__form--wrapper flex">
@@ -167,79 +128,58 @@
               <div class="flex">
                 <div class="dropdown">
                   <label
-                  ref="passportSeriesIsActiveRef"
+                    ref="passportSeriesIsActiveRef"
                     :class="passportSeriesIsActive ? 'active' : ''"
                     @click="passportSeriesIsActive = true"
                   >
                     <span>
                       {{ passportSeriesActive }}
                     </span>
-                    <ArrowDownSmallIcon/>
+                    <ArrowDownSmallIcon />
                   </label>
-                  <div
-                    v-show="passportSeriesIsActive"
-                    class="dropdown__select"
-                  >
+                  <div v-show="passportSeriesIsActive" class="dropdown__select">
                     <div
                       v-for="option in ['ID', 'AN', 'AC']"
                       :key="option"
                       class="dropdown-search__option"
-                      @click=";(passportSeriesActive = option), (passportSeriesIsActive = false)"
+                      @click="
+                        (passportSeriesActive = option),
+                          (passportSeriesIsActive = false);
+                      "
                     >
                       {{ option }}
                     </div>
                   </div>
                 </div>
-                <input
-                  v-model="passportID"
-                  type="text"
-                >
+                <input v-model="passportID" type="text" />
               </div>
             </div>
             <div class="info__form--details">
               <p>Орган и дата выдачи</p>
               <div class="flex">
-                <input
-                  v-model="passportOrgan"
-                  type="text"
-                >
-                <input
-                  v-model="passportNumber"
-                  type="text"
-                >
+                <input v-model="passportOrgan" type="text" />
+                <input v-model="passportNumber" type="text" />
                 от
-                <input
-                  v-model="passportDate"
-                  type="text"
-                >
+                <input v-model="passportDate" type="text" />
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="info__form--wrapper flex jcsb aic"
-          style="margin-top: 15px"
-        >
+        <div class="info__form--wrapper flex jcsb aic" style="margin-top: 15px">
           <div class="info__subject">
             <p>Пол</p>
             <div class="flex">
-              <div
-                class="info__radio"
-                @click="isActiveRadioSec = 0"
-              >
+              <div class="info__radio" @click="isActiveRadioSec = 0">
                 <div class="info__radio--button">
-                  <RadioCheckedIcon v-if="isActiveRadioSec === 0"/>
+                  <RadioCheckedIcon v-if="isActiveRadioSec === 0" />
                   <RadioNulledIcon v-else />
                 </div>
                 Мужской
               </div>
-              <div
-                class="info__radio"
-                @click="isActiveRadioSec = 1"
-              >
+              <div class="info__radio" @click="isActiveRadioSec = 1">
                 <div class="info__radio--button">
-                  <RadioCheckedIcon v-if="isActiveRadioSec === 1"/>
-                  <RadioNulledIcon v-else/>
+                  <RadioCheckedIcon v-if="isActiveRadioSec === 1" />
+                  <RadioNulledIcon v-else />
                 </div>
                 Женский
               </div>
@@ -247,33 +187,30 @@
           </div>
           <label class="w-33">
             <p>Дата рождения</p>
-            <input
-              v-model="dateOfBirthVal"
-              type="text"
-            >
+            <input v-model="dateOfBirthVal" type="text" />
           </label>
           <div class="w-50 dropdown-search">
             <p>Гражданство</p>
             <label
-            ref="citizenshipIsActiveRef"
+              ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
               @click="citizenshipIsActive = true"
             >
               <span>
-                <SearchIcon/>
+                <SearchIcon />
                 {{ citizenshipActiveOption }}
               </span>
-              <ArrowDownSmallIcon/>
+              <ArrowDownSmallIcon />
             </label>
-            <div
-              v-show="citizenshipIsActive"
-              class="dropdown__select"
-            >
+            <div v-show="citizenshipIsActive" class="dropdown__select">
               <div
                 v-for="option in ['Кыргызстан']"
                 :key="option"
                 class="dropdown-search__option"
-                @click=";(citizenshipActiveOption = option), (citizenshipIsActive = false)"
+                @click="
+                  (citizenshipActiveOption = option),
+                    (citizenshipIsActive = false);
+                "
               >
                 {{ option }}
               </div>
@@ -281,29 +218,28 @@
           </div>
         </div>
         <div class="info__form">
-          <Suptitle text="Адрес прописки (регистрации)"/>
+          <Suptitle text="Адрес прописки (регистрации)" />
           <div class="info__form--wrapper flex">
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
-              ref="regionIsActiveRef"
+                ref="regionIsActiveRef"
                 :class="regionIsActive ? 'active' : ''"
                 @click="regionIsActive = true"
               >
                 <span>
                   {{ regionActiveOption }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="regionIsActive"
-                class="dropdown__select"
-              >
+              <div v-show="regionIsActive" class="dropdown__select">
                 <div
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOption = option), (regionIsActive = false)"
+                  @click="
+                    (regionActiveOption = option), (regionIsActive = false);
+                  "
                 >
                   {{ option }}
                 </div>
@@ -312,24 +248,21 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
-              ref="areaIsActiveRef"
+                ref="areaIsActiveRef"
                 :class="areaIsActive ? 'active' : ''"
                 @click="areaIsActive = true"
               >
                 <span>
                   {{ areaActiveOption }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="areaIsActive"
-                class="dropdown__select"
-              >
+              <div v-show="areaIsActive" class="dropdown__select">
                 <div
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOption = option), (areaIsActive = false)"
+                  @click="(areaActiveOption = option), (areaIsActive = false);"
                 >
                   {{ option }}
                 </div>
@@ -340,19 +273,16 @@
             <div class="city dropdown">
               <p>Населенный пункт, город</p>
               <label
-              ref="cityIsActiveRef"
+                ref="cityIsActiveRef"
                 :class="cityIsActive ? 'active' : ''"
                 @click="cityIsActive = true"
               >
                 <span>
                   {{ cityActiveOption }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="cityIsActive"
-                class="dropdown__select"
-              >
+              <div v-show="cityIsActive" class="dropdown__select">
                 <div
                   v-for="option in [
                     'г. Бишкек',
@@ -375,7 +305,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOption = option), (cityIsActive = false)"
+                  @click="(cityActiveOption = option), (cityIsActive = false);"
                 >
                   {{ option }}
                 </div>
@@ -383,49 +313,40 @@
             </div>
             <label class="street">
               <p>Улица</p>
-              <input
-                v-model="streetFisrt"
-                type="text"
-              >
+              <input v-model="streetFisrt" type="text" />
             </label>
             <label class="home">
               <p>Дом</p>
-              <input
-                v-model="houseFisrt"
-                type="text"
-              >
+              <input v-model="houseFisrt" type="text" />
             </label>
             <label class="home">
               <p>Квартира</p>
-              <input
-                v-model="flatFisrt"
-                type="text"
-              >
+              <input v-model="flatFisrt" type="text" />
             </label>
           </div>
-          <Suptitle text="Адрес фактического места жительства"/>
+          <Suptitle text="Адрес фактического места жительства" />
           <div class="info__form--wrapper flex">
             <div class="w-55 dropdown">
               <p>Область</p>
               <label
-              ref="regionIsActiveSecondRef"
+                ref="regionIsActiveSecondRef"
                 :class="regionIsActiveSecond ? 'active' : ''"
                 @click="regionIsActiveSecond = true"
               >
                 <span>
                   {{ regionActiveOptionSecond }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="regionIsActiveSecond"
-                class="dropdown__select"
-              >
+              <div v-show="regionIsActiveSecond" class="dropdown__select">
                 <div
                   v-for="option in regionActiveOptions"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(regionActiveOptionSecond = option), (regionIsActiveSecond = false)"
+                  @click="
+                    (regionActiveOptionSecond = option),
+                      (regionIsActiveSecond = false);
+                  "
                 >
                   {{ option }}
                 </div>
@@ -434,24 +355,24 @@
             <div class="w-55 dropdown">
               <p>Районы</p>
               <label
-              ref="areaIsActiveSecondRef"
+                ref="areaIsActiveSecondRef"
                 :class="areaIsActiveSecond ? 'active' : ''"
                 @click="areaIsActiveSecond = true"
               >
                 <span>
                   {{ areaActiveOptionSecond }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="areaIsActiveSecond"
-                class="dropdown__select"
-              >
+              <div v-show="areaIsActiveSecond" class="dropdown__select">
                 <div
                   v-for="option in areasSecond"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(areaActiveOptionSecond = option), (areaIsActiveSecond = false)"
+                  @click="
+                    (areaActiveOptionSecond = option),
+                      (areaIsActiveSecond = false);
+                  "
                 >
                   {{ option }}
                 </div>
@@ -462,19 +383,16 @@
             <div class="dropdown city">
               <p>Населенный пункт, город</p>
               <label
-              ref="cityIsActiveSecondRef"
+                ref="cityIsActiveSecondRef"
                 :class="cityIsActiveSecond ? 'active' : ''"
                 @click="cityIsActiveSecond = true"
               >
                 <span>
                   {{ cityActiveOptionSecond }}
                 </span>
-                <ArrowDownSmallIcon/>
+                <ArrowDownSmallIcon />
               </label>
-              <div
-                v-show="cityIsActiveSecond"
-                class="dropdown__select"
-              >
+              <div v-show="cityIsActiveSecond" class="dropdown__select">
                 <div
                   v-for="option in [
                     'г. Бишкек',
@@ -497,7 +415,10 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click=";(cityActiveOptionSecond = option), (cityIsActiveSecond = false)"
+                  @click="
+                    (cityActiveOptionSecond = option),
+                      (cityIsActiveSecond = false);
+                  "
                 >
                   {{ option }}
                 </div>
@@ -505,49 +426,28 @@
             </div>
             <label class="street">
               <p>Улица</p>
-              <input
-                v-model="streetSecond"
-                type="text"
-              >
+              <input v-model="streetSecond" type="text" />
             </label>
             <label class="home">
               <p>Дом</p>
-              <input
-                v-model="houseSecond"
-                type="text"
-              >
+              <input v-model="houseSecond" type="text" />
             </label>
             <label class="home">
               <p>Квартира</p>
-              <input
-                v-model="flatSecond"
-                type="text"
-              >
+              <input v-model="flatSecond" type="text" />
             </label>
           </div>
         </div>
-        <div
-          class="info__form--wrapper"
-          style="margin-top: 30px"
-        >
-          <Suptitle text="Контактные данные"/>
-          <div
-            class="flex"
-            style="margin-top: 15px"
-          >
+        <div class="info__form--wrapper" style="margin-top: 30px">
+          <Suptitle text="Контактные данные" />
+          <div class="flex" style="margin-top: 15px">
             <label class="w-55">
               <p>E-mail*</p>
-              <input
-                v-model="emailVal"
-                type="text"
-              >
+              <input v-model="emailVal" type="text" />
             </label>
             <label class="w-55">
               <p>Номер телефона*</p>
-              <input
-                v-model="phoneVal"
-                type="text"
-              >
+              <input v-model="phoneVal" type="text" />
             </label>
           </div>
         </div>
@@ -559,342 +459,318 @@
         @click="getLayerUser"
       >
         Проверить
-        <PersonCheckIcon/>
-        <AnimationBubblesIcon :class="isLoading ? 'loading-svg-check active' : 'loading-svg-check'"/>
-      </button>
-      <SuccessSearchResultIcon v-if="end && isActiveRadio === 1"/>
-      <div
-        v-if="isActiveRadio === 1"
-        class="layer"
-      >
-        <Suptitle
-          class="data"
-          text="Данные юридического лица"
+        <PersonCheckIcon />
+        <AnimationBubblesIcon
+          :class="isLoading ? 'loading-svg-check active' : 'loading-svg-check'"
         />
+      </button>
+      <SuccessSearchResultIcon v-if="end && isActiveRadio === 1" />
+      <div v-if="isActiveRadio === 1" class="layer">
+        <Suptitle class="data" text="Данные юридического лица" />
         <div class="info__form--wrapper">
           <label class="street">
             <p>Полное наименование на официальном языке</p>
-            <input
-              v-model="officialNameVal"
-              type="text"
-            >
+            <input v-model="officialNameVal" type="text" />
           </label>
           <label class="home">
             <p>Полное наименование на государственном языке</p>
-            <input
-              v-model="nationalNameVal"
-              type="text"
-            >
+            <input v-model="nationalNameVal" type="text" />
           </label>
           <label class="home">
             <p>Есть ли иностранное участие</p>
-            <input
-              v-model="foreigParticipantVal"
-              type="text"
-            >
+            <input v-model="foreigParticipantVal" type="text" />
           </label>
           <label class="home">
             <p>Регистрационный номер</p>
-            <input
-              v-model="registryNumberVal"
-              type="text"
-            >
+            <input v-model="registryNumberVal" type="text" />
           </label>
           <label class="home">
             <p>Код ОКПО</p>
-            <input
-              v-model="okpoNumberVal"
-              type="text"
-            >
+            <input v-model="okpoNumberVal" type="text" />
           </label>
           <label class="home">
             <p>ИНН</p>
-            <input
-              v-model="INNVal"
-              type="text"
-            >
+            <input v-model="INNVal" type="text" />
           </label>
           <label class="home">
             <p>Дата приказа</p>
-            <input
-              v-model="orderDateVal"
-              type="text"
-            >
+            <input v-model="orderDateVal" type="text" />
           </label>
           <label class="home">
             <p>Область</p>
-            <input
-              v-model="regionVal"
-              type="text"
-            >
+            <input v-model="regionVal" type="text" />
           </label>
           <label class="home">
             <p>Район</p>
-            <input
-              v-model="areaVal"
-              type="text"
-            >
+            <input v-model="areaVal" type="text" />
           </label>
           <label class="home">
             <p>Город/село/поселок</p>
-            <input
-              v-model="cityVal"
-              type="text"
-            >
+            <input v-model="cityVal" type="text" />
           </label>
           <label class="home">
             <p>Улица (проекспект,бульвар, переулок и т.п.)</p>
-            <input
-              v-model="layerStreet"
-              type="text"
-            >
+            <input v-model="layerStreet" type="text" />
           </label>
           <label class="home">
             <p>№ Дома</p>
-            <input
-              v-model="layerHouse"
-              type="text"
-            >
+            <input v-model="layerHouse" type="text" />
           </label>
           <label class="home">
             <p>Руководитель</p>
-            <input
-              v-model="supervisorVal"
-              type="text"
-            >
+            <input v-model="supervisorVal" type="text" />
           </label>
           <label class="home">
             <p>Кол-во учредителей (участников) физических лиц</p>
-            <input
-              v-model="foundersVal"
-              type="text"
-            >
+            <input v-model="foundersVal" type="text" />
           </label>
           <label class="home">
             <p>Кол-во учредителей (участников) юридических лиц</p>
-            <input
-              v-model="foundersLayerVal"
-              type="text"
-            >
+            <input v-model="foundersLayerVal" type="text" />
           </label>
           <label class="home">
             <p>Общее кол-во (участников)</p>
-            <input
-              v-model="qntyOfMembersVal"
-              type="text"
-            >
+            <input v-model="qntyOfMembersVal" type="text" />
           </label>
         </div>
       </div>
     </div>
     <div class="info__form">
       <div class="info__form--wrapper">
-        <File/>
+        <File />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref, watch } from "vue";
+import { useStore } from "vuex";
+import { onClickOutside } from "@vueuse/core";
 
-import { ref, watch } from 'vue'
-import { useStore } from 'vuex'
-import { onClickOutside } from '@vueuse/core'
+import AnimationBubblesIcon from "@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue";
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
+import CheckboxCheckedIcon from "@/components/global/UI/Info/Icons/CheckboxCheckedIcon.vue";
+import PersonCheckIcon from "@/components/global/UI/Info/Icons/PersonCheckIcon.vue";
+import PersonFilledIcon from "@/components/global/UI/Info/Icons/PersonFilledIcon.vue";
+import SearchIcon from "@/components/global/UI/Info/Icons/SearchIcon.vue";
+import SuccessSearchResultIcon from "@/components/global/UI/Info/Icons/SuccessSearchResultIcon.vue";
+import RadioCheckedIcon from "@/components/global/UI/Info/Icons/RadioCheckedIcon.vue";
+import RadioNulledIcon from "@/components/global/UI/Info/Icons/RadioNulledIcon.vue";
+import Suptitle from "@/components/global/UI/Info/Suptitle.vue";
+import File from "@/components/global/UI/Info/Input/File.vue";
 
-import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import CheckboxCheckedIcon from '@/components/global/UI/Info/Icons/CheckboxCheckedIcon.vue'
-import PersonCheckIcon from '@/components/global/UI/Info/Icons/PersonCheckIcon.vue'
-import PersonFilledIcon from '@/components/global/UI/Info/Icons/PersonFilledIcon.vue'
-import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
-import SuccessSearchResultIcon from '@/components/global/UI/Info/Icons/SuccessSearchResultIcon.vue'
-import RadioCheckedIcon from '@/components/global/UI/Info/Icons/RadioCheckedIcon.vue'
-import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
-import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
-import File from '@/components/global/UI/Info/Input/File.vue'
-
-const store = useStore()
-const INNVal = ref('')
-const surname = ref('')
-const name = ref('')
-const lastname = ref('')
-const isLoading = ref(false)
-const isErr = ref(false)
-const end = ref(false)
+const store = useStore();
+const INNVal = ref("");
+const surname = ref("");
+const name = ref("");
+const lastname = ref("");
+const isLoading = ref(false);
+const isErr = ref(false);
+const end = ref(false);
 
 const data = ref({
-  'г. Бишкек': ['Первомайский район', 'Ленинский район', 'Свердловский район', 'Октябрьский район'],
+  "г. Бишкек": [
+    "Первомайский район",
+    "Ленинский район",
+    "Свердловский район",
+    "Октябрьский район",
+  ],
   Чуй: [
-    'Ыссык-Атинский район',
-    'Аламудунский район',
-    'Сокулукский район',
-    'Московский район',
-    'Жайылский район',
-    'Кеминский район',
-    'Панфиловский район',
+    "Ыссык-Атинский район",
+    "Аламудунский район",
+    "Сокулукский район",
+    "Московский район",
+    "Жайылский район",
+    "Кеминский район",
+    "Панфиловский район",
   ],
   Ош: [
-    'Кара-Сууйский район',
-    'Ноокатский район',
-    'Узгенский район',
-    'Араванский район',
-    'Алайский район',
-    'Кара-Кулжинский район',
-    'Чон-Алайский район',
+    "Кара-Сууйский район",
+    "Ноокатский район",
+    "Узгенский район",
+    "Араванский район",
+    "Алайский район",
+    "Кара-Кулжинский район",
+    "Чон-Алайский район",
   ],
-})
+});
 
-const regionActiveOptions = ref(Object.keys(data.value))
+const regionActiveOptions = ref(Object.keys(data.value));
 
-const officialNameVal = ref('')
-const nationalNameVal = ref('')
+const officialNameVal = ref("");
+const nationalNameVal = ref("");
 
-const passportSeriesIsActive = ref(false)
-const passportSeriesIsActiveRef = ref(null)
-onClickOutside(passportSeriesIsActiveRef, () => passportSeriesIsActive.value = false);
-const passportSeriesActive = ref('')
+const passportSeriesIsActive = ref(false);
+const passportSeriesIsActiveRef = ref(null);
+onClickOutside(
+  passportSeriesIsActiveRef,
+  () => (passportSeriesIsActive.value = false)
+);
+const passportSeriesActive = ref("");
 
-const passportVal = ref('')
+const passportVal = ref("");
 
-const citizenshipIsActive = ref(false)
-const citizenshipIsActiveRef = ref(null)
-onClickOutside(citizenshipIsActiveRef, () => citizenshipIsActive.value = false);
-const citizenshipActiveOption = ref('')
+const citizenshipIsActive = ref(false);
+const citizenshipIsActiveRef = ref(null);
+onClickOutside(
+  citizenshipIsActiveRef,
+  () => (citizenshipIsActive.value = false)
+);
+const citizenshipActiveOption = ref("");
 
-const passportOrgan = ref('')
-const passportNumber = ref('')
-const passportDate = ref('')
-const passportID = ref('')
+const passportOrgan = ref("");
+const passportNumber = ref("");
+const passportDate = ref("");
+const passportID = ref("");
 
-const regionIsActive = ref(false)
-const regionIsActiveRef = ref(null)
-onClickOutside(regionIsActiveRef, () => regionIsActive.value = false);
-const regionActiveOption = ref('')
+const regionIsActive = ref(false);
+const regionIsActiveRef = ref(null);
+onClickOutside(regionIsActiveRef, () => (regionIsActive.value = false));
+const regionActiveOption = ref("");
 
-const areaIsActive = ref(false)
-const areaIsActiveRef = ref(null)
-onClickOutside(areaIsActiveRef, () => areaIsActive.value = false);
-const areaActiveOption = ref('')
+const areaIsActive = ref(false);
+const areaIsActiveRef = ref(null);
+onClickOutside(areaIsActiveRef, () => (areaIsActive.value = false));
+const areaActiveOption = ref("");
 
-const regionIsActiveSecond = ref(false)
-const regionIsActiveSecondRef = ref(null)
-onClickOutside(regionIsActiveSecondRef, () => regionIsActiveSecond.value = false);
-const regionActiveOptionSecond = ref('')
+const regionIsActiveSecond = ref(false);
+const regionIsActiveSecondRef = ref(null);
+onClickOutside(
+  regionIsActiveSecondRef,
+  () => (regionIsActiveSecond.value = false)
+);
+const regionActiveOptionSecond = ref("");
 
-const areaIsActiveSecond = ref(false)
-const areaIsActiveSecondRef = ref(null)
-onClickOutside(areaIsActiveSecondRef, () => areaIsActiveSecond.value = false);
-const areaActiveOptionSecond = ref('')
+const areaIsActiveSecond = ref(false);
+const areaIsActiveSecondRef = ref(null);
+onClickOutside(areaIsActiveSecondRef, () => (areaIsActiveSecond.value = false));
+const areaActiveOptionSecond = ref("");
 
-const cityIsActive = ref(false)
-const cityIsActiveRef = ref(null)
-onClickOutside(cityIsActiveRef, () => cityIsActive.value = false);
-const cityActiveOption = ref('')
-const cityIsActiveSecond = ref(false)
-const cityIsActiveSecondRef = ref(null)
-onClickOutside(cityIsActiveSecondRef, () => cityIsActiveSecond.value = false);
-const cityActiveOptionSecond = ref('')
+const cityIsActive = ref(false);
+const cityIsActiveRef = ref(null);
+onClickOutside(cityIsActiveRef, () => (cityIsActive.value = false));
+const cityActiveOption = ref("");
+const cityIsActiveSecond = ref(false);
+const cityIsActiveSecondRef = ref(null);
+onClickOutside(cityIsActiveSecondRef, () => (cityIsActiveSecond.value = false));
+const cityActiveOptionSecond = ref("");
 
-const streetFisrt = ref('')
-const houseFisrt = ref('')
-const flatFisrt = ref('')
+const streetFisrt = ref("");
+const houseFisrt = ref("");
+const flatFisrt = ref("");
 
-const streetSecond = ref('')
-const houseSecond = ref('')
-const flatSecond = ref('')
+const streetSecond = ref("");
+const houseSecond = ref("");
+const flatSecond = ref("");
 
-const dateOfBirthVal = ref('')
-const emailVal = ref('')
-const phoneVal = ref('')
+const dateOfBirthVal = ref("");
+const emailVal = ref("");
+const phoneVal = ref("");
 
-const avatarImg = ref('')
-const isActiveRef = ref(null)
-onClickOutside(isActiveRef, () => isActive.value = false);
-const isActiveRadio = ref(0)
-const isActiveRadioSec = ref(0)
-const isActiveRadioFace = ref(false)
-const activeOption = ref('')
+const avatarImg = ref("");
+const isActiveRef = ref(null);
+onClickOutside(isActiveRef, () => (isActive.value = false));
+const isActiveRadio = ref(0);
+const isActiveRadioSec = ref(0);
+const isActiveRadioFace = ref(false);
+const activeOption = ref("");
 
-const fullNameVal = ref('')
-const foreigParticipantVal = ref('')
-const registryNumberVal = ref('')
-const okpoNumberVal = ref('')
-const orderDateVal = ref('')
-const regionVal = ref('')
-const areaVal = ref('')
-const cityVal = ref('')
+const fullNameVal = ref("");
+const foreigParticipantVal = ref("");
+const registryNumberVal = ref("");
+const okpoNumberVal = ref("");
+const orderDateVal = ref("");
+const regionVal = ref("");
+const areaVal = ref("");
+const cityVal = ref("");
 
-const layerStreet = ref('')
-const layerHouse = ref('')
+const layerStreet = ref("");
+const layerHouse = ref("");
 
-const supervisorVal = ref('')
-const foundersVal = ref('')
-const foundersLayerVal = ref('')
-const qntyOfMembersVal = ref('')
+const supervisorVal = ref("");
+const foundersVal = ref("");
+const foundersLayerVal = ref("");
+const qntyOfMembersVal = ref("");
 
-const roleSubject = ref('')
-const roleIsActive = ref(false)
-const roleIsActiveRef = ref(null)
-onClickOutside(roleIsActiveRef, () => roleIsActive.value = false);
-const ROLE_SUBJECT = ['Участник', 'Попечитель', 'Лицо действующее по доверенности','Сурдопереводчик']
+const roleSubject = ref("");
+const roleIsActive = ref(false);
+const roleIsActiveRef = ref(null);
+onClickOutside(roleIsActiveRef, () => (roleIsActive.value = false));
+const ROLE_SUBJECT = [
+  "Участник",
+  "Попечитель",
+  "Лицо действующее по доверенности",
+  "Сурдопереводчик",
+];
 
 const getUsers = () => {
-  end.value = false
-  isLoading.value = true
-  isErr.value = false
-  surname.value = ''
-  name.value = ''
-  lastname.value = ''
-  avatarImg.value = ''
-  streetSecond.value = ''
-  houseSecond.value = ''
-  flatSecond.value = ''
-  streetFisrt.value = ''
-  houseFisrt.value = ''
-  flatFisrt.value = ''
-  citizenshipActiveOption.value = ''
-  regionActiveOption.value = ''
-  regionActiveOptionSecond.value = ''
-  areaActiveOption.value = ''
-  areaActiveOptionSecond.value = ''
-  dateOfBirthVal.value = ''
+  end.value = false;
+  isLoading.value = true;
+  isErr.value = false;
+  surname.value = "";
+  name.value = "";
+  lastname.value = "";
+  avatarImg.value = "";
+  streetSecond.value = "";
+  houseSecond.value = "";
+  flatSecond.value = "";
+  streetFisrt.value = "";
+  houseFisrt.value = "";
+  flatFisrt.value = "";
+  citizenshipActiveOption.value = "";
+  regionActiveOption.value = "";
+  regionActiveOptionSecond.value = "";
+  areaActiveOption.value = "";
+  areaActiveOptionSecond.value = "";
+  dateOfBirthVal.value = "";
 
-  if (INNVal.value.trim() !== '') {
+  if (INNVal.value.trim() !== "") {
     try {
       const {
-        fullName, avatar, citizenship, dateOfBirth, region, area, registration, fact, passport, city, cityFact,
-      } = store.state.users.find(item => item.INN === INNVal.value)
-      const [a, b, c] = fullName.split(' ')
+        fullName,
+        avatar,
+        citizenship,
+        dateOfBirth,
+        region,
+        area,
+        registration,
+        fact,
+        passport,
+        city,
+        cityFact,
+      } = store.state.users.find((item) => item.INN === INNVal.value);
+      const [a, b, c] = fullName.split(" ");
 
       setTimeout(() => {
-        surname.value = a
-        name.value = b
-        lastname.value = c
-        avatarImg.value = avatar
-        streetSecond.value = fact.street
-        houseSecond.value = fact.house
-        flatSecond.value = fact.flat
-        streetFisrt.value = registration.street
-        houseFisrt.value = registration.house
-        flatFisrt.value = registration.flat
-        citizenshipActiveOption.value = citizenship
-        regionActiveOption.value = region
-        regionActiveOptionSecond.value = region
-        areaActiveOption.value = area
-        areaActiveOptionSecond.value = area
-        dateOfBirthVal.value = dateOfBirth
-        isLoading.value = false
-        passportSeriesActive.value = passport.series
-        passportVal.value = 'Паспорт'
-        passportOrgan.value = passport.organization.split(' ')[0]
-        passportNumber.value = passport.organization.split(' ')[1]
-        passportDate.value = passport.date
-        passportID.value = passport.number
-        cityActiveOption.value = city
-        cityActiveOptionSecond.value = cityFact
-        end.value = true
+        surname.value = a;
+        name.value = b;
+        lastname.value = c;
+        avatarImg.value = avatar;
+        streetSecond.value = fact.street;
+        houseSecond.value = fact.house;
+        flatSecond.value = fact.flat;
+        streetFisrt.value = registration.street;
+        houseFisrt.value = registration.house;
+        flatFisrt.value = registration.flat;
+        citizenshipActiveOption.value = citizenship;
+        regionActiveOption.value = region;
+        regionActiveOptionSecond.value = region;
+        areaActiveOption.value = area;
+        areaActiveOptionSecond.value = area;
+        dateOfBirthVal.value = dateOfBirth;
+        isLoading.value = false;
+        passportSeriesActive.value = passport.series;
+        passportVal.value = "Паспорт";
+        passportOrgan.value = passport.organization.split(" ")[0];
+        passportNumber.value = passport.organization.split(" ")[1];
+        passportDate.value = passport.date;
+        passportID.value = passport.number;
+        cityActiveOption.value = city;
+        cityActiveOptionSecond.value = cityFact;
+        end.value = true;
 
-        store.commit('setPersonNotarius', {
+        store.commit("setPersonNotarius", {
           surname: surname.value,
           name: name.value,
           lastname: lastname.value,
@@ -912,40 +788,40 @@ const getUsers = () => {
           areaActiveOptionSecond: areaActiveOptionSecond.value,
           dateOfBirthVal: dateOfBirthVal.value,
           INNVal: INNVal.value,
-        })
-      }, 1500)
+        });
+      }, 1500);
     } catch {
-      isLoading.value = false
-      isErr.value = true
+      isLoading.value = false;
+      isErr.value = true;
     }
   } else {
-    isLoading.value = false
-    isErr.value = true
+    isLoading.value = false;
+    isErr.value = true;
   }
-}
+};
 
 const getLayerUser = () => {
-  end.value = false
-  isLoading.value = true
-  isErr.value = false
-  fullNameVal.value = ''
-  foreigParticipantVal.value = ''
-  registryNumberVal.value = ''
-  okpoNumberVal.value = ''
-  orderDateVal.value = ''
-  regionVal.value = ''
-  areaVal.value = ''
-  cityVal.value = ''
-  layerStreet.value = ''
-  layerHouse.value = ''
-  supervisorVal.value = ''
-  foundersVal.value = ''
-  foundersLayerVal.value = ''
-  qntyOfMembersVal.value = ''
-  officialNameVal.value = ''
-  nationalNameVal.value = ''
+  end.value = false;
+  isLoading.value = true;
+  isErr.value = false;
+  fullNameVal.value = "";
+  foreigParticipantVal.value = "";
+  registryNumberVal.value = "";
+  okpoNumberVal.value = "";
+  orderDateVal.value = "";
+  regionVal.value = "";
+  areaVal.value = "";
+  cityVal.value = "";
+  layerStreet.value = "";
+  layerHouse.value = "";
+  supervisorVal.value = "";
+  foundersVal.value = "";
+  foundersLayerVal.value = "";
+  qntyOfMembersVal.value = "";
+  officialNameVal.value = "";
+  nationalNameVal.value = "";
 
-  if (INNVal.value.trim() !== '') {
+  if (INNVal.value.trim() !== "") {
     try {
       const {
         fullName,
@@ -964,50 +840,50 @@ const getLayerUser = () => {
         qntyOfMembers,
         officialName,
         nationalName,
-      } = store.state.users.find(item => item.INN === INNVal.value)
+      } = store.state.users.find((item) => item.INN === INNVal.value);
 
       setTimeout(() => {
-        fullNameVal.value = fullName
-        foreigParticipantVal.value = foreigParticipant
-        registryNumberVal.value = registryNumber
-        okpoNumberVal.value = okpoNumber
-        orderDateVal.value = orderDate
-        regionVal.value = region
-        areaVal.value = area
-        cityVal.value = city
-        layerStreet.value = fact.street
-        layerHouse.value = fact.house
-        supervisorVal.value = supervisor
-        foundersVal.value = founders
-        foundersLayerVal.value = foundersLayer
-        qntyOfMembersVal.value = qntyOfMembers
-        officialNameVal.value = officialNameVal
-        nationalNameVal.value = nationalNameVal
+        fullNameVal.value = fullName;
+        foreigParticipantVal.value = foreigParticipant;
+        registryNumberVal.value = registryNumber;
+        okpoNumberVal.value = okpoNumber;
+        orderDateVal.value = orderDate;
+        regionVal.value = region;
+        areaVal.value = area;
+        cityVal.value = city;
+        layerStreet.value = fact.street;
+        layerHouse.value = fact.house;
+        supervisorVal.value = supervisor;
+        foundersVal.value = founders;
+        foundersLayerVal.value = foundersLayer;
+        qntyOfMembersVal.value = qntyOfMembers;
+        officialNameVal.value = officialNameVal;
+        nationalNameVal.value = nationalNameVal;
 
-        isLoading.value = false
-        end.value = true
-        store.commit('setChoosenApplicant', fullNameVal.value)
-      }, 3000)
+        isLoading.value = false;
+        end.value = true;
+        store.commit("setChoosenApplicant", fullNameVal.value);
+      }, 3000);
     } catch {
-      isErr.value = true
-      isLoading.value = false
+      isErr.value = true;
+      isLoading.value = false;
     }
   } else {
-    isLoading.value = false
-    isErr.value = true
+    isLoading.value = false;
+    isErr.value = true;
   }
-}
+};
 
-const areasFirst = ref([])
-const areasSecond = ref([])
+const areasFirst = ref([]);
+const areasSecond = ref([]);
 
 watch(regionActiveOptionSecond, () => {
-  areasSecond.value = data.value[regionActiveOptionSecond.value]
-})
+  areasSecond.value = data.value[regionActiveOptionSecond.value];
+});
 
 watch(regionActiveOption, () => {
-  areasFirst.value = data.value[regionActiveOption.value]
-})
+  areasFirst.value = data.value[regionActiveOption.value];
+});
 </script>
 
 <style lang="scss" scoped>
@@ -1020,7 +896,7 @@ watch(regionActiveOption, () => {
 }
 
 input {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #24334b;
@@ -1085,7 +961,7 @@ input {
 }
 
 .btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 320px;
   padding: 14px 0;
   border: none;
