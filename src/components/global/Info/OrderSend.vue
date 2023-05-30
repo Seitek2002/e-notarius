@@ -52,7 +52,8 @@
             <label class="send__search">
               <div class="send__flex">
                 <input
-                  type="text" 
+                  type="text"
+                  placeholder="Ваша доверенность готова"
                 >
                 <button>
                   <ArrowRightIcon/>
