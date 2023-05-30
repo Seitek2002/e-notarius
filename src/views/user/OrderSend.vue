@@ -123,10 +123,11 @@
           </div>
           <div ref="container" class="send__table">
             <div class="send__info">
-              <h2 class="send__info__name">Паспорт</h2>
+              <h2 class="send__info__qr">QR</h2>
+              <h2 class="send__info__name">Наименование</h2>
               <h2 class="send__info__status">Статус</h2>
               <h2 class="send__info__date">Дата</h2>
-              <h2 class="send__info__notarius">Нотариус</h2>
+              <h2 class="send__info__notarius">ФИО нотариуса</h2>
             </div>
             <div class="send__alimony">
               <h2 class="send__alimony__v">
@@ -266,6 +267,7 @@ const handleScrollLeft = () => {
     padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
+    width: 100%;
     @media screen and (max-width: 768px) {
       padding: 20px;
     }
@@ -302,6 +304,10 @@ const handleScrollLeft = () => {
 
     &__name {
       width: 43%;
+    }
+
+    &__qr {
+      width: 80px;
     }
 
     &__date {
