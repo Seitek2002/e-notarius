@@ -254,9 +254,7 @@ const handleScrollLeft = () => {
       font-size: 14px;
       color: #bdbdbd;
     }
-  }
-  &-icons {
-  }
+  } 
 
   &-pagination {
     margin-top: 30px;
@@ -266,7 +264,7 @@ const handleScrollLeft = () => {
 }
 
 .temp-table {
-  max-width: 1115px;
+  max-width: 100%;
   overflow: auto;
 
   table {

@@ -1,19 +1,19 @@
 <template>
-  <section class="application">
-    <div class="application-head">
-      <div class="application-search">
-        <input type="text" class="application-search__input" />
-        <button class="application-search__btn">
+  <section class="omsu">
+    <div class="omsu-head">
+      <div class="omsu-search">
+        <input type="text" class="omsu-search__input" />
+        <button class="omsu-search__btn">
           <AppSearchIcon />
         </button>
       </div>
-      <button class="application-export__btn">
+      <button class="omsu-export__btn">
         Экспортировать в Exсel
         <ExcelIcon />
       </button>
     </div>
-    <div class="application-mid">
-      <button class="application-mid__btn" @click="isFilter = !isFilter">
+    <div class="omsu-mid">
+      <button class="omsu-mid__btn" @click="isFilter = !isFilter">
         <template v-if="isFilter">
           <FilterDisabledIcon />
           Свернуть фильтр
@@ -23,39 +23,39 @@
           Открыть фильтр
         </template>
       </button>
-      <div class="application-mid__sort">
-        <span class="application-mid__text">Сортировка за:</span>
-        <button class="application-mid__select">
+      <div class="omsu-mid__sort">
+        <span class="omsu-mid__text">Сортировка за:</span>
+        <button class="omsu-mid__select">
           2022 год
           <ArrowDownSmallIcon />
         </button>
       </div>
     </div>
-    <div v-show="isFilter" class="application-bottom">
-      <label class="application-bottom__label">
+    <div v-show="isFilter" class="omsu-bottom">
+      <label class="omsu-bottom__label">
         Номер реестра
-        <input type="number" class="application-bottom__input" />
+        <input type="number" class="omsu-bottom__input" />
       </label>
-      <label class="application-bottom__label">
+      <label class="omsu-bottom__label">
         Дата добавления в реестр
-        <input type="date" class="application-bottom__input" />
+        <input type="date" class="omsu-bottom__input" />
       </label>
-      <label class="application-bottom__label">
+      <label class="omsu-bottom__label">
         ФИО Нотариуса
-        <input type="text" class="application-bottom__input" />
+        <input type="text" class="omsu-bottom__input" />
       </label>
     </div>
     <div class="adaptive__sort">
-      <div class="application-mid__sort">
-        <span class="application-mid__text">Сортировка за:</span>
-        <button class="application-mid__select">
+      <div class="omsu-mid__sort">
+        <span class="omsu-mid__text">Сортировка за:</span>
+        <button class="omsu-mid__select">
           2022 год
           <ArrowDownSmallIcon />
         </button>
       </div>
     </div>
-    <div class="application__adaptive">
-      <div class="application__left">
+    <div class="omsu__adaptive">
+      <div class="omsu__left">
         <label class="tooltip">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -79,7 +79,7 @@
             </svg></span>
         </label>
       </div>
-      <div class="application__right">
+      <div class="omsu__right">
         <svg @click="handleScrollLeft" width="40" height="40" viewBox="0 0 40 40" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <rect x="0.5" y="0.5" width="39" height="39" fill="white" />
@@ -108,7 +108,7 @@
         </svg>
       </div>
     </div>
-    <div ref="container" class="application__table">
+    <div ref="container" class="omsu__table">
       <table>
         <thead>
           <tr>
@@ -141,7 +141,7 @@
         </tbody>
       </table>
     </div>
-    <div class="application__bottom">
+    <div class="omsu__bottom">
       <ul class="pagination">
         <li v-if="currentPage > 1">
           <a @click="currentPage--">
@@ -224,14 +224,14 @@ const handleScrollLeft = () => {
 
 .adaptive {
   &__sort {
-    .application-mid__sort {
+    .omsu-mid__sort {
       display: none;
 
       @media screen and (max-width: 768px) {
         display: block;
       }
 
-      .application-mid__select {
+      .omsu-mid__select {
         width: 100%;
         margin-top: 10px;
       }
@@ -239,7 +239,7 @@ const handleScrollLeft = () => {
   }
 }
 
-.application {
+.omsu {
   flex: 1;
 
   &__table {
@@ -427,8 +427,8 @@ const handleScrollLeft = () => {
   }
 }
 
-.application-table {
-  max-width: 1115px;
+.omsu__table {
+  max-width: 100%;
 
   table {
     margin-top: 40px;

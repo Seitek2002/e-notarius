@@ -427,9 +427,8 @@ const handleScrollLeft = () => {
     }
   }
 }
-
-.application-table {
-  max-width: 1115px;
+.application__table {
+  max-width: 100%;
 
   table {
     margin-top: 40px;
