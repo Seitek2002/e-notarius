@@ -64,7 +64,7 @@
             v-for="option in ROLE_SUBJECT"
             :key="option"
             class="dropdown-search__option"
-            @click="(roleSubject = option), (roleIsActive = !roleIsActive)"
+            @click="(roleSubject = option), (roleIsActive = false)"
           >
             {{ option }}
           </div>
