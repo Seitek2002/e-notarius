@@ -70,7 +70,7 @@
               <Dropdown title="Вид действия" :options="typeOfDoc" />
             </th>
             <th>
-              <Dropdown title="Вид документа" :options="typeOfDoc" />
+              <Dropdown title="Вид документа" :options="typeOfDoc" style="" />
             </th>
             <th>
               <Dropdown title="Статус" :options="typeOfDoc" />
@@ -127,6 +127,7 @@ import RemoveIcon from "@/components/icons/Table/RemoveIcon.vue";
 import Qr from "@/components/global/Tables/OfferTable/Qr.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 import Pagination from "@/components/Pagination/Pagination.vue";
+import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue"; 
 
 const qrActive = ref(false);
 const store = useStore();

@@ -285,7 +285,8 @@ const notice = ref([
 
   &-label {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    align-items: start;
     width: 47%;
 
     @media screen and (max-width: 685px) {
