@@ -4,9 +4,7 @@
       <div class="send__content">
         <div class="send__box">
           <div class="send__row">
-            <h2>
-              Ваша заявка успешно отправлена нотариусу
-            </h2>
+            <h2>Ваша заявка успешно отправлена нотариусу</h2>
             <SuccessSmallIcon />
           </div>
           <div class="send__adaptive">
@@ -158,8 +156,10 @@
             <h2>Написать сообщение нотариусу</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input type="text"  
-                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?" />
+                <input
+                  type="text"
+                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?"
+                />
                 <button>
                   <ArrowRightIcon />
                 </button>
@@ -233,8 +233,8 @@ const handleScrollLeft = () => {
   padding: 60px;
   box-sizing: border-box;
   @media screen and (max-width: 921px) {
-      padding: 0;
-    }
+    padding: 0;
+  }
   &__table {
     min-width: 100%;
     overflow-x: auto;
@@ -366,7 +366,7 @@ const handleScrollLeft = () => {
     padding: 16px 0;
     border: 1px dashed #687c9b;
     width: 320px;
-@media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
     h2 {
@@ -471,7 +471,7 @@ const handleScrollLeft = () => {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
-@media screen and (max-width: 921px) {
+    @media screen and (max-width: 921px) {
       width: 100%;
     }
     &:not(:disabled):hover {
@@ -499,7 +499,7 @@ const handleScrollLeft = () => {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
-@media screen and (max-width: 921px) {
+    @media screen and (max-width: 921px) {
       width: 100%;
     }
     &:not(:disabled):hover {
