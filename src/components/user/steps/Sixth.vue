@@ -35,7 +35,7 @@
     </div>
     <Next
       title="Подтвердить"
-      @click="handleClick(6, 'next')"
+      @click="handleClick"
     />
   </div>
 </template>
@@ -54,15 +54,18 @@ import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 const router = useRouter()
-
 const store = useStore()
 
 defineProps(['short'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  store.commit('pushNewItemUser')
-  router.push('/OrderSend')
+  if(id, move) {
+    emits('handleCustomEvent',id)
+  } else {
+    store.commit('pushNewItemUser')
+    router.push('/OrderSend-user')
+  }
 }
 
 </script>

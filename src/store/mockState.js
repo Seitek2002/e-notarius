@@ -216,6 +216,7 @@ export const state = {
   dateOfBirth: '',
   personApplicant: {},
   personNotarius: {},
+  sideBarOpen: false,
   item: {
     id: 15163,
     qr: false,

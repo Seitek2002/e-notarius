@@ -44,7 +44,7 @@
         />
       </div>
     </div>
-    <Next @click="handleClick(3,'next')"/>
+    <Next @click="handleClick(2,'next')"/>
   </div>
 </template>
 
@@ -67,7 +67,6 @@ import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)
-const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
 const store = useStore()
 
 const props = defineProps(['active', 'i', 'short'])

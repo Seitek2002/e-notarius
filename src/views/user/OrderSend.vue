@@ -4,9 +4,7 @@
       <div class="send__content">
         <div class="send__box">
           <div class="send__row">
-            <h2>
-              {{ title }}
-            </h2>
+            <h2>Ваша заявка успешно отправлена нотариусу</h2>
             <SuccessSmallIcon />
           </div>
           <div class="send__adaptive">
@@ -125,10 +123,11 @@
           </div>
           <div ref="container" class="send__table">
             <div class="send__info">
-              <h2 class="send__info__name">Паспорт</h2>
+              <h2 class="send__info__qr">QR</h2>
+              <h2 class="send__info__name">Наименование</h2>
               <h2 class="send__info__status">Статус</h2>
               <h2 class="send__info__date">Дата</h2>
-              <h2 class="send__info__notarius">Нотариус</h2>
+              <h2 class="send__info__notarius">ФИО нотариуса</h2>
             </div>
             <div class="send__alimony">
               <h2 class="send__alimony__v">
@@ -158,8 +157,10 @@
             <h2>Написать сообщение нотариусу</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input type="text"  
-                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?" />
+                <input
+                  type="text"
+                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?"
+                />
                 <button>
                   <ArrowRightIcon />
                 </button>
@@ -233,8 +234,8 @@ const handleScrollLeft = () => {
   padding: 60px;
   box-sizing: border-box;
   @media screen and (max-width: 921px) {
-      padding: 0;
-    }
+    padding: 0;
+  }
   &__table {
     min-width: 100%;
     overflow-x: auto;
@@ -266,6 +267,7 @@ const handleScrollLeft = () => {
     padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
+    width: 100%;
     @media screen and (max-width: 768px) {
       padding: 20px;
     }
@@ -302,6 +304,10 @@ const handleScrollLeft = () => {
 
     &__name {
       width: 43%;
+    }
+
+    &__qr {
+      width: 80px;
     }
 
     &__date {
@@ -357,6 +363,7 @@ const handleScrollLeft = () => {
   }
 
   &__sample {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -365,7 +372,7 @@ const handleScrollLeft = () => {
     padding: 16px 0;
     border: 1px dashed #687c9b;
     width: 320px;
-@media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
     h2 {
@@ -470,7 +477,7 @@ const handleScrollLeft = () => {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
-@media screen and (max-width: 921px) {
+    @media screen and (max-width: 921px) {
       width: 100%;
     }
     &:not(:disabled):hover {
@@ -498,7 +505,7 @@ const handleScrollLeft = () => {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
-@media screen and (max-width: 921px) {
+    @media screen and (max-width: 921px) {
       width: 100%;
     }
     &:not(:disabled):hover {

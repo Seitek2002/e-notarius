@@ -243,7 +243,8 @@ const handleScrollLeft = () => {
   flex: 1;
 
   &__table {
-    overflow-x: auto;
+    min-height: 448px;
+    overflow-x: scroll;
     max-width: 100%;
   }
 
