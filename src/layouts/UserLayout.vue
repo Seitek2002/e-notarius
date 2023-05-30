@@ -1,13 +1,10 @@
 <template>
   <div class="app-user-layout">
-
-
-
     <section :class="sidebar ? 'sidebar active' : 'sidebar'">
       <div class="sidebar-wrapper">
         <div class="sidebar-head">
           <router-link to="/">
-            <logo v-if="sidebar" />
+            <logo v-if="sidebar" @click="localStorage.clear()" />
             <svg v-else style="min-width: 44px;" width="44" height="44" viewBox="0 0 44 44" fill="none"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <rect width="44" height="44" fill="url(#pattern0)" />

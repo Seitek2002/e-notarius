@@ -1,14 +1,11 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="2"
     />
     <div class="flex jcsb">
       <Title text="Выбор объекта"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(0, 'prev')"
+      <Back @click="handleClick(0)"
       />
     </div>
     <div class="info__form">
@@ -44,7 +41,7 @@
         />
       </div>
     </div>
-    <Next @click="handleClick(2,'next')"/>
+    <Next @click="handleClick(2)"/>
   </div>
 </template>
 

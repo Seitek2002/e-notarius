@@ -65,7 +65,7 @@
       <div class="flex number" style="margin-top: 15px">
         <div class="dropdown">
           <p>Гос номер авто</p>
-          <Input class="inputNumberAuto" />
+          <input class="inputNumberAuto" />
         </div>
         <div class="dropdown">
           <p>Право передоверия</p>

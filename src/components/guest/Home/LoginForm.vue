@@ -16,6 +16,7 @@
                   v-model="loginVal"
                   type="text"
                   class="hero__input"
+                  autocomplete="username"
                   required
                 />
               </label>
@@ -27,6 +28,7 @@
                   v-model="passwordVal"
                   type="password"
                   class="hero__input"
+                  autocomplete="current-password"
                   required
                 />
               </label>

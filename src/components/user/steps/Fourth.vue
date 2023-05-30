@@ -1,14 +1,12 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="4"
     />
     <div class="flex jcsb">
       <Title text="Сторона 1 (личные данные)" />
       <Back
-        v-show="!short"
-        @click="handleClick(2, 'prev')"
+        @click="handleClick(3)"
       />
     </div>
     <div class="info__form">
@@ -367,7 +365,7 @@
         </label>
       </div>
     </div>
-    <Next @click="handleClick(4, 'next')" />
+    <Next @click="handleClick(4)" />
   </div>
 </template>
 
@@ -459,6 +457,7 @@ const regionActiveOption = ref('')
 const regionActiveOptionSecond = ref('')
 const areaActiveOptionSecond = ref('')
 const areaActiveOption = ref('')
+const passportID = ref('')
 
 defineProps(['short', 'notarius'])
 const emits = defineEmits(['handleCustomEvent'])

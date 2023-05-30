@@ -142,7 +142,7 @@ const editor = useEditor({
     Image,
   ],
   content: `
-    <h1 style="text-align:center"> ${store.state.bonusInputs} </h1>
+    <h1 style="text-align:center"> Доверенность на управление и распоряжение автомобилем </h1>
     <p style="text-align: right">
     <strong>
     Чуйская область, Московский район 

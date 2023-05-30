@@ -1,6 +1,6 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
-    <Approved :is-active="false" num="1" />
+  <div class="info__step">
+    <Approved num="1" />
     <div class="flex jcsb">
       <Title text="Выбор заявителя" />
     </div>
@@ -23,7 +23,7 @@
       <FormContentFirst v-show="isActiveParticipants === i" />
     </template>
 
-    <Next @click="handleClick(1, 'next')" />
+    <Next @click="handleClick(1)" />
   </div>
 </template>
 
@@ -40,13 +40,10 @@ import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActiveParticipants = ref(0)
 
-const props = defineProps(['active', 'i', 'short', 'progressPrev'])
-
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id) => {
   emits('handleCustomEvent',id)
-
 }
 
 const qntyOfParticipants = ref([

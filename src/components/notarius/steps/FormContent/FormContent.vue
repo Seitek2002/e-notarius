@@ -6,7 +6,7 @@
         <div class="flex">
           <div
             class="info__radio"
-            @click="(isActiveRadio = 0), (INNVal = ''), (end = false);"
+            @click="(isActiveRadio = 0), (INNVal = ''), (end = false)"
           >
             <div class="info__radio--button">
               <RadioCheckedIcon v-if="isActiveRadio === 0" />
@@ -16,7 +16,7 @@
           </div>
           <div
             class="info__radio"
-            @click="(isActiveRadio = 1), (INNVal = ''), (end = false);"
+            @click="(isActiveRadio = 1), (INNVal = ''), (end = false)"
           >
             <div class="info__radio--button">
               <RadioCheckedIcon v-if="isActiveRadio === 1" />
@@ -35,6 +35,19 @@
               </div>
             </div>
             Иностранное лицо
+          </div>
+          <div
+            v-if="isActiveRadioFace"
+            class="info__radio"
+            @click="(isActiveTranslator = !isActiveTranslator), (end = false)"
+          >
+            <div class="info__radio--button">
+              <div class="radio" :class="{ active: isActiveTranslator }">
+                <CheckboxCheckedIcon v-if="isActiveTranslator" />
+                <div v-else class="radio-check" />
+              </div>
+            </div>
+            Переводчик
           </div>
         </div>
       </div>
@@ -144,7 +157,7 @@
                       class="dropdown-search__option"
                       @click="
                         (passportSeriesActive = option),
-                          (passportSeriesIsActive = false);
+                          (passportSeriesIsActive = false)
                       "
                     >
                       {{ option }}
@@ -209,7 +222,7 @@
                 class="dropdown-search__option"
                 @click="
                   (citizenshipActiveOption = option),
-                    (citizenshipIsActive = false);
+                    (citizenshipIsActive = false)
                 "
               >
                 {{ option }}
@@ -238,7 +251,7 @@
                   :key="option"
                   class="dropdown-search__option"
                   @click="
-                    (regionActiveOption = option), (regionIsActive = false);
+                    (regionActiveOption = option), (regionIsActive = false)
                   "
                 >
                   {{ option }}
@@ -262,7 +275,7 @@
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click="(areaActiveOption = option), (areaIsActive = false);"
+                  @click="(areaActiveOption = option), (areaIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -305,7 +318,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click="(cityActiveOption = option), (cityIsActive = false);"
+                  @click="(cityActiveOption = option), (cityIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -345,7 +358,7 @@
                   class="dropdown-search__option"
                   @click="
                     (regionActiveOptionSecond = option),
-                      (regionIsActiveSecond = false);
+                      (regionIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -371,7 +384,7 @@
                   class="dropdown-search__option"
                   @click="
                     (areaActiveOptionSecond = option),
-                      (areaIsActiveSecond = false);
+                      (areaIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -417,7 +430,7 @@
                   class="dropdown-search__option"
                   @click="
                     (cityActiveOptionSecond = option),
-                      (cityIsActiveSecond = false);
+                      (cityIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -674,6 +687,9 @@ onClickOutside(isActiveRef, () => (isActive.value = false));
 const isActiveRadio = ref(0);
 const isActiveRadioSec = ref(0);
 const isActiveRadioFace = ref(false);
+
+const isActiveTranslator = ref(false);
+
 const activeOption = ref("");
 
 const fullNameVal = ref("");
@@ -770,25 +786,25 @@ const getUsers = () => {
         cityActiveOptionSecond.value = cityFact;
         end.value = true;
 
-        store.commit("setPersonNotarius", {
-          surname: surname.value,
-          name: name.value,
-          lastname: lastname.value,
-          avatarImg: avatarImg.value,
-          streetSecond: streetSecond.value,
-          houseSecond: houseSecond.value,
-          flatSecond: flatSecond.value,
-          streetFisrt: streetFisrt.value,
-          houseFisrt: houseFisrt.value,
-          flatFisrt: flatFisrt.value,
-          citizenshipActiveOption: citizenshipActiveOption.value,
-          regionActiveOption: regionActiveOption.value,
-          regionActiveOptionSecond: regionActiveOptionSecond.value,
-          areaActiveOption: areaActiveOption.value,
-          areaActiveOptionSecond: areaActiveOptionSecond.value,
-          dateOfBirthVal: dateOfBirthVal.value,
-          INNVal: INNVal.value,
-        });
+        // store.commit("setPersonNotarius", {
+        //   surname: surname.value,
+        //   name: name.value,
+        //   lastname: lastname.value,
+        //   avatarImg: avatarImg.value,
+        //   streetSecond: streetSecond.value,
+        //   houseSecond: houseSecond.value,
+        //   flatSecond: flatSecond.value,
+        //   streetFisrt: streetFisrt.value,
+        //   houseFisrt: houseFisrt.value,
+        //   flatFisrt: flatFisrt.value,
+        //   citizenshipActiveOption: citizenshipActiveOption.value,
+        //   regionActiveOption: regionActiveOption.value,
+        //   regionActiveOptionSecond: regionActiveOptionSecond.value,
+        //   areaActiveOption: areaActiveOption.value,
+        //   areaActiveOptionSecond: areaActiveOptionSecond.value,
+        //   dateOfBirthVal: dateOfBirthVal.value,
+        //   INNVal: INNVal.value,
+        // });
       }, 1500);
     } catch {
       isLoading.value = false;
@@ -862,7 +878,8 @@ const getLayerUser = () => {
 
         isLoading.value = false;
         end.value = true;
-        store.commit("setChoosenApplicant", fullNameVal.value);
+
+        // store.commit("setChoosenApplicant", fullNameVal.value);
       }, 3000);
     } catch {
       isErr.value = true;

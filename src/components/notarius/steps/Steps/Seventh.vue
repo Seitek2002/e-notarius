@@ -1,14 +1,12 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="7"
     />
     <div class="flex jcsb">
       <Title text="Просмотр и редактирование документа"/>
       <Back
-        v-show="!short"
-        @click="back(5,'prev')"
+        @click="back(6)"
       />
     </div>
     <div class="info__description">
@@ -42,7 +40,7 @@
           >
             <span
               class="info__circle"
-              @click="back(i, item)"
+              @click="back(i)"
             >
               {{ i + 1 }}
             </span>
@@ -66,7 +64,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import approveImg from '@/assets/images/approved.png'
@@ -78,20 +75,21 @@ import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
 import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
+import Back from '@/components/global/UI/Info/Btn/Back.vue'
 
 const store = useStore()
 const qntyCopy = ref(1)
 
-const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 const progress = ref(Array(6).fill('prev'))
+
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = () => {
   store.commit('setIsSubmit', true)
 }
 
-const back = (id, move) => {
-  emits('handleCustomEvent',id)
+const back = (id) => {
+  emits('handleCustomEvent', id)
 }
 </script>
 

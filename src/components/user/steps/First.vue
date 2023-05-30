@@ -1,14 +1,8 @@
 <template>
-  <div
-    class="info__step"
-    :class="active ? 'active' : ''"
-  >
-    <Approved
-      :is-active="active"
-      num="1"
-    />
+  <div class="info__step">
+    <Approved num="1" />
     <div class="flex jcsb">
-      <Title text="Выбор нотариуса"/>
+      <Title text="Выбор нотариуса" />
     </div>
     <div class="info__form">
       <div class="flex">
@@ -20,17 +14,14 @@
             @click="isActiveRegion = !isActiveRegion"
           >
             <span>{{ activeOptionRegion }}</span>
-            <ArrowDownSmallIcon/>
+            <ArrowDownSmallIcon />
           </label>
-          <div
-            v-show="isActiveRegion"
-            class="dropdown__select"
-          >
+          <div v-show="isActiveRegion" class="dropdown__select">
             <div
               v-for="(region, i) in regions"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionRegion = region), (isActiveRegion = false)"
+              @click="(activeOptionRegion = region), (isActiveRegion = false);"
             >
               {{ region }}
             </div>
@@ -44,17 +35,14 @@
             @click="isActiveArea = !isActiveArea"
           >
             <span>{{ activeOptionArea }}</span>
-            <ArrowDownSmallIcon/>
+            <ArrowDownSmallIcon />
           </label>
-          <div
-            v-show="isActiveArea"
-            class="dropdown__select"
-          >
+          <div v-show="isActiveArea" class="dropdown__select">
             <div
               v-for="(area, i) in areas"
               :key="i"
               class="dropdown__option"
-              @click=";(activeOptionArea = area), (isActiveArea = false)"
+              @click="(activeOptionArea = area), (isActiveArea = false);"
             >
               {{ area }}
             </div>
@@ -75,10 +63,7 @@
               :class="{ active: isActiveCity }"
             />
           </label>
-          <div
-            v-show="isActiveCity"
-            class="dropdown__select"
-          >
+          <div v-show="isActiveCity" class="dropdown__select">
             <div
               v-for="option in [
                 'Бишкек',
@@ -100,7 +85,7 @@
               ]"
               :key="option"
               class="dropdown__option"
-              @click=";(activeOptionCity = option), (isActiveCity = false)"
+              @click="(activeOptionCity = option), (isActiveCity = false);"
             >
               {{ option }}
             </div>
@@ -119,10 +104,7 @@
               :class="{ active: isActiveNotariusArea }"
             />
           </label>
-          <div
-            v-show="isActiveNotariusArea"
-            class="dropdown__select"
-          >
+          <div v-show="isActiveNotariusArea" class="dropdown__select">
             <div
               v-for="option in [
                 'Первомайский район',
@@ -167,7 +149,10 @@
               ]"
               :key="option"
               class="dropdown__option"
-              @click=";(activeOptionNotariusArea = option), (isActiveNotariusArea = false)"
+              @click="
+                (activeOptionNotariusArea = option),
+                  (isActiveNotariusArea = false);
+              "
             >
               {{ option }}
             </div>
@@ -182,15 +167,12 @@
           @click="isActive = !isActive"
         >
           <span>
-            <SearchIcon/>
+            <SearchIcon />
             {{ activeOption }}
           </span>
-          <ArrowDownSmallIcon/>
+          <ArrowDownSmallIcon />
         </label>
-        <div
-          v-show="isActive"
-          class="dropdown-search__select"
-        >
+        <div v-show="isActive" class="dropdown-search__select">
           <div
             v-for="option in [
               'ЧН Бегалиева Нурмира Улугбековна',
@@ -199,90 +181,96 @@
             ]"
             :key="option"
             class="dropdown-search__option"
-            @click=";(activeOption = option), (isActive = false)"
+            @click="(activeOption = option), (isActive = false);"
           >
             {{ option }}
           </div>
         </div>
       </div>
     </div>
-    <Next @click="handleClick(1, 'next')"/>
+    <Next @click="handleClick(1)" />
   </div>
 </template>
 
 <script setup>
-import { ref, watch, defineEmits, onUnmounted } from 'vue'
-import { onClickOutside } from '@vueuse/core'
+import { ref, watch, defineEmits, onUnmounted } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import SearchIcon from '@/components/global/UI/Info/Icons/SearchIcon.vue'
-import Approved from '@/components/global/UI/Info/Approved.vue'
-import Next from '@/components/global/UI/Info/Btn/Next.vue'
-import Title from '@/components/global/UI/Info/Title.vue'
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
+import SearchIcon from "@/components/global/UI/Info/Icons/SearchIcon.vue";
+import Approved from "@/components/global/UI/Info/Approved.vue";
+import Next from "@/components/global/UI/Info/Btn/Next.vue";
+import Title from "@/components/global/UI/Info/Title.vue";
 
-const isActiveRegionRef = ref(null)
-const isActiveAreaRef = ref(null)
-const isActiveCityRef = ref(null)
-const isActiveNotariusAreaRef = ref(null)
+const isActiveRegionRef = ref(null);
+const isActiveAreaRef = ref(null);
+const isActiveCityRef = ref(null);
+const isActiveNotariusAreaRef = ref(null);
 
-const isActiveRef = ref(null)
-const isActive = ref(false)
-const isActiveRadio = ref(0)
-const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
+const isActiveRef = ref(null);
+const isActive = ref(false);
+const isActiveRadio = ref(0);
+const activeOption = ref("ЧН Абылгазиева Нурмира Нарматовна");
 
-const isActiveRegion = ref(false)
-const isActiveArea = ref(false)
-const isActiveCity = ref(false)
-const isActiveNotariusArea = ref(false)
+const isActiveRegion = ref(false);
+const isActiveArea = ref(false);
+const isActiveCity = ref(false);
+const isActiveNotariusArea = ref(false);
 
-const activeOptionRegion = ref('Все')
-const activeOptionArea = ref('Все')
-const activeOptionCity = ref('Все')
-const activeOptionNotariusArea = ref('Все')
+const activeOptionRegion = ref("Все");
+const activeOptionArea = ref("Все");
+const activeOptionCity = ref("Все");
+const activeOptionNotariusArea = ref("Все");
 
 const data = ref({
-  'г. Бишкек': ['Первомайский район', 'Ленинский район', 'Свердловский район', 'Октябрьский район'],
+  "г. Бишкек": [
+    "Первомайский район",
+    "Ленинский район",
+    "Свердловский район",
+    "Октябрьский район",
+  ],
   Чуй: [
-    'Ыссык-Атинский район',
-    'Аламудунский район',
-    'Сокулукский район',
-    'Московский район',
-    'Жайылский район',
-    'Кеминский район',
-    'Панфиловский район',
+    "Ыссык-Атинский район",
+    "Аламудунский район",
+    "Сокулукский район",
+    "Московский район",
+    "Жайылский район",
+    "Кеминский район",
+    "Панфиловский район",
   ],
   Ош: [
-    'Кара-Сууйский район',
-    'Ноокатский район',
-    'Узгенский район',
-    'Араванский район',
-    'Алайский район',
-    'Кара-Кулжинский район',
-    'Чон-Алайский район',
+    "Кара-Сууйский район",
+    "Ноокатский район",
+    "Узгенский район",
+    "Араванский район",
+    "Алайский район",
+    "Кара-Кулжинский район",
+    "Чон-Алайский район",
   ],
-})
+});
 
-const regions = ref(Object.keys(data.value))
-const areas = ref(null)
+const regions = ref(Object.keys(data.value));
+const areas = ref(null);
 
 watch(activeOptionRegion, () => {
-  activeOptionArea.value = 'Все'
-  areas.value = data.value[activeOptionRegion.value]
-})
-defineProps(['active'])
+  activeOptionArea.value = "Все";
+  areas.value = data.value[activeOptionRegion.value];
+});
 
-const emits = defineEmits(['handleCustomEvent'])
+const emits = defineEmits(["handleCustomEvent"]);
 
 const handleClick = (id, move) => {
-  emits('handleCustomEvent', id)
-}
+  emits("handleCustomEvent", id);
+};
 
-onClickOutside(isActiveRegionRef, () => isActiveRegion.value = false);
-onClickOutside(isActiveAreaRef, () => isActiveArea.value = false);
-onClickOutside(isActiveCityRef, () => isActiveCity.value = false);
-onClickOutside(isActiveNotariusAreaRef, () => isActiveNotariusArea.value = false);
-onClickOutside(isActiveRef, () => isActive.value = false);
-
+onClickOutside(isActiveRegionRef, () => (isActiveRegion.value = false));
+onClickOutside(isActiveAreaRef, () => (isActiveArea.value = false));
+onClickOutside(isActiveCityRef, () => (isActiveCity.value = false));
+onClickOutside(
+  isActiveNotariusAreaRef,
+  () => (isActiveNotariusArea.value = false)
+);
+onClickOutside(isActiveRef, () => (isActive.value = false));
 </script>
 
 <style lang="scss">

@@ -44,14 +44,28 @@
     </div>
 
     <form @submit.prevent v-if="isActive" class="auth-item another">
-      <p v-if="isErr" class="auth-item__warning">Неправильный логин или пароль</p>
+      <p v-if="isErr" class="auth-item__warning">
+        Неправильный логин или пароль
+      </p>
       <label class="personal-number">
         <p class="auth-item__descr">Логин</p>
-        <input required v-model="loginVal" type="text" class="auth-item__input" />
+        <input
+          required
+          v-model="loginVal"
+          type="text"
+          class="auth-item__input"
+          autocomplete="username"
+        />
       </label>
       <label class="auth-password">
         <p class="auth-item__descr">Пароль</p>
-        <input required v-model="password" type="password" class="auth-item__input" />
+        <input
+          required
+          v-model="password"
+          type="password"
+          class="auth-item__input"
+          autocomplete="current-password"
+        />
         <svg
           class="auth-item__eye"
           width="24"
@@ -78,9 +92,7 @@
           />
         </svg>
       </label>
-      <span class="auth-item__forgot">
-        Забыли пароль?
-      </span>
+      <span class="auth-item__forgot"> Забыли пароль? </span>
       <img src="/src/assets/images/Hero/Captcha.png" alt="Captcha-icon" />
 
       <button class="auth-item__btn" @click="handleLogin">Войти</button>
@@ -91,14 +103,8 @@
 <script>
 import User from "../../../models/user";
 
-import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useStore, mapGetters } from "vuex";
-
-import errors from "vue3-qrcode-reader";
-
-const router = useRouter();
-const store = useStore();
+import { mapGetters } from "vuex";
 
 export default {
   name: "LoginAndPassword",
@@ -109,6 +115,7 @@ export default {
       isErr: false,
       isActive: false,
       loginVal: "",
+      password: "",
     };
   },
   computed: {
@@ -131,7 +138,6 @@ export default {
     }
   },
   methods: {
-    errors,
     handleLogin() {
       this.isErr = false;
       this.loading = true;

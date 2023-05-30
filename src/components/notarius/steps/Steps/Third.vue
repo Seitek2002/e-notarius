@@ -1,20 +1,16 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="3"
     />
     <div class="flex jcsb">
-      <Title text="Выбор объекта"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(1, 'prev')"
-      />
+      <Title text="Выбор объекта" />
+      <Back @click="handleClick(2)" />
     </div>
     <div class="flex jcsb">
       <div/>
       <Mark
-        v-show="!short"
+        
         text="Вам необходимо выбрать объект и его вид касательно чего вы хотите сделать нотариальный документ. Выбор объекта поможет вам быстро найти нужный вам нотариальный документ."
       />
     </div>
@@ -51,7 +47,7 @@
         />
       </div>
     </div>
-    <Next @click="handleClick(3,'next')"/>
+    <Next @click="handleClick(3)"/>
   </div>
 </template>
 

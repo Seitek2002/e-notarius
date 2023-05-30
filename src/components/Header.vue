@@ -13,7 +13,6 @@
       <div>
         <div class="header__action">
         <RouterLink to="/auth">
-          <own-room />
           Личный кабинет нотариуса
         </RouterLink>
         <div class="header__lang--wrapper">
@@ -33,7 +32,6 @@
               </RouterLink>
               <div class="nav__cab">
                 <RouterLink to="/auth">
-                  <own-room />
                   Личный кабинет нотариуса
                 </RouterLink>
               </div>

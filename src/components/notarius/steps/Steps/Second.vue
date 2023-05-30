@@ -1,20 +1,16 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="2"
     />
     <div class="flex jcsb">
       <Title text="Выбор нотариального документа"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(0, 'prev')"
+      <Back @click="handleClick(0)"
       />
     </div>
     <div class="flex jcsb">
       <div/>
       <Mark
-        v-show="!short"
         text="Вы можете выбрать документ из готовых шаблонов в “Мои шаблоны” либо выбрать из системных шаблонов. Если Вы не нашли то что искали, то нажмите “Выбрать пошагово”. Система поможет вам найти нужный документ"
       />
     </div>
@@ -127,15 +123,15 @@
     <div class="info-wropper">
       <Next
         v-if="example !== 'Все'"
-        @click="handleClick(4, 'next')"
+        @click="handleClick(4)"
       />
       <Next
         v-else
-        @click="handleClick(2, 'next')"
+        @click="handleClick(2)"
       />
       <button
         class="info-another-btn"
-        @click="handleClick(2, 'next')"
+        @click="handleClick(2)"
       >
         Выбрать пошагово
       </button>
@@ -195,11 +191,9 @@ const exampleIsActive = ref(false)
 const exampleIsActiveRef = ref(null)
 onClickOutside(exampleIsActiveRef, () => exampleIsActive.value = false);
 
-const props = defineProps(['active', 'i', 'short', 'progressPrev'])
-
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id, move) => {
+const handleClick = (id) => {
   emits('handleCustomEvent',id)
 }
 </script>

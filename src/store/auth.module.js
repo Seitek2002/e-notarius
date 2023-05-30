@@ -19,7 +19,7 @@ const initialState = {
   }
 }
 
-export const auth = {
+export const Auth = {
   namespaced: true,
   state: initialState,
   actions: {
