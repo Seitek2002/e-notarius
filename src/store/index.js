@@ -15,6 +15,10 @@ const store = createStore({
         state.auth.check = false
       }
     },
+    getLocal(state) {
+      state.sidebar = localStorage.getItem('sidebar') || '';
+      console.log(state.sidebar);
+    },
     setAuth(state) {
       state.auth.check = false
     },

@@ -5,19 +5,25 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { RouterView, useRoute } from "vue-router";
 
 import MainLayout from "@/layouts/MainLayout.vue";
 import NotariusLayout from "@/layouts/NotariusLayout.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
+import { useStore } from "vuex";
 
 const route = useRoute();
+const store = useStore()
 const layout = computed(() => {
   if (route.meta.layout === "user") return UserLayout;
   if (route.meta.layout === "notarius") return NotariusLayout;
   return MainLayout;
 });
+
+
+ 
+
 </script>
 
 <style lang="scss">

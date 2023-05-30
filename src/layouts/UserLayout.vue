@@ -3,11 +3,11 @@
 
 
 
-    <section :class="store.state.userSidebar ? 'sidebar active' : 'sidebar'">
+    <section :class="sidebar ? 'sidebar active' : 'sidebar'">
       <div class="sidebar-wrapper">
         <div class="sidebar-head">
           <router-link to="/">
-            <logo v-if="store.state.userSidebar" />
+            <logo v-if="sidebar" />
             <svg v-else style="min-width: 44px;" width="44" height="44" viewBox="0 0 44 44" fill="none"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <rect width="44" height="44" fill="url(#pattern0)" />
@@ -20,32 +20,32 @@
               </defs>
             </svg>
           </router-link>
-          <close v-if="store.state.userSidebar" style="min-width: 44px;"
-            @click="store.state.userSidebar = !store.state.userSidebar" />
+          <close v-if="sidebar" style="min-width: 44px;"
+            @click="toggleMenu()" />
           <close v-else style="min-width: 44px; transform: rotate(180deg);"
-            @click="store.state.userSidebar = !store.state.userSidebar" />
+            @click="toggleMenu()" />
         </div>
         <h3 class="sidebar-title">Личный кабинет</h3>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.userSidebar = !store.state.userSidebar"
+          <router-link class="sidebar-link"  
             v-for="item in sidebarList" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
-            <span v-show="store.state.userSidebar">{{ item.text }}</span>
+            <span v-show="sidebar">{{ item.text }}</span>
           </router-link>
         </div>
         <div class="sidebar-hr"></div>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.userSidebar = !store.state.userSidebar"
+          <router-link class="sidebar-link" 
             v-for="item in sidebarListSecond" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
-            <span v-show="store.state.userSidebar">{{ item.text }}</span>
+            <span v-show="sidebar">{{ item.text }}</span>
           </router-link>
         </div>
         <div class="sidebar-hr"></div>
         <div class="sidebar-list">
           <router-link to="/" class="sidebar-link">
             <left style="min-width: 24px;" />
-            <span v-show="store.state.userSidebar">Выход с кабинета</span>
+            <span v-show="sidebar">Выход с кабинета</span>
           </router-link>
         </div>
 
@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 import close from '@/layouts/Icons/sidebar/close.vue'
 import imageExtra from '@/layouts/Icons/sidebar/imageExtra.vue'
@@ -78,9 +78,20 @@ import logo from '@/layouts/Icons/sidebar/logo.vue'
 import OwnRoomTop from './OwnRoomTop.vue'
 import { useStore } from 'vuex'
 const store = useStore()
-const title = ref('Заявки')
-const firstIndex = ref(0)
-const SecondIndex = ref(null)
+const title = ref('Заявки') 
+ 
+const sidebar = ref(true);
+ 
+const toggleMenu = () => {
+  sidebar.value = !sidebar.value;
+  localStorage.setItem('sidebar', sidebar.value.toString());
+};
+
+onMounted(() => { 
+  const storedValue = localStorage.getItem('sidebar');
+  sidebar.value = storedValue === 'true';
+});
+
 const changeTitle = a => {
   title.value = a
 }
