@@ -327,6 +327,7 @@ const handleScrollLeft = () => {
 
     @media screen and (max-width: 517px) {
       flex-wrap: wrap;
+      
     }
 
     justify-content: space-between;
@@ -481,5 +482,12 @@ const handleScrollLeft = () => {
 .tooltip input:checked+span {
   visibility: visible;
   opacity: 1;
+}
+@media screen and (max-width: 517px) {
+  .exemple-wrapper:first-child {
+      .exemple-head {
+        flex-wrap: nowrap;
+      }
+    }
 }
 </style>
