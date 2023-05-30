@@ -21,13 +21,13 @@
             </svg>
           </router-link>
           <close v-if="store.state.userSidebar" style="min-width: 44px;"
-            @click="store.state.userSidebar = !store.state.userSidebar" />
+            @click="store.commit('setUserSideBar', !store.state.userSidebar)" />
           <close v-else style="min-width: 44px; transform: rotate(180deg);"
-            @click="store.state.userSidebar = !store.state.userSidebar" />
+            @click="store.commit('setUserSideBar', !store.state.userSidebar)" />
         </div>
         <h3 class="sidebar-title">Личный кабинет</h3>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.userSidebar = !store.state.userSidebar"
+          <router-link class="sidebar-link" @click="store.commit('setUserSideBar', !store.state.userSidebar)"
             v-for="item in sidebarList" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.userSidebar">{{ item.text }}</span>
@@ -35,7 +35,7 @@
         </div>
         <div class="sidebar-hr"></div>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.userSidebar = !store.state.userSidebar"
+          <router-link class="sidebar-link" @click="store.commit('setUserSideBar', !store.state.userSidebar)"
             v-for="item in sidebarListSecond" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.userSidebar">{{ item.text }}</span>

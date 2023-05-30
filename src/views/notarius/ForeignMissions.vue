@@ -244,7 +244,8 @@ const handleScrollLeft = () => {
   flex: 1;
 
   &__table {
-    overflow-x: auto;
+    min-height: 448px;
+    overflow-x: scroll;
     max-width: 100%;
   }
 
@@ -428,9 +429,7 @@ const handleScrollLeft = () => {
   }
 }
 
-.application-table {
-  max-width: 1115px;
-
+.application__table {
   table {
     margin-top: 40px;
     border-collapse: collapse;

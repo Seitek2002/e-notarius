@@ -283,7 +283,7 @@ const handleScrollLeft = () => {
   &__table {
     min-height: 448px;
     overflow-x: scroll;
-    max-width: 73vw;
+    max-width: 100%;
   }
 
   tr {

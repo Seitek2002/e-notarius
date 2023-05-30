@@ -102,6 +102,12 @@ const store = createStore({
     setPersonNotarius(state, data) {
       state.personNotarius = data
     },
+    setSideBar(state, data) {
+      state.notariusSidebar = data
+    },
+    setUserSideBar(state, data) {
+      state.userSidebar = data
+    }
   },
   actions: {},
   getters: {},

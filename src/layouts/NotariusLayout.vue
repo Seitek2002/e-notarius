@@ -18,13 +18,13 @@
             </svg>
           </router-link>
           <close v-if="store.state.notariusSidebar" style="min-width: 44px;"
-            @click="store.state.notariusSidebar = !store.state.notariusSidebar" />
+            @click="store.commit('setSideBar', !store.state.notariusSidebar)" />
           <close v-else style="min-width: 44px; transform: rotate(180deg);"
-            @click="store.state.notariusSidebar = !store.state.notariusSidebar" />
+            @click="store.commit('setSideBar', !store.state.notariusSidebar)" />
         </div>
         <h3 class="sidebar-title">Личный кабинет</h3>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
+          <router-link class="sidebar-link" @click="store.commit('setSideBar', !store.state.notariusSidebar); isActive = false"
             v-for="item in sidebarList" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>
@@ -32,7 +32,7 @@
         </div>
         <div class="sidebar-hr"></div>
         <div class="sidebar-list">
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
+          <router-link class="sidebar-link" @click="store.commit('setSideBar', !store.state.notariusSidebar); isActive = false"
             v-for="item in sidebarListSecond.slice(0, 1)" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>
@@ -46,14 +46,14 @@
             <up v-show="store.state.notariusSidebar" :class="isActive ? 'sidebar-up' : 'sidebar-up active'" />
           </div>
 
-          <router-link v-show="isActive && store.state.notariusSidebar" class="sidebar-link another" @click="store.state.notariusSidebar = !store.state.notariusSidebar"
+          <router-link v-show="isActive && store.state.notariusSidebar" class="sidebar-link another" @click="store.commit('setSideBar', !store.state.notariusSidebar)"
             v-for="item in showRendering" :key="item.id" :to="item.link"> 
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>
           </router-link>
           
           <!-- Конец -->
 
-          <router-link class="sidebar-link" @click="store.state.notariusSidebar = !store.state.notariusSidebar; isActive = false"
+          <router-link class="sidebar-link" @click="store.commit('setSideBar', !store.state.notariusSidebar); isActive = false"
             v-for="item in sidebarListSecond.slice(1)" :key="item.id" :to="item.link">
             <component style="min-width: 24px;" :is="item.img" />
             <span v-show="store.state.notariusSidebar">{{ item.text }}</span>

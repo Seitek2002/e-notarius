@@ -44,7 +44,7 @@
         />
       </div>
     </div>
-    <Next @click="handleClick(3,'next')"/>
+    <Next @click="handleClick(2,'next')"/>
   </div>
 </template>
 
