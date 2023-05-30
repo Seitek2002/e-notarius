@@ -35,7 +35,7 @@
     </div>
     <Next
       title="Подтвердить"
-      @click="handleClick(6, 'next')"
+      @click="handleClick"
     />
   </div>
 </template>
@@ -60,8 +60,12 @@ defineProps(['short'])
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
-  store.commit('pushNewItemUser')
-  router.push('/OrderSend-user')
+  if(id, move) {
+    emits('handleCustomEvent',id)
+  } else {
+    store.commit('pushNewItemUser')
+    router.push('/OrderSend-user')
+  }
 }
 
 </script>
