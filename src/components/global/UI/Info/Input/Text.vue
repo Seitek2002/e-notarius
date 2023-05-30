@@ -64,6 +64,10 @@ label {
     padding: 11px 10px;
     width: 100%;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #24334b;
   }
 }
 </style>
