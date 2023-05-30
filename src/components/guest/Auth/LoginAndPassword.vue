@@ -150,7 +150,7 @@ export default {
           this.$router.push("/order-list-notarius");
           this.loading = false;
         } else {
-          this.$router.push("/order-list-user");
+          this.isErr = true;
           this.loading = false;
         }
       } else {
