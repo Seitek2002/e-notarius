@@ -350,7 +350,7 @@ export const state = {
       foundersLayer: '0',
       qntyOfMembers: '2',
       chin: 'ЧН',
-      fullName: 'Абдыгулов Баяман Алыкулович',
+      fullName: 'Кобаев Эльдияр Эгембердиевич',
       registration: {
         street: 'М. Алыбаев',
         house: '10',
@@ -391,7 +391,7 @@ export const state = {
       foundersLayer: '0',
       qntyOfMembers: '2',
       chin: 'ЧН',
-      fullName: 'Кобаев Эльдияр Эгембердиевич',
+      fullName: 'Абдыгулов Баяман Алыкулович',
       registration: {
         street: 'М. Алыбаев',
         house: '10',
