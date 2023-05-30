@@ -1,17 +1,11 @@
 <template>
   <div class="info__form">
-    <div
-      class="info__form--wrapper"
-      style="margin-top: 30px"
-    >
-      <div
-        class="flex"
-        style="margin-top: 15px"
-      >
+    <div class="info__form--wrapper" style="margin-top: 30px">
+      <div class="flex" style="margin-top: 15px">
         <div class="dropdown">
           <p>Срок доверенности</p>
           <label
-          ref="believeIsActiveRef"
+            ref="believeIsActiveRef"
             :class="believeIsActive ? 'active' : ''"
             @click="believeIsActive = !believeIsActive"
           >
@@ -21,15 +15,21 @@
               :class="{ active: believeIsActive }"
             />
           </label>
-          <div
-            v-show="believeIsActive"
-            class="dropdown__select"
-          >
+          <div v-show="believeIsActive" class="dropdown__select">
             <div
-              v-for="option in ['1 месяц', '3 месяца', '6 месяцев', '1 год', '3 года', 'другое']"
+              v-for="option in [
+                '1 месяц',
+                '3 месяца',
+                '6 месяцев',
+                '1 год',
+                '3 года',
+                'другое',
+              ]"
               :key="option"
               class="dropdown-search__option"
-              @click=";(believeTime = option), (believeIsActive = !believeIsActive)"
+              @click="
+                (believeTime = option), (believeIsActive = !believeIsActive)
+              "
             >
               {{ option }}
             </div>
@@ -38,42 +38,39 @@
         <div class="dropdown">
           <p>Степень родства</p>
           <label
-          ref="relationIsActiveRef"
+            ref="relationIsActiveRef"
             :class="relationIsActive ? 'active' : ''"
             @click="relationIsActive = true"
           >
             <span>{{ relation }}</span>
-            <ArrowDownSmallIcon
-              :class="{ active: relationIsActive }"
-            />
+            <ArrowDownSmallIcon :class="{ active: relationIsActive }" />
           </label>
-          <div
-            v-show="relationIsActive"
-            class="dropdown__select"
-          >
+          <div v-show="relationIsActive" class="dropdown__select">
             <div
-              v-for="option in ['Дети', 'Родители', 'Супруги', 'Иные физические лица']"
+              v-for="option in [
+                'Дети',
+                'Родители',
+                'Супруги',
+                'Иные физические лица',
+              ]"
               :key="option"
               class="dropdown-search__option"
-              @click=";(relation = option), (relationIsActive = false)"
+              @click="(relation = option), (relationIsActive = false)"
             >
               {{ option }}
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="flex number"
-        style="margin-top: 15px"
-      >
+      <div class="flex number" style="margin-top: 15px">
         <div class="dropdown">
           <p>Гос номер авто</p>
-          <Input class="inputNumberAuto"/>
+          <Input class="inputNumberAuto" />
         </div>
         <div class="dropdown">
           <p>Право передоверия</p>
           <label
-          ref="believeIsActiveRightRef"
+            ref="believeIsActiveRightRef"
             :class="believeIsActiveRight ? 'active' : ''"
             @click="believeIsActiveRight = true"
           >
@@ -83,88 +80,57 @@
               :class="{ active: believeIsActiveRight }"
             />
           </label>
-          <div
-            v-show="believeIsActiveRight"
-            class="dropdown__select"
-          >
+          <div v-show="believeIsActiveRight" class="dropdown__select">
             <div
-              v-for="option in ['С правом передоверия', 'Без права передоверия']"
+              v-for="option in [
+                'С правом передоверия',
+                'Без права передоверия',
+              ]"
               :key="option"
               class="dropdown-search__option"
-              @click=";(believeRight = option), (believeIsActiveRight = false)"
+              @click="(believeRight = option), (believeIsActiveRight = false)"
             >
               {{ option }}
             </div>
           </div>
         </div>
       </div>
-      <button
-        :disabled="isLoading"
-        class="chek"
-        @click="handleClick"
-      >
+      <button :disabled="isLoading" class="chek" @click="handleClick">
         Проверить
         <AnimationBubblesIcon
           class="loading-check-svg"
           :class="{ active: isLoading }"
         />
-        <span
-          v-if="end"
-          class="end"
-          :class="{acive: end}"
-        >
-          <SuccessSmallIcon/>
+        <span v-if="end" class="end" :class="{ acive: end }">
+          <SuccessSmallIcon />
           Данные действительны в базе данных ГП Унаа
         </span>
       </button>
-      <div
-        v-if="showAutoNumber"
-        class=""
-      >
+      <div v-if="showAutoNumber" class="">
         <div>
           <ul class="autoInfo">
-            <li
-              v-for="info in autoInfo"
-              :key="info"
-            >
+            <li v-for="info in autoInfo" :key="info">
               {{ info }}
             </li>
           </ul>
-          <hr>
+          <hr />
         </div>
         <ul class="autoDescr">
-          <li
-            v-for="descr in autoDescr"
-            :key="descr"
-          >
+          <li v-for="descr in autoDescr" :key="descr">
             {{ descr }}
           </li>
         </ul>
       </div>
-      <div
-        class="flex"
-        style="margin-top: 15px"
-      >
-        <Text
-          class="w-55"
-          text="Сумма госпошлины"
-          placeholder=""
-        />
-        <Text
-          class="w-55"
-          text="Вознаграждение нотариуса"
-          placeholder=""
-        />
+      <div class="flex" style="margin-top: 15px">
+        <Text class="w-55 inputs" text="Сумма госпошлины" placeholder="" />
+        <Text class="w-55 inputs" text="Вознаграждение нотариуса" placeholder="" />
       </div>
     </div>
     <div class="info__form">
-      <div
-        class="info__radio"
-        @click="isActiveRadio = !isActiveRadio"
-      >
+      <div class="info__radio" @click="isActiveRadio = !isActiveRadio">
         <div class="info__radio--button">
-          <RadioSuccessIcon v-if="isActiveRadio"/>
-          <RadioNulledIcon v-else/>
+          <RadioSuccessIcon v-if="isActiveRadio" />
+          <RadioNulledIcon v-else />
         </div>
         Освобожден
       </div>
@@ -173,96 +139,102 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { onClickOutside } from '@vueuse/core'
+import { ref } from "vue";
+import { useStore } from "vuex";
+import { onClickOutside } from "@vueuse/core";
 
-import Text from '@/components/global/UI/Info/Input/Text.vue'
-import AnimationBubblesIcon from '@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue'
-import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
-import RadioNulledIcon from '@/components/global/UI/Info/Icons/RadioNulledIcon.vue'
-import RadioSuccessIcon from '@/components/global/UI/Info/Icons/RadioSuccessIcon.vue'
-import SuccessSmallIcon from '@/components/global/UI/Info/Icons/SuccessSmallIcon.vue'
+import Text from "@/components/global/UI/Info/Input/Text.vue";
+import AnimationBubblesIcon from "@/components/global/UI/Info/Icons/AnimationBubblesIcon.vue";
+import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
+import RadioNulledIcon from "@/components/global/UI/Info/Icons/RadioNulledIcon.vue";
+import RadioSuccessIcon from "@/components/global/UI/Info/Icons/RadioSuccessIcon.vue";
+import SuccessSmallIcon from "@/components/global/UI/Info/Icons/SuccessSmallIcon.vue";
 
-const store = useStore()
+const store = useStore();
 
 const autoInfo = ref([
-  'Рег. знак',
-  'Тип ТС',
-  'Кузов',
-  'Марка',
-  'Модель',
-  'Тип Руля',
-  'Год',
-  'Цвет',
-  'Серийный номер',
-  'Идент номер',
-  'Обьем',
-  'Арест/Запрет',
-])
+  "Рег. знак",
+  "Тип ТС",
+  "Кузов",
+  "Марка",
+  "Модель",
+  "Тип Руля",
+  "Год",
+  "Цвет",
+  "Серийный номер",
+  "Идент номер",
+  "Обьем",
+  "Арест/Запрет",
+]);
 const autoDescr = ref([
-  '09KG774',
-  'легковой',
-  'седан',
-  'MERCEDES-BENZ',
-  'E 220',
-  'левый',
-  '2001',
-  'Цвет',
-  'WDB2100061BQQ7053',
-  '',
-  '2148',
-  'Не состоит в аресте (запрещении)',
-])
-const buttonShow = ref(false)
-const inpVal = ref('')
-const showAutoNumber = ref(false)
-const isActiveRadio = ref(false)
+  "09KG774",
+  "легковой",
+  "седан",
+  "MERCEDES-BENZ",
+  "E 220",
+  "левый",
+  "2001",
+  "Цвет",
+  "WDB2100061BQQ7053",
+  "",
+  "2148",
+  "Не состоит в аресте (запрещении)",
+]);
+const buttonShow = ref(false);
+const inpVal = ref("");
+const showAutoNumber = ref(false);
+const isActiveRadio = ref(false);
 
-const believeTime = ref('1 месяц')
-const autoNumber = ref('09KG774')
-const promises = ref('C правом передоверия')
-const believeTimeIsActive = ref(false)
-const believeTimeIsActiveRef = ref(null)
-onClickOutside(believeTimeIsActiveRef, () => believeTimeIsActive.value = false);
+const believeTime = ref("1 месяц");
+const autoNumber = ref("09KG774");
+const promises = ref("C правом передоверия");
+const believeTimeIsActive = ref(false);
+const believeTimeIsActiveRef = ref(null);
+onClickOutside(
+  believeTimeIsActiveRef,
+  () => (believeTimeIsActive.value = false)
+);
 
-const relation = ref('Иные физические лица')
-const relationIsActive = ref(false)
-const relationIsActiveRef = ref(null)
-onClickOutside(relationIsActiveRef, () => relationIsActive.value = false);
+const relation = ref("Иные физические лица");
+const relationIsActive = ref(false);
+const relationIsActiveRef = ref(null);
+onClickOutside(relationIsActiveRef, () => (relationIsActive.value = false));
 
-const believe = ref('')
-const believeIsActive = ref(false)
-const believeIsActiveRef = ref(null)
-onClickOutside(believeIsActiveRef, () => believeIsActive.value = false);
+const believe = ref("");
+const believeIsActive = ref(false);
+const believeIsActiveRef = ref(null);
+onClickOutside(believeIsActiveRef, () => (believeIsActive.value = false));
 
-const believeRight = ref('')
-const believeIsActiveRight = ref(false)
-const believeIsActiveRightRef = ref(null)
-onClickOutside(believeIsActiveRightRef, () => believeIsActiveRight.value = false);
+const believeRight = ref("");
+const believeIsActiveRight = ref(false);
+const believeIsActiveRightRef = ref(null);
+onClickOutside(
+  believeIsActiveRightRef,
+  () => (believeIsActiveRight.value = false)
+);
 
-const isLoading = ref(false)
-const end = ref(false)
+const isLoading = ref(false);
+const end = ref(false);
 
 const inputValue = () => {
-  if (inpVal.value === '') {
-    !buttonShow.value
+  if (inpVal.value === "") {
+    !buttonShow.value;
   } else {
-    buttonShow.value
+    buttonShow.value;
   }
-}
+};
 
 const handleClick = () => {
-  isLoading.value = true
-  end.value = false
-  showAutoNumber.value = false
+  isLoading.value = true;
+  end.value = false;
+  showAutoNumber.value = false;
 
   setTimeout(() => {
-    showAutoNumber.value = true
-    isLoading.value = false
-    end.value = true
-  }, 1500)
-}
+    showAutoNumber.value = true;
+    isLoading.value = false;
+    end.value = true;
+  }, 1500);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -272,7 +244,7 @@ const handleClick = () => {
   .end {
     position: absolute;
     right: -500px;
-    color: #3F5984;
+    color: #3f5984;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -305,6 +277,11 @@ hr {
   border: 1px solid #1baa75;
   width: 100%;
   height: 36px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #24334b;
+  padding: 0 7px;
 }
 
 .btns {
@@ -320,7 +297,7 @@ hr {
   background-color: #1baa75;
   color: #fff;
   margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -496,7 +473,7 @@ hr {
 
     &-family {
       position: relative;
-      font-family: 'Times New Roman';
+      font-family: "Times New Roman";
 
       &--content {
         width: 185px;
