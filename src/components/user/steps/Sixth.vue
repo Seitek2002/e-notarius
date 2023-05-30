@@ -54,7 +54,6 @@ import Title from '@/components/global/UI/Info/Title.vue'
 import TextEditor from '@/components/TextEditor/TextEditor.vue'
 
 const router = useRouter()
-
 const store = useStore()
 
 defineProps(['short'])
@@ -62,7 +61,7 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id, move) => {
   store.commit('pushNewItemUser')
-  router.push('/OrderSend')
+  router.push('/OrderSend-user')
 }
 
 </script>

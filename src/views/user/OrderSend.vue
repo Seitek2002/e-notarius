@@ -5,7 +5,7 @@
         <div class="send__box">
           <div class="send__row">
             <h2>
-              {{ title }}
+              Ваша заявка успешно отправлена нотариусу
             </h2>
             <SuccessSmallIcon />
           </div>
@@ -357,6 +357,7 @@ const handleScrollLeft = () => {
   }
 
   &__sample {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -67,7 +67,6 @@ import Title from '@/components/global/UI/Info/Title.vue'
 
 const isActive = ref(false)
 const isActiveRadio = ref(0)
-const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
 const store = useStore()
 
 const props = defineProps(['active', 'i', 'short'])
