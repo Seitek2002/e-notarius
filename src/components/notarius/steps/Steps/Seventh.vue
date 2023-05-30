@@ -42,7 +42,7 @@
           >
             <span
               class="info__circle"
-              @click="handleClick(i, item)"
+              @click="back(i, item)"
             >
               {{ i + 1 }}
             </span>
@@ -54,7 +54,7 @@
     <div class="info__bottom">
       <Next
         title="Внести в реестр"
-        @click="handleClick(7, 'next')"
+        @click="handleClick"
       />
       <span>
         <AddNewRequestIcon/>

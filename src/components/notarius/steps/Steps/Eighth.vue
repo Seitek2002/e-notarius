@@ -70,7 +70,7 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id) => {
   router.push('/OrderSend-notarius')
-  emits('handleCustomEvent', id)
+  // emits('handleCustomEvent', id)
 }
 const print = () => {
   printJS('/example.pdf')
