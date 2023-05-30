@@ -8,7 +8,7 @@
       <Title text="Выбор документа"/>
       <Back
         v-show="!short"
-        @click="handleClick(2, 'prev')"
+        @click="handleClick(1, 'prev')"
       />
     </div>
     <div class="flex jcsb">
@@ -289,7 +289,7 @@
         </div>
       </div>
     </div>
-    <Next @click="handleClick(4, 'next')"/>
+    <Next @click="handleClick(3, 'next')"/>
   </div>
 </template>
 

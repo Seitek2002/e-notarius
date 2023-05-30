@@ -8,7 +8,7 @@
       <Title text="Выбор объекта"/>
       <Back
         v-show="!short"
-        @click="handleClick(1, 'prev')"
+        @click="handleClick(0, 'prev')"
       />
     </div>
     <div class="info__form">

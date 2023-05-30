@@ -8,7 +8,7 @@
       <Title text="Сторона 1 (личные данные)" />
       <Back
         v-show="!short"
-        @click="handleClick(4, 'prev')"
+        @click="handleClick(2, 'prev')"
       />
     </div>
     <div class="info__form">
