@@ -52,8 +52,7 @@
             <label class="send__search">
               <div class="send__flex">
                 <input
-                  type="text"
-                  placeholder="Доверенность когда будет готова? Когда к вам можно  подойти?"
+                  type="text" 
                 >
                 <button>
                   <ArrowRightIcon/>

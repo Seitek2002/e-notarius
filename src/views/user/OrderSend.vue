@@ -158,7 +158,7 @@
             <h2>Написать сообщение нотариусу</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input type="text" />
+                <input type="text" placeholder="Ваша доверенность готова" />
                 <button>
                   <ArrowRightIcon />
                 </button>
