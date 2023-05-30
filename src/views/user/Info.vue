@@ -139,7 +139,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 }
 
 .dropdown-search {
-  // width: 50%;
+  width: 100%;
   position: relative;
 
   span {
