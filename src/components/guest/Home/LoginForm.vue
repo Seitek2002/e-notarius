@@ -39,7 +39,7 @@
             <img src="/src/assets/images/Hero/Captcha.png" alt="Captcha-icon" />
             <div class="hero__btns">
               <button @click="handleClick">Войти</button>
-              <router-link to="/auth"> Другие способы входа </router-link>
+              <router-link to="/another-auth"> Другие способы входа </router-link>
             </div>
             <a href="#" class="hero__text">Забыли пароль?</a>
           </form>
