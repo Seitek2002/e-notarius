@@ -10,9 +10,9 @@
         <a href="#faq">Вопросы-ответы</a>
         <a href="#acts">Нормативные акты</a>
       </nav>
-      <div class="header__action">
+      <div>
+        <div class="header__action">
         <RouterLink to="/auth">
-          <own-room />
           Личный кабинет нотариуса
         </RouterLink>
         <div class="header__lang--wrapper">
@@ -32,7 +32,6 @@
               </RouterLink>
               <div class="nav__cab">
                 <RouterLink to="/auth">
-                  <own-room />
                   Личный кабинет нотариуса
                 </RouterLink>
               </div>
@@ -63,11 +62,24 @@
               Личный кабинет нотариуса
             </div>
             <div class="nav-lang">
-              <div class="nav-rus act">Рус</div>
-              <div class="nav-k">Кыр</div>
+              <div
+                class="nav-l"
+                :class="isActive ? '' : ' act'"
+                @click="isActive = !isActive"
+              >
+                Рус
+              </div>
+              <div
+                class="nav-l"
+                :class="isActive ? ' act' : ''"
+                @click="isActive = !isActive"
+              >
+                Кыр
+              </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </header>
@@ -75,9 +87,10 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
-
 import logo from "@/components/icons/Header/logo.vue";
 import Lang from "@/components/global/UI/Lang/Lang.vue";
+import { ref } from "vue";
+const isActive = ref(false)
 </script>
 
 <style lang="scss">
@@ -102,21 +115,12 @@ import Lang from "@/components/global/UI/Lang/Lang.vue";
   font-weight: 600;
   font-size: 16px;
   color: #ffffff;
-  padding: 16px 18px;
-  width: 66px;
-  height: 44px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20px;
 }
 .nav-lang {
   display: flex;
   align-items: center;
-  div {
-    margin-right: 10px;
-  }
+  margin-left: 20px;
+  gap: 10px;
   display: none;
 }
 /* стилизуем кнопку */
@@ -219,6 +223,16 @@ import Lang from "@/components/global/UI/Lang/Lang.vue";
     font-size: 16px;
     color: $text-dark-blue;
   }
+  &-l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 44px;
+  }
+  &-cab {
+    width: 80%;
+  }
 }
 .nav-wrapper {
   display: flex;
@@ -275,6 +289,7 @@ import Lang from "@/components/global/UI/Lang/Lang.vue";
   &__action {
     display: flex;
     gap: 40px;
+    margin-right: 34px;
 
     a {
       display: flex;
@@ -293,10 +308,21 @@ import Lang from "@/components/global/UI/Lang/Lang.vue";
     display: none;
   }
   .nav-cab {
-    display: block;
+    display: flex;
+    margin: 50px 20px 30px 20px;
+    align-items: center;
+    justify-content: start;
   }
   .nav-lang {
     display: flex;
+    // margin-left: 20px;
+  }
+  .nav__logo .header__logo {
+    display: none;
+  }
+  .nav-wrapper {
+    margin-top: 70px;
+    margin-left: 20px;
   }
 }
 </style>

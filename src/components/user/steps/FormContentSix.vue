@@ -69,7 +69,7 @@
         <div class="dropdown w-55">
           <p>Гос номер авто</p>
 
-          <Input class="inputNumberAuto" style="width: 99%;" />
+          <input class="inputNumberAuto" style="width: 99%;" />
         </div>
         <div class="dropdown">
           <p>Право передоверия</p>
@@ -99,76 +99,8 @@
           </div>
         </div>
       </div>
-      <!-- <button
-        :disabled="isLoading"
-        class="check"
-        @click="handleClick"
-      >
-        Проверить
-        <AnimationBubblesIcon
-          class="loading-check-svg"
-          :class="{ active: isLoading }"
-        />
-        <span
-          v-if="end"
-          class="end"
-          :class="{active: end}"
-        >
-          <SuccessSmallIcon/>
-          Данные действительны в базе данных ГП Унаа
-        </span>
-      </button> -->
-      <!-- <div
-        v-if="showAutoNumber"
-        class=""
-      >
-        <div>
-          <ul class="autoInfo">
-            <li
-              v-for="info in autoInfo"
-              :key="info"
-            >
-              {{ info }}
-            </li>
-          </ul>
-          <hr>
-        </div>
-        <ul class="autoDescr">
-          <li
-            v-for="descr in autoDescr"
-            :key="descr"
-          >
-            {{ descr }}
-          </li>
-        </ul>
-      </div> -->
     </div>
-    <!-- <div
-      class="flex"
-      style="margin-top: 15px"
-    >
-      <Text
-        class="w-55"
-        text="Сумма госпошлины"
-        placeholder=""
-      />
-      <Text
-        class="w-55"
-        text="Вознаграждение нотариуса"
-        placeholder=""
-      />
-    </div> -->
     <div class="info__form">
-      <!-- <div
-        class="info__radio"
-        @click="isActiveRadio = !isActiveRadio"
-      >
-        <div class="info__radio--button">
-          <RadioSuccessIcon v-if="isActiveRadio"/>
-          <RadioNulledIcon v-else/>
-        </div>
-        Освобожден
-      </div> -->
       <div class="info__form--wrapper">
         <File/>
       </div>

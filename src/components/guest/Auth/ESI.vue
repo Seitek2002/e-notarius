@@ -6,100 +6,93 @@
       @click="isActive = !isActive"
     >
       <div>
-        <FingerprintIcon/>
+        <FingerprintIcon />
         <h3>Вход посредством ЭЦП</h3>
       </div>
-      <PlusIcon
-        v-show="!isActive"
-      />
-      <MinusIcon
-        v-show="isActive"
-      />
+      <PlusIcon v-show="!isActive" />
+      <MinusIcon v-show="isActive" />
     </div>
-    <div
-      v-show="isActive"
-      class="auth-item__login"
-    >
+    <div v-show="isActive" class="auth-item__login">
       <div class="auth-item__btns">
-        <button class="active">
-          Вход через ИНН
-        </button>
+        <button class="active">Вход через ИНН</button>
         <button>Вход через ID</button>
       </div>
-      <label for="personal-number">
-        <p>идентификационый номер (ИНН)</p>
-        <input
-          id="personal-number"
-          v-model="inn"
-          type="text"
-        >
-      </label>
-      <label for="password">
-        <p>Пароль</p>
-        <input
-          id="password"
-          v-model="password"
-          type="password"
-        >
-      </label>
-      <a
-        href="#"
-        class="forget-password"
-      >Забыли пароль?</a>
-      <div
-        v-show="err"
-        class="auth-item__err"
-      >
-        <div class="auth-item__info">
-          <h3>Неудачная попытка входа</h3>
-          <p>
-            Вы не можете войти в личный кабинет, так как вы не зарегистрировались в ЕСИ. Для того, чтобы получить ЕСИ
-            вам необходимо обратиться в ближайший ЦОН или к любому нотариусу в реестре для получения логина.
-          </p>
+      <form @submit.prevent>
+        <label for="personal-number">
+          <p>идентификационый номер (ИНН)</p>
+          <input
+            id="personal-number"
+            v-model="inn"
+            type="text"
+            required
+            autocomplete="username"
+          />
+        </label>
+        <label for="password">
+          <p>Пароль</p>
+          <input
+            id="password"
+            v-model="password"
+            type="password"
+            required
+            autocomplete="current-password"
+          />
+        </label>
+        <a href="#" class="forget-password"> Забыли пароль? </a>
+        <div v-show="err" class="auth-item__err">
+          <div class="auth-item__info">
+            <h3>Неудачная попытка входа</h3>
+            <p>
+              Вы не можете войти в личный кабинет, так как вы не
+              зарегистрировались в ЕСИ. Для того, чтобы получить ЕСИ вам
+              необходимо обратиться в ближайший ЦОН или к любому нотариусу в
+              реестре для получения логина.
+            </p>
+          </div>
+          <WarningIcon />
         </div>
-        <WarningIcon/>
-      </div>
-      <Btn
-        title="Войти"
-        bg="#1BAA75"
-        :disabled="isLoading"
-        @click="handleClick, router.push('/order-list-notarius')"
-      />
+        <Btn
+          title="Войти"
+          bg="#1BAA75"
+          :disabled="isLoading"
+          @click="handleClick, router.push('/order-list-notarius')"
+        />
+      </form>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-import Btn from '@/components/global/UI/Buttons/Btn.vue'
-import FingerprintIcon from '@/components/guest/Auth/Icons/FingerprintIcon.vue'
-import MinusIcon from '@/components/guest/Auth/Icons/MinusIcon.vue'
-import PlusIcon from '@/components/guest/Auth/Icons/PlusIcon.vue'
-import WarningIcon from '@/components/guest/Auth/Icons/WarningIcon.vue'
+import Btn from "@/components/global/UI/Buttons/Btn.vue";
+import FingerprintIcon from "@/components/guest/Auth/Icons/FingerprintIcon.vue";
+import MinusIcon from "@/components/guest/Auth/Icons/MinusIcon.vue";
+import PlusIcon from "@/components/guest/Auth/Icons/PlusIcon.vue";
+import WarningIcon from "@/components/guest/Auth/Icons/WarningIcon.vue";
 
-const isActive = ref(false)
-const router = useRouter()
-const isLoading = ref(false)
-const inn = ref('')
-const password = ref('')
-const err = ref(false)
+const isActive = ref(false);
+const router = useRouter();
+const isLoading = ref(false);
+const inn = ref("");
+const password = ref("");
+const err = ref(false);
 
 const handleClick = () => {
-  err.value = false
-  isLoading.value = true
+  err.value = false;
+  isLoading.value = true;
 
   setTimeout(() => {
-    if (inn.value.trim() === '' || password.value.trim() === '') {
-      err.value = true
-      isLoading.value = false
+    if (inn.value.trim() === "" || password.value.trim() === "") {
+      err.value = true;
+      isLoading.value = false;
     } else {
-      err.value = false
-      isLoading.value = false
+      err.value = false;
+      isLoading.value = false;
     }
-  }, 4000)
-}
+  }, 4000);
+};
 </script>
 
 <style lang="scss">
@@ -155,7 +148,7 @@ const handleClick = () => {
       font-size: 16px;
       padding: 15px 0;
       background: transparent;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       transition: 0.3s;
 
       &.active {

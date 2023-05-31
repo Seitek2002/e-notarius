@@ -1,10 +1,10 @@
 import { createStore } from 'vuex'
 import { state } from './mockState'
-import { auth } from './auth.module';
+import { Auth } from './auth.module';
 
 const store = createStore({
   modules: {
-    auth
+    Auth
   },
   state,
   mutations: { 
@@ -17,7 +17,6 @@ const store = createStore({
     },
     getLocal(state) {
       state.sidebar = localStorage.getItem('sidebar') || '';
-      console.log(state.sidebar);
     },
     setAuth(state) {
       state.auth.check = false
@@ -85,8 +84,6 @@ const store = createStore({
         duty: 'Оплачен',
         cause: '',
       }
-      console.log(state.registryOfUser)
-      console.log(state.registryOfNotariusAction)
     },
     setIsSubmit(state, data) {
       state.isSubmit = data
@@ -111,6 +108,9 @@ const store = createStore({
     },
     setUserSideBar(state, data) {
       state.userSidebar = data
+    },
+    pushNewDocToOrderList(state) {
+      state.tableListNotarius.unshift(state.item)
     }
   },
   actions: {},

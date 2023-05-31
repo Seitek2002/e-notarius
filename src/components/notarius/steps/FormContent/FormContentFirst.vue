@@ -16,7 +16,7 @@
           </div>
           <div
             class="info__radio"
-            @click="(isActiveRadio = 1), (INNVal = ''), (end = false);"
+            @click="(isActiveRadio = 1), (INNVal = ''), (end = false)"
           >
             <div class="info__radio--button">
               <RadioCheckedIcon v-if="isActiveRadio === 1" />
@@ -26,7 +26,7 @@
           </div>
           <div
             class="info__radio"
-            @click="(isActiveRadioFace = !isActiveRadioFace), (end = false);"
+            @click="(isActiveRadioFace = !isActiveRadioFace), (end = false)"
           >
             <div class="info__radio--button">
               <div class="radio" :class="{ active: isActiveRadioFace }">
@@ -35,6 +35,19 @@
               </div>
             </div>
             Иностранное лицо
+          </div>
+          <div
+            v-if="isActiveRadioFace"
+            class="info__radio"
+            @click="(isActiveTranslator = !isActiveTranslator), (end = false)"
+          >
+            <div class="info__radio--button">
+              <div class="radio" :class="{ active: isActiveTranslator }">
+                <CheckboxCheckedIcon v-if="isActiveTranslator" />
+                <div v-else class="radio-check" />
+              </div>
+            </div>
+            Переводчик
           </div>
         </div>
       </div>
@@ -142,7 +155,7 @@
                   <label
                     ref="passportSeriesIsActiveRef"
                     :class="passportSeriesIsActive ? 'active' : ''"
-                    @click="passportSeriesIsActive = true"
+                    @click="passportSeriesIsActive = !passportSeriesIsActive"
                   >
                     <span>
                       {{ passportSeriesActive }}
@@ -156,7 +169,7 @@
                       class="dropdown-search__option"
                       @click="
                         (passportSeriesActive = option),
-                          (passportSeriesIsActive = false);
+                          (passportSeriesIsActive = false)
                       "
                     >
                       {{ option }}
@@ -206,7 +219,7 @@
             <label
               ref="citizenshipIsActiveRef"
               :class="citizenshipIsActive ? 'active' : ''"
-              @click="citizenshipIsActive = true"
+              @click="citizenshipIsActive = !citizenshipIsActive"
             >
               <span>
                 <SearchIcon />
@@ -237,7 +250,7 @@
               <label
                 ref="regionIsActiveRef"
                 :class="regionIsActive ? 'active' : ''"
-                @click="regionIsActive = true"
+                @click="regionIsActive = !regionIsActive"
               >
                 <span>
                   {{ regionActiveOption }}
@@ -250,7 +263,7 @@
                   :key="option"
                   class="dropdown-search__option"
                   @click="
-                    (regionActiveOption = option), (regionIsActive = false);
+                    (regionActiveOption = option), (regionIsActive = false)
                   "
                 >
                   {{ option }}
@@ -262,7 +275,7 @@
               <label
                 ref="areaIsActiveRef"
                 :class="areaIsActive ? 'active' : ''"
-                @click="areaIsActive = true"
+                @click="areaIsActive = !areaIsActive"
               >
                 <span>
                   {{ areaActiveOption }}
@@ -274,7 +287,7 @@
                   v-for="option in areasFirst"
                   :key="option"
                   class="dropdown-search__option"
-                  @click="(areaActiveOption = option), (areaIsActive = false);"
+                  @click="(areaActiveOption = option), (areaIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -287,7 +300,7 @@
               <label
                 ref="cityIsActiveRef"
                 :class="cityIsActive ? 'active' : ''"
-                @click="cityIsActive = true"
+                @click="cityIsActive = !cityIsActive"
               >
                 <span>
                   {{ cityActiveOption }}
@@ -317,7 +330,7 @@
                   ]"
                   :key="option"
                   class="dropdown-search__option"
-                  @click="(cityActiveOption = option), (cityIsActive = false);"
+                  @click="(cityActiveOption = option), (cityIsActive = false)"
                 >
                   {{ option }}
                 </div>
@@ -343,7 +356,7 @@
               <label
                 ref="regionIsActiveSecondRef"
                 :class="regionIsActiveSecond ? 'active' : ''"
-                @click="regionIsActiveSecond = true"
+                @click="regionIsActiveSecond = !regionIsActiveSecond"
               >
                 <span>
                   {{ regionActiveOptionSecond }}
@@ -371,7 +384,7 @@
                   class="dropdown-search__option"
                   @click="
                     (regionActiveOptionSecond = option),
-                      (regionIsActiveSecond = false);
+                      (regionIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -383,7 +396,7 @@
               <label
                 ref="areaIsActiveSecondRef"
                 :class="areaIsActiveSecond ? 'active' : ''"
-                @click="areaIsActiveSecond = true"
+                @click="areaIsActiveSecond = !areaIsActiveSecond"
               >
                 <span>
                   {{ areaActiveOptionSecond }}
@@ -397,7 +410,7 @@
                   class="dropdown-search__option"
                   @click="
                     (areaActiveOptionSecond = option),
-                      (areaIsActiveSecond = false);
+                      (areaIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -411,7 +424,7 @@
               <label
                 ref="cityIsActiveSecondRef"
                 :class="cityIsActiveSecond ? 'active' : ''"
-                @click="cityIsActiveSecond = true"
+                @click="cityIsActiveSecond = !cityIsActiveSecond"
               >
                 <span>
                   {{ cityActiveOptionSecond }}
@@ -443,7 +456,7 @@
                   class="dropdown-search__option"
                   @click="
                     (cityActiveOptionSecond = option),
-                      (cityIsActiveSecond = false);
+                      (cityIsActiveSecond = false)
                   "
                 >
                   {{ option }}
@@ -700,6 +713,9 @@ onClickOutside(isActiveRef, () => (isActive.value = false));
 const isActiveRadio = ref(0);
 const isActiveRadioSec = ref(0);
 const isActiveRadioFace = ref(false);
+
+const isActiveTranslator = ref(false);
+
 const activeOption = ref("");
 
 const fullNameVal = ref("");
@@ -814,7 +830,7 @@ const fetchLayerUser = () => {
 
     isLoading.value = false;
     end.value = true;
-    store.commit("setChoosenApplicant", fullNameVal.value);
+    // store.commit("setChoosenApplicant", fullNameVal.value);
   }, 3000);
 };
 
@@ -862,31 +878,31 @@ const fetchUsers = () => {
     cityActiveOptionSecond.value = cityFact;
     end.value = true;
 
-    store.commit(
-      "setChoosenApplicant",
-      `${surname.value} ${name.value} ${lastname.value}`
-    );
-    store.commit("setDateOfBirth", dateOfBirthVal.value);
-    store.commit("setPersonApplicant", {
-      surname: surname.value,
-      name: name.value,
-      lastname: lastname.value,
-      avatarImg: avatarImg.value,
-      streetSecond: streetSecond.value,
-      houseSecond: houseSecond.value,
-      flatSecond: flatSecond.value,
-      streetFisrt: streetFisrt.value,
-      houseFisrt: houseFisrt.value,
-      flatFisrt: flatFisrt.value,
-      citizenshipActiveOption: citizenshipActiveOption.value,
-      regionActiveOption: regionActiveOption.value,
-      regionActiveOptionSecond: regionActiveOptionSecond.value,
-      areaActiveOption: areaActiveOption.value,
-      areaActiveOptionSecond: areaActiveOptionSecond.value,
-      dateOfBirthVal: dateOfBirthVal.value,
-      INNVal: INNVal.value,
-      passport,
-    });
+    // store.commit(
+    //   "setChoosenApplicant",
+    //   `${surname.value} ${name.value} ${lastname.value}`
+    // );
+    // store.commit("setDateOfBirth", dateOfBirthVal.value);
+    // store.commit("setPersonApplicant", {
+    //   surname: surname.value,
+    //   name: name.value,
+    //   lastname: lastname.value,
+    //   avatarImg: avatarImg.value,
+    //   streetSecond: streetSecond.value,
+    //   houseSecond: houseSecond.value,
+    //   flatSecond: flatSecond.value,
+    //   streetFisrt: streetFisrt.value,
+    //   houseFisrt: houseFisrt.value,
+    //   flatFisrt: flatFisrt.value,
+    //   citizenshipActiveOption: citizenshipActiveOption.value,
+    //   regionActiveOption: regionActiveOption.value,
+    //   regionActiveOptionSecond: regionActiveOptionSecond.value,
+    //   areaActiveOption: areaActiveOption.value,
+    //   areaActiveOptionSecond: areaActiveOptionSecond.value,
+    //   dateOfBirthVal: dateOfBirthVal.value,
+    //   INNVal: INNVal.value,
+    //   passport,
+    // });
   }, 1500);
 };
 

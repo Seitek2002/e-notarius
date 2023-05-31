@@ -1,14 +1,11 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="6"
     />
     <div class="flex jcsb">
       <Title text="Дополнительные данные"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(4, 'prev')"
+      <Back @click="handleClick(5)"
       />
     </div>
     <Suptitle text="Количество дополнительных данных"/>
@@ -38,14 +35,12 @@
       <FormContentSix v-show="isActiveForm === i"/>
     </template>
 
-    <Next @click="handleClick(6, 'next')"/>
+    <Next @click="handleClick(6)"/>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
 
 import Approved from '@/components/global/UI/Info/Approved.vue'
 import Back from '@/components/global/UI/Info/Btn/Back.vue'
@@ -57,12 +52,7 @@ import Title from '@/components/global/UI/Info/Title.vue'
 
 import FormContentSix from '../FormContent/FormContentSix.vue'
 
-const router = useRouter()
-const store = useStore()
-
 const isActiveForm = ref(0)
-
-const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 
 const emits = defineEmits(['handleCustomEvent'])
 
@@ -80,9 +70,8 @@ const decrement = () => {
   }
 }
 
-const handleClick = (id, move) => {
+const handleClick = (id) => {
   emits('handleCustomEvent',id)
-  
 }
 </script>
 

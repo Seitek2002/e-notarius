@@ -1,20 +1,18 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="3"
     />
     <div class="flex jcsb">
       <Title text="Выбор документа"/>
       <Back
-        v-show="!short"
-        @click="handleClick(2, 'prev')"
+        @click="handleClick(1)"
       />
     </div>
     <div class="flex jcsb">
       <div/>
       <Mark
-        v-show="!short"
+        
         class="mark"
         text="На основе вашего выбора система покажет вам 1 или несколько вариантов наиболее подходящего документа"
       />
@@ -289,7 +287,7 @@
         </div>
       </div>
     </div>
-    <Next @click="handleClick(4, 'next')"/>
+    <Next @click="handleClick(3)"/>
   </div>
 </template>
 
@@ -319,12 +317,10 @@ const docActiveOption = ref('Все')
 
 const store = useStore()
 
-const props = defineProps(['active', 'i', 'short'])
-
 const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = (id) => {
-  emits('handleCustomEvent',id)
+  emits('handleCustomEvent', id)
 }
 </script>
 

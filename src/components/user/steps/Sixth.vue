@@ -1,14 +1,12 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="7"
     />
     <div class="flex jcsb">
       <Title text="Просмотр документа"/>
       <Back
-        v-show="!short"
-        @click="handleClick(7, 'prev')"
+        @click="handleClick(6)"
       />
     </div>
     <div class="info__description">

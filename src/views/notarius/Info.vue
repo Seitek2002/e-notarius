@@ -12,14 +12,17 @@
       <div class="info__progress flex">
         <div class="info__line" />
         <template v-for="(step, index) in steps" :key="index">
-          <div :class="[
-            'info__circle',
-            {
-              'info__circle--prev': index < currentStep,
-              'info__circle--current': index === currentStep,
-              'info__circle--next': index > currentStep,
-            },
-          ]" @click="changeStep(index)">
+          <div
+            :class="[
+              'info__circle',
+              {
+                'info__circle--prev': index < currentStep,
+                'info__circle--current': index === currentStep,
+                'info__circle--next': index > currentStep,
+              },
+            ]"
+            @click="changeStep(index)"
+          >
             <template v-if="index < currentStep">
               <PreviousIcon />
             </template>
@@ -55,14 +58,17 @@
             <FingerprintCircleIcon v-show="!end" @click="handleClick" />
             <FingerprintSuccessIcon v-show="end" />
           </div>
-          <div v-show="start || center || end" :class="[
-            'auth-item__process',
-            {
-              'auth-item__start': start,
-              'auth-item__loading': center,
-              'auth-item__success': end,
-            },
-          ]">
+          <div
+            v-show="start || center || end"
+            :class="[
+              'auth-item__process',
+              {
+                'auth-item__start': start,
+                'auth-item__loading': center,
+                'auth-item__success': end,
+              },
+            ]"
+          >
             <template v-if="start">Подтверждение отпечатка пальцев</template>
             <template v-else-if="center">
               <AnimationBubblesIcon />
@@ -72,17 +78,24 @@
               Проверка отпечатка пальцев прошла успешно
             </template>
           </div>
-          <Btn title="Подписать" bg="#1BAA75" :disabled="!end" @click="
-            store.commit('setIsSubmit', false),
-            store.commit('pushNewItem'),
-            changeStep(7)
-          " />
+          <Btn
+            title="Подписать"
+            bg="#1BAA75"
+            :disabled="!end"
+            @click="
+              store.commit('setIsSubmit', false),
+              store.commit('pushNewItem'),
+              changeStep(7)
+            "
+          />
         </div>
       </div>
     </div>
 
     <div class="info__content">
-      <component :is="currentStepComponent" @handleCustomEvent="changeStep" />
+      <template v-for="(step, i) in steps" :key="step.__name">
+        <component :is="step" @handleCustomEvent="changeStep" v-if="currentStep === i" />
+      </template>
     </div>
   </section>
 </template>
@@ -133,30 +146,28 @@ const handleClick = () => {
 const router = useRouter();
 
 const emits = defineEmits(["handleChangeTitle"]);
+
 onMounted(() => {
   emits("handleChangeTitle", "Нотариальное действие");
 });
 
-const steps = [
-  { component: First },
-  { component: Second },
-  { component: Third },
-  { component: Fourth },
-  { component: Fifth },
-  { component: Sixth },
-  { component: Seventh },
-  { component: Eighth }
-];
-
 const currentStep = ref(0);
 
-const changeStep = (stepIndex) => {
-  if (stepIndex >= 0 && stepIndex < steps.length) {
-    currentStep.value = stepIndex;
-  }
-};
+const steps = [
+  First,
+  Second,
+  Third,
+  Fourth,
+  Fifth,
+  Sixth,
+  Seventh,
+  Eighth,
+];
 
-const currentStepComponent = computed(() => steps[currentStep.value].component);
+
+const changeStep = (stepIndex) => {
+  currentStep.value = stepIndex
+};
 </script>
 
 <style lang="scss">
@@ -594,14 +605,15 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
   }
 }
 @media screen and (max-width: 1000px) {
-    .info_form--wrapper {
+  .info_form--wrapper {
     flex-direction: column;
   }
 }
 @media screen and (max-width: 768px) {
-  .info__form--wrapper {.dropdown.city {
-    width: 100%;
-  }
+  .info__form--wrapper {
+    .dropdown.city {
+      width: 100%;
+    }
   }
   .info__content {
     padding: 20px;
@@ -609,10 +621,10 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
   .info__step {
     padding-top: 0;
   }
-    .next-btn {
-      width: 50%;
-      justify-content: center;
-    }
+  .next-btn {
+    width: 50%;
+    justify-content: center;
+  }
   .info__form {
     gap: 10px;
     .info__check-btn.btn {
@@ -626,42 +638,43 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
     width: 100%;
   }
 
-    .info__form--wrapper {
-      flex-direction: column;
-      align-items: start;
+  .info__form--wrapper {
+    flex-direction: column;
+    align-items: start;
 
-      div {
-        flex-wrap: wrap;
-      }
-      gap: 0;
-      .w-55,
-      .w-33,
-      .w-50 {
-        width: 100%;
-      }
-      .dropdown {
-        width: 100%;
-      }
-      .chek {
-        width: 50%;
-      }
+    div {
+      flex-wrap: wrap;
     }
-    .info__form--details {
-      width: 100%;
-      .dropdown {
-        width: 20%;
-      }
-    }
-    .dropdown.city {
+    gap: 0;
+    .w-55,
+    .w-33,
+    .w-50 {
       width: 100%;
     }
-    .street, .home {
+    .dropdown {
       width: 100%;
     }
-    .info__member {
-      // flex-direction: column;
-      gap: 10px;
+    .chek {
+      width: 50%;
     }
+  }
+  .info__form--details {
+    width: 100%;
+    .dropdown {
+      width: 20%;
+    }
+  }
+  .dropdown.city {
+    width: 100%;
+  }
+  .street,
+  .home {
+    width: 100%;
+  }
+  .info__member {
+    // flex-direction: column;
+    gap: 10px;
+  }
   .info__subject {
     div {
       flex-wrap: wrap;
@@ -671,28 +684,26 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
       margin: 0;
     }
   }
-    .info__radio {
-      margin-bottom: 15px;
+  .info__radio {
+    margin-bottom: 15px;
 
-      margin-right: 30px;
-      &--button {
-        .radio {
-          margin-right: 8px;
-        }
-        div {
-          border-radius: 100%;
-        }
+    margin-right: 30px;
+    &--button {
+      .radio {
+        margin-right: 8px;
+      }
+      div {
+        border-radius: 100%;
       }
     }
+  }
   .jcsb {
     gap: 10px;
-
   }
 }
-  .jcsb {
-
-    flex-wrap: wrap;
-  }
+.jcsb {
+  flex-wrap: wrap;
+}
 @media screen and (max-width: 600px) {
   .info__progress {
     width: 100%;
@@ -716,21 +727,21 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
       width: 100%;
     }
   }
-
 }
 @media screen and (max-width: 500px) {
   .next-btn {
     width: 100%;
   }
-     .info__form--wrapper  {
-  .chek {
+  .info__form--wrapper {
+    .chek {
+      width: 100%;
+    }
+  }
+  .file__input .text,
+  .file__input input {
     width: 100%;
   }
-  }
-  .file__input .text, .file__input input {
-    width: 100%;
-  }
-  .file__wrapper .file{
+  .file__wrapper .file {
     width: 10%;
   }
 }

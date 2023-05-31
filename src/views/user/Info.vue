@@ -37,7 +37,9 @@
     </div>
 
     <div class="info__content">
-      <component :is="currentStepComponent" @handleCustomEvent="changeStep" />
+      <template v-for="(step, i) in steps" :key="step.__name">
+        <component :is="step" @handleCustomEvent="changeStep" v-if="currentStep === i" />
+      </template>
     </div>
   </section>
 </template>
@@ -46,44 +48,41 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
-import Fifth from "@/components/user/steps/Fifth.vue";
 import First from "@/components/user/steps/First.vue";
-import Fourth from "@/components/user/steps/Fourth.vue";
 import Second from "@/components/user/steps/Second.vue";
+import Third from "@/components/user/steps/Third.vue";
+import Fourth from "@/components/user/steps/Fourth.vue";
+import Fifth from "@/components/user/steps/Fifth.vue";
 import Seventh from "@/components/user/steps/Seventh.vue";
 import Sixth from "@/components/user/steps/Sixth.vue";
-import Third from "@/components/user/steps/Third.vue";
 import Title from "@/components/global/UI/Info/Title.vue";
 import CurrentIcon from "@/views/Icons/CurrentIcon.vue";
 import NextIcon from "@/views/Icons/NextIcon.vue";
 import PreviousIcon from "@/views/Icons/PreviousIcon.vue";
 import CancelIcon from "@/views/Icons/CancelIcon.vue";
 
-const steps = [
-  { component: First },
-  { component: Second },
-  { component: Third },
-  { component: Fourth },
-  { component: Fifth },
-  { component: Seventh },
-  { component: Sixth },
-];
-const currentStep = ref(0);
 const router = useRouter();
+
+const currentStep = ref(0);
+
+const steps = [
+  First,
+  Second,
+  Third,
+  Fourth,
+  Fifth,
+  Seventh,
+  Sixth,
+];
 
 const cancelOrder = () => {
   router.push("/order-list-user");
 };
 
 const changeStep = (stepIndex) => {
-  if (stepIndex >= 0 && stepIndex < steps.length) {
-    currentStep.value = stepIndex;
-  }
+  currentStep.value = stepIndex
 };
-
-const currentStepComponent = computed(() => steps[currentStep.value].component);
 </script>
-
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
@@ -139,7 +138,7 @@ const currentStepComponent = computed(() => steps[currentStep.value].component);
 }
 
 .dropdown-search {
-  // width: 50%;
+  width: 100%;
   position: relative;
 
   span {

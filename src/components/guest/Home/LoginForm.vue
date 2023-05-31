@@ -16,6 +16,7 @@
                   v-model="loginVal"
                   type="text"
                   class="hero__input"
+                  autocomplete="username"
                   required
                 />
               </label>
@@ -27,6 +28,7 @@
                   v-model="passwordVal"
                   type="password"
                   class="hero__input"
+                  autocomplete="current-password"
                   required
                 />
               </label>
@@ -75,7 +77,7 @@ const handleClick = () => {
     localStorage.setItem("auth-user", JSON.stringify({ ...user, check: true }));
     store.commit("checkUserClient", { ...user, check: true });
     if (user.role === "notarius") {
-      router.push("/order-list-notarius");
+      isErr.value = true;
     } else {
       router.push("/order-list-user");
     }

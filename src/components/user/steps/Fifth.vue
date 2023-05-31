@@ -1,14 +1,11 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="5"
     />
     <div class="flex jcsb">
       <Title text="Сторона 2 (другие участники)"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(3, 'prev')"
+      <Back @click="handleClick(4)"
       />
     </div>
     <Suptitle text="Количество участников"/>
@@ -38,7 +35,7 @@
       <FormContent v-show="isActiveParticipants === i"/>
     </template>
 
-    <Next @click="handleClick(5, 'next')"/>
+    <Next @click="handleClick(5)"/>
   </div>
 </template>
 

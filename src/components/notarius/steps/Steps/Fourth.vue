@@ -1,20 +1,16 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
-      :is-active="false"
       num="4"
     />
     <div class="flex jcsb">
       <Title text="Выбор документа"/>
-      <Back
-        v-show="!short"
-        @click="handleClick(2, 'prev')"
+      <Back @click="handleClick(3)"
       />
     </div>
     <div class="flex jcsb">
-      <div/>
+      <div></div>
       <Mark
-        v-show="!short"
         class="mark"
         text="На основе вашего выбора система покажет вам 1 или несколько вариантов наиболее подходящего документа"
       />
@@ -29,7 +25,7 @@
           <label
           ref="notActionIsActiveRef"
             :class="notActionIsActive ? 'active' : ''"
-            @click="notActionIsActive = true"
+            @click="notActionIsActive = !notActionIsActive"
           >
             <span>{{ notActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -65,7 +61,7 @@
           <label
           ref="notActionIsActiveRef"
             :class="notActionIsActive ? 'active' : ''"
-            @click="notActionIsActive = true"
+            @click="notActionIsActive = !notActionIsActive"
           >
             <span>{{ notActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -103,7 +99,7 @@
           <label
           ref="typeOfActionIsActiveRef"
             :class="typeOfActionIsActive ? 'active' : ''"
-            @click="typeOfActionIsActive = true"
+            @click="typeOfActionIsActive = !typeOfActionIsActive"
           >
             <span>{{ typeOfActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -132,7 +128,7 @@
           <label
           ref="typeOfActionIsActiveRef"
             :class="typeOfActionIsActive ? 'active' : ''"
-            @click="typeOfActionIsActive = true"
+            @click="typeOfActionIsActive = !typeOfActionIsActive"
           >
             <span>{{ typeOfActionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -164,7 +160,7 @@
           <label
           ref="actionIsActiveRef"
             :class="actionIsActive ? 'active' : ''"
-            @click="actionIsActive = true"
+            @click="actionIsActive = !actionIsActive"
           >
             <span>{{ actionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -192,7 +188,7 @@
         >
           <label
             :class="actionIsActive ? 'active' : ''"
-            @click="actionIsActive = true"
+            @click="actionIsActive = !actionIsActive"
           >
             <span>{{ actionActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -239,7 +235,7 @@
           <label
           ref="docIsActiveRef"
             :class="docIsActive ? 'active' : ''"
-            @click="docIsActive = true"
+            @click="docIsActive = !docIsActive"
           >
             <span>{{ docActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -268,7 +264,7 @@
           <label
           ref="docIsActiveRef"
             :class="docIsActive ? 'active' : ''"
-            @click="docIsActive = true"
+            @click="docIsActive = !docIsActive"
           >
             <span>{{ docActiveOption }}</span>
             <ArrowDownSmallIcon
@@ -296,7 +292,7 @@
         </div>
       </div>
     </div>
-    <Next @click="handleClick(4, 'next')"/>
+    <Next @click="handleClick(4)"/>
   </div>
 </template>
 
@@ -312,6 +308,8 @@ import Mark from '@/components/global/UI/Info/Mark.vue'
 import Suptitle from '@/components/global/UI/Info/Suptitle.vue'
 import Title from '@/components/global/UI/Info/Title.vue'
 import ArrowDownSmallIcon from '@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue'
+
+const store = useStore()
 
 const notActionIsActive = ref(false)
 const notActionIsActiveRef = ref(null)
@@ -336,11 +334,6 @@ const docActiveOption = ref('Все')
 const isActive = ref(false)
 const isActiveRef = ref(null)
 onClickOutside(isActiveRef, () => isActive.value = false);
-const isActiveRadio = ref(0)
-const activeOption = ref('ЧН Абылгазиева Нурмира Нарматовна')
-const store = useStore()
-
-const props = defineProps(['active', 'i', 'short', 'progressPrev'])
 
 const emits = defineEmits(['handleCustomEvent'])
 

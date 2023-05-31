@@ -189,7 +189,7 @@ const notice = ref([
     button {
       @media screen and (max-width: 685px) {
         width: 100%;
-        padding: 12.5px 0;
+        // padding: 12.5px 0;
       }
     }
   }

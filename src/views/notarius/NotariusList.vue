@@ -226,7 +226,7 @@ onMounted(() => {
     box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
       0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #1baa75;
-    border-radius: 2px;
+    border-radius: 100%;
     text-align: center;
   }
 
@@ -256,7 +256,7 @@ onMounted(() => {
     box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
       0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #ffffff;
-    border-radius: 2px;
+    border-radius: 100%;
   }
 
   &__content {
@@ -451,7 +451,6 @@ onMounted(() => {
 
   &__block {
     gap: 40px;
-    max-width: 85%;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;

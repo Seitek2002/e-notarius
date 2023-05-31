@@ -88,8 +88,8 @@
             <td class="qr-code" :class="qrActive ? ' active' : ''" @click="(qrActive = !qrActive), (qrAnother = 'asdaf')">
               <Qr class="qr" :i="i" />
             </td>
-            <td>{{ offer.typeOfDoc }}</td>
-            <td>Доверенность</td>
+            <td>{{ offer.typeOfDocument }}</td>
+            <td>{{ offer.typeOfAction }}</td>
             <td>{{ offer.status }}</td>
             <td>{{ offer.date }}</td>
             <td>

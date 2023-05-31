@@ -1,5 +1,5 @@
 <template>
-  <div :class="short ? 'info__step short' : 'info__step'">
+  <div class="info__step">
     <Approved
       :is-active="false"
       num="8"
@@ -35,7 +35,7 @@
     <div class="info__bottom">
       <Next
         title="Завершить"
-        @click="handleClick(8)"
+        @click="handleClick"
       />
       <span>
         <AddNewRequestIcon/>
@@ -64,12 +64,12 @@ import PrintFileIcon from '@/components/global/UI/Info/Icons/PrintFileIcon.vue'
 const router = useRouter()
 const store = useStore()
 
-const props = defineProps(['active', 'i', 'short'])
-
 const emits = defineEmits(['handleCustomEvent'])
 
-const handleClick = (id) => {
-  router.push('/OrderSend-notarius')
+const handleClick = () => {
+  store.commit('pushNewDocToOrderList')
+  router.push('/order-list-notarius')
+  // router.push('/OrderSend-notarius')
   // emits('handleCustomEvent', id)
 }
 const print = () => {
