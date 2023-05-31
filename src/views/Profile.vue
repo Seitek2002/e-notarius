@@ -79,7 +79,7 @@
 
         <div class="profile-btns">
           <button class="profile-green-btn-another">Сохранить</button>
-          <button class="profile-blackberry-btn">Отмена</button>
+          <button class="profile-blackbery-btn">Отмена</button>
         </div>
       </div>
      
@@ -233,7 +233,7 @@ const notice = ref([
     padding: 13px 37px;
   }
 
-  &-gren-btn-another {
+  &-green-btn-another {
     font-weight: 600;
     background: #1BAA75;
     font-size: 14px;
