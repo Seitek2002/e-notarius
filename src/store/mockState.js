@@ -242,7 +242,7 @@ export const state = {
       id: 15163,
       name: 'Бегалиев Сейтек Улугбекович',
       avatar:
-        'https://izhlife.ru/upload/resize_cache/webp/iblock/086/uaq1una811wbfttmuep0zp6d8n01xqvo/p_img-1496744273.webp',
+        'https://i.servimg.com/u/f88/20/10/34/87/photo_11.jpg',
       rating: '4,0',
       votes: 45,
       typeOfNotarius: 'Частный нотариус',
@@ -265,7 +265,7 @@ export const state = {
       id: 1,
       name: 'Турдалиев Сейтек Улугбекович',
       avatar:
-        'https://static6.depositphotos.com/1003098/572/i/450/depositphotos_5720602-stock-photo-middle-aged-businessman-in-suit.jpg',
+        'http://kontur-rzn.ru/wp-content/uploads/2019/10/foto_documents_after.jpg',
       rating: '1,0',
       votes: 45,
       typeOfNotarius: 'Государственный нотариус',
@@ -280,7 +280,7 @@ export const state = {
       id: 2,
       name: 'Турдалиев Аян Улугбекович',
       avatar:
-        'https://pechater.ru/wp-content/uploads/2019/04/Foto-na-dokumenty-ot-pechaterfoto-3.jpg',
+        'https://static.tildacdn.com/tild3538-6534-4062-a436-623665633064/16.jpg',
       rating: '2,0',
       votes: 15,
       typeOfNotarius: 'Частный нотариус',
@@ -295,7 +295,7 @@ export const state = {
       id: 3,
       name: 'Турдалиев Улугбек Улугбекович',
       avatar:
-        'https://pechater.ru/wp-content/uploads/2019/08/foto-ot-pechaterfoto-krasivo.jpg',
+        'https://selfobserved.org/wp-content/uploads/2012/06/passport-photo.jpg',
       rating: '5,0',
       votes: 100,
       typeOfNotarius: 'Частный нотариус',
@@ -310,7 +310,7 @@ export const state = {
       id: 4,
       name: 'Улугбеков Улугбек Улугбекович',
       avatar:
-        'https://avatars.mds.yandex.net/i?id=54fe1530ec4ac9a4fc402a556650f3427204a0a5-5283596-images-thumbs&n=13',
+        'https://wpsovet.ru/wp-content/uploads/f/f/b/ffb469dea939971e09965b22256678b7.jpg',
       rating: '0,0',
       votes: 1000,
       typeOfNotarius: 'Государственный нотариус',
@@ -325,7 +325,7 @@ export const state = {
       id: 5,
       name: 'Сейтеков Сейтек Сейтекович',
       avatar:
-        'https://avatars.mds.yandex.net/i?id=59c82f9c400b25552ed80dfc7828487bc6068608-9182431-images-thumbs&n=13',
+        'http://static.tildacdn.com/tild3734-6666-4630-b734-376432356634/0030.jpg',
       rating: '0,0',
       votes: 1000,
       typeOfNotarius: 'Государственный нотариус',
@@ -340,7 +340,7 @@ export const state = {
       id: 6,
       name: 'Эльдияров Эльдияр Эльдиярович',
       avatar:
-        'https://artcasting.tv/uploads/castings/images/UCCa1abUmJS9QZtOWBpaUPWdWQVEcUjQIeaa8YRB.jpeg',
+        'https://otvet.imgsmail.ru/download/801636b25fc562a8f00f6c01202b39ef_i-177.jpg',
       rating: '0,0',
       votes: 1000,
       typeOfNotarius: 'Государственный нотариус',
@@ -355,7 +355,7 @@ export const state = {
       id: 7,
       name: 'Исламов Ислам Исламович',
       avatar:
-        'https://avatars.mds.yandex.net/i?id=4d8075e3c79b1b388ca5164ceaf71142b1c06615-8497418-images-thumbs&n=13',
+        'http://sergiev-posad.cleaning-77.ru/upload/iblock/42c/42cd8a50d8c0a09a8dd7a27bc9753f4c.jpg',
       rating: '5,0',
       votes: 1000,
       typeOfNotarius: 'Частный нотариус',
@@ -370,7 +370,7 @@ export const state = {
       id: 8,
       name: 'Берметовна Бермет Берметовна',
       avatar:
-        'https://avatars.dzeninfra.ru/get-zen_doc/5210731/pub_63458d62f95ff13ce13d30bd_63458f56f5b09e1561087883/scale_1200',
+        'https://krot.info/uploads/posts/2021-03/1614875187_1-p-fotografiya-na-pasport-art-kartinki-1.jpg',
       rating: '5,0',
       votes: 1000,
       typeOfNotarius: 'Частный нотариус',
