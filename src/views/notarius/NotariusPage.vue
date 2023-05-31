@@ -231,7 +231,7 @@ const data = ref(
 
   &__info {
     width: 511px;
-    @media screen and (max-width: 1416px) {
+    @media screen and (max-width: 1583px) {
       width: 100%;
     }
   }
