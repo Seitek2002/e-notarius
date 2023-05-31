@@ -36,7 +36,7 @@
             </div>
             Иностранное лицо
           </div>
-          <div
+          <!-- <div
             v-if="isActiveRadioFace"
             class="info__radio"
             @click="(isActiveTranslator = !isActiveTranslator), (end = false)"
@@ -48,7 +48,7 @@
               </div>
             </div>
             Переводчик
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="w-55 dropdown">
