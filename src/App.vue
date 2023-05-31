@@ -62,9 +62,6 @@ const layout = computed(() => {
       margin-bottom: 40px;
     }
 
-    & .sidebar-list {
-      pointer-events: auto;
-    }
   }
 
   &-head {
@@ -88,8 +85,7 @@ const layout = computed(() => {
   }
 
   &-list {
-    margin: 20px 0;
-    pointer-events: none;
+    margin: 20px 0; 
   }
 
   &-link {

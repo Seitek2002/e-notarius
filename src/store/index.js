@@ -7,7 +7,7 @@ const store = createStore({
     auth
   },
   state,
-  mutations: {
+  mutations: { 
     checkUserClient(state, data) {
       if (data) {
         state.auth = data

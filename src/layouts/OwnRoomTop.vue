@@ -1,7 +1,7 @@
 <template>
   <div class="top">
     <h1>{{ title }}</h1>
-    <svg @click="store.state.notariusSidebar = !store.state.notariusSidebar; store.state.userSidebar = !store.state.userSidebar" class="top-close" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg @click="toggleMenu()" class="top-close" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="44" height="44" fill="white"/>
     <path d="M22 17L27 22L22 27" stroke="#24334B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M16 17L21 22L16 27" stroke="#24334B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -55,6 +55,12 @@ const logOut = () => {
   store.commit('setAuth')
   localStorage.clear()
 }
+
+ 
+const toggleMenu = () => { 
+  store.state.sidebar = !store.state.sidebar;
+  localStorage.setItem('sidebar', store.state.sidebar.toString());
+};
 
 const isDropdownShow = ref(false)
 defineProps(['title'])
