@@ -112,6 +112,7 @@ const handleClick = () => {
 .send {
   flex: 1;
   padding: 60px;
+  margin-top: 40px;
   background: #fff;
 
   &__content {
