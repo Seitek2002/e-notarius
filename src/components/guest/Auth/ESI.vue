@@ -99,7 +99,15 @@ const handleClick = () => {
 .auth-item {
   background: #fff;
   margin-bottom: 28px;
-
+  #password {
+    padding: 15px;
+    &[type="password"] {
+      font-size: 35px;
+      letter-spacing: 3px;
+      padding: 2px 15px;
+      line-height: 10px;
+    }
+  }
   &__top {
     display: flex;
     align-items: center;
