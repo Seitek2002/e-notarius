@@ -298,7 +298,7 @@ const isActive = ref(false)
     }
   }
 }
-@media screen and (max-width: 546px) {
+@media screen and (max-width: 565px) {
   .header__action {
     display: none;
   }

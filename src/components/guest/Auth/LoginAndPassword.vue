@@ -201,7 +201,15 @@ export default {
     font-weight: 400;
     color: red;
   }
-
+  &__input {
+    padding: 15px;
+    &[type="password"] {
+      font-size: 35px;
+      letter-spacing: 3px;
+      padding: 2px 15px;
+      line-height: 10px;
+    }
+  }
   &__top.active {
     svg {
       path {

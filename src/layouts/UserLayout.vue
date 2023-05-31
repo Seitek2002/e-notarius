@@ -144,7 +144,7 @@ const sidebarListSecond = [
     id: 1,
     img: imageExtra,
     text: "Реестр нотариусов",
-    link: "/applications-user",
+    link: "/notarius-list-authed-user",
   },
   {
     id: 2,

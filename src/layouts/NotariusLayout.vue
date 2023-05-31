@@ -112,7 +112,7 @@ const showRendering = ref([
   },
   {
     text: "Реестр нотариусов",
-    link: "/notarius-list-authed",
+    link: "/notarius-list-authed-notarius",
   },
   {
     text: "Реестр нотариальных действий",

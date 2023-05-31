@@ -1,7 +1,16 @@
 const NOTARY_PAGES = [
   {
-    path: '/notarius-list-authed',
-    name: 'notarius-list-authed',
+    path: '/notarius-list-authed-user',
+    name: 'notarius-list-authed-user',
+    meta: {
+      layout: 'user',
+      requiresAdmin: true,
+    },
+    component: () => import('../views/notarius/NotariusList.vue'),
+  },
+  {
+    path: '/notarius-list-authed-notarius',
+    name: 'notarius-list-authed-notarius',
     meta: {
       layout: 'notarius',
       requiresAdmin: true,
