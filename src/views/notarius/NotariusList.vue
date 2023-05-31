@@ -451,7 +451,7 @@ onMounted(() => {
 
   &__block {
     gap: 40px;
-    max-width: 85%;
+    // max-width: 85%;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;

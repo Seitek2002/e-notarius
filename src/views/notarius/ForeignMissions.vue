@@ -57,52 +57,112 @@
     <div class="application__adaptive">
       <div class="application__left">
         <label class="tooltip">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z"
-              stroke="#1BAA75" stroke-width="2" />
+              stroke="#1BAA75"
+              stroke-width="2"
+            />
             <path
               d="M10.9998 16.9996C11.6625 16.9996 12.1998 16.4624 12.1998 15.7996C12.1998 15.1369 11.6625 14.5996 10.9998 14.5996C10.3371 14.5996 9.7998 15.1369 9.7998 15.7996C9.7998 16.4624 10.3371 16.9996 10.9998 16.9996Z"
-              fill="#1BAA75" />
+              fill="#1BAA75"
+            />
             <path
               d="M8.75 7.2497C8.75005 6.85567 8.85358 6.46856 9.05023 6.1271C9.24688 5.78565 9.52975 5.50183 9.87054 5.30403C10.2113 5.10623 10.5981 5.0014 10.9921 5.00001C11.3861 4.99863 11.7736 5.10075 12.1158 5.29616C12.458 5.49156 12.7428 5.77339 12.9418 6.11346C13.1409 6.45353 13.2471 6.8399 13.2499 7.23392C13.2528 7.62794 13.152 8.0158 12.9579 8.35867C12.7637 8.70155 12.4829 8.98743 12.1436 9.1877C11.5736 9.5249 11 10.0373 11 10.6997V12.1997"
-              stroke="#1BAA75" stroke-width="2" stroke-linecap="round" />
-          </svg><input type="checkbox" /><span>Таблицу можно скролить по<br />
+              stroke="#1BAA75"
+              stroke-width="2"
+              stroke-linecap="round"
+            /></svg
+          ><input type="checkbox" /><span
+            >Таблицу можно скролить по<br />
             горизонтали либо Вы можете<br />
             использовать кнопки для<br />
-            перемещения по таблице<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.64645 6.35355L17.9602 17.6673" stroke="#1BAA75" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M6.35355 17.3536L17.6673 6.03985" stroke="#1BAA75" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg></span>
+            перемещения по таблице<svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.64645 6.35355L17.9602 17.6673"
+                stroke="#1BAA75"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6.35355 17.3536L17.6673 6.03985"
+                stroke="#1BAA75"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              /></svg
+          ></span>
         </label>
       </div>
       <div class="application__right">
-        <svg @click="handleScrollLeft" width="40" height="40" viewBox="0 0 40 40" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg
+          @click="handleScrollLeft"
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect x="0.5" y="0.5" width="39" height="39" fill="white" />
           <g clip-path="url(#clip0_2412_22742)">
-            <path d="M22 16L18 20L22 24" stroke="#1BAA75" stroke-width="2" stroke-linejoin="round" />
+            <path
+              d="M22 16L18 20L22 24"
+              stroke="#1BAA75"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
           </g>
           <rect x="0.5" y="0.5" width="39" height="39" stroke="#EFEFEF" />
           <defs>
             <clipPath id="clip0_2412_22742">
-              <rect width="16" height="16" fill="white" transform="translate(28 12) rotate(90)" />
+              <rect
+                width="16"
+                height="16"
+                fill="white"
+                transform="translate(28 12) rotate(90)"
+              />
             </clipPath>
           </defs>
         </svg>
-        <svg @click="handleScrollRight" width="40" height="40" viewBox="0 0 40 40" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg
+          @click="handleScrollRight"
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect x="0.5" y="0.5" width="39" height="39" fill="white" />
           <g clip-path="url(#clip0_2412_22746)">
-            <path d="M18 24L22 20L18 16" stroke="#1BAA75" stroke-width="2" stroke-linejoin="round" />
+            <path
+              d="M18 24L22 20L18 16"
+              stroke="#1BAA75"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
           </g>
           <rect x="0.5" y="0.5" width="39" height="39" stroke="#EFEFEF" />
           <defs>
             <clipPath id="clip0_2412_22746">
-              <rect width="16" height="16" fill="white" transform="matrix(0 -1 1 0 12 28)" />
+              <rect
+                width="16"
+                height="16"
+                fill="white"
+                transform="matrix(0 -1 1 0 12 28)"
+              />
             </clipPath>
           </defs>
         </svg>
@@ -116,17 +176,22 @@
               <Sort title="ФИО" />
             </th>
             <th>
-              <Dropdown title="Должность" :option="[]" />
+              <Dropdown title="Должность" :options="typeOfDoc" />
             </th>
             <th>
-              <Dropdown title="Дата рождения" :option="[]" />
+              <Sort title="Дата рождения" :option="[]" />
             </th>
             <th>
-              <Dropdown title="Мобильный телефон" :option="[]" />
+              <Sort title="Мобильный телефон" :option="[]" />
             </th>
             <th>
-              <Dropdown title="E-mail" :option="[]" />
+              <Sort title="E-mail" :option="[]" />
             </th>
+            <th>
+              <Sort title="Учреждение" />
+            </th>
+            <th>Приказ</th>
+            <th>Судимость</th>
           </tr>
         </thead>
 
@@ -149,7 +214,11 @@
             Пред.
           </a>
         </li>
-        <li v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
+        <li
+          v-for="page in pages"
+          :key="page"
+          :class="{ active: currentPage === page }"
+        >
           <a @click="currentPage = page">{{ page }}</a>
         </li>
         <li v-if="currentPage < totalPages">
@@ -177,7 +246,7 @@ import Dropdown from "@/components/global/Tables/OfferTable/Dropdown.vue";
 import Sort from "@/components/global/Tables/OfferTable/Sort.vue";
 
 const isFilter = ref(true);
-
+const typeOfDoc = ["Сотрудник Консульства", "Сотрудник Посольства", "Консул"];
 const files = new Array(39);
 const itemsPerPage = 6;
 
@@ -438,7 +507,15 @@ const handleScrollLeft = () => {
     @media screen and (max-width: 768px) {
       margin-top: 10px;
     }
-
+    a {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      text-align: left;
+      text-decoration-line: underline;
+      color: #1baa75;
+    }
     tr {
       width: 100%;
     }
@@ -453,9 +530,10 @@ const handleScrollLeft = () => {
         background: #ffffff;
         font-weight: 600;
         font-size: 16px;
-        text-align: center;
         color: #24334b;
         gap: 20px;
+        min-width: 200px;
+        text-align: start;
       }
     }
 
@@ -561,7 +639,7 @@ const handleScrollLeft = () => {
   display: none;
 }
 
-.tooltip input:checked+span {
+.tooltip input:checked + span {
   visibility: visible;
   opacity: 1;
 }
