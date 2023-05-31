@@ -171,7 +171,7 @@ onMounted(() => {
   padding: 60px;
   box-sizing: border-box;
   flex-grow: 1;
-  max-width: 95%;
+  max-width: 90%;
 }
 
 .sidebar.active~.content {
@@ -179,18 +179,27 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 960px) {
+  .content {
+    margin-left: auto !important;
+  box-sizing: border-box;
+  }
+
   .sidebar.active~.content {
     max-width: 95%;
   }
+  
 }
 
 @media screen and (max-width: 769px) {
   .content {
     padding: 20px;
     max-width: 100%;
+  box-sizing: border-box;
   }
 }
 
 .content {
-  margin-left: auto;
-}</style>
+  margin-left: 0;
+  box-sizing: border-box;
+}
+</style>
