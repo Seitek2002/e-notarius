@@ -2,6 +2,7 @@
   <section class="register">
     <div class="container">
       <div class="register__content">
+        <h1>Реестр нотариусов Кыргызской Республики</h1>
         <div class="register__input">
           <label class="register__search">
             <div class="register__flex">
@@ -13,7 +14,7 @@
                   )
                 "
               >
-                <AppSearchIcon />
+                <SearchContentIcon />
               </button>
             </div>
           </label>
@@ -53,21 +54,21 @@
               :class="isActive ? 'active' : ''"
               @click="isActive = !isActive"
             >
-              <span>{{ setSort }}</span>
+              <p>{{ setSort }}</p>
               <ArrowDownSmallIcon />
             </div>
             <div v-show="isActive" class="register__sort sort">
               <div
                 class="sort__option"
                 @click="
-                  (setSort = 'В алфавитном порядке'), (isActive = !isActive);
+                  (setSort = 'В алфавитном порядке'), (isActive = !isActive)
                 "
               >
                 В алфавитном порядке
               </div>
               <div
                 class="sort__option"
-                @click="(setSort = 'По оценкам'), (isActive = !isActive);"
+                @click="(setSort = 'По оценкам'), (isActive = !isActive)"
               >
                 По оценкам
               </div>
@@ -132,7 +133,7 @@
           </template>
         </div>
         <div class="register__scroll">
-          <Pagination :items-per-page="3" :items="items" @paginate="paginate" />
+          <Pagination :items-per-page="4" :items="items" @paginate="paginate" />
         </div>
         <div class="register__map">
           <h2>Поиск нотариуса на карте</h2>
@@ -155,17 +156,18 @@
 import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 
-import Filter from "@/components/notarius/NotariusList/Filter.vue";
-import Item from "@/components/notarius/NotariusList/Item.vue";
-import Pagination from "@/components/Pagination/Pagination.vue";
 import ArrowDownSmallIcon from "@/components/global/UI/Info/Icons/ArrowDownSmallIcon.vue";
-import FilterDisableIcon from "@/components/notarius/NotariusList/Icons/FilterDisableIcon.vue";
-import FilterEnableIcon from "@/components/notarius/NotariusList/Icons/FilterEnableIcon.vue";
-import SuccessContentIcon from "@/components/notarius/NotariusList/Icons/SuccessContentIcon.vue";
-import AppSearchIcon from "@/views/Icons/AppSearchIcon.vue";
+import FilterDisableIcon from "@/components/guest/NotariusList/Icons/FilterDisableIcon.vue";
+import FilterEnableIcon from "@/components/guest/NotariusList/Icons/FilterEnableIcon.vue";
+import SearchContentIcon from "@/components/guest/NotariusList/Icons/SearchContentIcon.vue";
+import SuccessContentIcon from "@/components/guest/NotariusList/Icons/SuccessContentIcon.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
+
+import Filter from "./Filter.vue";
+import Item from "./Item.vue";
 
 const store = useStore();
-const emits = defineEmits(["handleChangeTitle"]);
+
 const showFilters = ref(false);
 const items = ref(store.state.notariusList);
 const isActive = ref(false);
@@ -186,7 +188,6 @@ const paginate = (data) => {
 
 onMounted(() => {
   window.scrollTo({ top: 0 });
-  (() => emits("handleChangeTitle", "Реестр нотариусов"))();
 });
 </script>
 
@@ -194,11 +195,6 @@ onMounted(() => {
 @import "@/assets/scss/variables.scss";
 
 .register {
-  &__input {
-    @media screen and (max-width: 1271px) {
-      margin-top: 30px;
-    }
-  }
   &__fixed {
     display: flex;
     align-items: center;
@@ -226,7 +222,7 @@ onMounted(() => {
     box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
       0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #1baa75;
-    border-radius: 100%;
+    border-radius: 2px;
     text-align: center;
   }
 
@@ -256,12 +252,12 @@ onMounted(() => {
     box-shadow: 0 5px 12px -5px rgba(174, 174, 174, 0.06),
       0 5px 30px -5px rgba(160, 160, 160, 0.1);
     background: #ffffff;
-    border-radius: 100%;
+    border-radius: 2px;
   }
 
   &__content {
-    margin-top: 60px;
-    @media screen and (max-width: 1271px) {
+    margin-top: 100px;
+    @media screen and (max-width: 1050px) {
       margin-top: 0;
     }
     h1 {
@@ -269,7 +265,7 @@ onMounted(() => {
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         font-size: 24px;
         margin-bottom: 20px;
       }
@@ -278,7 +274,6 @@ onMounted(() => {
 
   &__filter {
     margin-top: 40px;
-    gap: 60px;
 
     button {
       width: 320px;
@@ -303,13 +298,13 @@ onMounted(() => {
         opacity: 0.5;
         cursor: not-allowed;
       }
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         width: 100%;
         margin: 0 auto;
       }
     }
     div {
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         display: none;
       }
     }
@@ -394,14 +389,10 @@ onMounted(() => {
       }
     }
 
-    span {
+    p {
       font-weight: 600;
       font-size: 14px;
       color: #1baa75;
-
-      @media screen and (max-width: 1389px) {
-        font-size: 10px;
-      }
     }
   }
 
@@ -425,7 +416,7 @@ onMounted(() => {
       box-sizing: border-box;
       cursor: pointer;
 
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         width: 100%;
         margin-bottom: 0;
       }
@@ -448,7 +439,7 @@ onMounted(() => {
       color: #24334b;
       margin-bottom: 5px;
     }
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       margin-top: 0;
       width: 100%;
     }
@@ -456,10 +447,11 @@ onMounted(() => {
 
   &__block {
     gap: 40px;
+    max-width: 85%;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       gap: 0;
       max-width: 100%;
     }
@@ -481,7 +473,7 @@ onMounted(() => {
       gap: 10px;
       transition: 0.3s;
       background: #3f5984;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         width: 100%;
       }
       &:not(:disabled):hover {
@@ -494,7 +486,7 @@ onMounted(() => {
         cursor: not-allowed;
       }
     }
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       margin-bottom: 0;
     }
   }
@@ -521,7 +513,7 @@ onMounted(() => {
       box-sizing: border-box;
       height: 44px;
     }
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       display: block;
     }
   }
@@ -536,7 +528,7 @@ onMounted(() => {
       background: #fff;
       box-shadow: 0 5px 20px #e9e9e9;
     }
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       max-width: 100%;
       width: 100%;
       padding: 16px 16px;
@@ -551,7 +543,7 @@ onMounted(() => {
       width: 100px;
       height: 100px;
       border-radius: 100%;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         width: 50px;
         height: 50px;
       }
@@ -563,13 +555,13 @@ onMounted(() => {
       text-align: center;
       color: #24334b;
       margin-top: 20px;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         margin-top: 0;
         margin-bottom: 0;
         margin-left: 10px;
       }
     }
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       display: flex;
       align-items: center;
       font-size: 16px;
@@ -595,7 +587,7 @@ onMounted(() => {
       height: 60px;
       color: #bdbdbd;
       margin: 0;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         height: 100%;
       }
     }
@@ -607,7 +599,7 @@ onMounted(() => {
     font-size: 16px;
     color: #24334b;
     margin-top: -22px;
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       display: none;
     }
   }
@@ -617,7 +609,7 @@ onMounted(() => {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 50px;
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       gap: 0;
     }
   }
@@ -627,14 +619,14 @@ onMounted(() => {
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 120px;
-    @media screen and (max-width: 1271px) {
+    @media screen and (max-width: 1050px) {
       margin-bottom: 0;
     }
     .pagination {
-      @media screen and (max-width: 1271px) {
-        margin: 0 0;
-        padding: 8px 20%;
-      }
+      @media screen and (max-width: 1050px) {
+      margin: 0 0;
+      padding: 8px 20%;
+    }
     }
   }
 
@@ -644,7 +636,7 @@ onMounted(() => {
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
-      @media screen and (max-width: 1271px) {
+      @media screen and (max-width: 1050px) {
         margin-top: 45px;
         font-size: 24px;
       }

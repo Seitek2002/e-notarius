@@ -164,6 +164,15 @@ const USERS_PAGES = [
     },
     component: () => import('../views/user/Info.vue'),
   },
+  {
+    path: '/notarius-page-authed/:id',
+    name: 'NotariusPage-authed',
+    meta: {
+      layout: 'notarius',
+      requiresAuth: true,
+    },
+    component: () => import('../views/notarius/NotariusPage.vue'),
+  },
 ]
 export const routes = [
   {
