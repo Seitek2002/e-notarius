@@ -179,13 +179,13 @@
               <Dropdown title="Должность" :options="typeOfDoc" />
             </th>
             <th>
-              <Sort title="Дата рождения" :option="[]" />
+              <Sort title="Дата рождения" />
             </th>
             <th>
-              <Sort title="Мобильный телефон" :option="[]" />
+              <Sort title="Мобильный телефон" />
             </th>
             <th>
-              <Sort title="E-mail" :option="[]" />
+              <Sort title="E-mail" />
             </th>
             <th>
               <Sort title="Учреждение" />
@@ -202,6 +202,7 @@
             <td>01.01.2022</td>
             <td>0770 00 00 90</td>
             <td><a href="mailto:nur@bk.com">nur@bk.com</a></td>
+            <td>Доверенность</td>
           </tr>
         </tbody>
       </table>

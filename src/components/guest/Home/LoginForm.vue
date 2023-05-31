@@ -77,7 +77,7 @@ const handleClick = () => {
     localStorage.setItem("auth-user", JSON.stringify({ ...user, check: true }));
     store.commit("checkUserClient", { ...user, check: true });
     if (user.role === "notarius") {
-      isErr.value = true;
+      router.push("/order-list-notarius");
     } else {
       router.push("/order-list-user");
     }
