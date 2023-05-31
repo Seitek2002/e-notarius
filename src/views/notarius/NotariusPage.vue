@@ -143,20 +143,43 @@ const data = ref(
 <style lang="scss">
 .notarius {
   margin-top: 100px;
-
+  @media screen and (max-width: 1416px) {
+    margin-top: 50px;
+    .container {
+      padding: 0;
+    }
+  }
+@media screen and (max-width: 472px) {
+      margin-top: 20px;
+    }
   p {
     font-family: "Montserrat", sans-serif;
   }
 
   &__box {
     display: flex;
+    justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+          
+    @media screen and (max-width: 1416px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;  
+      gap: 0;
+    }
+    button {
+      @media screen and (max-width: 350px) {
+              width: 100%;
+    }
+    }
   }
 
   &__left {
     gap: 10px;
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    // margin-right: 50px;
 
     img {
       width: 194px;
@@ -165,13 +188,14 @@ const data = ref(
 
     p {
       color: #bdbdbd;
+      margin: 0;
     }
   }
 
   &__center {
     display: flex;
     flex-direction: column;
-    margin-right: 100px;
+    // margin-right: 100px;
   }
 
   &__case {
@@ -187,6 +211,16 @@ const data = ref(
     font-weight: 600;
     font-size: 24px;
     color: #24334b;
+    margin-top: 25px;
+    margin-bottom: 22px;
+    margin-top: 0;
+    @media screen and (max-width: 1416px) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 472px) {
+      margin-top: 20px;
+      font-size: 16px;
+    }
   }
 
   &__block {
@@ -197,17 +231,27 @@ const data = ref(
 
   &__info {
     width: 511px;
+    @media screen and (max-width: 1416px) {
+      width: 100%;
+    }
   }
 
   &__map {
     margin-top: 80px;
-    margin: 80px 0 120px 0;
+    margin: 80px 0 0 0;
+    width: 100%;
+    @media screen and (max-width: 1416px) {
+      margin-top: 51px;
+    }
   }
 
   &__block__box {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @media screen and (max-width: 1416px) {
+      gap: 20px;
+    }
   }
 
   &__btn__one {
@@ -224,6 +268,9 @@ const data = ref(
     background: #1baa75;
     border: none;
     gap: 12px;
+    @media screen and (max-width: 1416px) {
+      margin-top: 20px;
+    }
   }
 
   &__btn__two {
