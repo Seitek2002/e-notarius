@@ -201,7 +201,7 @@ export const state = {
     name: '',
   },
   isAdmin: true,
-  sidebar:null, 
+  sidebar:true, 
   chooseObject: false,
   registryClientBigModal: false,
   registryClientMiniModal: false,
