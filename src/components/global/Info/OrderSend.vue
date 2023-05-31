@@ -37,7 +37,7 @@
             <h2>Написать сообщение заявителю</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input type="text" placeholder="Ваша доверенность готова" />
+                <input type="text" placeholder="Здравствуйте. Ваша доверенность готова." />
                 <button>
                   <ArrowRightIcon />
                 </button>
