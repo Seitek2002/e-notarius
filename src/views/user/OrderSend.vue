@@ -231,7 +231,7 @@ const handleScrollLeft = () => {
 
 .send {
   flex: 1;
-  padding: 60px;
+  padding: 40px;
   box-sizing: border-box;
   background: #fff;
   @media screen and (max-width: 921px) {
@@ -265,7 +265,6 @@ const handleScrollLeft = () => {
   }
 
   &__box {
-    padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
     width: 100%;
