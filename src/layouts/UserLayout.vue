@@ -80,7 +80,6 @@ import { useStore } from 'vuex'
 const store = useStore()
 const title = ref('Заявки') 
  
-const sidebar = ref(true);
  
 const toggleMenu = () => {
   store.state.sidebar = !store.state.sidebar;
@@ -89,7 +88,7 @@ const toggleMenu = () => {
 
 onMounted(() => { 
   const storedValue = localStorage.getItem('sidebar');
-  store.state.sidebar = storedValue === 'true';
+  store.state.sidebar = storedValue === 'false';
 });
 
 const changeTitle = a => {

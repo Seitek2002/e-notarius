@@ -195,7 +195,7 @@ const toggleMenu = () => {
 
 onMounted(() => { 
   const storedValue = localStorage.getItem('sidebar');
-  store.state.sidebar = storedValue === 'true';
+  store.state.sidebar = storedValue === 'false';
 });
 
 const changeTitle = (newTitle) => {
