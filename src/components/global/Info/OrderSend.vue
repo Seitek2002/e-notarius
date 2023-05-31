@@ -7,62 +7,45 @@
             <h2>
               {{ title }}
             </h2>
-            <SuccessSmallIcon/>
+            <SuccessSmallIcon />
           </div>
           <div class="send__info">
-            <h2 class="send__info__qr">
-              QR
-            </h2>
-            <h2 class="send__info__name">
-              Наименование
-            </h2>
-            <h2 class="send__info__status">
-              Статус
-            </h2>
-            <h2 class="send__info__date">
-              Дата
-            </h2>
-            <h2 class="send__info__notarius">
-              ФИО заявителя
-            </h2>
+            <h2 class="send__info__qr">QR</h2>
+            <h2 class="send__info__name">Наименование</h2>
+            <h2 class="send__info__status">Статус</h2>
+            <h2 class="send__info__date">Дата</h2>
+            <h2 class="send__info__notarius">ФИО заявителя</h2>
           </div>
           <div class="send__alimony">
             <h2 class="send__alimony__v">
-              <QrCodeIcon/>
+              <QrCodeIcon />
             </h2>
             <h2 class="send__alimony__confidence">
               {{ store.state.bonusInputs }}
             </h2>
-            <h2 class="send__alimony__v">
-              Подписан с ЭЦП
-            </h2>
-            <h2 class="send__alimony__year">
-              01.01.2022
-            </h2>
+            <h2 class="send__alimony__v">Подписан с ЭЦП</h2>
+            <h2 class="send__alimony__year">01.01.2022</h2>
             <h2 class="send__alimony__person">
-              <a href="#">{{ store.state.choosenApplicant }}</a>
+              <a href="#">ЧН Баланчаев Б.Б.</a>
             </h2>
           </div>
           <div class="send__sample">
-            <AddNewRequestIcon/>
+            <AddNewRequestIcon />
             <h2><a href="#">Добавить в мои шаблоны</a></h2>
           </div>
           <div class="send__question">
             <h2>Написать сообщение заявителю</h2>
             <label class="send__search">
               <div class="send__flex">
-                <input
-                  type="text"
-                  placeholder="Ваша доверенность готова"
-                >
+                <input type="text" placeholder="Ваша доверенность готова" />
                 <button>
-                  <ArrowRightIcon/>
+                  <ArrowRightIcon />
                 </button>
               </div>
             </label>
           </div>
           <div class="send__message">
-            <SuccessMarkSmallIcon/>
+            <SuccessMarkSmallIcon />
             <h2>
               Сообщение успешно отправлено. Перейдите в
               <span>переписки</span>
@@ -70,18 +53,15 @@
             </h2>
           </div>
           <div class="send__btns">
-            <button
-              class="send__btn"
-              @click="handleClick"
-            >
-              <AddNewRequestWhiteIcon/>
+            <button class="send__btn" @click="handleClick">
+              <AddNewRequestWhiteIcon />
               Оформить новое действие
             </button>
             <button
               class="send__go"
               @click="router.push('/applications-notarius')"
             >
-              <PencilIcon/>
+              <PencilIcon />
               Перейти в нотариальные действия
             </button>
           </div>
@@ -92,33 +72,34 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-import AddNewRequestIcon from '@/components/global/UI/Info/Icons/AddNewRequestIcon.vue'
-import AddNewRequestWhiteIcon from '@/components/global/UI/Info/Icons/AddNewRequestWhiteIcon.vue'
-import ArrowRightIcon from '@/components/global/UI/Info/Icons/ArrowRightIcon.vue'
-import PencilIcon from '@/components/global/UI/Info/Icons/PencilIcon.vue'
-import QrCodeIcon from '@/components/global/UI/Info/Icons/QrCodeIcon.vue'
-import SuccessMarkSmallIcon from '@/components/global/UI/Info/Icons/SuccessMarkSmallIcon.vue'
-import SuccessSmallIcon from '@/components/global/UI/Info/Icons/SuccessSmallIcon.vue'
+import AddNewRequestIcon from "@/components/global/UI/Info/Icons/AddNewRequestIcon.vue";
+import AddNewRequestWhiteIcon from "@/components/global/UI/Info/Icons/AddNewRequestWhiteIcon.vue";
+import ArrowRightIcon from "@/components/global/UI/Info/Icons/ArrowRightIcon.vue";
+import PencilIcon from "@/components/global/UI/Info/Icons/PencilIcon.vue";
+import QrCodeIcon from "@/components/global/UI/Info/Icons/QrCodeIcon.vue";
+import SuccessMarkSmallIcon from "@/components/global/UI/Info/Icons/SuccessMarkSmallIcon.vue";
+import SuccessSmallIcon from "@/components/global/UI/Info/Icons/SuccessSmallIcon.vue";
 
-const router = useRouter()
-const store = useStore()
+const router = useRouter();
+const store = useStore();
 
-defineProps(['title'])
+defineProps(["title"]);
 
 const handleClick = () => {
-  router.push('/info-notarius')
-}
+  router.push("/info-notarius");
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
+@import "@/assets/scss/variables.scss";
 
 .send {
   flex: 1;
-  padding: 60px;
+  padding: 40px;
+  background: #fff;
 
   &__content {
     max-width: 1040px;
@@ -126,7 +107,7 @@ const handleClick = () => {
   }
 
   &__box {
-    padding: 43px 40px 40px 46px;
+    // padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
   }
@@ -142,7 +123,7 @@ const handleClick = () => {
     box-shadow: 0 10px 20px #e9e9e9;
 
     h2 {
-      color: $text-dark-blue;
+      color: #3f5984;
       font-weight: 600;
       font-size: 16px;
     }
@@ -211,6 +192,13 @@ const handleClick = () => {
 
       a {
         color: $text-dark-blue;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        text-decoration-line: underline;
+        color: #1baa75;
 
         &:focus-within {
           text-decoration: underline;
@@ -286,7 +274,7 @@ const handleClick = () => {
       }
 
       input {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         width: 90%;
         font-weight: 400;
         font-size: 16px;
@@ -319,7 +307,7 @@ const handleClick = () => {
   }
 
   &__btn {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     width: 320px;
     padding: 14px 0;
     border: none;
@@ -345,7 +333,7 @@ const handleClick = () => {
   }
 
   &__go {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     width: 320px;
     padding: 14px 15px;
     border: none;

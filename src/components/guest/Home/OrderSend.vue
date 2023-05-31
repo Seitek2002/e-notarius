@@ -112,6 +112,7 @@ const handleClick = () => {
 .send {
   flex: 1;
   padding: 60px;
+  background: #fff;
 
   &__content {
     max-width: 1040px;
@@ -119,7 +120,7 @@ const handleClick = () => {
   }
 
   &__box {
-    padding: 43px 40px 40px 46px;
+    // padding: 43px 40px 40px 46px;
     box-sizing: border-box;
     background: $bg-white;
   }

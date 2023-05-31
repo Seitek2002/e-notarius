@@ -233,6 +233,7 @@ const handleScrollLeft = () => {
   flex: 1;
   padding: 60px;
   box-sizing: border-box;
+  background: #fff;
   @media screen and (max-width: 921px) {
     padding: 0;
   }

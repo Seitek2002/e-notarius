@@ -68,8 +68,8 @@ const emits = defineEmits(['handleCustomEvent'])
 
 const handleClick = () => {
   store.commit('pushNewDocToOrderList')
-  router.push('/order-list-notarius')
-  // router.push('/OrderSend-notarius')
+  // router.push('/order-list-notarius')
+  router.push('/OrderSend-notarius')
   // emits('handleCustomEvent', id)
 }
 const print = () => {
