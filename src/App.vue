@@ -21,7 +21,12 @@ const layout = computed(() => {
   return MainLayout;
 });
 
-
+onMounted(() => {
+  const storedMenuState = localStorage.getItem('sidebar');
+  if (storedMenuState) {
+    store.state.sidebar = JSON.parse(storedMenuState);
+  }
+})
  
 
 </script>

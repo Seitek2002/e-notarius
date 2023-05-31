@@ -81,15 +81,12 @@ const store = useStore()
 const title = ref('Заявки') 
  
  
+
 const toggleMenu = () => {
   store.state.sidebar = !store.state.sidebar;
-  localStorage.setItem('sidebar', store.state.sidebar.toString());
+  localStorage.setItem('sidebar', JSON.stringify(store.state.sidebar));
 };
 
-onMounted(() => { 
-  const storedValue = localStorage.getItem('sidebar');
-  store.state.sidebar = storedValue === 'false';
-});
 
 const changeTitle = a => {
   title.value = a
