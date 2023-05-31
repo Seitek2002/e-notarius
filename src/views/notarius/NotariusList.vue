@@ -53,7 +53,7 @@
               :class="isActive ? 'active' : ''"
               @click="isActive = !isActive"
             >
-              <p>{{ setSort }}</p>
+              <span>{{ setSort }}</span>
               <ArrowDownSmallIcon />
             </div>
             <div v-show="isActive" class="register__sort sort">
@@ -195,7 +195,7 @@ onMounted(() => {
 
 .register {
   &__input {
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       margin-top: 30px;
     }
   }
@@ -261,7 +261,7 @@ onMounted(() => {
 
   &__content {
     margin-top: 60px;
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       margin-top: 0;
     }
     h1 {
@@ -269,7 +269,7 @@ onMounted(() => {
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         font-size: 24px;
         margin-bottom: 20px;
       }
@@ -278,6 +278,7 @@ onMounted(() => {
 
   &__filter {
     margin-top: 40px;
+    gap: 60px;
 
     button {
       width: 320px;
@@ -302,13 +303,13 @@ onMounted(() => {
         opacity: 0.5;
         cursor: not-allowed;
       }
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         width: 100%;
         margin: 0 auto;
       }
     }
     div {
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         display: none;
       }
     }
@@ -393,10 +394,14 @@ onMounted(() => {
       }
     }
 
-    p {
+    span {
       font-weight: 600;
       font-size: 14px;
       color: #1baa75;
+
+      @media screen and (max-width: 1389px) {
+        font-size: 10px;
+      }
     }
   }
 
@@ -420,7 +425,7 @@ onMounted(() => {
       box-sizing: border-box;
       cursor: pointer;
 
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         width: 100%;
         margin-bottom: 0;
       }
@@ -443,7 +448,7 @@ onMounted(() => {
       color: #24334b;
       margin-bottom: 5px;
     }
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       margin-top: 0;
       width: 100%;
     }
@@ -454,7 +459,7 @@ onMounted(() => {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       gap: 0;
       max-width: 100%;
     }
@@ -476,7 +481,7 @@ onMounted(() => {
       gap: 10px;
       transition: 0.3s;
       background: #3f5984;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         width: 100%;
       }
       &:not(:disabled):hover {
@@ -489,7 +494,7 @@ onMounted(() => {
         cursor: not-allowed;
       }
     }
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       margin-bottom: 0;
     }
   }
@@ -516,7 +521,7 @@ onMounted(() => {
       box-sizing: border-box;
       height: 44px;
     }
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       display: block;
     }
   }
@@ -531,7 +536,7 @@ onMounted(() => {
       background: #fff;
       box-shadow: 0 5px 20px #e9e9e9;
     }
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       max-width: 100%;
       width: 100%;
       padding: 16px 16px;
@@ -546,7 +551,7 @@ onMounted(() => {
       width: 100px;
       height: 100px;
       border-radius: 100%;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         width: 50px;
         height: 50px;
       }
@@ -558,13 +563,13 @@ onMounted(() => {
       text-align: center;
       color: #24334b;
       margin-top: 20px;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         margin-top: 0;
         margin-bottom: 0;
         margin-left: 10px;
       }
     }
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       display: flex;
       align-items: center;
       font-size: 16px;
@@ -590,7 +595,7 @@ onMounted(() => {
       height: 60px;
       color: #bdbdbd;
       margin: 0;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         height: 100%;
       }
     }
@@ -602,7 +607,7 @@ onMounted(() => {
     font-size: 16px;
     color: #24334b;
     margin-top: -22px;
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       display: none;
     }
   }
@@ -612,7 +617,7 @@ onMounted(() => {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 50px;
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       gap: 0;
     }
   }
@@ -622,11 +627,11 @@ onMounted(() => {
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 120px;
-    @media screen and (max-width: 1050px) {
+    @media screen and (max-width: 1271px) {
       margin-bottom: 0;
     }
     .pagination {
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         margin: 0 0;
         padding: 8px 20%;
       }
@@ -639,7 +644,7 @@ onMounted(() => {
       font-size: 36px;
       color: #24334b;
       margin-bottom: 50px;
-      @media screen and (max-width: 1050px) {
+      @media screen and (max-width: 1271px) {
         margin-top: 45px;
         font-size: 24px;
       }
