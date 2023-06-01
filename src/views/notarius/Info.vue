@@ -609,6 +609,12 @@ const changeStep = (stepIndex) => {
     flex-direction: column;
   }
 }
+  // .info__form--wrapper {
+  //   div {
+  //     max-width: 100%;
+  //     overflow-x: auto;
+  //   }
+  // }
 @media screen and (max-width: 768px) {
   .info__form--wrapper {
     .dropdown.city {
