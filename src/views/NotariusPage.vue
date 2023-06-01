@@ -4,44 +4,36 @@
       <div class="notarius__content">
         <div class="notarius__box">
           <div class="notarius__left">
-            <img
-              :src="data.avatar"
-              alt="#"
-            >
-            <RatingIcon/>
-            <p class="notarius__mark">
-              {{ data.votes }} оцен
-            </p>
+            <img :src="data.avatar" alt="#" />
+            <RatingIcon />
+            <p class="notarius__mark">{{ data.votes }} оцен</p>
           </div>
           <div class="notarius__center">
             <p class="notarius__name">
               {{ data.name }}
             </p>
             <div class="notarius__block">
-              <PersonCircleIcon/>
+              <PersonCircleIcon />
               <p class="notarius__info">
                 {{ data.typeOfNotarius }}
               </p>
             </div>
             <div class="notarius__block">
-              <RewardIcon/>
+              <RewardIcon />
               <p class="notarius__info">
                 {{ data.license }}
               </p>
             </div>
             <div class="notarius__block">
-              <PhoneIcon/>
+              <PhoneIcon />
               <p class="notarius__info">
-                <template
-                  v-for="item in data.phoneNumbers"
-                  :key="item"
-                >
+                <template v-for="item in data.phoneNumbers" :key="item">
                   {{ item }},
                 </template>
               </p>
             </div>
             <div class="notarius__block">
-              <WhatsAppIcon/>
+              <WhatsAppIcon />
               <p
                 class="notarius__info"
                 style="text-decoration: underline #1baa75; color: #1baa75"
@@ -50,7 +42,7 @@
               </p>
             </div>
             <div class="notarius__block">
-              <EmailIcon/>
+              <EmailIcon />
               <p
                 class="notarius__info"
                 style="text-decoration: underline #1baa75; color: #1baa75"
@@ -59,24 +51,18 @@
               </p>
             </div>
             <div class="notarius__block">
-              <GeoIcon/>
+              <GeoIcon />
               <p class="notarius__info">
-                <template
-                  v-for="item in data.geo"
-                  :key="item"
-                >
-                  {{ item }} <br>
+                <template v-for="item in data.geo" :key="item">
+                  {{ item }} <br />
                 </template>
               </p>
             </div>
             <div class="notarius__block">
               <div class="notarius__case">
-                <ClockIcon/>
+                <ClockIcon />
                 <ul class="notarius__row">
-                  <li
-                    v-for="item in data.schedule"
-                    :key="item"
-                  >
+                  <li v-for="item in data.schedule" :key="item">
                     {{ item }}
                   </li>
                 </ul>
@@ -84,16 +70,13 @@
             </div>
           </div>
           <div class="notarius__right">
-            <label
-              for="#"
-              class="notarius__block__box"
-            >
+            <label for="#" class="notarius__block__box">
               <button class="notarius__btn__one">
-                <AddNewReqIcon/>
+                <AddNewReqIcon />
                 Оформить заявку
               </button>
               <button class="notarius__btn__two">
-                <WriteMessageIcon/>
+                <WriteMessageIcon />
 
                 Написать сообщение
               </button>
@@ -104,38 +87,38 @@
           src="/src/assets/images/Notarius/map.png"
           alt=""
           class="notarius__map"
-        >
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
-import AddNewReqIcon from '@/views/Icons/AddNewReqIcon.vue'
-import ClockIcon from '@/views/Icons/ClockIcon.vue'
-import EmailIcon from '@/views/Icons/EmailIcon.vue'
-import GeoIcon from '@/views/Icons/GeoIcon.vue'
-import PersonCircleIcon from '@/views/Icons/PersonCircleIcon.vue'
-import PhoneIcon from '@/views/Icons/PhoneIcon.vue'
-import RatingIcon from '@/views/Icons/RatingIcon.vue'
-import RewardIcon from '@/views/Icons/RewardIcon.vue'
-import WhatsAppIcon from '@/views/Icons/WhatsAppIcon.vue'
-import WriteMessageIcon from '@/views/Icons/WriteMessageIcon.vue'
+import AddNewReqIcon from "@/views/Icons/AddNewReqIcon.vue";
+import ClockIcon from "@/views/Icons/ClockIcon.vue";
+import EmailIcon from "@/views/Icons/EmailIcon.vue";
+import GeoIcon from "@/views/Icons/GeoIcon.vue";
+import PersonCircleIcon from "@/views/Icons/PersonCircleIcon.vue";
+import PhoneIcon from "@/views/Icons/PhoneIcon.vue";
+import RatingIcon from "@/views/Icons/RatingIcon.vue";
+import RewardIcon from "@/views/Icons/RewardIcon.vue";
+import WhatsAppIcon from "@/views/Icons/WhatsAppIcon.vue";
+import WriteMessageIcon from "@/views/Icons/WriteMessageIcon.vue";
 
-const store = useStore()
-const route = useRoute()
+const store = useStore();
+const route = useRoute();
 
 const data = ref(
-  store.state.notariusList.find(item => item.id == route.params.id),
-)
+  store.state.notariusList.find((item) => item.id == route.params.id)
+);
 
 onMounted(() => {
-  window.scrollTo({ top: 0 })
-})
+  window.scrollTo({ top: 0 });
+});
 </script>
 
 <style lang="scss">
