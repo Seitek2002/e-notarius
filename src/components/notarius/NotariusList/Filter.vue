@@ -107,7 +107,15 @@
           class="register__select"
         >
           <div
-            v-for="(area, i) in []"
+            v-for="(area, i) in [
+              'Понедельник',
+              'Вторник',
+              'Среда',
+              'Четверг',
+              'Пятница',
+              'Суббота',
+              'Воскресенье',
+            ]"
             :key="i"
             class="register__option"
             @click=";(activeWorkDay = area), (iaActiveWorkDay = !iaActiveWorkDay)"
@@ -142,7 +150,11 @@
     </div>
     <div class="register__btn">
       <button>
-        <ArrowDownSmallIcon/>
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.5002 21.0031L21.8002 12.7031C22.8002 11.8031 22.8002 10.3031 21.8002 9.30313L16.2002 3.70312C15.3002 2.70312 13.8002 2.70312 12.8002 3.70312L3.2002 13.3031C2.2002 14.2031 2.2002 15.7031 3.2002 16.7031L7.5002 21.0031H22.5002M5.5002 11.0031L14.5002 20.0031"
+              stroke="#F6F6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         Очистить фильтр
       </button>
     </div>
@@ -223,3 +235,28 @@ watch(activeOptionRegion, () => {
 })
 
 </script>
+
+<style lang="scss">
+.register {
+  &__item {
+    position: relative;
+  }
+
+  &__select {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  &__option {
+    color: #24334b;
+    margin: 15px;
+    cursor: pointer;
+  }
+}
+</style>

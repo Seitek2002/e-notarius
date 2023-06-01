@@ -71,7 +71,6 @@ defineProps(['title', 'options'])
     overflow-y: auto;
     width: 100%;
     z-index: 10;
-    border: 1px solid #1baa75;
     border-top: none;
     box-sizing: border-box;
   }
@@ -85,7 +84,6 @@ defineProps(['title', 'options'])
   label {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     background: #ffffff;
     border: 1px solid #1baa75;

@@ -147,7 +147,7 @@
                   " " +
                   store.state.personNotarius.lastname
                 }} -->
-                ФИО Нотариуса
+                ЧН Абдыгулов Баяман Алыкулович.
                 </a>
               </h2>
             </div>
@@ -357,6 +357,13 @@ const handleScrollLeft = () => {
 
       a {
         color: $text-dark-blue;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        text-decoration-line: underline;
+        color: #1baa75;
 
         &:focus-within {
           text-decoration: underline;

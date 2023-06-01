@@ -62,7 +62,7 @@ const handleClick = (id, move) => {
     emits('handleCustomEvent',id)
   } else {
     store.commit('pushNewItemUser')
-    router.push('/order-list-user')
+    router.push('/OrderSend-user')
   }
 }
 

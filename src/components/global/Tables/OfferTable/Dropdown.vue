@@ -61,7 +61,7 @@ onClickOutside(isShowRef, () => isShow.value = false);
   }
 
   &__content {
-    width: 90%;
+    width: 100%;
     position: absolute;
     background: #fff;
     padding: 16px;

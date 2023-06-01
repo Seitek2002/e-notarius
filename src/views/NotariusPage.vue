@@ -130,7 +130,7 @@ const store = useStore()
 const route = useRoute()
 
 const data = ref(
-  store.state.notariusList.find(item => item.id === route.params.id),
+  store.state.notariusList.find(item => item.id == route.params.id),
 )
 
 onMounted(() => {

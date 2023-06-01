@@ -138,7 +138,7 @@
               <h2 class="send__alimony__confidence">
                 {{ store.state.bonusInputs }}
               </h2>
-              <h2 class="send__alimony__v">Подписан с ЭЦП</h2>
+              <h2 class="send__alimony__v">В обработке</h2>
               <h2 class="send__alimony__year">01.01.2022</h2>
               <h2 class="send__alimony__person">
                 <a href="#">ЧН Баланчаев Б.Б.</a>
@@ -378,6 +378,7 @@ const handleScrollLeft = () => {
     justify-content: center;
     gap: 5px;
     margin-bottom: 51px;
+    margin-top: 20px;
     padding: 16px 0;
     border: 1px dashed #687c9b;
     width: 320px;

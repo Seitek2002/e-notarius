@@ -45,26 +45,5 @@ label {
   align-items: center;
 }
 
-.register {
-  &__item {
-    position: relative;
-  }
 
-  &__select {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    background: #fff;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-  }
-
-  &__option {
-    color: #24334b;
-    margin: 15px;
-    cursor: pointer;
-  }
-}
 </style>
